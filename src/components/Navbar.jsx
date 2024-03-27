@@ -3,6 +3,7 @@ import './Navbar.css'
 
 export default function Navbar() {
   return (
+<<<<<<< HEAD
     <div className='NavBar'>
       <div className='Logo'>ebart</div>
       <div className='Functions'>
@@ -19,6 +20,10 @@ export default function Navbar() {
         <a>Cart</a>
         <a>Profile</a>
       </div>
+=======
+    <div>
+      <h1 className='bg-regal-blue-ad'>Navbar</h1>
+>>>>>>> f5a1420d753f39e2711786c6ccae232fee2d3e69
     </div>
   )
 }

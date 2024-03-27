@@ -21,7 +21,7 @@ export default function ProductItems() {
 
   return (
     <>
-      <div>
+      <div className='flex space-x-11 items-center'>
         <AdCard 
           bgGradientFrom="regal-blue-ad"
           bgGradientTo="light-blue-ad"
