@@ -12,6 +12,8 @@ export default {
         'sandel': '#EBECD7',
         'light':'#ebecd7',
         'hover-light':'#faffe8',
+        'card-color':'#f1f2f4',
+        'card-content-color':'#eeeeee',
 
 
       },
