@@ -11,8 +11,6 @@ export default function LandingPage() {
         <Banner/>
         <ProductItems/>
         <Footer/>
-        
-
     </>
   )
 }
