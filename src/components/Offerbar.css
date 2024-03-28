@@ -1,0 +1,46 @@
+.Offerbar {
+    height: 30px;
+    width: 100%;
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    position: relative; /* Add this line */
+    top: -30px; /* Move the Offerbar off-screen initially */
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 0.7em;
+    margin-bottom: 30px;
+    gap: 50px;
+    animation-name: moveFromTop;
+    animation-duration: 1.5s;
+    animation-delay: 0.5s; /* Optional delay before the animation starts */
+    animation-fill-mode: forwards; /* Keeps the final state after animation ends */
+}
+
+@keyframes moveFromTop {
+    from {
+        top: -30px; /* Starting position off-screen */
+    }
+    to {
+        top: 26px; /* Final position at the current location */
+    }
+}
+
+.Offerbar a {
+    font-weight: 600;
+    text-decoration: underline;
+}
+.OfferBannerClose{
+    position: absolute;
+    right : 20px;
+    top: 0px;
+    font-size: 2em;
+}
+
+.Offerbar select {
+    position: absolute;
+    right: 10%;
+    background-color: black;
+}
+
