@@ -56,7 +56,7 @@ const Footer = () => {
           </ul>
         </div>
       </div>
-      <div className='flex justify-between mt-8'>
+      <div className='flex mt-8 flex-wrap justify-between max-w-7xl mx-auto'>
           {/* Social Section */}
           <div className="flex items-center text-stone-200 gap-4 mt-4 sm:mt-0">
             <span className="mr-4 text-sm">SOCIAL</span>
