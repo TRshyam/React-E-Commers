@@ -12,7 +12,7 @@ const Footer = () => {
         {/* About Section */}
         <div className="footer-section">
           <h2 className="text-lg font-semibold text-neutral-700 mb-2">ABOUT</h2>
-          <ul className="text-sm leading-5 text-white">
+          <ul className="text-sm leading-5 text-zinc-300">
             <li>Contact Us</li>
             <li>About Us</li>
             <li>Careers</li>
@@ -23,7 +23,7 @@ const Footer = () => {
         {/* Help Section */}
         <div className="footer-section">
           <h2 className="text-lg font-semibold text-neutral-700 mb-2">HELP</h2>
-          <ul className="text-sm leading-5 text-white">
+          <ul className="text-sm leading-5 text-zinc-300">
             <li>Payments</li>
             <li>Shipping</li>
             <li>Cancellation & Returns</li>
