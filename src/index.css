@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 .cardWH{
-    width: 30%;
-    height: 459px;
+    width: 340px;
+    height: 240px;
 }
 .ItemcardWH{
     height: 30%;
