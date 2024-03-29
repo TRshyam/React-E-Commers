@@ -46,6 +46,7 @@ import Adbanner from '../assets/AdBannerImg/banner1.png';
       id: 4,
       category: 'electronic',
       cardType:'item',
+      img:cmf,
       title: '',
       description: 'Description for Card 1',
       content: {
@@ -57,6 +58,7 @@ import Adbanner from '../assets/AdBannerImg/banner1.png';
       id: 5,
       category: 'furniture',
       cardType:'Ad',
+      img:cmf,
       title: '',
       description: 'Description for Card 1',
       img:'',
@@ -69,6 +71,7 @@ import Adbanner from '../assets/AdBannerImg/banner1.png';
       id: 6,
       category: 'furniture',
       cardType:'item',
+
       title: '',
       description: 'Description for Card 1',
       content: {
@@ -80,6 +83,7 @@ import Adbanner from '../assets/AdBannerImg/banner1.png';
       id: 7,
       category: 'furniture',
       cardType:'item',
+      img:cmf,
       title: '',
       description: 'Description for Card 1',
       content: {
@@ -91,6 +95,7 @@ import Adbanner from '../assets/AdBannerImg/banner1.png';
       id: 8,
       category: 'furniture',
       cardType:'item',
+      img:cmf,
       title: '',
       description: 'Description for Card 1',
       content: {
@@ -102,6 +107,7 @@ import Adbanner from '../assets/AdBannerImg/banner1.png';
       id: 9,
       category: 'electronic',
       cardType:'item',
+      img:cmf,
       title: '',
       description: 'Description for Card 1',
       content: {
@@ -112,6 +118,7 @@ import Adbanner from '../assets/AdBannerImg/banner1.png';
       id: 10,
       category: 'electronic',
       cardType:'item',
+      img:cmf,
       title: '',
       description: 'Description for Card 1',
       content: {

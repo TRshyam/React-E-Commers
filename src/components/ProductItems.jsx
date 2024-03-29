@@ -27,7 +27,8 @@ export default function ProductItems() {
         />
       );
     }
-    return null; 
+    return null;
+  };
 
   // Separate electronic cards
   const electronicCards = cards.filter(card => card.category === 'electronic');
