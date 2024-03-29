@@ -1,11 +1,11 @@
 .NavBar {
     position: fixed;
-    top: 0;
+    top: 0px;
     left: 0;
     display: flex;
     flex-direction: row;
     width: 100%;
-    height: 55px;
+    height: 50px;
     align-items: center;
     border-bottom: 2.5px solid grey;
     background-color: white; /* Optional: Set background color */
