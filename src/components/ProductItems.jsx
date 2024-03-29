@@ -38,13 +38,15 @@ export default function ProductItems() {
 
   return (
     <div className="overflow-x-auto mb-16">
-      <div className='flex space-x-11 items-center'>
+      <div className='flex space-x-5 items-center'>
         {electronicCards.map(renderCard)}
       </div>
 
       <div className='flex space-x-11 items-center'>
         {furnitureCards.map(renderCard)}
       </div>
+
+      
     </div>
   );
 }
