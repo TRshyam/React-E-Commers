@@ -8,10 +8,10 @@ import { PiSuitcaseSimpleFill } from "react-icons/pi";
 const Footer = () => {
   return (
     <footer className="bg-black px-4 py-8 sm:px-12 sm:py-16">
-      <div className="flex flex-wrap justify-between max-w-7xl mx-auto">
+      <div className="flex flex-col md:flex-row justify-between max-w-7xl mx-auto">
         {/* About Section */}
         <div className="footer-section">
-          <h2 className="text-lg font-semibold text-neutral-700 mb-2">ABOUT</h2>
+          <h2 className="text-lg font-semibold  text-neutral-700 mb-2">ABOUT</h2>
           <ul className="text-sm leading-5 text-zinc-300">
             <li>Contact Us</li>
             <li>About Us</li>
@@ -21,7 +21,7 @@ const Footer = () => {
           </ul>
         </div>
         {/* Help Section */}
-        <div className="footer-section">
+        <div className="footer-section pt-8 md:pt-0">
           <h2 className="text-lg font-semibold text-neutral-700 mb-2">HELP</h2>
           <ul className="text-sm leading-5 text-zinc-300">
             <li>Payments</li>
@@ -32,7 +32,7 @@ const Footer = () => {
           </ul>
         </div>
         {/* Mail Us Section */}
-        <div className="footer-section">
+        <div className="footer-section pt-8 md:pt-0">
           <h2 className="text-lg font-semibold text-neutral-700 mb-2">MAIL US</h2>
           <ul className="text-sm leading-5 text-zinc-300">
             <li>EBART Private Limited,</li>
@@ -43,7 +43,7 @@ const Footer = () => {
             </ul>
         </div>
         {/* Consumer Policy Section */}
-        <div className="footer-section">
+        <div className="footer-section pt-8 md:pt-0">
           <h2 className="text-lg font-semibold text-neutral-700 mb-2">CONSUMER POLICY</h2>
           <ul className="text-sm leading-5 text-zinc-300">
             <li>Cancellation & Returns</li>
@@ -56,7 +56,7 @@ const Footer = () => {
           </ul>
         </div>
       </div>
-      <div className='flex mt-8 flex-wrap justify-between max-w-7xl mx-auto'>
+      <div className='flex mt-8 flex-wrap justify-between max-w-7xl mx-auto pt-2 md:pt-0'>
           {/* Social Section */}
           <div className="flex items-center text-stone-200 gap-4 mt-4 sm:mt-0">
             <span className="mr-4 text-sm">SOCIAL</span>
