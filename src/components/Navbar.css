@@ -23,8 +23,8 @@
 .Functions {
     display: flex;
     flex-direction: row;
-    padding-left: 250px;
-    gap: 250px;
+    padding-left: 180px;
+    gap: 100px;
 }
 
 .NavIcons {
