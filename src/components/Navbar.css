@@ -26,8 +26,10 @@
 .Functions {
     display: flex;
     flex-direction: row;
-    padding-left: 250px;
-    gap: 250px;
+    padding-left: 150px;
+    gap: 100px;
+    font-weight: 500px;
+    font-size: 1em;
 }
 
 .NavIcons {
@@ -57,13 +59,17 @@
 }
 
 .NavIcons button {
-    width: 50px;
+    width: 60px;
     background-color: #341466;
-    height: auto;
+    height: 25px;
     border-radius: 3px;
     color: white;
     padding: 5px 5px;
     font-size: 0.9em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 9px;
 }
 
 .NavIcons a{
