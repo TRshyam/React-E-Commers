@@ -10,11 +10,10 @@
     align-items: center;
     color: white;
     font-size: 0.7em;
-    margin-bottom: 30px;
     gap: 50px;
     animation-name: moveFromTop;
-    animation-duration: 1.5s;
-    animation-delay: 0.5s; /* Optional delay before the animation starts */
+    animation-duration: 1.0s;
+    animation-delay: 0.2s; /* Optional delay before the animation starts */
     animation-fill-mode: forwards; /* Keeps the final state after animation ends */
 }
 
@@ -23,7 +22,7 @@
         top: -30px; /* Starting position off-screen */
     }
     to {
-        top: 26px; /* Final position at the current location */
+        top: 0px; /* Final position at the current location */
     }
 }
 

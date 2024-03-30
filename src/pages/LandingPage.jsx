@@ -7,10 +7,9 @@ import OfferBar from '../components/Offerbar'
 
 export default function LandingPage() {
   return (
-    <>
+    <>        <OfferBar />
         <Navbar/>
         <Banner/>
-        <OfferBar />
         <ProductItems/>
         <Footer/>
     </>
