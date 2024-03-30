@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
+
 import './Navbar.css';
 import { CiSearch } from "react-icons/ci";
 import { CiShoppingCart } from "react-icons/ci";
@@ -17,8 +19,8 @@ export default function Navbar() {
         <CiSearch  className='CiSearch'/>
         <input placeholder='Search..'></input>
         <button>Login</button>
-        <a><CiShoppingCart /></a>
-        <a><CgProfile /></a>
+        <Link to="/Cart"><CiShoppingCart /></Link>
+        <Link to="/Profile"><CgProfile /></Link>
       </div>
       </div>
   );
