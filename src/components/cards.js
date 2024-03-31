@@ -1,6 +1,7 @@
 import cmf from '../assets/CardItems/cmf.png'
 import as from '../assets/CardItems/Image.png'
 import Adbanner from '../assets/AdBannerImg/banner1.png';
+import AppAD  from '../assets/AdBannerImg/Rectangle.png';
 
 
    
@@ -9,6 +10,8 @@ import Adbanner from '../assets/AdBannerImg/banner1.png';
       id: 1,
       category: 'electronic',
       cardType:'Ad',
+      From:'regal-blue-ad',
+      To:'light-blue-ad',
       img:Adbanner,
       title: '',
       description: 'Description for Card 1',
@@ -21,7 +24,9 @@ import Adbanner from '../assets/AdBannerImg/banner1.png';
       id: 122,
       category: 'furniture',
       cardType:'Ad',
-      img:Adbanner,
+      From:'regal-yellow-ad',
+      To:'light-yellow-ad',
+      img:AppAD,
       title: '',
       description: 'Description for Card 1',
       content: {

@@ -6,6 +6,7 @@
     width: 25%;
     height: 455px;
 }
-.ItemcardWH{
-    height: 30%;
+.react-multiple-carousel__arrow {
+    color: red;
+    /* Change arrow color as per your requirement */
 }
