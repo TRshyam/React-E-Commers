@@ -18,6 +18,18 @@ import Adbanner from '../assets/AdBannerImg/banner1.png';
       }
     },
     {
+      id: 122,
+      category: 'furniture',
+      cardType:'Ad',
+      img:Adbanner,
+      title: '',
+      description: 'Description for Card 1',
+      content: {
+        subtitle: "Work better, together",
+        title: "Get 25% off on Electronics"
+      }
+    },
+    {
       id: 2,
       category: 'electronic',
       cardType:'item',
@@ -54,31 +66,8 @@ import Adbanner from '../assets/AdBannerImg/banner1.png';
         title: "Get 25% off on Electronics"
       }
     },
-    {
-      id: 5,
-      category: 'furniture',
-      cardType:'Ad',
-      img:cmf,
-      title: '',
-      description: 'Description for Card 1',
-      img:'',
-      content: {
-        subtitle: "Work better, together",
-        title: "Get 25% off on Electronics"
-      }
-    },
-    {
-      id: 6,
-      category: 'furniture',
-      cardType:'item',
+ 
 
-      title: '',
-      description: 'Description for Card 1',
-      content: {
-        subtitle: "Work better, together",
-        title: "Get 25% off on Electronics"
-      }
-    },
     {
       id: 7,
       category: 'furniture',
@@ -91,6 +80,47 @@ import Adbanner from '../assets/AdBannerImg/banner1.png';
         title: "Get 25% off on Electronics"
       }
     },
+  
+    {
+      id: 7,
+      category: 'furniture',
+      cardType:'item',
+      img:cmf,
+      title: '',
+      description: 'Description for Card 1',
+      content: {
+        subtitle: "Work better, together",
+        title: "Get 25% off on Electronics"
+      }
+    },
+  
+    {
+      id: 7,
+      category: 'furniture',
+      cardType:'item',
+      img:cmf,
+      title: '',
+      description: 'Description for Card 1',
+      content: {
+        subtitle: "Work better, together",
+        title: "Get 25% off on Electronics"
+      }
+    },
+  
+    {
+      id: 7,
+      category: 'furniture',
+      cardType:'item',
+      img:cmf,
+      title: '',
+      description: 'Description for Card 1',
+      content: {
+        subtitle: "Work better, together",
+        title: "Get 25% off on Electronics"
+      }
+    },
+  
+
     {
       id: 8,
       category: 'furniture',

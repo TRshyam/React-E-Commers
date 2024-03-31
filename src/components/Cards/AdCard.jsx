@@ -3,7 +3,7 @@ import React from 'react';
 export default function YourComponent({ bgGradientFrom, bgGradientTo, imageSrc, content }) {
   console.log(bgGradientFrom)
   return (
-    <div className={`bg-gradient-to-r from-regal-blue-ad to-light-blue-ad cardWH m-16 mr-0 rounded-md relative overflow-hidden`}>
+    <div className={`bg-gradient-to-r from-regal-blue-ad to-light-blue-ad cardWH  rounded-md relative overflow-hidden my-4`}>
       <div className='absolute top-0 h-full left-0 flex items-center justify-center'>
         <div className='space-y-4 p-8 z-10 text-sandel'>
           {/* Content */}
@@ -20,6 +20,7 @@ export default function YourComponent({ bgGradientFrom, bgGradientTo, imageSrc, 
       </div>
 
       {/* Image */}
+      <h1>{imageSrc}</h1>
       {imageSrc && <img src={imageSrc} className='absolute top-6 right-1 h-5/6 object-cover' alt="Ad banner" />}
     </div>
   );

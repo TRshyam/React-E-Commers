@@ -37,16 +37,14 @@ export default function ProductItems() {
   const furnitureCards = cards.filter(card => card.category === 'furniture');
 
   return (
-    <div className="overflow-x-auto mb-16">
-      <div className='flex space-x-5 items-center'>
+    <div className="overflow-x-auto">
+      <div className='flex space-x-11 items-center'>
         {electronicCards.map(renderCard)}
       </div>
 
       <div className='flex space-x-11 items-center'>
         {furnitureCards.map(renderCard)}
       </div>
-
-      
     </div>
   );
 }
