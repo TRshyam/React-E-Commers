@@ -62,7 +62,7 @@ const CollectionsBarImageRendering = (props) => {
             <div className="SubBanner">
                 <img src={props.Images[(currentIndex + 3) % props.Images.length]} alt="IMAGE" />
             </div>
-            <button className="NextButton" onClick={HandleNext}><GrLinkPrevious/></button>
+            {/* <button className="NextButton" onClick={HandleNext}><GrLinkPrevious/></button> */}
         </div>
     );
 }

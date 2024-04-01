@@ -9,6 +9,8 @@ import Adbanner from '../assets/AdBannerImg/banner1.png';
 import ProductCard from './Cards/ProductCard';
 import ProductGrid from './Cards/ProductGrid';
 
+import { CollectionsBar } from './Collectionsbar'
+
 export default function ProductItems() {
   // Function to render cards based on their type
   const renderCard = (card) => {
@@ -76,22 +78,26 @@ const responsive = {
   return (
     <div>
       <div>
-
-        <div className='flex'>
+        <div className='flex mx-5'>
           <div className='w-[25%]'>{renderAdCard(electronicAdCards)}</div>
           <Carousel showDots={true} responsive={responsive} className='w-full 2xl:h-[355px] h-[300px] my-6'>
             {electronicItemCards.map(renderCard)}
           </Carousel> 
         </div>
-        <ProductGrid/>
+        <CollectionsBar />
+      </div>
+      <div>
+       
+        <div className='flex mx-5'>
+          <Carousel showDots={true} responsive={responsive} className='w-full 2xl:h-[355px] h-[300px] my-6'>
+            {electronicItemCards.map(renderCard)}
+          </Carousel> 
+          <div className='w-[25%]'>{renderAdCard(electronicAdCards)}</div>
+        </div>
+         <CollectionsBar />
+        
       </div>
 
-      <div className='flex select-none'>
-        <Carousel showDots={true} responsive={responsive} className='w-full'>
-          {furnitureItemCards.map(renderCard)}
-        </Carousel> 
-        <div className='w-[25%]'>{renderAdCard(furnitureAdCards)}</div>
-      </div>
     </div>
   );
 }
