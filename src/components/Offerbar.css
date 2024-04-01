@@ -23,7 +23,7 @@
         top: -30px; /* Starting position off-screen */
     }
     to {
-        top: 26px; /* Final position at the current location */
+        top: 32px; /* Final position at the current location */
     }
 }
 
