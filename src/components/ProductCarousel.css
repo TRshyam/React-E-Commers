@@ -1,0 +1,75 @@
+/* ProductCarousel.css */
+
+.product-carousel {
+    overflow-x: scroll;
+    display: flex;
+    padding: 20px;
+  }
+  
+  .product-carousel-container {
+    display: flex;
+  }
+  
+  .product-card {
+    margin-right: 20px;
+    border-radius: 15%;
+    flex: 0 0 auto;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .product-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+  }
+  
+  .product-info {
+    padding: 10px;
+  }
+  
+  .product-info h3 {
+    margin: 0;
+    font-size: 18px;
+  }
+  
+  .product-info p {
+    margin: 5px 0;
+    font-size: 14px;
+  }
+  
+  .product-info span {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  /* ProductCarousel.css */
+
+/* Hide the scrollbar */
+.product-carousel {
+    overflow-x: auto; /* Use auto to enable scrolling */
+    overflow-y: hidden; /* Hide vertical scrollbar */
+  }
+  
+  /* Style the scrollbar */
+  .product-carousel::-webkit-scrollbar {
+    width: 0; /* Set width to zero */
+    background: transparent; /* Set background to transparent */
+  }
+  
+  /* Optional: Handle Firefox scrollbar */
+  .product-carousel {
+    scrollbar-width: none; /* For Firefox */
+  }
+  
+  /* Optional: Style the scrollbar track and thumb */
+  .product-carousel::-webkit-scrollbar-track {
+    background: transparent; /* Set track background to transparent */
+  }
+  
+  .product-carousel::-webkit-scrollbar-thumb {
+    background: #ccc; /* Set thumb background color */
+    border-radius: 10px; /* Set border radius for thumb */
+  }
+  
