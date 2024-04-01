@@ -1,6 +1,7 @@
 import cmf from '../assets/CardItems/cmf.png'
 import as from '../assets/CardItems/Image.png'
 import Adbanner from '../assets/AdBannerImg/banner1.png';
+import AppAD  from '../assets/AdBannerImg/Rectangle.png';
 
 
    
@@ -9,7 +10,23 @@ import Adbanner from '../assets/AdBannerImg/banner1.png';
       id: 1,
       category: 'electronic',
       cardType:'Ad',
+      From:'regal-blue-ad',
+      To:'light-blue-ad',
       img:Adbanner,
+      title: '',
+      description: 'Description for Card 1',
+      content: {
+        subtitle: "Work better, together",
+        title: "Get 25% off on Electronics"
+      }
+    },
+    {
+      id: 122,
+      category: 'furniture',
+      cardType:'Ad',
+      From:'regal-yellow-ad',
+      To:'light-yellow-ad',
+      img:AppAD,
       title: '',
       description: 'Description for Card 1',
       content: {
@@ -54,31 +71,8 @@ import Adbanner from '../assets/AdBannerImg/banner1.png';
         title: "Get 25% off on Electronics"
       }
     },
-    {
-      id: 5,
-      category: 'furniture',
-      cardType:'Ad',
-      img:cmf,
-      title: '',
-      description: 'Description for Card 1',
-      img:'',
-      content: {
-        subtitle: "Work better, together",
-        title: "Get 25% off on Electronics"
-      }
-    },
-    {
-      id: 6,
-      category: 'furniture',
-      cardType:'item',
+ 
 
-      title: '',
-      description: 'Description for Card 1',
-      content: {
-        subtitle: "Work better, together",
-        title: "Get 25% off on Electronics"
-      }
-    },
     {
       id: 7,
       category: 'furniture',
@@ -91,6 +85,47 @@ import Adbanner from '../assets/AdBannerImg/banner1.png';
         title: "Get 25% off on Electronics"
       }
     },
+  
+    {
+      id: 7,
+      category: 'furniture',
+      cardType:'item',
+      img:cmf,
+      title: '',
+      description: 'Description for Card 1',
+      content: {
+        subtitle: "Work better, together",
+        title: "Get 25% off on Electronics"
+      }
+    },
+  
+    {
+      id: 7,
+      category: 'furniture',
+      cardType:'item',
+      img:cmf,
+      title: '',
+      description: 'Description for Card 1',
+      content: {
+        subtitle: "Work better, together",
+        title: "Get 25% off on Electronics"
+      }
+    },
+  
+    {
+      id: 7,
+      category: 'furniture',
+      cardType:'item',
+      img:cmf,
+      title: '',
+      description: 'Description for Card 1',
+      content: {
+        subtitle: "Work better, together",
+        title: "Get 25% off on Electronics"
+      }
+    },
+  
+
     {
       id: 8,
       category: 'furniture',
