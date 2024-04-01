@@ -9,7 +9,9 @@ import { CgProfile } from "react-icons/cg";
 export default function Navbar() {
   return (
     <div className='NavBar'>
-      <div className='Logo'>ebart</div>
+      <div className="items-start px-2.5 my-auto text-2xl whitespace-nowrap text-violet-950 tracking-[3.2px] max-md:pr-5 max-sm:text-2xl">
+          ebaꞄt
+      </div>
       <div className='Functions'>
         <a>Departments</a>
         <a>Services </a>
