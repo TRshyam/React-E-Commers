@@ -77,9 +77,9 @@ const responsive = {
     <div>
       <div>
 
-        <div className='flex bg-blue-600'>
+        <div className='flex'>
           <div className='w-[25%]'>{renderAdCard(electronicAdCards)}</div>
-          <Carousel showDots={true} responsive={responsive} className='w-full bg-slate-700 2xl:h-[355px] h-[300px] my-6'>
+          <Carousel showDots={true} responsive={responsive} className='w-full 2xl:h-[355px] h-[300px] my-6'>
             {electronicItemCards.map(renderCard)}
           </Carousel> 
         </div>
