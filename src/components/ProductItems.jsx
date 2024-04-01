@@ -46,12 +46,12 @@ const responsive = {
   },
   LargeDesktop: {
     // the naming can be any, depends on you.
-    breakpoint: { max: 2000, min: 1024 },
+    breakpoint: { max: 2000, min: 1280 },
     items: 4,
     slidesToSlide: 2,
   },
   desktop: {
-    breakpoint: { max: 1024, min: 800 },
+    breakpoint: { max: 1280, min: 800 },
     items: 3,
   },
   tablet: {
