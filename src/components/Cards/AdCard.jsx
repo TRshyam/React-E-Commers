@@ -4,7 +4,7 @@ export default function YourComponent({ bgGradientFrom, bgGradientTo, imageSrc, 
   console.log(bgGradientFrom)
   console.log(bgGradientTo)
   return (
-    <div className={`bg-gradient-to-r from-regal-blue-ad to-light-blue-ad  2xl:h-[355px] h-[300px] rounded-md relative my-4  `}>
+    <div className={`bg-gradient-to-r from-regal-blue-ad to-light-blue-ad  2xl:h-[355px] h-[300px] rounded-md relative my-6`}>
       {/* <h1 className={`text-red-500 bg-{''}`}>Hello</h1> */}
       <div className='absolute top-0 h-full left-0 flex items-center justify-center'>
         <div className='space-y-4 p-8 z-10 text-sandel'>

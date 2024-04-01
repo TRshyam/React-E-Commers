@@ -7,6 +7,7 @@ import "react-multi-carousel/lib/styles.css";
 
 import Adbanner from '../assets/AdBannerImg/banner1.png';
 import ProductCard from './Cards/ProductCard';
+import ProductGrid from './Cards/ProductGrid';
 
 export default function ProductItems() {
   // Function to render cards based on their type
@@ -39,13 +40,19 @@ export default function ProductItems() {
 const responsive = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
-    breakpoint: { max: 4000, min: 1024 },
-    items: 5,
+    breakpoint: { max: 4000, min: 2000 },
+    items: 6,
+    slidesToSlide: 2,
+  },
+  LargeDesktop: {
+    // the naming can be any, depends on you.
+    breakpoint: { max: 2000, min: 1024 },
+    items: 4,
     slidesToSlide: 2,
   },
   desktop: {
     breakpoint: { max: 1024, min: 800 },
-    items: 4,
+    items: 3,
   },
   tablet: {
     breakpoint: { max: 800, min: 464 },
@@ -70,26 +77,20 @@ const responsive = {
     <div>
       <div>
 
-        <div className='flex'>
-          <div className='w-[45%]'>{renderAdCard(electronicAdCards)}</div>
-          <Carousel showDots={true} responsive={responsive} className='w-full'>
+        <div className='flex bg-blue-600'>
+          <div className='w-[25%]'>{renderAdCard(electronicAdCards)}</div>
+          <Carousel showDots={true} responsive={responsive} className='w-full bg-slate-700 2xl:h-[355px] h-[300px] my-6'>
             {electronicItemCards.map(renderCard)}
           </Carousel> 
         </div>
-        <ProductCard
-        image="https://images.unsplash.com/photo-1582706011335-5e347c3f4e04?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWd4fDgwMjUxMjQwfQ&w=1000&q=80"
-        title="Comfy Sofa"
-        price="$100.00"
-        discount={5}
-        href="#"
-      />
+        <ProductGrid/>
       </div>
 
       <div className='flex select-none'>
         <Carousel showDots={true} responsive={responsive} className='w-full'>
           {furnitureItemCards.map(renderCard)}
         </Carousel> 
-        <div className='w-[45%]'>{renderAdCard(furnitureAdCards)}</div>
+        <div className='w-[25%]'>{renderAdCard(furnitureAdCards)}</div>
       </div>
     </div>
   );
