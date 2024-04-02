@@ -2,16 +2,18 @@ import React from 'react';
 
 const ProductCard = ({ image, title, price, discount, href }) => {
   return (
-    <div className="flex flex-col rounded-lg shadow-md overflow-hidden bg-white">
-      <div className="w-full h-64 sm:h-48 md:h-64 lg:h-72 bg-cover" style={{ backgroundImage: `url(${image})` }}></div>
-      <div className="flex flex-col p-4">
-        <h5 className="text-lg sm:text-xl md:text-2xl font-medium mb-2">{title}</h5>
-        <p className="text-gray-700 mb-2">{price}</p>
-        <div className="flex items-center text-xs sm:text-sm text-green-500">
-          <span className="mr-1">{discount}% off</span>
+    <div className="product-card">
+      <div className="aspect-w-4 aspect-h-3 sm:aspect-w-3 sm:aspect-h-2 md:aspect-w-4 md:aspect-h-3 lg:aspect-w-3 lg:aspect-h-2">
+        <img src={image} alt={title} />
+      </div>
+      <div className="product-card-content">
+        <h5 className="product-card-title">{title}</h5>
+        <p className="product-card-price">{price}</p>
+        <div className="product-card-discount">
+          <span>{discount}% off</span>
           <span className="line-through">{price}</span>
         </div>
-        <a href={href} className="mt-4 text-center text-white bg-blue-500 hover:bg-blue-700 font-medium py-2 px-4 rounded-full">Shop Now →</a>
+        <a href={href} className="product-card-button">Shop Now →</a>
       </div>
     </div>
   );

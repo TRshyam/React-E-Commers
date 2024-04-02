@@ -45,7 +45,10 @@ const CollectionsBarImageRendering = (props) => {
             <div className="FirstBanner">
                 <h2>Amazing Collections</h2>
                 <h1>{props.Title}</h1>
-                <button>Shop Now <FaArrowRight className="RightArrow" /></button>
+                <button className="bg-black text-white font-semibold py-2 px-4 rounded-lg mt-4 flex items-center">
+                    Shop Now
+                    <FaArrowRight className="RightArrow ml-2" />
+                </button>
                 <img src={props.Images[currentIndex]} alt="IMAGE" />
                 <div className="OfferDetails">
                     <h3>{props.Offer} % off</h3>
