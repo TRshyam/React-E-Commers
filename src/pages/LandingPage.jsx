@@ -11,9 +11,9 @@ import {BannerImg} from '../components/cards';
 export default function LandingPage() {
   return (
     <>
+        <OfferBar/>
         <Navbar/>
         <Banner/>
-        <OfferBar/>
         <ProductItems/>
         <Footer/>
     </>

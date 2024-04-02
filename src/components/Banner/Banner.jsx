@@ -12,37 +12,41 @@ export default function Banner() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex(prevIndex => (prevIndex + 1) % BannerImg1.length);
-    }, 1000);
+    }, 5000);
 
     return () => clearInterval(interval);
   }, []);
 
   return (
     <>
-      <div className="flex flex-col w-full mt-[55px] mx-2">
+      <div className="flex flex-col w-full mt-[5px] sm:mx-2 mx-0">
         <div className="flex items-center w-full gap-[5px]">
           <div
-            className="flex flex-col items-start md:self-stretch h-[611px] md:h- gap-[136px] p-[34px] md:gap-[102px] sm:gap-[68px] sm:p-5 bg-violet-400 flex-1 rounded-[15px]"
+            className="flex flex-col items-start md:self-stretch h-[611px] md:h- gap-[136px] p-[34px] md:gap-[102px] sm:gap-[68px] sm:p-5  flex-1 rounded-[15px]"
             style={{
               backgroundImage: `url(${BannerImg1[currentImageIndex]})`,
-              backgroundSize: 'cover',
               backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat',
+              backgroundSize: 'cover',
             }}
           >
-            <div className="flex flex-col items-start mt-[175px] ml-[104px] pb-[9px] gap-4 md:ml-0">
-              <div className="flex flex-col items-start space-y-8 md:ml-24">
-                <Heading size="xs" as="h2" className="!text-gray-300">
-                  Hot Deals
-                </Heading>
-                <Text size="4xl" as="p" className="!text-gray-300">
-                  New OLED Collection
-                </Text>
-                <Button className="flex items-center justify-center h-[48px] px-[22px] sm:px-5 text-gray-300 text-center text-xl font-medium border-gray-300 border-2 border-solid min-w-[149px] rounded-lg">
+            <div className="flex flex-col items-start mt-[175px] max-sm:text-2xl max-sm:mx-auto max-sm:text-center  md:ml-[104px] pb-[9px]  gap-4 ">
+              <div className="flex flex-col md:items-start justify-center  space-y-8  md:ml-24">
+                <div className='space-y-4'>
+                  <Heading size="xs" as="h2" className="!text-gray-300">
+                    Hot Deals
+                  </Heading>
+                  <Text size="4xl" as="p" className="!text-gray-300  ">
+                    New OLED Collection
+                  </Text>
+
+                </div>
+                <Button className="flex items-center justify-center  h-[48px] px-[22px] sm:px-5 text-gray-300 text-center text-lg font-medium border-gray-300 border-2 border-solid min-w-[149px] rounded-lg hover:bg-black hover:text-gray-300">
                   Shop Now
                 </Button>
               </div>
             </div>
-            <div className="flex self-end items-end h-full w-[12%] md:w-full mr-3 md:mr-0">
+            <div className="flex self- items-end h-full  md:w-full mr-3 md:mr-0">
               <Text size="md" as="p" className="!text-gray-300 text-right">
                 BRAVIA
               </Text>
