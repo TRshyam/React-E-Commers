@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import { FaInstagram,FaYoutube} from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { PiSuitcaseSimpleFill } from "react-icons/pi";
@@ -60,15 +62,15 @@ const Footer = () => {
           {/* Social Section */}
           <div className="flex items-center text-stone-200 gap-4 mt-4 sm:mt-0">
             <span className="mr-4 text-sm">SOCIAL</span>
-            <FaInstagram size={20}/>
-            <FaXTwitter size={20}/>
-            <FaYoutube size={20}/>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><FaInstagram size={20}/></a>
+            <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><FaXTwitter size={20}/></a>
+            <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer"><FaYoutube size={20}/></a>
           </div>
         {/* Become a Seller Section */}
         <div className="flex gap-2 items-center text-zinc-300">
             <PiSuitcaseSimpleFill />
             {/* <link to={"/src/index.html"}  className="ml-2 text-sm active">Become a Seller</link> */}
-            <a href="#">Become a Seller</a>
+            <Link to="/Seller">Become a Seller</Link>
           </div>
         </div>
       <div className="text-center text-zinc-400 mt-20">
