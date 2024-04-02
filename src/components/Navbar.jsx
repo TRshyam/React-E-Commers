@@ -26,17 +26,12 @@ export default function Navbar() {
   return (
     <div className={`NavBar${isFixed ? ' fixed' : ''}`}>
       <div className='Logo'>ebart</div>
-      <div className='Functions'>
-        <a>Home</a>
-        <a>Updates</a>
-        <a>Services</a>
-        <a>Features</a>
-        <a>About us</a>
-      </div>
-        
+
       <div className='NavIcons'>
+        <div className='ProductSearch' >
         <CiSearch className='CiSearch' />
-        <input placeholder='Search..'></input>
+        <input id='ProductSearch' placeholder='Search..'></input>
+        </div>
         <button>LogIn</button>
         <a><CiShoppingCart /></a>
         <a><CiUser /></a>

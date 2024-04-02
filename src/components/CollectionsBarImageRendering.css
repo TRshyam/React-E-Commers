@@ -128,26 +128,59 @@
 .CollectionsBanner .NextButton {
     width: auto;
     height: auto;
-    font-size: 4vw; 
+    font-size: 3.5vw; 
     cursor: pointer; /* Change cursor to pointer on hover */
     transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
-    padding: 20px;
+    padding: 10px;
     border-radius: 50%;
+    background-color: black;
+    color: white;
 }
 
 .CollectionsBanner .NextButton:hover {
-    background-color: black;
-    color: white;
     transform: scale(0.9)
 }
 
 .CollectionsBanner .NextButton:active {
    
-    transform: scale(1.1); /* Scale button to 110% when active */
+    transform: scale(1.1); 
+}
+@media (max-width : 1000px) {
+    
+.CollectionsBanner .FirstBanner h2{
+    top: 8%;
+    left:8%;
 }
 
+.CollectionsBanner .FirstBanner h1{
+    top: 16%;
+    left:8%;
+    font-size: 3vw;
 
-@media (max-width : 750px) {
+}
+
+.CollectionsBanner .FirstBanner button{
+    top: 75%;
+    font-size: 1em;
+    font-weight: 200;
+    width: 17vw;
+    left:calc(50% - 150px);
+    position: relative;
+    padding-right: 10px;
+    z-index: 1;
+}
+
+.CollectionsBanner .SubBanner{
+    width: 35%;
+    height: 50%;
+}
+#RemovalImage{
+    
+    display: none;
+}
+}
+
+@media (max-width : 650px) {
 
     .CollectionsBanner{
         padding: 0 20px;
