@@ -2,6 +2,14 @@ import cmf from '../assets/CardItems/cmf.png'
 import as from '../assets/CardItems/Image.png'
 import Adbanner from '../assets/AdBannerImg/banner1.png';
 import AppAD  from '../assets/AdBannerImg/Rectangle.png';
+import banner1 from '../assets/BannerImages/BG.png'
+
+  const BannerImg=[
+    banner1,
+    banner1,
+    banner1,
+    banner1,
+  ]
 
 
    
@@ -274,4 +282,6 @@ import AppAD  from '../assets/AdBannerImg/Rectangle.png';
 
     ];
 
+
+export {BannerImg}
 export default cards;
