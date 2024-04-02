@@ -5,16 +5,16 @@ import React from 'react';
 
 const ProductGrid = () => {
   return (
-    <div className="flex justify-between">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       <div className="flex flex-col items-center">
-        <img src={cardAd} alt="Comfy Sofa" className="w-48 h-32 object-cover" />
+        <img src={cardAd} alt="Comfy Sofa" className="w-full sm:w-48 h-32 object-cover" />
         <p className="mt-2 text-gray-700 font-semibold">Comfy Sofa</p>
       </div>
       <div className="flex flex-col items-center">
-        <img src={Rectangle6} alt="Wicker Chair" className="w-48 h-32 object-cover rounded-full" />
+        <img src={Rectangle6} alt="Wicker Chair" className="w-full sm:w-48 h-32 object-cover rounded-full" />
       </div>
       <div className="flex flex-col items-center">
-        <img src={Rectangle4} alt="Shelf" className="w-48 h-32 object-cover" />
+        <img src={Rectangle4} alt="Shelf" className="w-full sm:w-48 h-32 object-cover" />
       </div>
     </div>
   );

@@ -3,11 +3,11 @@ import React from 'react';
 const ProductCard = ({ image, title, price, discount, href }) => {
   return (
     <div className="flex flex-col rounded-lg shadow-md overflow-hidden bg-white">
-      <div className="w-full h-64 bg-cover" style={{ backgroundImage: `url(${image})` }}></div>
+      <div className="w-full h-64 sm:h-48 md:h-64 lg:h-72 bg-cover" style={{ backgroundImage: `url(${image})` }}></div>
       <div className="flex flex-col p-4">
-        <h5 className="text-xl font-medium mb-2">{title}</h5>
+        <h5 className="text-lg sm:text-xl md:text-2xl font-medium mb-2">{title}</h5>
         <p className="text-gray-700 mb-2">{price}</p>
-        <div className="flex items-center text-sm text-green-500">
+        <div className="flex items-center text-xs sm:text-sm text-green-500">
           <span className="mr-1">{discount}% off</span>
           <span className="line-through">{price}</span>
         </div>
