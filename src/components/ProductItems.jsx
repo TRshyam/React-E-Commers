@@ -5,9 +5,7 @@ import cards from './cards';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
-import Adbanner from '../assets/AdBannerImg/banner1.png';
-import ProductCard from './Cards/ProductCard';
-import ProductGrid from './Cards/ProductGrid';
+
 
 import { CollectionsBar } from './Collectionsbar'
 
@@ -78,25 +76,55 @@ const responsive = {
   return (
     <div>
       <div>
-        <div className='flex mx-5'>
-          <div className='w-[35%]'>{renderAdCard(electronicAdCards)}</div>
-            <Carousel showDots={true} responsive={responsive} className='w-full 2xl:h-[355px] h-[300px] my-6'>
+        <div className='md:flex mx-5  '>
+          <div className='w-[100%] md:w-[35%]'>{renderAdCard(electronicAdCards)}</div>
+            <Carousel showDots={true} responsive={responsive} className='w-full 2xl:h-[355px] h-[300px] md:my-6 mx-5'>
               {electronicItemCards.map(renderCard)}
             </Carousel> 
         </div>
         <CollectionsBar />
       </div>
       <div>
-       
-        <div className='flex mx-5'>
-          <Carousel showDots={true} responsive={responsive} className='w-full 2xl:h-[355px] h-[300px] my-6'>
-            {electronicItemCards.map(renderCard)}
-          </Carousel> 
-          <div className='w-[35%]'>{renderAdCard(electronicAdCards)}</div>
+        <div className='md:flex mx-5  '>
+            <Carousel showDots={true} responsive={responsive} className='w-full 2xl:h-[355px] h-[300px] md:my-6 mx-5'>
+              {electronicItemCards.map(renderCard)}
+            </Carousel> 
+          <div className='w-[100%] md:w-[35%]'>{renderAdCard(electronicAdCards)}</div>
         </div>
-         <CollectionsBar />
-        
+        <CollectionsBar />
       </div>
+      <div>
+        <div className='md:flex mx-5  '>
+          <div className='w-[100%] md:w-[35%]'>{renderAdCard(electronicAdCards)}</div>
+            <Carousel showDots={true} responsive={responsive} className='w-full 2xl:h-[355px] h-[300px] md:my-6 mx-5'>
+              {electronicItemCards.map(renderCard)}
+            </Carousel> 
+        </div>
+        <CollectionsBar />
+      </div>
+      <div>
+        <div className='md:flex mx-5  '>
+          <div className='w-[100%] md:w-[35%]'>{renderAdCard(electronicAdCards)}</div>
+            <Carousel showDots={true} responsive={responsive} className='w-full 2xl:h-[355px] h-[300px] md:my-6 mx-5'>
+              {electronicItemCards.map(renderCard)}
+            </Carousel> 
+        </div>
+        <CollectionsBar />
+      </div>
+      <div>
+        <div className='md:flex mx-5 my-5 pl-28 '>
+          <div className='w-[100%] md:w-[35%] bg-gray-600 mx-auto my-auto py-36 text-center space-y-4 rounded-lg'>
+            <h2>Recently Viewed</h2>
+            <button className="text-black bg-light font-semibold p-1 px-5 rounded">
+                View All
+            </button>
+          </div>
+            <Carousel showDots={true} responsive={responsive} className='w-full 2xl:h-[355px] h-[300px] md:my-6 mx-5'>
+              {electronicItemCards.map(renderCard)}
+            </Carousel> 
+        </div>
+      </div>
+     
 
     </div>
   );
