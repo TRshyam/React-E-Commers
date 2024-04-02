@@ -4,7 +4,6 @@ import Banner from '../components/Banner/Banner'
 import ProductItems from '../components/ProductItems'
 import Footer from '../components/Footer'
 import OfferBar from '../components/Offerbar'
-import Carousel from '../components/carosel/carosel.jsx'
 
 export default function LandingPage() {
   return (
@@ -12,7 +11,6 @@ export default function LandingPage() {
         <Navbar/>
         <Banner/>
         <OfferBar/>
-        <Carousel/>
         <ProductItems/>
         <Footer/>
     </>

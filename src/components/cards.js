@@ -1,6 +1,14 @@
 import cmf from '../assets/CardItems/cmf.png'
 import as from '../assets/CardItems/Image.png'
 import Adbanner from '../assets/AdBannerImg/banner1.png';
+import banner1 from '../../public/images/BannerImgs/group.png'
+
+  const BannerImg1=[
+    banner1,
+    banner1,
+ Adbanner,
+ Adbanner
+  ]
 
 
    
@@ -130,5 +138,5 @@ import Adbanner from '../assets/AdBannerImg/banner1.png';
     
 
     ];
-
+export {BannerImg1}
 export default cards;
