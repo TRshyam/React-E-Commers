@@ -59,6 +59,102 @@ import AppAD  from '../assets/AdBannerImg/Rectangle.png';
       }
     },
     {
+      id: 2,
+      category: 'electronic',
+      cardType:'item',
+      img:as,
+      title: '',
+      description: 'Description for Card 1',
+      content: {
+        title: "Get 25% off on Electronics",
+        Available_items: "8",
+      }
+    },
+    {
+      id: 2,
+      category: 'electronic',
+      cardType:'item',
+      img:as,
+      title: '',
+      description: 'Description for Card 1',
+      content: {
+        title: "Get 25% off on Electronics",
+        Available_items: "8",
+      }
+    },
+    {
+      id: 2,
+      category: 'electronic',
+      cardType:'item',
+      img:as,
+      title: '',
+      description: 'Description for Card 1',
+      content: {
+        title: "Get 25% off on Electronics",
+        Available_items: "8",
+      }
+    },
+    {
+      id: 2,
+      category: 'electronic',
+      cardType:'item',
+      img:as,
+      title: '',
+      description: 'Description for Card 1',
+      content: {
+        title: "Get 25% off on Electronics",
+        Available_items: "8",
+      }
+    },
+    {
+      id: 2,
+      category: 'electronic',
+      cardType:'item',
+      img:as,
+      title: '',
+      description: 'Description for Card 1',
+      content: {
+        title: "Get 25% off on Electronics",
+        Available_items: "8",
+      }
+    },
+    {
+      id: 2,
+      category: 'electronic',
+      cardType:'item',
+      img:as,
+      title: '',
+      description: 'Description for Card 1',
+      content: {
+        title: "Get 25% off on Electronics",
+        Available_items: "8",
+      }
+    },
+    {
+      id: 2,
+      category: 'electronic',
+      cardType:'item',
+      img:as,
+      title: '',
+      description: 'Description for Card 1',
+      content: {
+        title: "Get 25% off on Electronics",
+        Available_items: "8",
+      }
+    },
+    {
+      id: 2,
+      category: 'electronic',
+      cardType:'item',
+      img:as,
+      title: '',
+      description: 'Description for Card 1',
+      content: {
+        title: "Get 25% off on Electronics",
+        Available_items: "8",
+      }
+    },
+    {
       id: 3,
       category: 'electronic',
       cardType:'item',
