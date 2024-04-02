@@ -49,7 +49,7 @@ const responsive = {
   LargeDesktop: {
     // the naming can be any, depends on you.
     breakpoint: { max: 2000, min: 1280 },
-    items: 4,
+    items: 5,
     slidesToSlide: 2,
   },
   desktop: {
@@ -79,10 +79,10 @@ const responsive = {
     <div>
       <div>
         <div className='flex mx-5'>
-          <div className='w-[25%]'>{renderAdCard(electronicAdCards)}</div>
-          <Carousel showDots={true} responsive={responsive} className='w-full 2xl:h-[355px] h-[300px] my-6'>
-            {electronicItemCards.map(renderCard)}
-          </Carousel> 
+          <div className='w-[35%]'>{renderAdCard(electronicAdCards)}</div>
+            <Carousel showDots={true} responsive={responsive} className='w-full 2xl:h-[355px] h-[300px] my-6'>
+              {electronicItemCards.map(renderCard)}
+            </Carousel> 
         </div>
         <CollectionsBar />
       </div>
@@ -92,7 +92,7 @@ const responsive = {
           <Carousel showDots={true} responsive={responsive} className='w-full 2xl:h-[355px] h-[300px] my-6'>
             {electronicItemCards.map(renderCard)}
           </Carousel> 
-          <div className='w-[25%]'>{renderAdCard(electronicAdCards)}</div>
+          <div className='w-[35%]'>{renderAdCard(electronicAdCards)}</div>
         </div>
          <CollectionsBar />
         
