@@ -7,7 +7,6 @@
     position: relative;
     padding:  10px 65px;
     align-items: center;
-
 }
 
 .CollectionsBanner img {
@@ -22,11 +21,10 @@
     flex-direction: column;
     position: relative;
     padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adjust box shadow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border-bottom: 0.5px solid gray ;
     border-radius: 15px;
 }
-
 
 .CollectionsBanner .FirstBanner img {
     margin-left: auto; 
@@ -45,7 +43,6 @@
     left:60px;
     font-size: 0.7em;
     font-weight: 600;
-
 }
 
 .CollectionsBanner .FirstBanner h1{
@@ -55,7 +52,6 @@
     font-size: 2.5em;
     font-weight: 300;
     z-index: 1;
-
 }
 
 .CollectionsBanner .FirstBanner button{
@@ -76,14 +72,12 @@
     gap: 10px;
     position: relative;
     padding-right: 10px;
-
 }
+
 .RightArrow{
     position: absolute;
     right: 20px;
     top: 18px;
-
-
 }
 
 .CollectionsBanner .FirstBanner .OfferDetails{
@@ -96,7 +90,6 @@
     gap: 10px;
 }
 
-
 .CollectionsBanner .FirstBanner .OfferDetails h4{
     font-weight: 200;
 }
@@ -105,8 +98,7 @@
     text-decoration:underline;
 }
 
-
-/* Here its consists of styles of Sub banner */
+/* Sub banner styles */
 
 .CollectionsBanner .SubBanner {
     width: 15%;
@@ -116,7 +108,6 @@
     align-items: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 15px;
-
 }
 
 .CollectionsBanner .SubBanner img {
@@ -124,13 +115,15 @@
     height: 90%;
 }
 
+/* Next button styles */
+
 .CollectionsBanner .NextButton {
     width: auto;
     height: auto;
     font-size: 4em; 
-    border-radius: 5px; /* Add border-radius for rounded corners */
-    cursor: pointer; /* Change cursor to pointer on hover */
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .CollectionsBanner .NextButton:hover {
@@ -138,6 +131,49 @@
 }
 
 .CollectionsBanner .NextButton:active {
-   
-    transform: scale(1.1); /* Scale button to 110% when active */
+    transform: scale(1.1);
+}
+
+/* Responsive styles */
+
+@media (max-width: 767px) {
+  .CollectionsBanner {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+  }
+
+  .CollectionsBanner .FirstBanner {
+    width: auto;
+    margin-bottom: 20px;
+  }
+
+  .CollectionsBanner .FirstBanner img {
+    height: auto;
+    width: 100%;
+    position: relative;
+  }
+
+  .CollectionsBanner .FirstBanner h2,
+  .CollectionsBanner .FirstBanner h1,
+  .CollectionsBanner .FirstBanner button {
+    position: static;
+    text-align: center;
+    margin: 0;
+  }
+
+  .CollectionsBanner .FirstBanner .OfferDetails {
+    position: static;
+    text-align: center;
+  }
+
+  .RightArrow {
+    position: static;
+    display: block;
+    margin: auto;
+  }
+
+  .CollectionsBanner .SubBanner {
+    width: 100%;
+  }
 }

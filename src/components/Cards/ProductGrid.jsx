@@ -1,7 +1,7 @@
 import React from 'react';
-import cardAd from '../../assets/AdBannerImg/BG.png'
-import Rectangle6 from '../../assets/CardItems/Rectangle6.png'
-import Rectangle4 from '../../assets/CardItems/Rectangle4.png'
+// import cardAd from '../../assets/AdBannerImg/BG.png'
+// import Rectangle6 from '../../assets/CardItems/Rectangle6.png'
+// import Rectangle4 from '../../assets/CardItems/Rectangle4.png'
 
 const ProductGrid = () => {
   return (
