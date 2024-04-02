@@ -19,7 +19,7 @@ export default function Banner() {
 
   return (
     <>
-      <div className="flex flex-col w-full mt-[5px] sm:mx-2 mx-0">
+      <div className="flex flex-col mt-[5px] sm:mx-2 mx-0 bg-violet-400 rounded-xl">
         <div className="flex items-center w-full gap-[5px]">
           <div
             className="flex flex-col items-start md:self-stretch h-[611px] md:h- gap-[136px] p-[34px] md:gap-[102px] sm:gap-[68px] sm:p-5  flex-1 rounded-[15px]"
