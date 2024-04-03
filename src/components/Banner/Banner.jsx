@@ -19,7 +19,7 @@ export default function Banner() {
 
   return (
     <>
-      <div className="flex flex-col mt-[5px] sm:mx-2 mx-0 bg-violet-400 rounded-xl">
+      <div className="flex flex-col mt-[5px] sm:mx-2 mx-0  rounded-xl">
         <div className="flex items-center w-full gap-[5px]">
           <div
             className="flex flex-col items-start md:self-stretch h-[611px] md:h- gap-[136px] p-[34px] md:gap-[102px] sm:gap-[68px] sm:p-5  flex-1 rounded-[15px]"
@@ -46,7 +46,7 @@ export default function Banner() {
                 </Button>
               </div>
             </div>
-            <div className="flex self- items-end h-full  md:w-full mr-3 md:mr-0">
+            <div className="flex self-end items-end h-full mr-3 md:mr-0">
               <Text size="md" as="p" className="!text-gray-300 text-right">
                 BRAVIA
               </Text>

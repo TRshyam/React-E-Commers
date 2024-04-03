@@ -2,15 +2,17 @@ import cmf from '../assets/CardItems/cmf.png'
 import as from '../assets/CardItems/Image.png'
 import Adbanner from '../assets/AdBannerImg/banner1.png';
 import AppAD  from '../assets/AdBannerImg/Rectangle.png';
-import banner2 from '../../public/images/BannerImgs/group.png'
 import banner1 from '../assets/BannerImages/BG.png'
-
-
+import banner4 from '../assets/BannerImages/BG4.jpg'
+import banner5 from '../assets/BannerImages/BG5.jpg'
+import banner6 from '../assets/BannerImages/BG6.jpg'
+import banner7 from '../assets/BannerImages/BG7.jpg'
+import banner8 from '../assets/BannerImages/BG8.jpg'
 const BannerImg1=[
-    banner2,
-    banner2,
- Adbanner,
- Adbanner
+    banner1,
+    banner7,
+  banner5,
+  banner8,
   ]
   const BannerImg=[
     banner1,
