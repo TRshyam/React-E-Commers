@@ -45,6 +45,7 @@
     left:60px;
     font-size: 0.7em;
     font-weight: 600;
+    z-index: 1;
 
 }
 
@@ -64,7 +65,7 @@
     left:60px;
     font-size: 1em;
     font-weight: 200;
-    width: 150px;
+    width: 50%;
     height: 50px;
     background-color: black;
     color: white;
@@ -100,6 +101,7 @@
 
 .CollectionsBanner .FirstBanner .OfferDetails h4{
     font-weight: 200;
+    z-index: 1;
 }
 
 .CollectionsBanner .FirstBanner .OfferDetails a{
@@ -157,6 +159,7 @@
     left:8%;
     font-size: 3vw;
 
+
 }
 
 .CollectionsBanner .FirstBanner button{
@@ -169,6 +172,7 @@
     padding-right: 10px;
     z-index: 1;
 }
+
 
 .CollectionsBanner .SubBanner{
     width: 35%;
@@ -196,12 +200,18 @@
     .CollectionsBanner .FirstBanner h2{
         left: 5%;
         top: 8%;
+
+        z-index: 1;
+
     }
 
     .CollectionsBanner .FirstBanner h1{
         left: 5%;
         top: calc(10% + 5%);
         font-size: 3vh;
+
+        z-index: 1;
+
     }
     .CollectionsBanner .FirstBanner button{
         left: 0%;
@@ -210,6 +220,9 @@
         padding-right: 15px;
         margin: 0;
         top: 70%;
+
+        z-index: 1;
+
         
     }
     .RightArrow{
