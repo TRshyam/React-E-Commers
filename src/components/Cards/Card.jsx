@@ -23,7 +23,7 @@ export default function Card({ imageSrc, content }) {
         //     </div>
         // </div>
 <>
-    <div className='w-[75%] sm:w-[75%] md:w-[75%] lg:w-[65%] xl:w-[90%] 2xl:w-[70%]  h-[250px] xl:h-[300px] bg-white rounded-md relative overflow-hidden shadow-xl m-6 hover:scale-105 hover:shadow-2xl hover:bgb transition-transform duration-300'>
+    <div className='w-[75%] sm:w-[75%] md:w-[75%] lg:w-[65%] xl:w-[90%] 2xl:w-[90%]  h-[250px] xl:h-[300px] bg-white rounded-md relative overflow-hidden shadow-xl m-4 hover:scale-105 hover:shadow-2xl hover:bgb transition-transform duration-300'>
         <div className='h-[200px] xl:h-[250px]'>
             {/* Image */}
             <img src={imageSrc} className='w-full h-full object-cover bg-blue-100 ' alt='Placeholder Image'></img>
