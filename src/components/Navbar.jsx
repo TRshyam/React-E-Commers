@@ -3,6 +3,7 @@ import './Navbar.css';
 import { CiSearch } from "react-icons/ci";
 import { CiShoppingCart } from "react-icons/ci";
 import { CiUser } from "react-icons/ci";
+import { Link } from 'react-router-dom';
 
 export default function Navbar() {
   const [isFixed, setIsFixed] = useState(false);
@@ -29,10 +30,12 @@ export default function Navbar() {
 
       <div className='NavIcons'>
         <div className='ProductSearch' >
-        <CiSearch className='CiSearch' />
-        <input id='ProductSearch' placeholder='Search..'></input>
+          <CiSearch className='CiSearch' />
+          <input id='ProductSearch' placeholder='Search..'></input>
         </div>
-        <button>LogIn</button>
+        <Link to='/login' >
+          <button> LogIn </button>
+        </Link>
         <a><CiShoppingCart /></a>
         <a><CiUser /></a>
       </div>
