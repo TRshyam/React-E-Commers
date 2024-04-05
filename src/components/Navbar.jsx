@@ -3,6 +3,7 @@ import './Navbar.css';
 import { CiSearch } from "react-icons/ci";
 import { CiShoppingCart } from "react-icons/ci";
 import { CiUser } from "react-icons/ci";
+import { Link } from 'react-router-dom';
 
 export default function Navbar() {
   const [isFixed, setIsFixed] = useState(false);
@@ -26,18 +27,15 @@ export default function Navbar() {
   return (
     <div className={`NavBar${isFixed ? ' fixed' : ''}`}>
       <div className='Logo'>ebart</div>
-      <div className='Functions'>
-        <a>Home</a>
-        <a>Updates</a>
-        <a>Services</a>
-        <a>Features</a>
-        <a>About us</a>
-      </div>
-        
+
       <div className='NavIcons'>
-        <CiSearch className='CiSearch' />
-        <input placeholder='Search..'></input>
-        <button>LogIn</button>
+        <div className='ProductSearch' >
+          <CiSearch className='CiSearch' />
+          <input id='ProductSearch' placeholder='Search..'></input>
+        </div>
+        <Link to='/login' >
+          <button> LogIn </button>
+        </Link>
         <a><CiShoppingCart /></a>
         <a><CiUser /></a>
       </div>

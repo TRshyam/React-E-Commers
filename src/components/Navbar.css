@@ -7,7 +7,6 @@
     align-items: center;
     border-bottom: 2.5px solid grey;
     background-color: white;
-    /* Optional: Set background color */
     z-index: 1000;
 }
 
@@ -15,9 +14,7 @@
     position: fixed;
     top: 0;
 }
-a{
-    padding: 0% 3%;
-}
+
 
 .Logo {
     font-family: Arial, Helvetica, sans-serif;
@@ -25,34 +22,33 @@ a{
     font-size: 2em;
     margin-left: 5%;
     color: #341466;
+    width: 20%;
 }
 
-.Functions {
 
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    font-size: 1em;
-}
 
 .NavIcons {
     position: absolute;
-    right: 5%;
     display: flex;
+    right: 10px;
     flex-direction: row;
-    gap: 5%;
     align-items: center;
     text-align: center;
+    justify-content: space-around;
+    width: 60%;
 }
+
+.NavIcons .ProductSearch 
 
 .CiSearch {
     position: absolute;
     margin-left: 5px;
+    top: 8px;
 }
 
 .NavIcons input {
     height: 30px;
-    width: 180px;
+    width: 30vw;
     border: 1px solid #ccc;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding-left: 25px;
@@ -66,7 +62,7 @@ a{
     border-radius: 3px;
     color: white;
     padding: 5px 5px;
-    font-size: 0.9em;
+    font-size: 0.5em;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -77,28 +73,28 @@ a{
     font-size: 1.5em;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 680px) {
+
+    .NavBar{
+        justify-content: space-around;
+    }
     .Logo {
-        font-size: 1.5em;
-        margin-left: 5%;
-    }
-
-    .Functions {
-        display: none;
-    }
-
-    .NavIcons {
-        right: 5%;
-    }
-}
-
-@media (max-width: 480px) {
-    .Logo {
-        font-size: 1.2em;
+        font-size: 1.4em;
         margin-left: 3%;
+        width: auto;
     }
 
     .NavIcons {
-        right: 3%;
+        position: relative;
+        left: 0;
+        gap: vw;
+    }
+
+    #ProductSearch{
+        width: 100px;
+    }
+
+    .NavIcons button{
+        width: auto;
     }
 }
