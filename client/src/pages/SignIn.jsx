@@ -1,31 +1,54 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate  } from 'react-router-dom';
 
 import { LuEye } from "react-icons/lu";
 import { LuEyeOff } from "react-icons/lu";
+import axios from 'axios';
 
 export default function SignIn() {
+
+const navigate = useNavigate();
+
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleSubmit = (event) => {
+
+
+  const handleSubmit =async (event) => {
     event.preventDefault();
+    console.log(email);
+    console.log(password);
 
-    const userData = JSON.parse(localStorage.getItem('formDataArray')) || [];
-    const user = userData.find((user) => user.email === email);
 
-    if (user && user.password === password) {
-      console.log('User signed in successfully');
 
-      setError('');
 
-      history.push('/SignUp')
-    } else {
-      setError('Invalid Email or Password!');
+    try{
+      const response = await axios.post('http://localhost:5000/api/signin',{email,password});
+      console.log('try');
+     
+            setEmail('');
+      if (response.data == 'False'){
+        
+        setEmail(email)
+        setError('Invalid crenditial')
+      }
+      else{
+        setError('');
+        navigate('/');
+      }
+      setPassword('');
+      console.log(response.data);
+    }catch(error){
+      console.log(error);
+      setError('Invalid crenditial')
     }
+
+
+
+
   };
 
   const handleEmailChange = (event) => {

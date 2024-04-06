@@ -26,10 +26,6 @@ export default function SignUp() {
       return;
     }
 
-    if (password !== confirmPassword) {
-      setError('Passwords do not match.');
-      return;
-    }
 
     try {
       const response = await axios.post('http://localhost:5000/api/signup', { email, password });
@@ -79,7 +75,7 @@ export default function SignUp() {
         <div className="mb-4">
           <h1 className="text-center text-xl font-bold">Sign Up</h1>
         </div>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} >
 
           <div className="mb-4">
             <label
@@ -172,7 +168,7 @@ export default function SignUp() {
 
         </form>
         <div className="mt-4">
-          <Link to="/" className="text-blue-500 hover:underline">
+          <Link to="/sign-in" className="text-blue-500 hover:underline">
             Already have an account? Sign In
           </Link>
         </div>
