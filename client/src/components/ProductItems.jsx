@@ -1,18 +1,39 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Card from './Cards/Card';
 import AdCard from './Cards/AdCard';
-import cards from './cards'; // Importing the object-based data
+// import cards from './cards'; // Importing the object-based data
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { CollectionsBar } from './Collectionsbar';
+import axios from 'axios';
+
 
 export default function ProductItems() {
+
+  const [cards, setCards] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('http://localhost:5000/api/data');
+        const cardsArray = Object.values(response.data);
+        setCards(cardsArray);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+
   // Function to render cards based on their type
   const renderCard = (id, card) => {
     const { img, content, cardType, From, To } = card;
     if (cardType === 'Ad') {
       return <AdCard key={id} bgGradientFrom={From} bgGradientTo={To} imageSrc={img} content={content} />;
     } else if (cardType === 'item') {
+      console.log(img);
       return <Card key={id} id={id} imageSrc={img} content={content} />;
     }
     return null;

@@ -33,7 +33,7 @@ export default function Navbar() {
           <CiSearch className='CiSearch' />
           <input id='ProductSearch' placeholder='Search..'></input>
         </div>
-        <Link to='/login' >
+        <Link to='/sign-in' >
           <button> LogIn </button>
         </Link>
         <a><CiShoppingCart /></a>
