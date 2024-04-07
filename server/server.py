@@ -90,9 +90,11 @@ def signup():
         # print(email)
         # send_confirmation_email(email, confirmation_token)
         print("mail Send")
+        return "True"
 
     except Exception as e:
         print(e)
+        return "False"
 
     # Process the received data (e.g., save it to a database)
 
