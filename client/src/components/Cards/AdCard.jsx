@@ -1,5 +1,9 @@
 import React from 'react';
 
+import Adbanner from '../../assets/AdBannerImg/banner1.png';
+
+
+
 export default function YourComponent({ bgGradientFrom, bgGradientTo, imageSrc, content }) {
   console.log(bgGradientFrom)
   console.log(bgGradientTo)
@@ -23,7 +27,7 @@ export default function YourComponent({ bgGradientFrom, bgGradientTo, imageSrc, 
 
       {/* Image */}
       {/* <h1>{imageSrc}</h1> */}
-      {imageSrc && <img src={imageSrc} className='absolute  2xl:top-14 top-1/4 right-1 w-auto   2xl:h-2/3   h-3/5   max-h-1/2 object-cover' alt="Ad banner" />}
+      {imageSrc && <img src={Adbanner} className='absolute  2xl:top-14 top-1/4 right-1 w-auto   2xl:h-2/3   h-3/5   max-h-1/2 object-cover' alt="Ad banner" />}
     </div>
   );
 }
