@@ -95,6 +95,8 @@ const renderItemCards = (itemCards) => {
         <CollectionsBar />
       </div>
       <div>
+        {/* <Card imageSrc={ps5}/> */}
+        <Card key={50} imageSrc={ps5} content={{ product: "Pixel", prize: "50" }} id={50} />
           {/* <ProCarousel products={Object.keys(itemCards).map(id => renderCard(id, itemCards[id]))} /> */}
         </div>
 

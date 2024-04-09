@@ -20,11 +20,11 @@
       "cardType": "item",
       "From": "regal-yellow-ad",
       "To": "light-yellow-ad",
-      "img": "https://www.shutterstock.com/image-photo/moscow-russia-june-2-2013-260nw-355320812.jpg",
+      "img": "/static/CardItems/Electronic/cmf.png",
       "title": "",
       "description": "Description for Card 1",
       "content": {
-        "title": "hELLO",
+        "title": "Fuck",
         "subtitle": "Work better, together"
       }
     },
@@ -34,7 +34,7 @@
       "cardType": "item",
       "From": "regal-yellow-ad",
       "To": "light-yellow-ad",
-      "img": "https://www.shutterstock.com/image-photo/moscow-russia-june-2-2013-260nw-355320812.jpg",
+      "img": "/static/CardItems/Electronic/cmf.png",
       "title": "",
       "description": "Description for Card 1",
       "content": {
@@ -74,7 +74,7 @@
       "id": 3,
       "category": "electronic",
       "cardType": "item",
-      "img": "/as.png",
+      "img": "/static/CardItems/Electronic/cmf.png",
       "title": "",
       "description": "Description for Card 1",
       "content": {

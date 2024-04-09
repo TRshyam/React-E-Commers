@@ -21,7 +21,7 @@ const Carousel = ({ children }) => {
   };
 
   return (
-  <div className="relative">
+  <div className="">
   <div className="overflow-hidden relative">
     <ul className="flex transition-transform duration-300 ease-in-out" style={{ transform: `translateX(-${currentIndex * 20}%)` }}>
       {childrenArray.map((child, index) => (

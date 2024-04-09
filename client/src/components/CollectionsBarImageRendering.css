@@ -7,6 +7,8 @@
     position: relative;
     padding:  10px 65px;
     align-items: center;
+    justify-content: center;
+    align-items: center;
 
 }
 
@@ -37,6 +39,7 @@
     top: 0;
     right: 0;
     margin-bottom: 10px;
+    animation: moveLeftToRight 4s  forwards;
 }
 
 .CollectionsBanner .FirstBanner h2{
@@ -46,6 +49,7 @@
     font-size: 0.7em;
     font-weight: 600;
     z-index: 1;
+    animation: moveLeftToRight 4s  alternate;
 
 }
 
@@ -56,6 +60,7 @@
     font-size: 2.5em;
     font-weight: 300;
     z-index: 1;
+    animation: moveLeftToRight 4s forwards;
 
 }
 
@@ -78,6 +83,7 @@
     position: relative;
     padding-right: 10px;
     z-index: 1;
+    animation: moveLeftToRight 5s ;
 
 }
 .RightArrow{
@@ -96,6 +102,7 @@
     font-weight: 600;
     display: flex;
     gap: 10px;
+    animation: moveBottomToTop 5s  ;
 }
 
 
@@ -123,20 +130,23 @@
 }
 
 .CollectionsBanner .SubBanner img {
-    width: 90%;
-    height: 90%;
+    width: 180px;
+    height: auto;
 }
 
 .CollectionsBanner .NextButton {
-    width: auto;
-    height: auto;
-    font-size: 3.5vw; 
+    width: 3vw;
+    height: 3vw; 
+  font-size: 2vw;
     cursor: pointer; /* Change cursor to pointer on hover */
     transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
     padding: 10px;
     border-radius: 50%;
     background-color: black;
     color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .CollectionsBanner .NextButton:hover {
@@ -244,4 +254,15 @@
     .CollectionsBanner .NextButton{
         display: none;
     }
+}
+
+
+@keyframes moveLeftToRight {
+    from { left: -200px; opacity: 0; z-index: -1000; }
+    to { left: 80px; opacity: 1;  z-index: -1000; }
+}
+
+@keyframes moveBottomToTop {
+    from { bottom: -200px; opacity: 0;  z-index: -5000; }
+    to { bottom: 10px; opacity: 1; z-index: -1000; }
 }

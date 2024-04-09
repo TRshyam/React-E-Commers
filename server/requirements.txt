@@ -1,0 +1,7 @@
+Flask-Cors
+flask
+pymongo
+bson
+flask_mail
+secrets
+bcrypt
