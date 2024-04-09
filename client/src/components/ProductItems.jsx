@@ -70,7 +70,7 @@ const renderItemCards = (itemCards) => {
 
   return (
     <div>
-      <div className='mx-5 md:mx-0 bg-black'> {/* Added margin on mobile */}
+      <div className='mx-5 md:mx-0 '> {/* Added margin on mobile */}
         <div className='md:flex w-full'>
           <div className='w-full md:w-[30%] md:mr-4'> {/* Adjusted width and added margin right for spacing */}
             {renderAdCards(adCards)}
@@ -82,23 +82,23 @@ const renderItemCards = (itemCards) => {
           </div>
 
         </div>
-        {/* <CollectionsBar /> */}
+        <CollectionsBar />
       </div>
-      <div className='mx-5 md:mx-0'> {/* Added margin on mobile */}
-        <div className='md:flex'>
-
-          <div className='w-full lg:w-[35%] md:mr-4'> {/* Adjusted width and added margin right for spacing */}
+      <div className='mx-5 md:mx-0 '> {/* Added margin on mobile */}
+        <div className='md:flex w-full'>
+          <div className=' w-full md:w-[70%] my-auto  '>
+            <Carousel>
+              {renderItemCards(itemCards)}
+            </Carousel>
+          </div>
+          <div className='w-full md:w-[30%] md:mr-4'> {/* Adjusted width and added margin right for spacing */}
             {renderAdCards(adCards)}
           </div>
-          
+
         </div>
         <CollectionsBar />
       </div>
-      <div>
-        {/* <Card imageSrc={ps5}/> */}
-        <Card key={50} imageSrc={ps5} content={{ product: "Pixel", prize: "50" }} id={50} />
-          {/* <ProCarousel products={Object.keys(itemCards).map(id => renderCard(id, itemCards[id]))} /> */}
-        </div>
+  
 
     </div>
   );
