@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from "react";
-import Pot1 from '../assets/CardItems/Pot-1.jpg'
-import Pot2 from '../assets/CardItems/Pot-2.jpg'
-import Pot3 from '../assets/CardItems/Pot-3.jpg'
-import Pot4 from '../assets/CardItems/Pot-4.jpg'
-import Sofa1 from '../assets/CardItems/Sofa-1.jpg'
-import Sofa2 from '../assets/CardItems/Sofa-2.jpg'
-import Sofa3 from '../assets/CardItems/Sofa-3.jpg'
-import Sofa4 from '../assets/CardItems/Sofa-4.jpg'
+import Pot4 from '../assets/CardItems/Pot/Pot-4.jpg'
+import Sofa1 from '../assets/CardItems/Sofa/Sofa-1.jpg'
+import Sofa2 from '../assets/CardItems/Sofa/Sofa-2.png'
+import Sofa3 from '../assets/CardItems/Sofa/Sofa-3.jpeg'
+import Sofa4 from '../assets/CardItems/Sofa/Sofa-4.png'
+import Sofa5 from '../assets/CardItems/Sofa/Sofa-5.png'
+import Sofa6 from '../assets/CardItems/Sofa/Sofa-6.png'
 import './CollectionsBarImageRendering.css'
 import { FaArrowRight } from "react-icons/fa";
 import { GrNext, GrLinkPrevious } from "react-icons/gr";
 
 const CollectionsBar = () => {
-    const BannerImages = [Pot1, Pot2, Pot3, Pot4, Sofa1, Sofa2, Sofa3, Sofa4];
+    const BannerImages = [Sofa1, Sofa2, Sofa3, Sofa4,Sofa5,Sofa6];
     return (
         <>
             <CollectionsBarImageRendering

@@ -5,6 +5,7 @@ import ProductItems from '../components/ProductItems'
 import Footer from '../components/Footer'
 import OfferBar from '../components/Offerbar'
 import {BannerImg} from '../components/cards';
+import Collection from '../components/Collection'
 
 
 
@@ -15,6 +16,7 @@ export default function LandingPage() {
         <Navbar/>
         <Banner/>
         <ProductItems/>
+        <Collection/>
         <Footer/>
     </>
   )
