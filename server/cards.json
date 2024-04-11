@@ -1,43 +1,100 @@
 {
- 
-    "1": {
-      "id": 1,
-      "category": "electronic",
-      "cardType": "Ad",
-      "From": "regal-blue-ad",
-      "To": "light-blue-ad",
-      "img": "https://www.shutterstock.com/image-photo/moscow-russia-june-2-2013-260nw-355320812.jpg",
-      "title": "",
-      "description": "Description for Card 1",
-      "content": {
-        "subtitle": "Work better, together",
-        "title": "Get 25% off on Electronics"
-      }
-    },
-    "2": {
-      "id": 2,
-      "category": "furniture",
-      "cardType": "item",
-      "From": "regal-yellow-ad",
-      "To": "light-yellow-ad",
-      "img": "https://www.shutterstock.com/image-photo/moscow-russia-june-2-2013-260nw-355320812.jpg",
-      "title": "",
-      "description": "Description for Card 1",
-      "content": {
-        "subtitle": "Work better, together",
-        "title": "Get 25% off on Electronics"
-      }
-    },
-    "3": {
-      "id": 3,
-      "category": "electronic",
-      "cardType": "item",
-      "img": "/as.png",
-      "title": "",
-      "description": "Description for Card 1",
-      "content": {
-        "title": "Get 25% off on Electronics",
-        "Available_items": "8"
-      }
+  "1": {
+    "id": 1,
+    "category": "electronic",
+    "cardType": "Ad",
+    "From": "regal-blue-ad",
+    "To": "light-blue-ad",
+    "img": "Adbanner",
+    "title": "",
+    "description": "Description for Card 1",
+    "content": {
+      "subtitle": "Work better, together",
+      "title": "Get 25% off on Electronics"
+    }
+  },
+  "2": {
+    "id": 2,
+    "category": "electronic",
+    "cardType": "item",
+    "From": "regal-blue-ad",
+    "To": "light-blue-ad",
+    "img": "/static/CardItems/Electronic/lap.png",
+    "title": "",
+    "description": "Description for Card 1",
+    "content": {
+      "product": "Laptop",
+      "prize": "50"
+    }
+  },
+  "3": {
+    "id": 3,
+    "category": "electronic",
+    "cardType": "item",
+    "From": "regal-blue-ad",
+    "To": "light-blue-ad",
+    "img": "/static/CardItems/Electronic/cmf.png",
+    "title": "",
+    "description": "Description for Card 1",
+    "content": {
+      "product": "CMF",
+      "prize": "50"
+    }
+  },
+  "4": {
+    "id": 4,
+    "category": "electronic",
+    "cardType": "item",
+    "From": "regal-blue-ad",
+    "To": "light-blue-ad",
+    "img": "/static/CardItems/Electronic/pixel.png",
+    "title": "",
+    "description": "Description for Card 1",
+    "content": {
+      "product": "Pixel",
+      "prize": "50"
+    }
+  },
+  "5": {
+    "id": 5,
+    "category": "electronic",
+    "cardType": "item",
+    "From": "regal-blue-ad",
+    "To": "light-blue-ad",
+    "img": "powerBank",
+    "title": "",
+    "description": "Description for Card 1",
+    "content": {
+      "product": "Pixel",
+      "prize": "50"
+    }
+  },
+  "6": {
+    "id": 6,
+    "category": "electronic",
+    "cardType": "item",
+    "From": "regal-blue-ad",
+    "To": "light-blue-ad",
+    "img": "cmfWatch",
+    "title": "",
+    "description": "Description for Card 1",
+    "content": {
+      "product": "Pixel",
+      "prize": "50"
+    }
+  },
+  "7": {
+    "id": 7,
+    "category": "electronic",
+    "cardType": "item",
+    "From": "regal-blue-ad",
+    "To": "light-blue-ad",
+    "img": "ps5",
+    "title": "",
+    "description": "Description for Card 1",
+    "content": {
+      "product": "Pixel",
+      "prize": "50"
     }
   }
+}
