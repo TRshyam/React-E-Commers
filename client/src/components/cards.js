@@ -130,6 +130,6 @@ const BannerImg1=[
      },
    }
 
-   console.log(cards);
+  //  console.log(cards);
 export {BannerImg,BannerImg1}
 export default cards;

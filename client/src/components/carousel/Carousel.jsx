@@ -36,7 +36,7 @@ const nextItemIndex = (currentIndex + 1) % childrenArray.length;
       </ul>
     </div>
 
-    <div className='relative bottom-32  lg:bottom-36 xl:bottom-40'>
+    <div className='relative bottom-36 xl:bottom-40'>
       <div className="absolute top-0 left-0 w-full z-10">
     <button
       onClick={goToPrev}
