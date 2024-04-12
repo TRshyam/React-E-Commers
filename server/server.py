@@ -74,7 +74,7 @@ def signup():
         existing_user = collection.find_one({'email': email})
         if existing_user:
             print("Email already exists in the database.")
-            return jsonify({'message': 'Email already exists'}), 400  # Return a 400 Bad Request status
+            return  'User Already exists', 400  # Return a 400 Bad Request status
         
         
         # Generate unique user ID with "abrt" prefix
