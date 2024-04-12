@@ -5,7 +5,7 @@
     flex-direction: row;
     gap: 30px;
     position: relative;
-    padding:  10px 65px;
+    padding:  10px 5%;
     align-items: center;
     justify-content: center;
     align-items: center;
@@ -27,6 +27,8 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adjust box shadow */
     border-bottom: 0.5px solid gray ;
     border-radius: 15px;
+    min-width: 400px;
+    max-width: 800px;
 }
 
 
@@ -136,11 +138,10 @@
 
 .CollectionsBanner .NextButton {
     width: 3vw;
-    height: 3vh; 
-    font-size: 1.5vw;
+    height: 3vw; 
+    font-size: auto;
     cursor: pointer; /* Change cursor to pointer on hover */
     transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
-    padding: 10px;
     border-radius: 50%;
     background-color: black;
     color: white;
@@ -197,10 +198,16 @@
     width: 35%;
     height: 50%;
 }
-#RemovalImage{
+#RemovalImage1{
     
     display: none;
 }
+}
+
+@media (max-width : 650px){
+    #RemovalImage2{
+        display: none;
+    }
 }
 
 @media (max-width : 650px) {
