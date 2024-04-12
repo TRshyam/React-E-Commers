@@ -40,13 +40,13 @@ const nextItemIndex = (currentIndex + 1) % childrenArray.length;
       <div className="absolute top-0 left-0 w-full z-10">
     <button
       onClick={goToPrev}
-      className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white rounded-full p-2 z-50 hover:bg-white hover:text-black"
+      className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white rounded-full p-2 z-50 hover:bg-gray-400 hover:text-black"
     >
       <IoIosArrowBack/>
     </button>
     <button
       onClick={goToNext}
-      className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white rounded-full p-2 hover:bg-white hover:text-black"
+      className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white rounded-full p-2 hover:bg-gray-400 hover:text-black"
     >
       <IoIosArrowForward/>
     </button>

@@ -1,11 +1,11 @@
 .CollectionsBanner {
-    height: 300px;
+    height: 350px;
     width: 100%;
     display: flex;
     flex-direction: row;
-    gap: 50px;
+    gap: 30px;
     position: relative;
-    padding:  10px 65px;
+    padding:  10px 5%;
     align-items: center;
     justify-content: center;
     align-items: center;
@@ -18,7 +18,7 @@
 }
 
 .CollectionsBanner .FirstBanner {
-    width: 650px;
+    width: 60%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -27,6 +27,8 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adjust box shadow */
     border-bottom: 0.5px solid gray ;
     border-radius: 15px;
+    min-width: 400px;
+    max-width: 800px;
 }
 
 
@@ -45,7 +47,7 @@
 .CollectionsBanner .FirstBanner h2{
     position: absolute;
     top: 50px;
-    left:60px;
+    left:8%;
     font-size: 0.7em;
     font-weight: 600;
     z-index: 1;
@@ -56,18 +58,18 @@
 .CollectionsBanner .FirstBanner h1{
     position: absolute;
     top: 80px;
-    left:80px;
+    left:8%;
     font-size: 2.5em;
     font-weight: 300;
-    z-index: 1;
+    z-index: 9999;
     animation: moveLeftToRight 4s forwards;
 
 }
 
 .CollectionsBanner .FirstBanner button{
     position: absolute;
-    top: 150px;
-    left:60px;
+    top:80%;
+    left:calc(8% - 20px);
     font-size: 1em;
     font-weight: 200;
     width: 50%;
@@ -137,16 +139,17 @@
 .CollectionsBanner .NextButton {
     width: 3vw;
     height: 3vw; 
-  font-size: 2vw;
+    font-size: auto;
     cursor: pointer; /* Change cursor to pointer on hover */
     transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
-    padding: 10px;
     border-radius: 50%;
     background-color: black;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
+    min-width: 40px;
+    min-height: 40px;
 }
 
 .CollectionsBanner .NextButton:hover {
@@ -168,30 +171,43 @@
     top: 16%;
     left:8%;
     font-size: 3vw;
+    font-weight: 800px;
 
 
 }
 
 .CollectionsBanner .FirstBanner button{
-    top: 75%;
+    top: 85%;
     font-size: 1em;
     font-weight: 200;
-    width: 17vw;
-    left:calc(50% - 150px);
+    width: 22vw;
+    left:calc(8% - 20px);
     position: relative;
     padding-right: 10px;
     z-index: 1;
 }
 
+.OfferDetails a{
+    display: none;
+}
+.OfferDetails h4 , .OfferDetails h3{
+    display: none;
+}
 
 .CollectionsBanner .SubBanner{
     width: 35%;
     height: 50%;
 }
-#RemovalImage{
+#RemovalImage1{
     
     display: none;
 }
+}
+
+@media (max-width : 650px){
+    #RemovalImage2{
+        display: none;
+    }
 }
 
 @media (max-width : 650px) {
@@ -219,8 +235,7 @@
         left: 5%;
         top: calc(10% + 5%);
         font-size: 3vh;
-
-        z-index: 1;
+        z-index: 9999;
 
     }
     .CollectionsBanner .FirstBanner button{
@@ -229,7 +244,7 @@
         width: 40%;
         padding-right: 15px;
         margin: 0;
-        top: 70%;
+        top: 80%;
 
         z-index: 1;
 
@@ -257,12 +272,3 @@
 }
 
 
-@keyframes moveLeftToRight {
-    from { left: -200px; opacity: 0; z-index: -1000; }
-    to { left: 80px; opacity: 1;  z-index: -1000; }
-}
-
-@keyframes moveBottomToTop {
-    from { bottom: -200px; opacity: 0;  z-index: -5000; }
-    to { bottom: 10px; opacity: 1; z-index: -1000; }
-}

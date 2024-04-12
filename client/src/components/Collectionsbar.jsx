@@ -1,24 +1,16 @@
-import React, { useState, useEffect } from "react";
-import Pot1 from '../assets/CardItems/Pot-1.jpg'
-import Pot2 from '../assets/CardItems/Pot-2.jpg'
-import Pot3 from '../assets/CardItems/Pot-3.jpg'
-import Pot4 from '../assets/CardItems/Pot-4.jpg'
-import Sofa1 from '../assets/CardItems/Sofa-1.jpg'
-import Sofa2 from '../assets/CardItems/Sofa-2.jpg'
-import Sofa3 from '../assets/CardItems/Sofa-3.jpg'
-import Sofa4 from '../assets/CardItems/Sofa-4.jpg'
-import './CollectionsBarImageRendering.css'
+import React, { useState, useEffect } from 'react';
+import './Collectionsbar.css'
 import { FaArrowRight } from "react-icons/fa";
 import { GrNext, GrLinkPrevious } from "react-icons/gr";
 
-const CollectionsBar = () => {
-    const BannerImages = [Pot1, Pot2, Pot3, Pot4, Sofa1, Sofa2, Sofa3, Sofa4];
+const CollectionsBar = (props) => {
+    
     return (
         <>
             <CollectionsBarImageRendering
-                Images={BannerImages}
-                Title="Plant Pot and Sofa"
-                Offer="20"
+                Images={props.Images}
+                Title={props.Text}
+                Offer={props.Offer}
             />
             <br />
         </>
@@ -33,12 +25,19 @@ const CollectionsBarImageRendering = (props) => {
     }
 
     useEffect(() => {
+
+
         const interval = setInterval(() => {
             setCurrentIndex((prevIndex) => (prevIndex + 1) % props.Images.length);
         }, 5000); // Slide every 3 seconds
 
         return () => clearInterval(interval);
     }, [props.Images.length]);
+
+    const screenWidth = window.innerWidth;
+
+    // Print the screen width
+    console.log('Screen Width:', screenWidth);
 
     return (
         <div className="CollectionsBanner">
@@ -56,13 +55,13 @@ const CollectionsBarImageRendering = (props) => {
             <div className="SubBanner">
                 <img src={props.Images[(currentIndex + 1) % props.Images.length]} alt="IMAGE" />
             </div>
-            <div className="SubBanner">
+            <div className="SubBanner" id="RemovalImage1">
                 <img src={props.Images[(currentIndex + 2) % props.Images.length]} alt="IMAGE" />
             </div>
-            <div className="SubBanner" id="RemovalImage">
+            <div className="SubBanner" id="RemovalImage1">
                 <img src={props.Images[(currentIndex + 3) % props.Images.length]} alt="IMAGE" />
             </div>
-            <button className="NextButton" onClick={HandleNext}><GrLinkPrevious/></button>
+            <button className="NextButton" onClick={HandleNext}><GrLinkPrevious /></button>
         </div>
     );
 }
