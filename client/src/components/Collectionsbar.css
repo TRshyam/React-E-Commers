@@ -9,6 +9,7 @@
     align-items: center;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 
 }
 
@@ -29,6 +30,7 @@
     border-radius: 15px;
     min-width: 400px;
     max-width: 800px;
+    overflow: hidden;
 }
 
 
@@ -41,9 +43,16 @@
     top: 0;
     right: 0;
     margin-bottom: 10px;
-    animation: moveLeftToRight 4s  forwards;
+    
 }
 
+.CollectionsBanner .FirstBanner .Image-visible{
+    animation: moveRightToLeft 2.5s  forwards;
+}
+
+.CollectionsBanner .FirstBanner .Image-hidden{
+    animation: none;
+}
 .CollectionsBanner .FirstBanner h2{
     position: absolute;
     top: 50px;
@@ -62,7 +71,8 @@
     font-size: 2.5em;
     font-weight: 300;
     z-index: 9999;
-    animation: moveLeftToRight 4s forwards;
+    animation: moveLeftToRight 5s forwards;
+    overflow: hidden;
 
 }
 
@@ -85,7 +95,7 @@
     position: relative;
     padding-right: 10px;
     z-index: 1;
-    animation: moveLeftToRight 5s ;
+    animation: moveLeftToRight 4s ;
 
 }
 .RightArrow{
@@ -104,7 +114,7 @@
     font-weight: 600;
     display: flex;
     gap: 10px;
-    animation: moveBottomToTop 5s  ;
+    animation: moveRightToLeft 4s  ;
 }
 
 
@@ -128,6 +138,7 @@
     align-items: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 15px;
+    
 
 }
 
@@ -151,7 +162,13 @@
     min-width: 40px;
     min-height: 40px;
 }
+.CollectionsBanner .SubBanner .Image-visible{
+   animation: none;
+}
 
+.CollectionsBanner .SubBanner .Image-hidden{
+    animation: moveLeftToRightSub 2.5s  forwards;
+}
 .CollectionsBanner .NextButton:hover {
     transform: scale(0.9)
 }
@@ -272,3 +289,23 @@
 }
 
 
+@keyframes moveLeftToRight {  
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes moveRightToLeft {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  
+
+  
