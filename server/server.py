@@ -70,6 +70,12 @@ def signup():
         # Assuming you have a database named 'users' and a collection named 'accounts'
         db = client['users-e-com']
         collection = db['accounts']
+
+        existing_user = collection.find_one({'email': email})
+        if existing_user:
+            print("Email already exists in the database.")
+            return jsonify({'message': 'Email already exists'}), 400  # Return a 400 Bad Request status
+        
         
         # Generate unique user ID with "abrt" prefix
         user_id = "eabrt" + str(ObjectId())
