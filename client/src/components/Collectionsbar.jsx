@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './Collectionsbar.css'
+import './CSS/Collectionsbar.css'
 import { FaArrowRight } from "react-icons/fa";
 import { GrLinkPrevious } from "react-icons/gr";
 
