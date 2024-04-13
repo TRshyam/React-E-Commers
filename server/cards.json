@@ -5,8 +5,8 @@
     "cardType": "Ad",
     "From": "regal-blue-ad",
     "To": "light-blue-ad",
-    "img": "Adbanner",
-    "title": "",
+    "img": "/static/CardItems/Electronic/lap.png",
+    "title": "Pixel",
     "description": "Description for Card 1",
     "content": {
       "subtitle": "Work better, together",
@@ -15,13 +15,13 @@
   },
   "2": {
     "id": 2,
-    "category": "electronic",
+    "category": "furnitures",
     "cardType": "item",
     "From": "regal-blue-ad",
     "To": "light-blue-ad",
     "img": "/static/CardItems/Electronic/lap.png",
-    "title": "",
-    "description": "Description for Card 1",
+    "title": "electrical currents for the purpose",
+    "description": "Description for Card  about current thing",
     "content": {
       "product": "Laptop",
       "prize": "50"
@@ -29,12 +29,12 @@
   },
   "3": {
     "id": 3,
-    "category": "electronic",
+    "category": "Electronic",
     "cardType": "item",
     "From": "regal-blue-ad",
     "To": "light-blue-ad",
     "img": "/static/CardItems/Electronic/cmf.png",
-    "title": "",
+    "title": "Pixel",
     "description": "Description for Card 1",
     "content": {
       "product": "CMF",
@@ -43,12 +43,12 @@
   },
   "4": {
     "id": 4,
-    "category": "electronic",
+    "category": "household",
     "cardType": "item",
     "From": "regal-blue-ad",
     "To": "light-blue-ad",
     "img": "/static/CardItems/Electronic/pixel.png",
-    "title": "",
+    "title": "Pixel",
     "description": "Description for Card 1",
     "content": {
       "product": "Pixel",
@@ -61,8 +61,8 @@
     "cardType": "item",
     "From": "regal-blue-ad",
     "To": "light-blue-ad",
-    "img": "powerBank",
-    "title": "",
+    "img": "/static/CardItems/Electronic/powerBank.png",
+    "title": "PowerBank",
     "description": "Description for Card 1",
     "content": {
       "product": "Pixel",
@@ -71,12 +71,12 @@
   },
   "6": {
     "id": 6,
-    "category": "electronic",
+    "category": "clothes",
     "cardType": "item",
     "From": "regal-blue-ad",
     "To": "light-blue-ad",
-    "img": "cmfWatch",
-    "title": "",
+    "img": "/static/CardItems/Electronic/cmfWatch.png",
+    "title": "Watch",
     "description": "Description for Card 1",
     "content": {
       "product": "Pixel",
@@ -85,12 +85,12 @@
   },
   "7": {
     "id": 7,
-    "category": "electronic",
+    "category": "vegetables",
     "cardType": "item",
     "From": "regal-blue-ad",
     "To": "light-blue-ad",
-    "img": "ps5",
-    "title": "",
+    "img": "/static/CardItems/Electronic/ps5.png",
+    "title": "PS5",
     "description": "Description for Card 1",
     "content": {
       "product": "Pixel",
