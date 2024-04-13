@@ -1,0 +1,135 @@
+.Category{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.Category-Filters{
+    width: 15%;
+    border-right: 2px solid grey;
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    gap: 20px;
+    padding: 0 1%;
+    padding-top: 30px;
+    min-width: 130px;
+    
+}
+
+.Category-Filters  h1{
+    font-size: 1.5em;
+    font-weight: 500;
+    text-decoration:underline;
+    color: #341466;
+    
+}
+
+.Category-Filters .Checkboxes{
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+.Category-Filters .Checkboxes label{
+    display: flex;
+    flex-direction: row;
+    gap: 10%;
+    font-size: 1em;
+    font-weight: 200;
+}
+
+
+
+.Category-Products{
+    width: 85%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px 20px;
+    
+
+}
+
+.Category-Products .Product{
+    width: 15%;
+    height: auto;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    gap: 40px;
+}
+
+.Category-Products .Product img{
+    width: 100%;
+    height:auto;   
+    
+}
+.Category-Products .Product .Product-details{
+    width: 100%;
+    height:auto;   
+    display: flex;
+    flex-direction: column;
+    padding: 10px 10px;
+    gap: 8px;
+    
+}
+
+.Category-Products .Product h1{
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.Category-Products .Product h2{
+    font-size: 0.8em;
+    font-weight: 200;
+}
+
+.Category-Products .Product h3{
+    font-size: 0.9em;
+    font-weight: 600;
+}
+
+@media (max-width : 1000px) {
+    .Category-Products .Product{
+        width: 22%;
+    }
+}
+
+@media (max-width : 800px) {
+    .Category-Products .Product{
+        width: 30%;
+    }
+}
+
+@media (max-width : 500px) {
+    .Category-Products .Product{
+        width: 40%;
+    }
+}
+
+@media (max-width : 385px) {
+    .Category {
+        flex-direction: column;
+    }
+
+    .Category-Filters{
+        width: 100%;
+        padding: 10px;
+        border-bottom: 2px solid grey;
+    }
+
+    .Category-Filters .Checkboxes{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .Category-Filters h1{
+        display: none;
+    }
+
+    .Category-Products{
+        padding: 10px;
+        width: 100%;
+    }
+}
