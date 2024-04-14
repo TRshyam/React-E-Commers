@@ -33,7 +33,7 @@ CORS(app, origins='http://localhost:5173', methods=['POST'])
 
 @app.route('/api/data', methods=['GET'])
 def get_data():
-    with open('server\cards.json', 'r') as file:
+    with open('.\cards.json', 'r') as file:
         data = json.load(file)
   
     return jsonify(data)
@@ -129,10 +129,6 @@ def signin():
     
     else:
         return "False"
-
-
-
-    # user = mongo.db.users.find_one({'username': username})
 
 
 if __name__ == '__main__':

@@ -36,6 +36,12 @@ const CollectionsBarImageRendering = (props) => {
         return () => clearInterval(interval);
     }, [props.Images.length , HandleNext]);
 
+    // Get the width of the screen
+const screenWidth = window.innerWidth;
+
+// Log the width to the console
+console.log('Screen Width:', screenWidth);
+
     return (
         <div className="CollectionsBanner">
             <div className="FirstBanner">

@@ -50,13 +50,19 @@
 }
 
 .Category-Products .Product{
-    width: 15%;
+    width: 13%;
     height: auto;
     position: relative;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     margin-bottom: 30px;
     gap: 40px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.Category-Products .Product:hover {
+    transform: scale(1.03); /* Reduce the size by 5% when hovering */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add a box shadow with a slight blur and transparency */
+  }
 
 .Category-Products .Product img{
     width: 100%;
@@ -87,6 +93,18 @@
     font-size: 0.9em;
     font-weight: 600;
 }
+
+@media (max-width : 1500px) {
+    .Category-Products .Product{
+        width: 15%;
+    }
+}
+@media (max-width : 1300px) {
+    .Category-Products .Product{
+        width: 15%;
+    }
+}
+
 
 @media (max-width : 1000px) {
     .Category-Products .Product{
