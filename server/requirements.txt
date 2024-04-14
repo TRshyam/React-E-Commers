@@ -1,6 +1,5 @@
 Flask-Cors
 Flask
 pymongo
-bson
 flask_mail
 bcrypt

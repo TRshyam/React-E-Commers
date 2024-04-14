@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import ProductImages from '../components/ProductPage/ProductImage';
+import ProductDetails from '../components/ProductPage/ProductDetails';
+import Button from '../components/CartButton';
+import Navbar from '../components/Navbar'
+
 
 function ProductPage() {
   const { id } = useParams();
@@ -29,22 +34,15 @@ function ProductPage() {
 
   return (
     <div>
+      <Navbar/>
       <div className='w-full h-screen bg-violet-500'>
-        <div className='mx-0 xl:mx-16 2xl:mx-36 py-3 h-auto bg-fuchsia-300 flex'>
-          <div className='w-[55%] h-[100vh] grid grid-cols-2 gap-2  bg-amber-300 '>
-
-          
-            {Object.entries(product.main_imgs).map(([key, imageSrc]) => (
-              <div key={key} className=' bg-slate-400 h-[400px] '>
-                <img src={`http://127.0.0.1:5000${imageSrc}`} alt={`Image ${key}`} className='object-cover w-full h-full' />
-              </div>
-            ))}
+        <div className='mx-0 xl:mx-16 2xl:mx-48 py-3 h-auto bg-fuchsia-300 flex'>
             
-          </div>
-          <div className='mx-2 w-[45%] h-auto bg-slate-300'>
-            <h1>{product.description}</h1>
-            {/* Render other details here */}
-          </div>
+            <ProductImages mainImgs={product.main_imgs} />
+
+            <ProductDetails description={product.description} />
+        
+
         </div>
       </div>
     </div>
