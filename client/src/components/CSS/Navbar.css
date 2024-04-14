@@ -87,7 +87,7 @@
     .NavIcons {
         position: relative;
         left: 0;
-        gap: vw;
+        gap: 5vw;
     }
 
     #ProductSearch{

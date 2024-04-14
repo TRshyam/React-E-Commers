@@ -33,11 +33,18 @@ CORS(app, origins='http://localhost:5173', methods=['POST'])
 
 @app.route('/api/data', methods=['GET'])
 def get_data():
-    with open('.\cards.json', 'r') as file:
+    with open('server/cards.json', 'r') as file:
         data = json.load(file)
   
     return jsonify(data)
 
+
+@app.route('/api/productsDB', methods=['GET'])
+def get_products():
+    with open('server/products_db.json', 'r') as file:
+        data = json.load(file)
+  
+    return jsonify(data)
 
 
 def generate_confirmation_token():
@@ -129,10 +136,6 @@ def signin():
     
     else:
         return "False"
-
-
-
-    # user = mongo.db.users.find_one({'username': username})
 
 
 if __name__ == '__main__':

@@ -141,9 +141,13 @@
     align-items: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 15px;
-
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 
 }
+.CollectionsBanner .SubBanner:hover {
+    transform: scale(1.03); /* Reduce the size by 5% when hovering */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add a box shadow with a slight blur and transparency */
+  }
 
 .CollectionsBanner .SubBanner img {
     width: 180px;
@@ -227,18 +231,29 @@
     }
 
     #RemovalImage1 {
-
         display: none;
     }
 }
 
-@media (max-width : 650px) {
+@media (max-width : 800px) {
     #RemovalImage2 {
         display: none;
     }
 }
 
-@media (max-width : 650px) {
+@media (max-width : 700px) {
+    #RemovalImage2{
+        display: none;
+    }
+}
+
+@media (max-width : 700px) {
+    .CollectionsBanner .SubBanner {
+        display: none;
+    }
+}
+
+@media (max-width : 600px) {
 
     .CollectionsBanner {
         padding: 0 20px;
@@ -300,6 +315,8 @@
     .CollectionsBanner .NextButton {
         display: none;
     }
+
+
 }
 
 
