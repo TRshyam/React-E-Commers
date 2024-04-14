@@ -39,6 +39,13 @@ def get_data():
     return jsonify(data)
 
 
+@app.route('/api/productsDB', methods=['GET'])
+def get_products():
+    with open('server/products_db.json', 'r') as file:
+        data = json.load(file)
+  
+    return jsonify(data)
+
 
 def generate_confirmation_token():
     return secrets.token_urlsafe(16)
