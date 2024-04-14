@@ -16,7 +16,6 @@
     "@mui/material": "^5.15.15",
     "@mui/styled-engine-sc": "^6.0.0-alpha.18",
     "axios": "^1.6.8",
-    "http-proxy-middleware": "^3.0.0",
     "ldrs": "^1.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

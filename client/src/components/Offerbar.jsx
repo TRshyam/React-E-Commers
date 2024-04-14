@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import './Offerbar.css';
+import './CSS/Offerbar.css';
 import { IoCloseCircleOutline } from "react-icons/io5";
 
 const OfferBar = () => {
