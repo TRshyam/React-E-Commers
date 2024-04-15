@@ -35,14 +35,15 @@ function ProductPage() {
   return (
     <div>
       <Navbar/>
-      <div className='w-full h-screen bg-violet-500'>
+      <div className='w-screen h-screen bg-violet-500'>
         <div className='mx-0 xl:mx-16 2xl:mx-48 py-3 h-auto bg-fuchsia-300 flex'>
             
             <ProductImages mainImgs={product.main_imgs} />
 
             <ProductDetails description={product.description} />
-        
-
+        </div>
+        <div>
+          
         </div>
       </div>
     </div>
