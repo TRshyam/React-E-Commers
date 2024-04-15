@@ -13,6 +13,7 @@
       "title": "Get 25% off on Electronics"
     }
   },
+
   "2": {
     "id": 2,
     "category": "furnitures",
@@ -29,23 +30,27 @@
   },
   "3": {
     "id": 3,
-    "category": "Electronic",
+    "category": "household",
     "cardType": "item",
     "From": "regal-blue-ad",
     "To": "light-blue-ad",
-    "img": "/static/CardItems/Electronic/cmf.png",
-    "main_imgs":{
-      "o":"/static/images/phone1.jpeg",
-      "2":"/static/images/phone7.jpg",
-      "3":"/static/images/phone7.jpg",
-      "4":"/static/images/phone7.jpg",
-      "5":"/static/images/phone7.jpg",
-      "6":"/static/images/phone7.jpg"
-    },
+    "img": "/static/CardItems/Electronic/pixel.png",
 
+    "main_imgs":{
+      "o":"https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/l/2/y/-original-imaggswcffkgcupp.jpeg?q=70&crop=false",
+      "2":"https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/l/i/b/-original-imaggsudvn9gtqxu.jpeg?q=70&crop=false",
+      "3":"https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/g/t/e/-original-imaggsudx4pqrayh.jpeg?q=70&crop=false",
+      "4":"https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/g/t/e/-original-imaggsudx4pqrayh.jpeg?q=70&crop=false",
+      "5":"https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/g/t/e/-original-imaggsudx4pqrayh.jpeg?q=70&crop=false",
+      "6":"https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/g/t/e/-original-imaggsudx4pqrayh.jpeg?q=70&crop=false"
+    },
+    "title": "pixel",
+    "details":{
+      
+    },
     "description": "Description for Card 1",
     "content": {
-      "product": "CMF",
+      "product": "Pixel 8",
       "prize": "50"
     }
   },
