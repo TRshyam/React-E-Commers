@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './CSS/Collectionsbar.css'
 import { FaArrowRight } from "react-icons/fa";
 import { GrLinkPrevious } from "react-icons/gr";
+import { Link } from 'react-router-dom';
+import Category from '../pages/Category';
 
 const CollectionsBar = (props) => {
     return (
@@ -10,6 +12,7 @@ const CollectionsBar = (props) => {
                 Images={props.Images}
                 Title={props.Text}
                 Offer={props.Offer}
+                Category ={props.Category}
             />
             <br />
         </>
@@ -47,7 +50,11 @@ console.log('Screen Width:', screenWidth);
             <div className="FirstBanner">
                 <h2>Amazing Collections</h2>
                 <h1>{props.Title}</h1>
-                <button>Shop Now <FaArrowRight className="RightArrow" /></button>
+                <Link to={`/category`} state={{from: props.Category }} >
+                <button>Shop Now <FaArrowRight className="RightArrow" />
+                </button>
+                </Link>
+                
                 {isImageVisible && (
                     <img className={`Image-${isImageVisible ? 'visible' : 'hidden'}`} src={props.Images[currentIndex]} alt="IMAGE" />
                 )}

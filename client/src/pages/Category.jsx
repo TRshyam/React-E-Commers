@@ -3,15 +3,21 @@ import './CSS/Category.css';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import axios from 'axios';
+import { useLocation } from 'react-router-dom';
 
-const Category = () => {
+const Category = (props) => {
     const [Data, setData] = useState([]);
     const [selectedFilters, setSelectedFilters] = useState([]);
+    const location = useLocation();
 
 
 
     // Fetch data from backend
     useEffect(() => {
+        if(location.state.from){
+            console.log("helpp")
+            setSelectedFilters([...selectedFilters, location.state.from]);
+        }
         const fetchData = async () => {
             try {
                 const response = await axios.get('http://localhost:5000/api/productsDB');
@@ -43,8 +49,8 @@ const Category = () => {
     };
 
     const renderProducts = () => {
+        
         const filteredProducts = filterProducts();
-
         return (
             <>
                 {filteredProducts.map((item) => (
@@ -57,6 +63,7 @@ const Category = () => {
                         </div>
                     </div>
                 ))}
+    
             </>
         );
     };
@@ -68,6 +75,8 @@ console.log('Screen width:', screenWidth);
     return (
         <>
             <Navbar />
+            {console.log("Category : ",location.state.from)}
+            {console.log(selectedFilters)}
             <div className="Category">
                 <div className="Category-Filters">
                     <h1>Filter</h1>
