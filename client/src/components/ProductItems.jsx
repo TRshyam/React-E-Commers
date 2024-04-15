@@ -96,7 +96,7 @@ const renderItemCards = (itemCards) => {
           </div>
 
         </div>
-        <CollectionsBar Images={SofaImages} Text={"Sofa and Cusions"} Offer={"20"} />
+        <CollectionsBar Images={SofaImages} Text={"Sofa and Cusions"} Offer={"20"} Category = {'furniture'} />
       </div>
       <div className='mx-5 md:mx-0 '> {/* Added margin on mobile */}
         <div className='md:flex w-full'>
@@ -110,7 +110,7 @@ const renderItemCards = (itemCards) => {
           </div>
 
         </div>
-        <CollectionsBar Images = {PotImages} Text = {"Flower Pots"} Offer = {"40"}/>
+        <CollectionsBar Images = {PotImages} Text = {"Flower Pots"} Offer = {"40"} Category = {'electronics'}/>
       </div>
   
 
