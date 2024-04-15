@@ -46,7 +46,7 @@ export default function Banner() {
                 </Button>
               </div>
             </div>
-            <div className="flex self- items-end h-full  md:w-full mr-3 md:mr-0">
+            <div className="flex self-end items-end h-full mr-3 md:mr-0">
               <Text size="md" as="p" className="!text-gray-300 text-right">
                 BRAVIA
               </Text>

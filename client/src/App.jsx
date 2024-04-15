@@ -8,6 +8,9 @@ import SignIn from './pages/SignIn'
 import SignUp from './pages/SignUp'
 import ProductPage from './pages/ProductPage'
 
+import Category from './pages/Category'
+
+
 
 const App = () => {
   return (
@@ -18,6 +21,10 @@ const App = () => {
         <Route path='/test' element={<Test/>}/>
         <Route path='/' element={<LandingPage/>}/>
         <Route path="/product/:id" element={<ProductPage/>} />
+
+       
+        <Route path="/Category" element={<Category />} />
+
       </Routes>
     </BrowserRouter>
   )

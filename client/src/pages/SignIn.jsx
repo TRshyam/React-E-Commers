@@ -3,9 +3,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import { LuEye, LuEyeOff } from "react-icons/lu";
 import axios from 'axios';
 
+
 import { bouncy } from 'ldrs'
 
 bouncy.register()
+
 
 
 
@@ -108,11 +110,13 @@ export default function SignIn() {
             {loading ? (
               <div className="text-center ">
                 {/* // Default values shown  https://uiball.com/ldrs/ */}
+
                   <l-bouncy
                     size="45"
                     speed="1.75" 
                     color="blue" 
                   ></l-bouncy>
+
 
               </div>
             ) : (
@@ -142,3 +146,4 @@ export default function SignIn() {
     </div>
   );
 }
+

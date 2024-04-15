@@ -1,6 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import Card from './Cards/Card';
 import AdCard from './Cards/AdCard';
+import Pot1 from '../assets/CardItems/Pot/Pot-1.jpg'
+import Pot2 from '../assets/CardItems/Pot/Pot-2.jpg'
+import Pot3 from '../assets/CardItems/Pot/Pot-3.jpg'
+import Pot4 from '../assets/CardItems/Pot/Pot-4.jpg'
+import Pot5 from '../assets/CardItems/Pot/Pot-5.jpeg'
+import Pot6 from '../assets/CardItems/Pot/Pot-6.jpeg'
+import Sofa1 from '../assets/CardItems/Sofa/Sofa-1.jpg'
+import Sofa2 from '../assets/CardItems/Sofa/Sofa-2.png'
+import Sofa3 from '../assets/CardItems/Sofa/Sofa-3.jpeg'
+import Sofa4 from '../assets/CardItems/Sofa/Sofa-4.png'
+import Sofa5 from '../assets/CardItems/Sofa/Sofa-5.png'
+import Sofa6 from '../assets/CardItems/Sofa/Sofa-6.png'
 // import cards from './cards'; // Importing the object-based data
 // import Carousel from "react-multi-carousel";
 // import "react-multi-carousel/lib/styles.css";
@@ -11,13 +23,15 @@ import axios from 'axios';
 import Carousel from './carousel/Carousel';
 import ps5 from '../assets/CardItems/Electronic/ps5.png';
 
-
+const SofaImages = [Sofa1, Sofa2, Sofa3, Sofa4, Sofa5, Sofa6];
+const PotImages = [Pot1, Pot2, Pot3, Pot4, Pot5, Pot6];
 
 export default function ProductItems() {
 
 
 
   const [cards, setCards] = useState([]);
+
 
   // to fetch from backend
   useEffect(() => {
@@ -82,7 +96,7 @@ const renderItemCards = (itemCards) => {
           </div>
 
         </div>
-        <CollectionsBar />
+        <CollectionsBar Images={SofaImages} Text={"Sofa and Cusions"} Offer={"20"} />
       </div>
       <div className='mx-5 md:mx-0 '> {/* Added margin on mobile */}
         <div className='md:flex w-full'>
@@ -96,7 +110,7 @@ const renderItemCards = (itemCards) => {
           </div>
 
         </div>
-        <CollectionsBar />
+        <CollectionsBar Images = {PotImages} Text = {"Flower Pots"} Offer = {"40"}/>
       </div>
   
 
