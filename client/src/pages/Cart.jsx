@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import CartItem from "../components/CartItem";
 import axios from "axios";
 import './CSS/Cart.css';
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import { MdErrorOutline } from "react-icons/md";
 
 const Cart = (props) => {
     const [cartData, setCartData] = useState(null);
@@ -26,6 +29,8 @@ const Cart = (props) => {
     }, [props]); // Include props in the dependency array to re-run the effect when props change
 
     return (
+        <>
+        <Navbar />
         <div className="Cart">
             {cartData ? (
                 Array.isArray(cartData) && cartData.length > 0 ? (
@@ -36,9 +41,12 @@ const Cart = (props) => {
                     <p>No products in cart.</p>
                 )
             ) : (
-                <p>Loading cart...</p>
+                <MdErrorOutline className="MdErrorOutline"/>
             )}
         </div>
+        <Footer />
+        </>
+
     );
 };
 
