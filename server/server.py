@@ -31,6 +31,10 @@ mail = Mail(app)
 
 CORS(app, origins='http://localhost:5173', methods=['POST'])
 
+client = MongoClient('localhost', 27017)
+db = client['users-e-com']
+carts_collection = db['carts']
+
 @app.route('/api/data', methods=['GET'])
 def get_data():
     with open('server/cards.json', 'r') as file:
@@ -136,7 +140,83 @@ def signin():
     
     else:
         return "False"
+    
+@app.route('/api/cart', methods=['POST'])
+def add_to_cart():
+    try:
+        client.admin.command('ping')
+        print("Pinged your deployment. You successfully connected to MongoDB!")
 
+        # Assuming the request includes a JSON body with userId and productId
+        data = request.json
+        userId = data.get('userId')
+        productId = data.get('productId')
+
+        # Connect to the MongoDB and add the product to the user's cart
+        db = client['users-e-com']
+        collection = db['carts']
+
+        # Check if the user's cart already exists
+        user_cart = collection.find_one({'userId': userId})
+
+        if user_cart:
+            # Check if the product is already in the cart
+            if productId in user_cart['products']:
+                updated_cart = collection.find_one({'userId': userId})
+                if updated_cart:
+                    print("Product already exists in the cart for user:", userId)
+                    return jsonify(updated_cart['products'])
+                print("Product already exists in the cart for user:", userId)
+                return "Product already exists in the cart."
+            
+            # Update the existing cart with the new product
+            collection.update_one(
+                {'userId': userId},
+                {'$addToSet': {'products': productId}}
+            )
+            print("Product added to cart for user:", userId)
+        else:
+            # Create a new cart for the user and add the product
+            cart_data = {
+                'userId': userId,
+                'products': [productId]
+            }
+            collection.insert_one(cart_data)
+            print("New cart created and product added for user:", userId)
+
+        # Retrieve and return the updated cart
+        updated_cart = collection.find_one({'userId': userId})
+        if updated_cart:
+            return jsonify(updated_cart['products'])
+        else:
+            return "Cart is empty."
+
+    except Exception as e:
+        print(e)
+        return "Failed to add product to cart."
+
+
+# Endpoint to retrieve products in the cart for a specific user
+@app.route('/api/cart/<userId>', methods=['GET'])
+def get_cart(userId):
+    try:
+        client.admin.command('ping')
+        print("Pinged your deployment. You successfully connected to MongoDB!")
+
+        # Connect to MongoDB and retrieve the user's cart
+        db = client['users-e-com']
+        collection = db['carts']
+
+        user_cart = collection.find_one({'userId': userId})
+
+        if user_cart:
+            return jsonify(user_cart['products'])
+        else:
+            return "Cart is empty."
+
+    except Exception as e:
+        print(e)
+        return "Failed to retrieve cart."
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -36,7 +36,9 @@ export default function Navbar() {
         <Link to='/sign-in' >
           <button> LogIn </button>
         </Link>
-        <a><CiShoppingCart /></a>
+        <Link to='/cart' >
+          <a><CiShoppingCart /></a>
+        </Link>
         <a><CiUser /></a>
       </div>
     </div>

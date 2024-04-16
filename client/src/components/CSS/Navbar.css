@@ -68,7 +68,9 @@
     justify-content: center;
     padding-bottom: 9px;
 }
-
+#Link{
+font-size: 1.5em;
+}
 .NavIcons a {
     font-size: 1.5em;
 }
