@@ -14,7 +14,7 @@ const Category = (props) => {
 
     // Fetch data from backend
     useEffect(() => {
-        if(location.state.from){
+        if(location.state && location.state.from){
             console.log("helpp")
             setSelectedFilters([...selectedFilters, location.state.from]);
         }
@@ -75,7 +75,6 @@ console.log('Screen width:', screenWidth);
     return (
         <>
             <Navbar />
-            {console.log("Category : ",location.state.from)}
             {console.log(selectedFilters)}
             <div className="Category">
                 <div className="Category-Filters">

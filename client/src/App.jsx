@@ -8,6 +8,7 @@ import Test from "./components/Test"
 import SignIn from './pages/SignIn'
 import SignUp from './pages/SignUp'
 import Category from './pages/Category'
+import Cart from './pages/Cart'
 
 
 const App = () => {
@@ -20,6 +21,8 @@ const App = () => {
         <Route path='/' element={<LandingPage/>}/>
         <Route path="/product/:id" element={<ProductPage />} />
         <Route path="/Category" element={<Category />} />
+        {/* in userid and productId make change the values */}
+        <Route path="/Cart" element={<Cart userId="nakul" productId="mobile" />} /> 
       </Routes>
     </BrowserRouter>
   )
