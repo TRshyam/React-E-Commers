@@ -42,3 +42,7 @@
     width: 50%;
     justify-content: space-around;
 }
+
+.FiMinusCircle , .FiPlusCircle{
+    font-size: 1.5em;
+}

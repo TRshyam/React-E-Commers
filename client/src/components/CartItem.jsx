@@ -1,46 +1,87 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import sampleImage from '../assets/CardItems/Pot/Pot-1.jpg';
 import './CSS/CartItem.css';
-import { FiMinusCircle } from "react-icons/fi";
-import { FiPlusCircle } from "react-icons/fi";
-
-
+import { FiMinusCircle, FiPlusCircle } from "react-icons/fi";
+import axios from "axios";
 
 const CartItem = (props) => {
-    const [productname, Setproductname] = useState('Pot')
-    const [productCategory, SetproductCategory] = useState('HouseHold')
-    const [productDescription, SetproductDescription] = useState('Image and other details are yet to be linked with productDB !!')
-    const [productPrice, SetproductPrice] = useState('99')
-    return (
-        <div className="CartItem">
+  const [quantity, setQuantity] = useState(props.quantity || 0); // Set default quantity to 0 if not provided
+  const [userId, setUserId] = useState('');
+  const [productId, setProductId] = useState('');
+  const [productname, setProductName] = useState('Pot');
+  const [productCategory, setProductCategory] = useState('HouseHold');
+  const [productDescription, setProductDescription] = useState('Image and other details are yet to be linked with productDB !!');
+  const [productPrice, setProductPrice] = useState('99');
 
-            <img src={sampleImage} alt="SampleImage" className="CartItem-Image" />
-            <div className="CartItem-Details">
-                <h1>
-                    {props.productId}
-                </h1>
-                <h2>
-                    {productCategory}
-                </h2>
-                <h3>
-                    {productDescription}
-                </h3>
-                <div className="CartItem-Modify">
-                    <button >
-                        <FiMinusCircle />
-                    </button>
+  useEffect(() => {
+    console.log("Props in CartItem:", props);
+    setQuantity(props.quantity || 0);
+    setUserId(props.userId);
+    setProductId(props.productId);
+  }, []);
 
-                    <h4>
-                        Rs .{productPrice}
-                    </h4>
+  const increaseQuantity = async () => {
+    console.log("Hey your are on Increase Quantity fun() :", quantity);
+    const newQuantity = quantity + 1;
+    setQuantity(newQuantity); // Update UI quantity immediately (optimistic update)
+    updateCart(newQuantity); // Call updateCart with new quantity
+  };
 
-                    <button >
-                        <FiPlusCircle  />
-                    </button>
-                </div>
-            </div>
+  const decreaseQuantity = () => {
+    if (quantity > 1) {
+      const newQuantity = quantity - 1;
+      setQuantity(newQuantity); // Update UI quantity immediately
+      updateCart(newQuantity); // Call updateCart with new quantity
+    }
+  };
+
+  const updateCart = async (newQuantity) => {
+    console.log("You are currently on the Update Cart fun() : ", userId, productId, newQuantity);
+    if (userId && productId && newQuantity > 0) {
+      try {
+        const response = await axios.post('http://localhost:5000/api/cart', { userId, productId, quantity: newQuantity });
+        console.log("Response: ", response.data);
+        // Update state only after successful response (if backend returns updated quantity)
+        // if (response.data && response.data.quantity) { // Check for updated quantity in response
+        //   setQuantity(response.data.quantity);
+        // }
+      } catch (error) {
+        console.log("Error: ", error.message);
+        // Handle potential update errors (optional - revert UI changes)
+      }
+    }
+  };
+
+  return (
+    <div className="CartItem">
+      <img src={sampleImage} alt="SampleImage" className="CartItem-Image" />
+      <div className="CartItem-Details">
+        <h1>
+          {productname} 
+        </h1>
+        <h2>
+          {productCategory} ( {quantity} ) - Product ID : {productId}
+        </h2>
+        <h3>
+          {productDescription}
+        </h3>
+        <div className="CartItem-Modify">
+          <button onClick={decreaseQuantity}>
+            <FiMinusCircle className="FiMinusCircle" />
+          </button>
+          <h4>
+            {quantity}
+          </h4>
+          <button onClick={increaseQuantity}>
+            <FiPlusCircle className="FiPlusCircle" />
+          </button>
         </div>
-    );
-}
+      </div>
+      <div className="CartItem-Price">
+        <h1>Rs .{productPrice * quantity}</h1>
+      </div>
+    </div>
+  );
+};
 
 export default CartItem;

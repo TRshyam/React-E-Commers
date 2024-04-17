@@ -151,6 +151,8 @@ def add_to_cart():
         data = request.json
         userId = data.get('userId')
         productId = data.get('productId')
+        quantity = data.get('quantity')
+        print("quantity : ",quantity)
 
         # Connect to the MongoDB and add the product to the user's cart
         db = client['users-e-com']
@@ -161,7 +163,13 @@ def add_to_cart():
 
         if user_cart:
             # Check if the product is already in the cart
-            if productId in user_cart['products']:
+            if any(item['productId'] == productId for item in user_cart['products']):
+                # Update existing cart with new quantity for the product
+                collection.update_one(
+                    {'userId': userId, 'products.productId': productId},  # Find by userId and matching productId
+                    {'$set': {'products.$.quantity': quantity}}  # Update quantity using $inc and positional operator
+                )
+                print(f"Product {productId} quantity updated in cart for user {userId}")
                 updated_cart = collection.find_one({'userId': userId})
                 if updated_cart:
                     print("Product already exists in the cart for user:", userId)
@@ -172,14 +180,14 @@ def add_to_cart():
             # Update the existing cart with the new product
             collection.update_one(
                 {'userId': userId},
-                {'$addToSet': {'products': productId}}
+                {'$addToSet': {'products': {'productId' : productId ,'quantity' : quantity}}}
             )
             print("Product added to cart for user:", userId)
         else:
             # Create a new cart for the user and add the product
             cart_data = {
-                'userId': userId,
-                'products': [productId]
+            'userId': userId,
+            'products': [{'productId': productId, 'quantity': quantity}]
             }
             collection.insert_one(cart_data)
             print("New cart created and product added for user:", userId)
@@ -194,8 +202,7 @@ def add_to_cart():
     except Exception as e:
         print(e)
         return "Failed to add product to cart."
-
-
+    
 # Endpoint to retrieve products in the cart for a specific user
 @app.route('/api/cart/<userId>', methods=['GET'])
 def get_cart(userId):

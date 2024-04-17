@@ -22,7 +22,8 @@ const App = () => {
         <Route path="/product/:id" element={<ProductPage />} />
         <Route path="/Category" element={<Category />} />
         {/* in userid and productId make change the values */}
-        <Route path="/Cart" element={<Cart userId="nakul" productId="mobile" />} /> 
+        <Route path="/Cart" element={<Cart userId="nakul" productId="mobile" quantity={1} />} />
+
       </Routes>
     </BrowserRouter>
   )
