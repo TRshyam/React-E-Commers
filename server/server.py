@@ -141,7 +141,7 @@ def signin():
     else:
         return "False"
     
-@app.route('/api/cart', methods=['POST'])
+@app.route('/api/cart/add', methods=['POST'])
 def add_to_cart():
     try:
         client.admin.command('ping')
@@ -202,6 +202,44 @@ def add_to_cart():
     except Exception as e:
         print(e)
         return "Failed to add product to cart."
+    
+@app.route('/api/cart/delete', methods=['POST'])
+def remove_from_cart():
+    try:
+        client.admin.command('ping')
+        print("Pinged your deployment. You successfully connected to MongoDB!")
+
+        data = request.json
+        userId = data.get('userId')
+        productId = data.get('productId')
+        print(productId , userId)
+
+        db = client['users-e-com']
+        collection = db['carts']
+
+        user_cart = collection.find_one({'userId': userId})
+
+        if not user_cart:
+            return "User cart not found."
+        print("productId",productId)
+        if any(item['productId'] == productId for item in user_cart['products']):
+            
+
+            collection.update_one(
+                {'userId': userId, 'products.productId': productId},
+                {'$pull': {'products': {'productId': productId}}}  # Use $pull to remove product
+            )
+
+            updated_cart = collection.find_one({'userId': userId})
+            if updated_cart:
+                return jsonify(updated_cart['products'])
+            else:
+                return "An error occurred while removing the product."  # More generic error
+        return "Product not found in the cart."
+
+    except Exception as e:
+        print(e)
+        return "Failed to remove product from cart."
     
 # Endpoint to retrieve products in the cart for a specific user
 @app.route('/api/cart/<userId>', methods=['GET'])

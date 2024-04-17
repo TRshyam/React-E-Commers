@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import sampleImage from '../assets/CardItems/Pot/Pot-1.jpg';
 import './CSS/CartItem.css';
 import { FiMinusCircle, FiPlusCircle } from "react-icons/fi";
+import { AiOutlineDelete } from "react-icons/ai";
 import axios from "axios";
 
 const CartItem = (props) => {
@@ -52,6 +53,16 @@ const CartItem = (props) => {
     }
   };
 
+
+
+  const handleDelete = async () => {
+    if (userId && productId) {
+        props.deleteCartItem(userId, productId); // Call deleteCartItem function from parent
+    } else {
+        console.error("Missing user or product ID for deletion.");
+    }
+};
+
   return (
     <div className="CartItem">
       <img src={sampleImage} alt="SampleImage" className="CartItem-Image" />
@@ -79,6 +90,9 @@ const CartItem = (props) => {
       </div>
       <div className="CartItem-Price">
         <h1>Rs .{productPrice * quantity}</h1>
+        <button onClick={handleDelete}>
+                    <AiOutlineDelete className="AiOutlineDelete" />
+        </button>
       </div>
     </div>
   );
