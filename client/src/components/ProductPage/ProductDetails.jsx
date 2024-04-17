@@ -54,65 +54,12 @@ console.log(Specification);
 
 
 export default function ProductDetails({ description }) {
-  // to test Cards over here
-  //  const [cards, setCards] = useState([]);
-  
-  //   // to fetch from backend
-  //   useEffect(() => {
-  //     const fetchData = async () => {
-  //       try {
-  //         const response = await axios.get('http://localhost:5000/api/data');
-  //         const cardsArray = Object.values(response.data);
-  //         setCards(cardsArray);
-  //       } catch (error) {
-  //         console.error('Error fetching data:', error);
-  //       }
-  //     };
-  
-  //     fetchData();
-  //   }, []);
-  
-  
-  
-  
-  //   // Separate Ad and item cards
-  //  const adCards = {};
-  // const itemCards = {};
-  // for (const key in cards) {
-  //   if (cards.hasOwnProperty(key)) {
-  //     const card = cards[key];
-  //     if (card.cardType === 'Ad') {
-  //       adCards[key] = card;
-  //     } else if (card.cardType === 'item') {
-  //       itemCards[key] = card;
-  //     }
-  //   }
-  // }
-  
-  // // Render AdCards
-  // const renderAdCards = (adCards) => {
-  //   return Object.keys(adCards).map((key) => {
-  //     const { img, content, From, To } = adCards[key];
-  //     return <AdCard key={key} bgGradientFrom={From} bgGradientTo={To} imageSrc={img} content={content} />;
-  //   });
-  // };
-  
-  // // Render ItemCards
-  // const renderItemCards = (itemCards) => {
-  //   return Object.keys(itemCards).map((key) => {
-  //     const { img, content, id } = itemCards[key];
-  //     return <Card key={key} imageSrc={img} content={content} id={id} />;
-  //   });
-  // };
-  
-  // console.log();
-  // to test Cards over here
-  
+
   
   
   
   return (
-    <div className='mx-2 w-[50%] h-auto bg-white'>
+    <div className='mx-2 w-[100%] h-auto bg-white'>
       {/* Header */}
       <div>
         {/* Title */}

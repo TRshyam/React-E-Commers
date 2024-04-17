@@ -14,14 +14,16 @@ function ProductPage() {
   const [product, setProduct] = useState(null);
   const [ReleatedProducts,setReleatedProducts]=useState()
   const [loading, setLoading] = useState(true);
+  const [recentlyViewed, setRecentlyViewed] = useState([]);
 
-  const content =
-  {content: {
-         product: "Pixel ",
-         prize: "50",
-       }
-      }
-      console.log(content.content);
+const addToRecentlyViewed = (product) => {
+  // Check if the product is already in the list
+  if (!recentlyViewed.some((item) => item.id === product.id)) {
+    // Add the product to the beginning of the list
+    setRecentlyViewed([product, ...recentlyViewed.slice(0, 4)]);
+  }
+};
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -32,6 +34,7 @@ function ProductPage() {
         setProduct(foundProduct);
         setLoading(false);
         setReleatedProducts(products)
+        addToRecentlyViewed(foundProduct);
       } catch (error) {
         console.error(`Error fetching product: ${error}`);
         setLoading(false);
@@ -66,32 +69,34 @@ const renderItemCards = (itemCards) => {
   if (!product) return <p>Product not found</p>;
 
   return (
-    <div>
+    <div className='bg-gray-100 w-full h-screen'>
       <Navbar/>
-      <div className='w-full h-screen bg-violet-500'>
-        <div className='mx-0 xl:mx-16 2xl:mx-48 py-3 h-auto bg-fuchsia-300 flex'>
+      <div className='bg-gray-100 w-full flex flex-col  '>
+        <div className='mx-0 xl:mx-16 2xl:mx-48 py-3 h-auto   flex-grow flex '>
             
-            <ProductImages mainImgs={product.main_imgs} />
+            <ProductImages mainImgs={product.main_imgs}  />
 
             <ProductDetails description={product.description} />
         </div>
-        <div className='bg-orange-300 h-full mx-0 xl:mx-16 2xl:mx-48 py-3'>
-          <div className='bg-pink-400  '>
+        <div className=' h-full mx-0 xl:mx-16 2xl:mx-48 py-3'>
+          <div className='  '>
             <span className='text-xl font-semibold'>Similar Products</span>
             <Carousel>
                 {renderItemCards(itemCards)}
             </Carousel>         
           </div>
-          <div className='bg-pink-400  '>
+          <div className='  '>
             <Carousel>
                 {renderItemCards(itemCards)}
             </Carousel>         
           </div>
-          <div className='bg-pink-400 my-5  '>
+          <div className='my-5  '>
             <span className='text-xl font-semibold '>Recently Viewed</span>
-            <Carousel>
-                {renderItemCards(itemCards)}
-            </Carousel>         
+              <Carousel>
+                {recentlyViewed.map((product) => (
+                  <Card key={product.id} imageSrc={product.img} content={product.content} id={product.id} />
+                ))}
+              </Carousel>         
           </div>
           {/* <div className='bg-pink-800 grid grid-cols-3 gap-4 md:hidden '> 
             {renderItemCards(itemCards)}
