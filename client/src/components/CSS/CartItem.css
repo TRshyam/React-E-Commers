@@ -1,7 +1,7 @@
 .CartItem{
     width: 100%;
-    border : 2px solid black;
-    height: 230px;
+    border : 2px solid grey;
+    height: 220px;
     display: flex;
     flex-direction: row;
     padding: 10px;
@@ -16,31 +16,54 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    padding-left: 20px;
+    padding: 0px 15px;
+    width: 75%;
 }
 
 .CartItem-Details h1{
-    font-size: 2em;
+    font-size: 1.3em;
     font-weight: 600;
 }
 .CartItem-Details h2{
-    font-size: 1.5em;
+    font-size: 1em;
     font-weight: 200;
 }
 .CartItem-Details h3{
-    font-size: 1em;
+    font-size: 0.9em;
     font-weight: 400;
 }
 .CartItem-Details h4{
-    font-size: 2em;
+    font-size: 1.5em;
     font-weight: 700;
 }
 
 .CartItem-Modify{
     display: flex;
     flex-direction: row;
-    width: 50%;
+    width: 20%;
     justify-content: space-around;
+}
+
+.CartItem-Price{
+    display: flex;
+    flex-direction: column;
+    width: calc(15%);
+    justify-content:space-around;
+    align-items: center;
+    border-left: 2px solid grey;
+}
+
+.CartItem-AddorRemove{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.CartItem-Price h1{
+    font-size: 1.7em;
+    color: #341466;
+    font-weight: 600;
 }
 
 .FiMinusCircle , .FiPlusCircle{
@@ -49,4 +72,10 @@
 
 .AiOutlineDelete{
     font-size: 2em;
+    color: #341466;
+}
+
+.FaRegHeart{
+    font-size: 1.7em;
+    color: #341466;
 }
