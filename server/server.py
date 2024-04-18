@@ -33,7 +33,7 @@ CORS(app, origins='http://localhost:5173', methods=['POST'])
 
 @app.route('/api/data', methods=['GET'])
 def get_data():
-    with open('server\cards.json', 'r') as file:
+    with open('server\DatabaseSchema.json', 'r') as file:
         data = json.load(file)
   
     return jsonify(data)

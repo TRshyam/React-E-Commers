@@ -2,60 +2,19 @@ import React,{ useState, useEffect } from 'react';
 import Carousel from '../carousel/Carousel';
 import Card from '../Cards/Card';
 import AdCard from '../Cards/AdCard'
-const Specification={
-  general:{
-    brand:"Google",
-    model:"Pixel 7",
-    Color:"Dark Grey",
-    "SIM Type":"Dual Sim(Nano + eSIM)",
-    "Hybrid Sim Slot":"No",
-  },
-  "Display Features":{
-    brand:"Google",
-    model:"Pixel 7",
-    Color:"Dark Grey",
-    "SIM Type":"Dual Sim(Nano + eSIM)",
-    "Hybrid Sim Slot" :" No",
-  },
-  "Os & Processor Features":{
-    brand:"Google",
-    model:"Pixel 7",
-    Color:"Dark Grey",
-    "SIM Type":"Dual Sim(Nano + eSIM)Dual Sim(Nano + eSIM)Dual Sim(Nano + eSIM)Dual Sim(Nano + eSIM)",
-    "Hybrid Sim Slot":"No",
-  },
-  "Os & a Features":{
-    brand:"Google",
-    model:"Pixel 7",
-    Color:"Dark Grey",
-    "SIM Type":"Dual Sim(Nano + eSIM)",
-    "Hybrid Sim Slot":"No",
-  },
-  "Oatures":{
-    brand:"Google",
-    model:"Pixel 7",
-    Color:"Dark Grey",
-    "SIM Type":"Dual Sim(Nano + eSIM)",
-    "Hybrid Sim Slot":"No",
-  },
-  "Osatures":{
-    brand:"Google",
-    model:"Pixel 7",
-    Color:"Dark Grey",
-    "SIM Type":"Dual Sim(Nano + eSIM)",
-    "Hybrid Sim Slot":"No",
-  },
-}
 
-console.log(Specification);
+
+// console.log(Specification);
 
 
 
 
 
-export default function ProductDetails({ description }) {
+export default function ProductDetails({ details }) {
 
-  
+  console.log(details.details.ratings);
+  console.log(details.details.Specialprize);
+  console.log(details);
   
   
   return (
@@ -66,7 +25,7 @@ export default function ProductDetails({ description }) {
         <div>
           <h1 className='bg-white mt-3 p-3 text-xl font-mono '>
             <span>
-              Google Pixel 7 (Lemongrass, 128 GB)(8 GB RAM)
+              {details.productName}
             </span>
           </h1>
         </div>
@@ -76,7 +35,7 @@ export default function ProductDetails({ description }) {
         <div className='bg-white p-3'>
           <span className='text-black flex items-center gap-1'>
             <div className='px-2 bg-green-400 text-white flex items-center'>
-              <span >4.2</span>
+              <span >{details.details.ratings}</span>
               <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMyIgaGVpZ2h0PSIxMiI+PHBhdGggZmlsbD0iI0ZGRiIgZD0iTTYuNSA5LjQzOWwtMy42NzQgMi4yMy45NC00LjI2LTMuMjEtMi44ODMgNC4yNTQtLjQwNEw2LjUuMTEybDEuNjkgNC4wMSA0LjI1NC40MDQtMy4yMSAyLjg4Mi45NCA0LjI2eiIvPjwvc3ZnPg==" alt=""  className='w-4 h-4'/>
             </div>
 
@@ -106,15 +65,44 @@ export default function ProductDetails({ description }) {
         <div className='bg-white p-3'>
           <p className='text-green-600 font-serif '>Special Price::</p>        
           <div className='flex items-baseline gap-5'>
-            <p className='ml-5 text-2xl'>₹2,00,374</p>
-            <p className='line-through'>₹4,00,374</p>
-            <p className='text-green-500'>74% off</p>
+            <p className='ml-5 text-2xl'>₹{details.details.Specialprize}</p>
+            <p className='line-through'>₹{details.details.Originalprize}</p>
+            <p className='text-green-500'>{details.details.discount}</p>
           </div>
         </div>
         {/* Pricing */}
 
       </div>
       {/* Header */}
+
+      {/* description & highlights */}
+
+     <div className='bg-gray-50 my-3 py-3'>
+  <div className='w-full flex'>
+    <div className='w-32 mx-3'>
+      <h1>Highlights</h1>
+    </div> 
+    <div className='mx-2'>
+      <ul className='list-disc'>
+        {details.details.highlights.map((highlight, index) => (
+          <li className='py-1  ' key={index}>{highlight}</li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</div>
+      <div className='bg-gray-50'>
+        <div className='w-full flex'>
+          <div className='w-64 mx-3'>
+            <h1>Description</h1>
+          </div> 
+          <div className='mx-10'>
+              <span className=''>{details.details.Description}</span>
+          </div>
+        </div>
+      </div>
+      {/* description & highlights */}
+
 
 
 
@@ -124,7 +112,7 @@ export default function ProductDetails({ description }) {
             <span className='font-bold text-xl'>Specification :::</span>
           </div>
           {/* Tabel Content */}
-            {Object.entries(Specification).map(([section, features]) => (
+            {Object.entries(details.details.Specification).map(([section, features]) => (
               <div key={section} className='my-3 mx-4 capitalize'>
                 <h2 className=' text-lg font-semibold	'>{section}</h2>
                 <table className='my-2 w-full mx-1'>
