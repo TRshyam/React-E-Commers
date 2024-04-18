@@ -26,7 +26,13 @@ export default function Navbar() {
 
   return (
     <div className={`NavBar${isFixed ? ' fixed' : ''}`}>
-      <div className='Logo'>ebart</div>
+
+      <div className='Logo'>
+        <Link to='/' >
+          ebart
+        </Link>
+      </div>
+
 
       <div className='NavIcons'>
         <div className='ProductSearch' >
