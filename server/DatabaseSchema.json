@@ -1,0 +1,100 @@
+{
+    "Products": { 
+      "productId": {
+        "productName": "",
+        "productModel": "",
+        "price": "",
+        "description": "",
+        "category": "",
+        "brand": "",
+        "availability": "",
+        "ratings": [],
+        "reviews": [],
+        "images": {
+          "primaryImage": [],
+          "subImages": []
+        },
+        "attributes": {},
+        "tags": [],
+        "discount": ""
+      }
+    },
+  
+    "Admins": {
+      "adminId": {
+        "adminId": "",
+        "adminName": {
+          "firstName": "",
+          "lastName": ""
+        },
+        "email": "",
+        "phone": "",
+        "defaultAddress": "",
+        "addresses": [],
+        "age": "",
+        "dateOfBirth": "",
+        "password": "",
+        "products": [],
+        "ratings": []
+      }
+    },
+  
+    "Customers": {
+      "customerId": {
+        "customerId": "",
+        "customerName": {
+          "firstName": "",
+          "lastName": ""
+        },
+        "email": "",
+        "phone": "",
+        "defaultAddress": "",
+        "addresses": [],
+        "age": "",
+        "dateOfBirth": "",
+        "gender": "",
+        "orders": ["orderId"],
+        "wishlist": [],
+        "paymentMethods": [],
+        "isActive": true,
+        "lastLogin": "",
+        "password": ""
+      }
+    },
+  
+    "Orders": {
+      "orderId": {
+        "orderId": "",
+        "customerId": "",
+        "orderProducts": [
+          {"productId": "", "quantity": ""},
+          {"productId": "", "quantity": ""}
+        ],
+        "paid": true,
+        "paymentMethod" : "",
+        "paymentDeatils" : "",
+        "paidDate": "",
+        "paidTime": "",
+        "orderDate": "",
+        "orderTime": ""
+      }
+    },
+  
+    "Carts": {
+      "customerId": {
+        "products": [
+          {"productId": "", "quantity": ""},
+          {"productId": "", "quantity": ""}
+        ]
+      }
+    },
+  
+    "Wishlists": {
+      "customerId": {
+      "products": [
+        {"productId": "", "quantity": ""},
+        {"productId": "", "quantity": ""}
+      ]
+    }
+  }
+}

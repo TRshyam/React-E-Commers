@@ -98,7 +98,7 @@ const CartItem = (props) => {
         <button onClick={handleDelete}>
                     <AiOutlineDelete className="AiOutlineDelete" />
         </button>
-        <button onClick={handleDelete}>
+        <button >
                     <FaRegHeart className="FaRegHeart" />
         </button>
 
