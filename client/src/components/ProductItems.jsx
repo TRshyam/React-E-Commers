@@ -54,6 +54,7 @@ export default function ProductItems() {
   // Separate Ad and item cards
  const adCards = {};
 const itemCards = {};
+console.log(itemCards);
 for (const key in cards) {
   if (cards.hasOwnProperty(key)) {
     const card = cards[key];
@@ -76,8 +77,8 @@ const renderAdCards = (adCards) => {
 // Render ItemCards
 const renderItemCards = (itemCards) => {
   return Object.keys(itemCards).map((key) => {
-    const { img, content, id } = itemCards[key];
-    return <Card key={key} imageSrc={img} content={content} id={id} />;
+    const { id, productName, details, From, To } = itemCards[key];
+    return <Card key={key} item={{ id, productName, details }} />;
   });
 };
 
