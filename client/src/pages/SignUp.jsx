@@ -4,6 +4,11 @@ import { LuEye } from "react-icons/lu";
 import { LuEyeOff } from "react-icons/lu";
 import axios from 'axios';
 
+import { bouncy } from 'ldrs'
+
+bouncy.register()
+
+
 export default function SignUp() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -12,9 +17,12 @@ export default function SignUp() {
   const [message, setmessage] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
+
 
  const handleSubmit = async (event) => {
     event.preventDefault();
+    setLoading(true)
 
     // Password validation regex
     const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+}{"':;?/>.<,]).{8,}$/;
@@ -23,6 +31,13 @@ export default function SignUp() {
       setError(
         'Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one special character, and one number.'
       );
+            setLoading(false);
+
+      return;
+    }
+        if (password !== confirmPassword) {
+      setError('Passwords do not match.');
+      setLoading(false);
       return;
     }
 
@@ -30,6 +45,8 @@ export default function SignUp() {
     try {
       const response = await axios.post('http://localhost:5000/api/signup', { email, password });
       console.log(response.data); // Log the response from the Flask server
+            setLoading(false); // Set loading state to false when the request completes
+
       // alert('User signed up successfully!');
       setmessage('')
       setError('');
@@ -38,16 +55,17 @@ export default function SignUp() {
       setConfirmPassword('');
     } catch (error) {
       console.error('Error signing up:', error);
-      setError('Error signing up. Please try again.');
+            setLoading(false); // Set loading state to false if there's an error
+ // Extract error message from Axios error response
+    const errorMessage = error.response.data || 'Error signing up. Please try again.';
+    console.log(error.response.data);
+
+    setError(errorMessage);
     }
   };
 
 
-  // Function to hash the password (you can use a library like bcrypt for better security)
-  const hashPassword = (password) => {
-    // For simplicity, let's just return the password as is
-    return password;
-  };
+  
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
@@ -156,8 +174,22 @@ export default function SignUp() {
               <span className="text-sm">I agree to the terms and conditions</span>
             </label>
           </div>
-            {error && <p className="text-sm text-red-500 mb-4">{error}</p>}
-            {message && <p className="text-sm text-green-500 mb-4">{message}</p>}
+                <div className='mb-5'>
+            {loading ? (
+              <div className="text-center ">
+                {/* // Default values shown  https://uiball.com/ldrs/ */}
+                  <l-bouncy
+                    size="45"
+                    speed="1.75" 
+                    color="blue" 
+                  ></l-bouncy>
+
+              </div>
+            ) : (
+              error && <p className="text-sm text-red-500 mb-4">{error}</p>
+            )}
+          </div>
+            
 
           <button
             type="submit"
@@ -167,9 +199,10 @@ export default function SignUp() {
           </button>
 
         </form>
-        <div className="mt-4">
+        <div className="mt-4 flex gap-2">
+          <p>Already have an account?</p>
           <Link to="/sign-in" className="text-blue-500 hover:underline">
-            Already have an account? Sign In
+             Sign In
           </Link>
         </div>
       </div>

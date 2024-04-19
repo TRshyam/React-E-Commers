@@ -1,100 +1,760 @@
 {
-    "Products": { 
-      "productId": {
-        "productName": "",
-        "productModel": "",
-        "price": "",
-        "description": "",
-        "category": "",
-        "brand": "",
-        "availability": "",
-        "ratings": [],
-        "reviews": [],
-        "images": {
-          "primaryImage": [],
-          "subImages": []
-        },
-        "attributes": {},
-        "tags": [],
-        "discount": ""
-      }
-    },
-  
-    "Admins": {
-      "adminId": {
-        "adminId": "",
-        "adminName": {
-          "firstName": "",
-          "lastName": ""
-        },
-        "email": "",
-        "phone": "",
-        "defaultAddress": "",
-        "addresses": [],
-        "age": "",
-        "dateOfBirth": "",
-        "password": "",
-        "products": [],
-        "ratings": []
-      }
-    },
-  
-    "Customers": {
-      "customerId": {
-        "customerId": "",
-        "customerName": {
-          "firstName": "",
-          "lastName": ""
-        },
-        "email": "",
-        "phone": "",
-        "defaultAddress": "",
-        "addresses": [],
-        "age": "",
-        "dateOfBirth": "",
-        "gender": "",
-        "orders": ["orderId"],
-        "wishlist": [],
-        "paymentMethods": [],
-        "isActive": true,
-        "lastLogin": "",
-        "password": ""
-      }
-    },
-  
-    "Orders": {
-      "orderId": {
-        "orderId": "",
-        "customerId": "",
-        "orderProducts": [
-          {"productId": "", "quantity": ""},
-          {"productId": "", "quantity": ""}
+     "1":{
+      "id": 1,
+      "productName": "Echo Dot (3rd Gen)",
+      "category": "electronic",
+      "cardType": "item",
+      "details": {
+        "head": "Echo Dot (3rd Gen) - Smart speaker with Alexa - Charcoal",
+        "images": [
+          "https://m.media-amazon.com/images/I/81lGxS2ZisL._SX425_.jpg",
+          "https://m.media-amazon.com/images/I/71AbQ3Hf75L._SX679_.jpg"
         ],
-        "paid": true,
-        "paymentMethod" : "",
-        "paymentDeatils" : "",
-        "paidDate": "",
-        "paidTime": "",
-        "orderDate": "",
-        "orderTime": ""
-      }
+        "videos": [],
+        "Specialprize": "2,499",
+        "Originalprize": "4,499",
+        "discount": "44% off",
+        "ratings": "4.5",
+        "highlights": [
+          "Stream songs from Amazon Music, Apple Music, Spotify, Sirius XM, and others.",
+          "Use the built-in speaker, or for bigger sound, connect to speakers through Bluetooth or audio cable.",
+          "Voice control your smart home - Turn on lights, adjust thermostats, lock doors, and more with compatible connected devices.",
+          "Create routines to start and end your day."
+        ],
+        "Description":"Experience the pinnacle of photography with the Xiaomi 14, the product of the innovative partnership between Xiaomi and Leica. With three 50 MP Leica cameras, you can unleash your imagination and capture the subtleties of life with unmatched clarity. With its wide aperture, the primary 50 MP Summilux camera steals the show and produces amazing pictures across a range of lighting settings. Leica Cinematography has remarkable cinematic qualities, providing GoPro and Dolby Vision video recording. The phone's design guarantees an immersive viewing experience with its ultra-comfortable grip and state-of-the-art display technology. The Snapdragon 8 Gen 3-powered Xiaomi 14 skillfully strikes a mix between economy and performance. With the 90 W HyperCharge, charging is simplified. Its IP68 certification ensures durability, and its CCG technology provides maximum performance when charging",
+
+        "Specification":{
+          "General":{
+            "brand":"Google",
+            "model":"Pixel 7",
+            "Color":"Dark Grey",
+            "SIM Type":"Dual Sim(Nano + eSIM)",
+            "Hybrid Sim Slot":"No"
+          },
+          "Display Features":{
+            "brand":"Google",
+            "model":"Pixel 7",
+            "Color":"Dark Grey",
+            "SIM Type":"Dual Sim(Nano + eSIM)",
+            "Hybrid Sim Slot":"No"
+          },
+          "Os & Processor Features":{
+            "brand":"Google",
+            "model":"Pixel 7",
+            "Color":"Dark Grey",
+            "SIM Type":"Dual Sim(Nano + eSIM)",
+            "Hybrid Sim Slot":"No"
+          },
+          "Memory & Storage Features":{
+            "brand":"Google",
+            "model":"Pixel 7",
+            "Color":"Dark Grey",
+            "SIM Type":"Dual Sim(Nano + eSIM)",
+            "Hybrid Sim Slot":"No"
+          }
+        
+        },
+        "reviews": [],
+        "questions": []
+      },
+      "From": "amzn-ad",
+      "To": "light-blue-ad"
     },
-  
-    "Carts": {
-      "customerId": {
-        "products": [
-          {"productId": "", "quantity": ""},
-          {"productId": "", "quantity": ""}
-        ]
-      }
+
+    "2":{
+      "id": 2,
+      "productName": "Sony WH-1000XM4",
+      "category": "electronic",
+      "cardType": "item",
+      "details": {
+        "head": "Sony WH-1000XM4 Wireless Industry Leading Noise Canceling Overhead Headphones with Mic for Phone-Call and Alexa Voice Control, Black",
+        "images": [
+          "https://m.media-amazon.com/images/I/71o8Q5XJS5L._AC_SL1500_.jpg",
+          "https://m.media-amazon.com/images/I/61Jl6XHrIqL._SX679_.jpg",
+          "https://m.media-amazon.com/images/I/81ybhKGmMxL._SX679_.jpg",
+          "https://m.media-amazon.com/images/I/81ybhKGmMxL._SX679_.jpg",
+          "https://m.media-amazon.com/images/I/81ybhKGmMxL._SX679_.jpg",
+          "https://m.media-amazon.com/images/I/81ybhKGmMxL._SX679_.jpg",
+          "https://m.media-amazon.com/images/I/81ybhKGmMxL._SX679_.jpg"
+        ],
+        "videos": [],
+        "Specialprize": "25,999",
+        "Originalprize": "29,990",
+        "discount": "13% off",
+        "ratings": "4.7",
+        "highlights": [
+          "Industry-leading noise canceling with Dual Noise Sensor technology",
+          "Next-level music with Edge-AI, co-developed with Sony Music Studios Tokyo",
+          "Up to 30-hour battery life with quick charging (10 min charge for 5 hours of playback)",
+          "Touch Sensor controls to pause/play/skip tracks, control volume, activate your voice assistant, and answer phone calls",
+          "Speak-to-chat technology automatically reduces volume during conversations"
+        ],
+        "Description":"Experience the pinnacle of photography with the Xiaomi 14, the product of the innovative partnership between Xiaomi and Leica. With three 50 MP Leica cameras, you can unleash your imagination and capture the subtleties of life with unmatched clarity. With its wide aperture, the primary 50 MP Summilux camera steals the show and produces amazing pictures across a range of lighting settings. Leica Cinematography has remarkable cinematic qualities, providing GoPro and Dolby Vision video recording. The phone's design guarantees an immersive viewing experience with its ultra-comfortable grip and state-of-the-art display technology. The Snapdragon 8 Gen 3-powered Xiaomi 14 skillfully strikes a mix between economy and performance. With the 90 W HyperCharge, charging is simplified. Its IP68 certification ensures durability, and its CCG technology provides maximum performance when charging",
+
+        "Specification":{
+          "General":{
+            "brand":"Google",
+            "model":"Pixel 7",
+            "Color":"Dark Grey",
+            "SIM Type":"Dual Sim(Nano + eSIM)",
+            "Hybrid Sim Slot":"No"
+          },
+          "Display Features":{
+            "brand":"Google",
+            "model":"Pixel 7",
+            "Color":"Dark Grey",
+            "SIM Type":"Dual Sim(Nano + eSIM)",
+            "Hybrid Sim Slot":"No"
+          },
+          "Os & Processor Features":{
+            "brand":"Google",
+            "model":"Pixel 7",
+            "Color":"Dark Grey",
+            "SIM Type":"Dual Sim(Nano + eSIM)",
+            "Hybrid Sim Slot":"No"
+          },
+          "Memory & Storage Features":{
+            "brand":"Google",
+            "model":"Pixel 7",
+            "Color":"Dark Grey",
+            "SIM Type":"Dual Sim(Nano + eSIM)",
+            "Hybrid Sim Slot":"No"
+          }
+        
+        },
+        "reviews": [],
+        "questions": []
+      },
+      "From": "amzn-ad",
+      "To": "light-blue-ad"
     },
-  
-    "Wishlists": {
-      "customerId": {
-      "products": [
-        {"productId": "", "quantity": ""},
-        {"productId": "", "quantity": ""}
-      ]
+    "3":{
+      "id": 3,
+      "productName": "Samsung Galaxy Watch 4 Classic",
+      "category": "electronic",
+      "cardType": "item",
+      "details": {
+        "head": "Samsung Galaxy Watch 4 Classic (42mm, GPS, Bluetooth, Unlocked LTE) Smartwatch with Advanced Health Monitoring, Fitness Tracking, and Long Lasting Battery, Silver",
+        "images": [
+          "https://rukminim2.flixcart.com/image/416/416/ksxjs7k0/smartwatch/u/j/h/android-sm-r890nzkainu-samsung-yes-original-imag6dtg9shty8zf.jpeg?q=70&crop=false",
+          "https://rukminim2.flixcart.com/image/416/416/ksxjs7k0/smartwatch/o/q/t/android-sm-r890nzkainu-samsung-yes-original-imag6dtg5m6rztx6.jpeg?q=70&crop=false",
+          "https://rukminim2.flixcart.com/image/416/416/kst9gnk0/smartwatch/q/a/g/1-2-android-sm-r880nzkainu-samsung-yes-original-imag6awyzjghzqkt.jpeg?q=70&crop=false"
+        ],
+        "videos": [],
+        "Specialprize": "31,999",
+        "Originalprize": "34,999",
+        "discount": "9% off",
+        "ratings": "4.4",
+        "highlights": [
+          "Run your day with your choice of advanced health tracking",
+          "Built-in sleep tracker offers valuable insights on how to get a better night's sleep",
+          "Galaxy Watch 4 Classic combines advanced hardware and software technology for a range of health and fitness features",
+          "Long-lasting battery life for continuous wear"
+        ],
+        "Description":"Experience the pinnacle of photography with the Xiaomi 14, the product of the innovative partnership between Xiaomi and Leica. With three 50 MP Leica cameras, you can unleash your imagination and capture the subtleties of life with unmatched clarity. With its wide aperture, the primary 50 MP Summilux camera steals the show and produces amazing pictures across a range of lighting settings. Leica Cinematography has remarkable cinematic qualities, providing GoPro and Dolby Vision video recording. The phone's design guarantees an immersive viewing experience with its ultra-comfortable grip and state-of-the-art display technology. The Snapdragon 8 Gen 3-powered Xiaomi 14 skillfully strikes a mix between economy and performance. With the 90 W HyperCharge, charging is simplified. Its IP68 certification ensures durability, and its CCG technology provides maximum performance when charging",
+
+        "Specification":{
+          "General":{
+            "brand":"Google",
+            "model":"Pixel 7",
+            "Color":"Dark Grey",
+            "SIM Type":"Dual Sim(Nano + eSIM)",
+            "Hybrid Sim Slot":"No"
+          },
+          "Display Features":{
+            "brand":"Google",
+            "model":"Pixel 7",
+            "Color":"Dark Grey",
+            "SIM Type":"Dual Sim(Nano + eSIM)",
+            "Hybrid Sim Slot":"No"
+          },
+          "Os & Processor Features":{
+            "brand":"Google",
+            "model":"Pixel 7",
+            "Color":"Dark Grey",
+            "SIM Type":"Dual Sim(Nano + eSIM)",
+            "Hybrid Sim Slot":"No"
+          },
+          "Memory & Storage Features":{
+            "brand":"Google",
+            "model":"Pixel 7",
+            "Color":"Dark Grey",
+            "SIM Type":"Dual Sim(Nano + eSIM)",
+            "Hybrid Sim Slot":"No"
+          }
+        
+        },
+        "reviews": [],
+        "questions": []
+      },
+      "From": "amzn-ad",
+      "To": "light-blue-ad"
+    },
+
+    "4":{
+      "id": 4,
+      "productName": "Apple AirPods Pro",
+      "category": "electronic",
+      "cardType": "item",
+      "details": {
+        "head": "Apple AirPods Pro",
+        "images": [
+          "https://rukminim2.flixcart.com/image/416/416/xif0q/headphone/e/a/f/-original-imagtc44nk4b3hfg.jpeg?q=70&crop=false",
+          "https://m.media-amazon.com/images/I/71b8Tt4+XjL._AC_SL1500_.jpg",
+          "https://m.media-amazon.com/images/I/71zny7BTRlL._AC_SL1500_.jpg"
+        ],
+        "videos": [],
+        "Specialprize": "20,999",
+        "Originalprize": "24,900",
+        "discount": "15% off",
+        "ratings": "4.8",
+        "highlights": [
+          "Active Noise Cancellation for immersive sound",
+          "Transparency mode for hearing and connecting with the world around you",
+          "Three sizes of soft, tapered silicone tips for a customizable fit",
+          "Sweat and water resistant",
+          "Adaptive EQ automatically tunes music to the shape of your ear"
+        ],
+       "Description":"Experience the pinnacle of photography with the Xiaomi 14, the product of the innovative partnership between Xiaomi and Leica. With three 50 MP Leica cameras, you can unleash your imagination and capture the subtleties of life with unmatched clarity. With its wide aperture, the primary 50 MP Summilux camera steals the show and produces amazing pictures across a range of lighting settings. Leica Cinematography has remarkable cinematic qualities, providing GoPro and Dolby Vision video recording. The phone's design guarantees an immersive viewing experience with its ultra-comfortable grip and state-of-the-art display technology. The Snapdragon 8 Gen 3-powered Xiaomi 14 skillfully strikes a mix between economy and performance. With the 90 W HyperCharge, charging is simplified. Its IP68 certification ensures durability, and its CCG technology provides maximum performance when charging",
+
+        "Specification":{
+          "General":{
+            "brand":"Google",
+            "model":"Pixel 7",
+            "Color":"Dark Grey",
+            "SIM Type":"Dual Sim(Nano + eSIM)",
+            "Hybrid Sim Slot":"No"
+          },
+          "Display Features":{
+            "brand":"Google",
+            "model":"Pixel 7",
+            "Color":"Dark Grey",
+            "SIM Type":"Dual Sim(Nano + eSIM)",
+            "Hybrid Sim Slot":"No"
+          },
+          "Os & Processor Features":{
+            "brand":"Google",
+            "model":"Pixel 7",
+            "Color":"Dark Grey",
+            "SIM Type":"Dual Sim(Nano + eSIM)",
+            "Hybrid Sim Slot":"No"
+          },
+          "Memory & Storage Features":{
+            "brand":"Google",
+            "model":"Pixel 7",
+            "Color":"Dark Grey",
+            "SIM Type":"Dual Sim(Nano + eSIM)",
+            "Hybrid Sim Slot":"No"
+          }
+        
+        },
+        "reviews": [],
+        "questions": []
+      },
+      "From": "amzn-ad",
+      "To": "light-blue-ad"
+    },
+    "5":{
+      "id": 5,
+      "productName": "Apple AirPods Pro",
+      "category": "electronic",
+      "cardType": "item",
+      "details": {
+        "head": "Apple AirPods Pro",
+        "images": [
+          "https://m.media-amazon.com/images/I/71zny7BTRlL._AC_SL1500_.jpg",
+          "https://m.media-amazon.com/images/I/71b8Tt4+XjL._AC_SL1500_.jpg",
+          "https://m.media-amazon.com/images/I/71zny7BTRlL._AC_SL1500_.jpg"
+        ],
+        "videos": [],
+        "Specialprize": "20,999",
+        "Originalprize": "24,900",
+        "discount": "15% off",
+        "ratings": "4.8",
+        "highlights": [
+          "Active Noise Cancellation for immersive sound",
+          "Transparency mode for hearing and connecting with the world around you",
+          "Three sizes of soft, tapered silicone tips for a customizable fit",
+          "Sweat and water resistant",
+          "Adaptive EQ automatically tunes music to the shape of your ear"
+        ],
+        "Description":"Experience the pinnacle of photography with the Xiaomi 14, the product of the innovative partnership between Xiaomi and Leica. With three 50 MP Leica cameras, you can unleash your imagination and capture the subtleties of life with unmatched clarity. With its wide aperture, the primary 50 MP Summilux camera steals the show and produces amazing pictures across a range of lighting settings. Leica Cinematography has remarkable cinematic qualities, providing GoPro and Dolby Vision video recording. The phone's design guarantees an immersive viewing experience with its ultra-comfortable grip and state-of-the-art display technology. The Snapdragon 8 Gen 3-powered Xiaomi 14 skillfully strikes a mix between economy and performance. With the 90 W HyperCharge, charging is simplified. Its IP68 certification ensures durability, and its CCG technology provides maximum performance when charging",
+
+        "Specification":{
+          "General":{
+            "brand":"Google",
+            "model":"Pixel 7",
+            "Color":"Dark Grey",
+            "SIM Type":"Dual Sim(Nano + eSIM)",
+            "Hybrid Sim Slot":"No"
+          },
+          "Display Features":{
+            "brand":"Google",
+            "model":"Pixel 7",
+            "Color":"Dark Grey",
+            "SIM Type":"Dual Sim(Nano + eSIM)",
+            "Hybrid Sim Slot":"No"
+          },
+          "Os & Processor Features":{
+            "brand":"Google",
+            "model":"Pixel 7",
+            "Color":"Dark Grey",
+            "SIM Type":"Dual Sim(Nano + eSIM)",
+            "Hybrid Sim Slot":"No"
+          },
+          "Memory & Storage Features":{
+            "brand":"Google",
+            "model":"Pixel 7",
+            "Color":"Dark Grey",
+            "SIM Type":"Dual Sim(Nano + eSIM)",
+            "Hybrid Sim Slot":"No"
+          }
+        
+        },
+        "reviews": [],
+        "questions": []
+      },
+      "From": "amzn-ad",
+      "To": "light-blue-ad"
+    },
+    "6":{
+      "id": 6,
+      "productName": "Samsung Galaxy Tab S7+",
+      "category": "electronic",
+      "cardType": "item",
+      "details": {
+        "head": "Samsung Galaxy Tab S7+ Wi-Fi, Mystic Black - 128 GB",
+        "images": [
+          "https://m.media-amazon.com/images/I/51MWxwcmijL._AC_SL1500_.jpg",
+          "https://m.media-amazon.com/images/I/61FTJkUJLcL._AC_SL1500_.jpg",
+          "https://m.media-amazon.com/images/I/71k++NukESL._AC_SL1500_.jpg"
+        ],
+        "videos": [],
+        "Specialprize": "79,999",
+        "Originalprize": "84,999",
+        "discount": "6% off",
+        "ratings": "4.6",
+        "highlights": [
+          "PC PERFORMANCE. TABLET PORTABILITY: Transform your tablet into a PC experience with DeX mode and the optional keyboard(1) with expanded trackpad",
+          "ENTERTAINMENT, UPGRADED: Experience cinematic viewing in your hands with larger edge-to-edge displays, sAMOLEDTM screen(2) and quad speakers tuned by AKG with Dolby Atmos surround sound",
+          "REDESIGNED S PEN INCLUDED: With improved 9ms pen latency, the redesigned S Pen can control presentations and take notes effortlessly",
+          "CHANGE THE WAY YOU GAME: Bring console gaming to anywhere a Wi-Fi connection is available with an immersive screen and Bluetooth-enabled controller(3)"
+        ],
+        "Description":"Experience the pinnacle of photography with the Xiaomi 14, the product of the innovative partnership between Xiaomi and Leica. With three 50 MP Leica cameras, you can unleash your imagination and capture the subtleties of life with unmatched clarity. With its wide aperture, the primary 50 MP Summilux camera steals the show and produces amazing pictures across a range of lighting settings. Leica Cinematography has remarkable cinematic qualities, providing GoPro and Dolby Vision video recording. The phone's design guarantees an immersive viewing experience with its ultra-comfortable grip and state-of-the-art display technology. The Snapdragon 8 Gen 3-powered Xiaomi 14 skillfully strikes a mix between economy and performance. With the 90 W HyperCharge, charging is simplified. Its IP68 certification ensures durability, and its CCG technology provides maximum performance when charging",
+
+        "Specification":{
+          "General":{
+            "brand":"Google",
+            "model":"Pixel 7",
+            "Color":"Dark Grey",
+            "SIM Type":"Dual Sim(Nano + eSIM)",
+            "Hybrid Sim Slot":"No"
+          },
+          "Display Features":{
+            "brand":"Google",
+            "model":"Pixel 7",
+            "Color":"Dark Grey",
+            "SIM Type":"Dual Sim(Nano + eSIM)",
+            "Hybrid Sim Slot":"No"
+          },
+          "Os & Processor Features":{
+            "brand":"Google",
+            "model":"Pixel 7",
+            "Color":"Dark Grey",
+            "SIM Type":"Dual Sim(Nano + eSIM)",
+            "Hybrid Sim Slot":"No"
+          },
+          "Memory & Storage Features":{
+            "brand":"Google",
+            "model":"Pixel 7",
+            "Color":"Dark Grey",
+            "SIM Type":"Dual Sim(Nano + eSIM)",
+            "Hybrid Sim Slot":"No"
+          }
+        
+        },
+        "reviews": [],
+        "questions": []
+      },
+      "From": "amzn-ad",
+      "To": "light-blue-ad"
+    },
+    "7":{
+      "id": 7,
+      "productName": "Sony WHXB900N",
+      "category": "electronic",
+      "cardType": "item",
+      "details": {
+        "head": "Sony WHXB900N Noise Cancelling Headphones, Wireless Bluetooth Over the Ear Headset with Mic for Phone-Call and Alexa Voice Control- Black (WH-XB900N/B)",
+        "images": [
+          "https://m.media-amazon.com/images/I/71tuY2hYpnL._AC_SL1500_.jpg",
+          "https://m.media-amazon.com/images/I/71zsZ9-Z3GL._AC_SL1500_.jpg",
+          "https://m.media-amazon.com/images/I/61BXZWVR3AL._AC_SL1500_.jpg"
+        ],
+        "videos": [],
+        "Specialprize": "16,999",
+        "Originalprize": "19,990",
+        "discount": "15% off",
+        "ratings": "4.5",
+        "highlights": [
+          "Feel the power of EXTRA BASS",
+          "Next-level digital noise cancelling technology",
+          "Get up to 30 hours of battery life",
+          "Touch Sensor controls to pause/play/skip tracks, control volume, activate your voice assistant, and answer phone calls",
+          "Quick Attention Mode for effortless conversations without taking your headphones off"
+        ],
+        "Description":"Experience the pinnacle of photography with the Xiaomi 14, the product of the innovative partnership between Xiaomi and Leica. With three 50 MP Leica cameras, you can unleash your imagination and capture the subtleties of life with unmatched clarity. With its wide aperture, the primary 50 MP Summilux camera steals the show and produces amazing pictures across a range of lighting settings. Leica Cinematography has remarkable cinematic qualities, providing GoPro and Dolby Vision video recording. The phone's design guarantees an immersive viewing experience with its ultra-comfortable grip and state-of-the-art display technology. The Snapdragon 8 Gen 3-powered Xiaomi 14 skillfully strikes a mix between economy and performance. With the 90 W HyperCharge, charging is simplified. Its IP68 certification ensures durability, and its CCG technology provides maximum performance when charging",
+
+        "Specification":{
+          "General":{
+            "brand":"Google",
+            "model":"Pixel 7",
+            "Color":"Dark Grey",
+            "SIM Type":"Dual Sim(Nano + eSIM)",
+            "Hybrid Sim Slot":"No"
+          },
+          "Display Features":{
+            "brand":"Google",
+            "model":"Pixel 7",
+            "Color":"Dark Grey",
+            "SIM Type":"Dual Sim(Nano + eSIM)",
+            "Hybrid Sim Slot":"No"
+          },
+          "Os & Processor Features":{
+            "brand":"Google",
+            "model":"Pixel 7",
+            "Color":"Dark Grey",
+            "SIM Type":"Dual Sim(Nano + eSIM)",
+            "Hybrid Sim Slot":"No"
+          },
+          "Memory & Storage Features":{
+            "brand":"Google",
+            "model":"Pixel 7",
+            "Color":"Dark Grey",
+            "SIM Type":"Dual Sim(Nano + eSIM)",
+            "Hybrid Sim Slot":"No"
+          }
+        
+        },
+        "reviews": [],
+        "questions": []
+      },
+      "From": "amzn-ad",
+      "To": "light-blue-ad"
+    },
+    "8":{
+      "id": 8,
+      "productName": "NVIDIA SHIELD Android TV Pro",
+      "category": "electronic",
+      "cardType": "item",
+      "details": {
+        "head": "NVIDIA SHIELD Android TV Pro 4K HDR Streaming Media Player; High Performance, Dolby Vision, 3GB RAM, 2x USB, Works with Alexa",
+        "images": [
+          "https://m.media-amazon.com/images/I/71eVgO5nEsL._AC_SL1500_.jpg",
+          "https://m.media-amazon.com/images/I/71Vhe4LXCMz._AC_SL1500_.jpg",
+          "https://m.media-amazon.com/images/I/81wInn4tDyL._AC_SL1500_.jpg"
+        ],
+        "videos": [],
+        "Specialprize": "21,999",
+        "Originalprize": "24,999",
+        "discount": "12% off",
+        "ratings": "4.8",
+        "highlights": [
+          "The Best of the Best. Up to 25% faster than the previous generation thanks to the new NVIDIA Tegra X1+ chip. Enhance HD video in real-time to 4K for clearer, crisper visuals using next-generation AI upscaling",
+          "Cinematic Experience. Enjoy the most 4K HDR content of any streaming media player, and access to thousands of apps and games, including top apps like Netflix,YouTube, Prime Video and Hulu",
+          "Voice Control. The built-in Google Assistant is at your command. See photos, live camera feeds, weather, sports scores, and more on the big screen",
+          "Upscale HD video to 4K in real-time using the power of AI and the Tegra X1+ processor",
+          "Upscale HD video to 4K in real-time using the power of AI and the Tegra X1+ processor"
+        ],
+        "Description":"Experience the pinnacle of photography with the Xiaomi 14, the product of the innovative partnership between Xiaomi and Leica. With three 50 MP Leica cameras, you can unleash your imagination and capture the subtleties of life with unmatched clarity. With its wide aperture, the primary 50 MP Summilux camera steals the show and produces amazing pictures across a range of lighting settings. Leica Cinematography has remarkable cinematic qualities, providing GoPro and Dolby Vision video recording. The phone's design guarantees an immersive viewing experience with its ultra-comfortable grip and state-of-the-art display technology. The Snapdragon 8 Gen 3-powered Xiaomi 14 skillfully strikes a mix between economy and performance. With the 90 W HyperCharge, charging is simplified. Its IP68 certification ensures durability, and its CCG technology provides maximum performance when charging",
+
+        "Specification":{
+          "General":{
+            "brand":"Google",
+            "model":"Pixel 7",
+            "Color":"Dark Grey",
+            "SIM Type":"Dual Sim(Nano + eSIM)",
+            "Hybrid Sim Slot":"No"
+          },
+          "Display Features":{
+            "brand":"Google",
+            "model":"Pixel 7",
+            "Color":"Dark Grey",
+            "SIM Type":"Dual Sim(Nano + eSIM)",
+            "Hybrid Sim Slot":"No"
+          },
+          "Os & Processor Features":{
+            "brand":"Google",
+            "model":"Pixel 7",
+            "Color":"Dark Grey",
+            "SIM Type":"Dual Sim(Nano + eSIM)",
+            "Hybrid Sim Slot":"No"
+          },
+          "Memory & Storage Features":{
+            "brand":"Google",
+            "model":"Pixel 7",
+            "Color":"Dark Grey",
+            "SIM Type":"Dual Sim(Nano + eSIM)",
+            "Hybrid Sim Slot":"No"
+          }
+        
+        },
+        "reviews": [],
+        "questions": []
+      },
+      "From": "amzn-ad",
+      "To": "light-blue-ad"
+    },
+    "9":{
+      "id": 9,
+      "productName": "Apple Watch Series 6",
+      "category": "electronic",
+      "cardType": "item",
+      "details": {
+        "head": "Apple Watch Series 6 (GPS, 44mm) - Blue Aluminum Case with Deep Navy Sport Band",
+        "images": [
+          "https://m.media-amazon.com/images/I/71q+34HXp2L._AC_SL1500_.jpg",
+          "https://m.media-amazon.com/images/I/71uXYtCkZEL._AC_SL1500_.jpg",
+          "https://m.media-amazon.com/images/I/71h9-Me3KSL._AC_SL1500_.jpg"
+        ],
+        "videos": [],
+        "Specialprize": "36,999",
+        "Originalprize": "39,900",
+        "discount": "7% off",
+        "ratings": "4.9",
+        "highlights": [
+          "Check your heart rhythm with the ECG app",
+          "5GHz Wi-Fi and U1 Ultra Wideband chip",
+          "Measure workouts like running, walking, cycling, yoga, swimming, and dance",
+          "Swimproof design",
+          "Sync your favorite music, podcasts, and audiobooks"
+        ],
+        "Description":"Experience the pinnacle of photography with the Xiaomi 14, the product of the innovative partnership between Xiaomi and Leica. With three 50 MP Leica cameras, you can unleash your imagination and capture the subtleties of life with unmatched clarity. With its wide aperture, the primary 50 MP Summilux camera steals the show and produces amazing pictures across a range of lighting settings. Leica Cinematography has remarkable cinematic qualities, providing GoPro and Dolby Vision video recording. The phone's design guarantees an immersive viewing experience with its ultra-comfortable grip and state-of-the-art display technology. The Snapdragon 8 Gen 3-powered Xiaomi 14 skillfully strikes a mix between economy and performance. With the 90 W HyperCharge, charging is simplified. Its IP68 certification ensures durability, and its CCG technology provides maximum performance when charging",
+
+        "Specification":{
+          "General":{
+            "brand":"Google",
+            "model":"Pixel 7",
+            "Color":"Dark Grey",
+            "SIM Type":"Dual Sim(Nano + eSIM)",
+            "Hybrid Sim Slot":"No"
+          },
+          "Display Features":{
+            "brand":"Google",
+            "model":"Pixel 7",
+            "Color":"Dark Grey",
+            "SIM Type":"Dual Sim(Nano + eSIM)",
+            "Hybrid Sim Slot":"No"
+          },
+          "Os & Processor Features":{
+            "brand":"Google",
+            "model":"Pixel 7",
+            "Color":"Dark Grey",
+            "SIM Type":"Dual Sim(Nano + eSIM)",
+            "Hybrid Sim Slot":"No"
+          },
+          "Memory & Storage Features":{
+            "brand":"Google",
+            "model":"Pixel 7",
+            "Color":"Dark Grey",
+            "SIM Type":"Dual Sim(Nano + eSIM)",
+            "Hybrid Sim Slot":"No"
+          }
+        
+        },
+        "reviews": [],
+        "questions": []
+      },
+      "From": "amzn-ad",
+      "To": "light-blue-ad"
+    },
+    "10":{
+      "id": 10,
+      "productName": "Bose QuietComfort 35 II",
+      "category": "electronic",
+      "cardType": "item",
+      "details": {
+        "head": "Bose QuietComfort 35 II Wireless Bluetooth Headphones, Noise-Cancelling, with Alexa Voice Control - Black",
+        "images": [
+          "https://m.media-amazon.com/images/I/81NZB2ZqClL._AC_SL1500_.jpg",
+          "https://m.media-amazon.com/images/I/61ihzj7dFjL._AC_SL1500_.jpg",
+          "https://m.media-amazon.com/images/I/81X0+Yp4FQL._AC_SL1500_.jpg"
+        ],
+        "videos": [],
+        "Specialprize": "27,500",
+        "Originalprize": "29,363",
+        "discount": "6% off",
+        "ratings": "4.7",
+        "highlights": [
+          "Alexa-enabled for voice access to music, information, and more",
+          "Noise-rejecting dual-microphone system for clear sound and voice pick-up",
+          "Balanced audio performance at any volume",
+          "Hassle-free Bluetooth pairing, personalized settings, access to future updates, and more through the Bose Connect app"
+        ],
+        "Description":"Experience the pinnacle of photography with the Xiaomi 14, the product of the innovative partnership between Xiaomi and Leica. With three 50 MP Leica cameras, you can unleash your imagination and capture the subtleties of life with unmatched clarity. With its wide aperture, the primary 50 MP Summilux camera steals the show and produces amazing pictures across a range of lighting settings. Leica Cinematography has remarkable cinematic qualities, providing GoPro and Dolby Vision video recording. The phone's design guarantees an immersive viewing experience with its ultra-comfortable grip and state-of-the-art display technology. The Snapdragon 8 Gen 3-powered Xiaomi 14 skillfully strikes a mix between economy and performance. With the 90 W HyperCharge, charging is simplified. Its IP68 certification ensures durability, and its CCG technology provides maximum performance when charging",
+
+        "Specification":{
+          "General":{
+            "brand":"Google",
+            "model":"Pixel 7",
+            "Color":"Dark Grey",
+            "SIM Type":"Dual Sim(Nano + eSIM)",
+            "Hybrid Sim Slot":"No"
+          },
+          "Display Features":{
+            "brand":"Google",
+            "model":"Pixel 7",
+            "Color":"Dark Grey",
+            "SIM Type":"Dual Sim(Nano + eSIM)",
+            "Hybrid Sim Slot":"No"
+          },
+          "Os & Processor Features":{
+            "brand":"Google",
+            "model":"Pixel 7",
+            "Color":"Dark Grey",
+            "SIM Type":"Dual Sim(Nano + eSIM)",
+            "Hybrid Sim Slot":"No"
+          },
+          "Memory & Storage Features":{
+            "brand":"Google",
+            "model":"Pixel 7",
+            "Color":"Dark Grey",
+            "SIM Type":"Dual Sim(Nano + eSIM)",
+            "Hybrid Sim Slot":"No"
+          }
+        
+        },
+        "reviews": [],
+        "questions": []
+      },
+      "From": "amzn-ad",
+      "To": "light-blue-ad"
+    },
+    "11":{
+      "id": 11,
+      "productName": "LG OLED65CXPUA",
+      "category": "electronic",
+      "cardType": "item",
+      "details": {
+        "head": "LG OLED65CXPUA Alexa Built-In CX 65-inch 4K Smart OLED TV (2020 Model)",
+        "images": [
+          "https://m.media-amazon.com/images/I/81Uxm4q4h4L._AC_SL1500_.jpg",
+          "https://m.media-amazon.com/images/I/71WhN2ZJHcL._AC_SL1500_.jpg",
+          "https://m.media-amazon.com/images/I/71ZXl28dDIL._AC_SL1500_.jpg"
+        ],
+        "videos": [],
+        "Specialprize": "1,99,999",
+        "Originalprize": "2,49,990",
+        "discount": "20% off",
+        "ratings": "4.8",
+        "highlights": [
+          "LG OLED TV: Only OLED pixels emit their own light, allowing for perfect black, intense color and stunning picture",
+          "PIXEL LEVEL DIMMING: Millions of pixels emit their own light. Only OLED can turn pixels off completely and independently. See stunning picture, perfect black, infinite contrast and over a billion rich colors",
+          "WEBOS AND MAGIC REMOTE: LG's fan-favorite webOS platform makes it surprisingly fast and easy to stream movies and shows with your favorite apps and find new obsessions based on what you like. While our Magic Remote lives up to its name with voice and motion control — just speak or simply point, scroll and click",
+          "α9 GEN 3 AI PROCESSOR 4K: Everything you see and hear is automatically made better, clearer, smoother, and more dynamic with our a9 Gen 3 AI Processor 4K. You don’t have to do a thing. Our most advanced 4K processor does it for you with AI Picture Pro, AI Sound Pro, AI 4K Upscaling, and the ability to help your TV to evolve over time"
+        ],
+        "Description":"Experience the pinnacle of photography with the Xiaomi 14, the product of the innovative partnership between Xiaomi and Leica. With three 50 MP Leica cameras, you can unleash your imagination and capture the subtleties of life with unmatched clarity. With its wide aperture, the primary 50 MP Summilux camera steals the show and produces amazing pictures across a range of lighting settings. Leica Cinematography has remarkable cinematic qualities, providing GoPro and Dolby Vision video recording. The phone's design guarantees an immersive viewing experience with its ultra-comfortable grip and state-of-the-art display technology. The Snapdragon 8 Gen 3-powered Xiaomi 14 skillfully strikes a mix between economy and performance. With the 90 W HyperCharge, charging is simplified. Its IP68 certification ensures durability, and its CCG technology provides maximum performance when charging",
+
+        "Specification":{
+          "General":{
+            "brand":"Google",
+            "model":"Pixel 7",
+            "Color":"Dark Grey",
+            "SIM Type":"Dual Sim(Nano + eSIM)",
+            "Hybrid Sim Slot":"No"
+          },
+          "Display Features":{
+            "brand":"Google",
+            "model":"Pixel 7",
+            "Color":"Dark Grey",
+            "SIM Type":"Dual Sim(Nano + eSIM)",
+            "Hybrid Sim Slot":"No"
+          },
+          "Os & Processor Features":{
+            "brand":"Google",
+            "model":"Pixel 7",
+            "Color":"Dark Grey",
+            "SIM Type":"Dual Sim(Nano + eSIM)",
+            "Hybrid Sim Slot":"No"
+          },
+          "Memory & Storage Features":{
+            "brand":"Google",
+            "model":"Pixel 7",
+            "Color":"Dark Grey",
+            "SIM Type":"Dual Sim(Nano + eSIM)",
+            "Hybrid Sim Slot":"No"
+          }
+        
+        },
+        "reviews": [],
+        "questions": []
+      },
+      "From": "amzn-ad",
+      "To": "light-blue-ad"
+    },
+    "12":{
+      "id": 12,
+      "productName": "Canon EOS R6",
+      "category": "electronic",
+      "cardType": "item",
+      "details": {
+        "head": "Canon EOS R6 Full-Frame Mirrorless Camera with 4K Video, Full-Frame CMOS Senor, DIGIC X Image Processor, Dual UHS-II SD Memory Card Slots, and Up to 12 fps with Mechnical Shutter, Body Only, Black",
+        "images": [
+          "https://m.media-amazon.com/images/I/81sRt1N0j8L._AC_SL1500_.jpg",
+          "https://m.media-amazon.com/images/I/61uSsfWlZrL._AC_SL1500_.jpg",
+          "https://m.media-amazon.com/images/I/81Nlu6kt1zL._AC_SL1500_.jpg"
+        ],
+        "videos": [],
+        "Specialprize": "2,15,999",
+        "Originalprize": "2,49,999",
+        "discount": "14% off",
+        "ratings": "4.9",
+        "highlights": [
+          "High Image Quality featuring a New 20 Megapixel Full-frame CMOS Sensor",
+          "DIGIC X Image Processor with an ISO range of 100-102400; Expandable to 204800",
+          "High-speed continuous shooting of up to 12 fps with Mechanical Shutter and up to 20 fps electronic (silent) shutter",
+          "Dual pixel CMOS AF covering approx. 100% area with 1,053 AF areas",
+          "Subject tracking of people and animals using Deep Learning Technology"
+        ],
+        "Description":"Experience the pinnacle of photography with the Xiaomi 14, the product of the innovative partnership between Xiaomi and Leica. With three 50 MP Leica cameras, you can unleash your imagination and capture the subtleties of life with unmatched clarity. With its wide aperture, the primary 50 MP Summilux camera steals the show and produces amazing pictures across a range of lighting settings. Leica Cinematography has remarkable cinematic qualities, providing GoPro and Dolby Vision video recording. The phone's design guarantees an immersive viewing experience with its ultra-comfortable grip and state-of-the-art display technology. The Snapdragon 8 Gen 3-powered Xiaomi 14 skillfully strikes a mix between economy and performance. With the 90 W HyperCharge, charging is simplified. Its IP68 certification ensures durability, and its CCG technology provides maximum performance when charging",
+
+        "Specification":{
+          "General":{
+            "brand":"Google",
+            "model":"Pixel 7",
+            "Color":"Dark Grey",
+            "SIM Type":"Dual Sim(Nano + eSIM)",
+            "Hybrid Sim Slot":"No"
+          },
+          "Display Features":{
+            "brand":"Google",
+            "model":"Pixel 7",
+            "Color":"Dark Grey",
+            "SIM Type":"Dual Sim(Nano + eSIM)",
+            "Hybrid Sim Slot":"No"
+          },
+          "Os & Processor Features":{
+            "brand":"Google",
+            "model":"Pixel 7",
+            "Color":"Dark Grey",
+            "SIM Type":"Dual Sim(Nano + eSIM)",
+            "Hybrid Sim Slot":"No"
+          },
+          "Memory & Storage Features":{
+            "brand":"Google",
+            "model":"Pixel 7",
+            "Color":"Dark Grey",
+            "SIM Type":"Dual Sim(Nano + eSIM)",
+            "Hybrid Sim Slot":"No"
+          }
+        
+        },
+        "reviews": [],
+        "questions": []
+      },
+      "From": "amzn-ad",
+      "To": "light-blue-ad"
     }
-  }
 }
+
+

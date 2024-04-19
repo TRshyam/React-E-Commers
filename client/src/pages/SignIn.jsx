@@ -3,9 +3,12 @@ import { Link, useNavigate } from 'react-router-dom';
 import { LuEye, LuEyeOff } from "react-icons/lu";
 import axios from 'axios';
 
-import { infinity } from 'ldrs'
 
-infinity.register()
+import { bouncy } from 'ldrs'
+
+bouncy.register()
+
+
 
 
 
@@ -107,14 +110,14 @@ export default function SignIn() {
             {loading ? (
               <div className="text-center ">
                 {/* // Default values shown  https://uiball.com/ldrs/ */}
-                <l-infinity
-                  size="55"
-                  stroke="4"
-                  stroke-length="0.15"
-                  bg-opacity="0.1"
-                  speed="1.3" 
-                  color="black" 
-                ></l-infinity>
+
+                  <l-bouncy
+                    size="45"
+                    speed="1.75" 
+                    color="blue" 
+                  ></l-bouncy>
+
+
               </div>
             ) : (
               error && <p className="text-sm text-red-500">{error}</p>
@@ -143,3 +146,4 @@ export default function SignIn() {
     </div>
   );
 }
+
