@@ -45,18 +45,18 @@
     flex-wrap: wrap;
     justify-content: space-around;
     padding: 20px 20px;
-    gap: 35px;
+    gap: 20px;
     
 
 }
 
 .Category-Products .Product{
-    width: 220px;
-    height: 330px;
+    width: 230px;
+    min-height: 380px;
     position: relative;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     margin-bottom: 30px;
-    
+    position: relative;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     margin-bottom: 50px;
     padding: 10px;
@@ -68,8 +68,8 @@
   }
 
 .Category-Products .Product img{
-    width: 210px;
-    height:210px;   
+    width: 180px;
+    max-height:220px;   
     
 }
 .Category-Products .Product .Product-details{
@@ -79,6 +79,8 @@
     flex-direction: column;
     padding: 10px 10px;
     gap: 8px;
+    position: absolute;
+    bottom: 0;
     
 }
 

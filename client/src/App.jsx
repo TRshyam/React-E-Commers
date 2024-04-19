@@ -24,6 +24,8 @@ const App = () => {
 
        
         <Route path="/Category" element={<Category />} />
+
+        <Route path="/Cart" element={<Cart userId="nakul" productId="bat" quantity={1} />} />
       </Routes>
     </BrowserRouter>
   )

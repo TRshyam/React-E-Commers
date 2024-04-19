@@ -111,7 +111,7 @@ const renderItemCards = (itemCards) => {
           </div>
 
         </div>
-        <CollectionsBar Images = {PotImages} Text = {"Flower Pots"} Offer = {"40"} Category = {'electronics'}/>
+        <CollectionsBar Images = {PotImages} Text = {"Flower Pots"} Offer = {"40"} Category = {'electronic'}/>
       </div>
   
 

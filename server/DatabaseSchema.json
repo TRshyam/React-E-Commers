@@ -1,21 +1,5 @@
 {
-
-  "ad1": {
-    "id": "ad1",
-    "category": "electronic",
-    "cardType": "Ad",
-    "From": "regal-blue-ad",
-    "To": "light-blue-ad",
-    "img": "/static/CardItems/Electronic/lap.png",
-    "title": "Pixel",
-    "description": "Description for Card 1",
-    "content": {
-      "subtitle": "Work better, together",
-      "title": "Get 25% off on Electronics"
-    }
-  },
-
-    "1":{
+     "1":{
       "id": 1,
       "productName": "Echo Dot (3rd Gen)",
       "category": "electronic",
@@ -27,8 +11,8 @@
           "https://m.media-amazon.com/images/I/71AbQ3Hf75L._SX679_.jpg"
         ],
         "videos": [],
-        "Specialprize": "₹2,499",
-        "Originalprize": "₹4,499",
+        "Specialprize": "2,499",
+        "Originalprize": "4,499",
         "discount": "44% off",
         "ratings": "4.5",
         "highlights": [
@@ -94,8 +78,8 @@
           "https://m.media-amazon.com/images/I/81ybhKGmMxL._SX679_.jpg"
         ],
         "videos": [],
-        "Specialprize": "₹25,999",
-        "Originalprize": "₹29,990",
+        "Specialprize": "25,999",
+        "Originalprize": "29,990",
         "discount": "13% off",
         "ratings": "4.7",
         "highlights": [
@@ -220,8 +204,8 @@
           "https://m.media-amazon.com/images/I/71zny7BTRlL._AC_SL1500_.jpg"
         ],
         "videos": [],
-        "Specialprize": "₹20,999",
-        "Originalprize": "₹24,900",
+        "Specialprize": "20,999",
+        "Originalprize": "24,900",
         "discount": "15% off",
         "ratings": "4.8",
         "highlights": [
@@ -283,8 +267,8 @@
           "https://m.media-amazon.com/images/I/71zny7BTRlL._AC_SL1500_.jpg"
         ],
         "videos": [],
-        "Specialprize": "₹20,999",
-        "Originalprize": "₹24,900",
+        "Specialprize": "20,999",
+        "Originalprize": "24,900",
         "discount": "15% off",
         "ratings": "4.8",
         "highlights": [
@@ -346,8 +330,8 @@
           "https://m.media-amazon.com/images/I/71k++NukESL._AC_SL1500_.jpg"
         ],
         "videos": [],
-        "Specialprize": "₹79,999",
-        "Originalprize": "₹84,999",
+        "Specialprize": "79,999",
+        "Originalprize": "84,999",
         "discount": "6% off",
         "ratings": "4.6",
         "highlights": [
@@ -408,8 +392,8 @@
           "https://m.media-amazon.com/images/I/61BXZWVR3AL._AC_SL1500_.jpg"
         ],
         "videos": [],
-        "Specialprize": "₹16,999",
-        "Originalprize": "₹19,990",
+        "Specialprize": "16,999",
+        "Originalprize": "19,990",
         "discount": "15% off",
         "ratings": "4.5",
         "highlights": [
@@ -471,8 +455,8 @@
           "https://m.media-amazon.com/images/I/81wInn4tDyL._AC_SL1500_.jpg"
         ],
         "videos": [],
-        "Specialprize": "₹21,999",
-        "Originalprize": "₹24,999",
+        "Specialprize": "21,999",
+        "Originalprize": "24,999",
         "discount": "12% off",
         "ratings": "4.8",
         "highlights": [
@@ -534,8 +518,8 @@
           "https://m.media-amazon.com/images/I/71h9-Me3KSL._AC_SL1500_.jpg"
         ],
         "videos": [],
-        "Specialprize": "₹36,999",
-        "Originalprize": "₹39,900",
+        "Specialprize": "36,999",
+        "Originalprize": "39,900",
         "discount": "7% off",
         "ratings": "4.9",
         "highlights": [
@@ -597,8 +581,8 @@
           "https://m.media-amazon.com/images/I/81X0+Yp4FQL._AC_SL1500_.jpg"
         ],
         "videos": [],
-        "Specialprize": "₹27,500",
-        "Originalprize": "₹29,363",
+        "Specialprize": "27,500",
+        "Originalprize": "29,363",
         "discount": "6% off",
         "ratings": "4.7",
         "highlights": [
@@ -659,8 +643,8 @@
           "https://m.media-amazon.com/images/I/71ZXl28dDIL._AC_SL1500_.jpg"
         ],
         "videos": [],
-        "Specialprize": "₹1,99,999",
-        "Originalprize": "₹2,49,990",
+        "Specialprize": "1,99,999",
+        "Originalprize": "2,49,990",
         "discount": "20% off",
         "ratings": "4.8",
         "highlights": [
@@ -721,8 +705,8 @@
           "https://m.media-amazon.com/images/I/81Nlu6kt1zL._AC_SL1500_.jpg"
         ],
         "videos": [],
-        "Specialprize": "₹2,15,999",
-        "Originalprize": "₹2,49,999",
+        "Specialprize": "2,15,999",
+        "Originalprize": "2,49,999",
         "discount": "14% off",
         "ratings": "4.9",
         "highlights": [

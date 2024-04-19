@@ -268,6 +268,60 @@ def get_cart(userId):
     except Exception as e:
         print(e)
         return "Failed to retrieve cart."
+    
+    
+@app.route('/api/wishlist/modify', methods=['POST'])
+def modify_wishlist():
+    try:
+        client.admin.command('ping')
+        print("Pinged your deployment. You successfully connected to MongoDB!")
+
+        data = request.json
+        userId = data.get('userId')
+        productId = data.get('productId')   
+
+        db = client['users-e-com']
+        collection = db['whishlist']
+        
+        wishlist = collection.find_one({'userId': userId})
+
+        if wishlist:
+            products = wishlist.get('products', [])
+            if productId in products:
+                products.remove(productId)
+            else:
+                products.append(productId)
+            collection.update_one({'userId': userId}, {'$set': {'products': products}})
+        else:
+            collection.insert_one({'userId': userId, 'products': [productId]})
+            products = [productId]  # New wishlist created, so products list has only the new productId
+        
+        return jsonify({'products': products})
+    
+    except Exception as e:
+        print(e)
+        return "Failed."
+@app.route('/api/wishlist/<userId>', methods=['GET'])
+def view_wishlist(userId):
+    try:
+        client.admin.command('ping')
+        print("Pinged your deployment. You successfully connected to MongoDB!")
+
+        # Connect to MongoDB and retrieve the user's cart
+        db = client['users-e-com']
+        collection = db['wishlist']
+
+        user_cart = collection.find_one({'userId': userId})
+
+        if user_cart:
+            return jsonify(user_cart['products'])
+        else:
+            return "Wishlist is empty."
+
+    except Exception as e:
+        print(e)
+        return "Failed to retrieve cart."
+
 
 if __name__ == '__main__':
     app.run(debug=True)

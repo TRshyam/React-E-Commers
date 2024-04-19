@@ -68,7 +68,6 @@
     "From": "regal-blue-ad",
     "To": "light-blue-ad",
     "img": "/static/CardItems/Electronic/pixel.png",
-<<<<<<<<< Temporary merge branch 1
     "main_imgs":{
       "o":"/static/images/phone1.jpeg",
       "2":"/static/images/phone2.jpg",
@@ -78,9 +77,6 @@
       "6":"/static/images/phone2.jpg"
     },
     "title": "pixel",
-=========
-    "title": "Pixel",
->>>>>>>>> Temporary merge branch 2
     "description": "Description for Card 1",
     "content": {
       "product": "Pixel",
