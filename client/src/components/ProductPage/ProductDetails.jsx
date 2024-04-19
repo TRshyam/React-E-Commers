@@ -1,21 +1,7 @@
 import React,{ useState, useEffect } from 'react';
-import Carousel from '../carousel/Carousel';
-import Card from '../Cards/Card';
-import AdCard from '../Cards/AdCard'
-
-
-// console.log(Specification);
-
-
-
-
 
 export default function ProductDetails({ details }) {
 
-  console.log(details.details.ratings);
-  console.log(details.details.Specialprize);
-  console.log(details);
-  
   
   return (
     <div className='mx-2 w-[100%] h-auto bg-white'>
@@ -78,19 +64,19 @@ export default function ProductDetails({ details }) {
       {/* description & highlights */}
 
      <div className='bg-gray-50 my-3 py-3'>
-  <div className='w-full flex'>
-    <div className='w-32 mx-3'>
-      <h1>Highlights</h1>
-    </div> 
-    <div className='mx-2'>
-      <ul className='list-disc'>
-        {details.details.highlights.map((highlight, index) => (
-          <li className='py-1  ' key={index}>{highlight}</li>
-        ))}
-      </ul>
-    </div>
-  </div>
-</div>
+        <div className='w-full flex'>
+            <div className='mx-3'>
+              <h1>Highlights</h1>
+            </div> 
+            <div className='ml-16 mr-10'>
+              <ul className='list-disc'>
+                {details.details.highlights.map((highlight, index) => (
+                  <li className='py-1' key={index}>{highlight}</li>
+                ))}
+              </ul>
+            </div>
+        </div>
+      </div>
       <div className='bg-gray-50'>
         <div className='w-full flex'>
           <div className='w-64 mx-3'>

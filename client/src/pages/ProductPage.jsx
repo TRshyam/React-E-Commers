@@ -12,17 +12,17 @@ import Card from '../components/Cards/Card';
 function ProductPage() {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
-  // const [ReleatedProducts,setReleatedProducts]=useState()
+  const [ReleatedProducts,setReleatedProducts]=useState()
   const [loading, setLoading] = useState(true);
-  // const [recentlyViewed, setRecentlyViewed] = useState([]);
+  const [recentlyViewed, setRecentlyViewed] = useState([]);
 
-// const addToRecentlyViewed = (product) => {
-//   // Check if the product is already in the list
-//   if (!recentlyViewed.some((item) => item.id === product.id)) {
-//     // Add the product to the beginning of the list
-//     setRecentlyViewed([product, ...recentlyViewed.slice(0, 4)]);
-//   }
-// };
+const addToRecentlyViewed = (product) => {
+  // Check if the product is already in the list
+  if (!recentlyViewed.some((item) => item.id === product.id)) {
+    // Add the product to the beginning of the list
+    setRecentlyViewed([product, ...recentlyViewed.slice(0, 4)]);
+  }
+};
 
   useEffect(() => {
     const fetchData = async () => {
@@ -30,12 +30,12 @@ function ProductPage() {
         const response = await axios.get('http://localhost:5000/api/data');
         const foundProduct = response.data[id];
         const products= response.data
-        console.log("___________");
+        // console.log("___________");
         // console.log(products);
         // console.log(foundProduct.details);
         // console.log(id);
         
-        console.log("___________");
+        // console.log("___________");
 
         setProduct(foundProduct);
         setLoading(false);
@@ -54,24 +54,25 @@ function ProductPage() {
   console.log("++++++++++++");
   console.log(product);
   console.log("+++++++++++");
-//   const itemCards = {};
-// for (const key in ReleatedProducts) {
-//   if (ReleatedProducts.hasOwnProperty(key)) {
-//     const card = ReleatedProducts[key];
-//     if (card.cardType === 'item') {
-//       itemCards[key] = card;
-//     }
-//   }
-// }
-// console.log(itemCards);
+  const itemCards = {};
+for (const key in ReleatedProducts) {
+  if (ReleatedProducts.hasOwnProperty(key)) {
+    const card = ReleatedProducts[key];
+    if (card.cardType === 'item') {
+      itemCards[key] = card;
+    }
+  }
+}
+console.log("ItemcaRDS",itemCards);
 
 // Render ItemCards
-// const renderItemCards = (itemCards) => {
-//   return Object.keys(itemCards).map((key) => {
-//     const { img, content, id } = itemCards[key];
-//     return <Card key={key} imageSrc={img} content={content} id={id} />;
-//   });
-// };
+const renderItemCards = (itemCards) => {
+  return Object.keys(itemCards).map((key) => {
+    const { id, productName, details, From, To } = itemCards[key];
+    return <Card key={key} item={{ id, productName, details }} />;
+  });
+};
+console.log(renderItemCards(itemCards));
 
 
   if (loading) return <p>Loading...</p>;
@@ -87,6 +88,17 @@ function ProductPage() {
 
             <ProductDetails details={product} />
         </div>
+
+        <div className='mx-0 xl:mx-16 2xl:mx-48 py-3 h-auto '>
+          <Carousel>
+            {renderItemCards(itemCards)}
+          </Carousel>
+        </div>
+        {/* <div className='mx-0 xl:mx-16 2xl:mx-48 py-3 h-auto '>
+          <Carousel>
+            {renderItemCards(recentlyViewed)}
+          </Carousel>
+        </div> */}
  
       </div>
     </div>

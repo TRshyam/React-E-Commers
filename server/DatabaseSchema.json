@@ -17,7 +17,7 @@
 
     "1":{
       "id": 1,
-      "productName": "Echo Dot (3rd Gen) - Smart speaker with Alexa",
+      "productName": "Echo Dot (3rd Gen)",
       "category": "electronic",
       "cardType": "item",
       "details": {
@@ -87,6 +87,10 @@
         "images": [
           "https://m.media-amazon.com/images/I/71o8Q5XJS5L._AC_SL1500_.jpg",
           "https://m.media-amazon.com/images/I/61Jl6XHrIqL._SX679_.jpg",
+          "https://m.media-amazon.com/images/I/81ybhKGmMxL._SX679_.jpg",
+          "https://m.media-amazon.com/images/I/81ybhKGmMxL._SX679_.jpg",
+          "https://m.media-amazon.com/images/I/81ybhKGmMxL._SX679_.jpg",
+          "https://m.media-amazon.com/images/I/81ybhKGmMxL._SX679_.jpg",
           "https://m.media-amazon.com/images/I/81ybhKGmMxL._SX679_.jpg"
         ],
         "videos": [],
@@ -148,13 +152,13 @@
       "details": {
         "head": "Samsung Galaxy Watch 4 Classic (42mm, GPS, Bluetooth, Unlocked LTE) Smartwatch with Advanced Health Monitoring, Fitness Tracking, and Long Lasting Battery, Silver",
         "images": [
-          "https://m.media-amazon.com/images/I/61pPIaAdWpL._AC_SL1500_.jpg",
-          "https://m.media-amazon.com/images/I/61iHPrZ1QYL._AC_SL1500_.jpg",
-          "https://m.media-amazon.com/images/I/61yQ+8phrFL._AC_SL1500_.jpg"
+          "https://rukminim2.flixcart.com/image/416/416/ksxjs7k0/smartwatch/u/j/h/android-sm-r890nzkainu-samsung-yes-original-imag6dtg9shty8zf.jpeg?q=70&crop=false",
+          "https://rukminim2.flixcart.com/image/416/416/ksxjs7k0/smartwatch/o/q/t/android-sm-r890nzkainu-samsung-yes-original-imag6dtg5m6rztx6.jpeg?q=70&crop=false",
+          "https://rukminim2.flixcart.com/image/416/416/kst9gnk0/smartwatch/q/a/g/1-2-android-sm-r880nzkainu-samsung-yes-original-imag6awyzjghzqkt.jpeg?q=70&crop=false"
         ],
         "videos": [],
-        "Specialprize": "₹31,999",
-        "Originalprize": "₹34,999",
+        "Specialprize": "31,999",
+        "Originalprize": "34,999",
         "discount": "9% off",
         "ratings": "4.4",
         "highlights": [
@@ -211,7 +215,7 @@
       "details": {
         "head": "Apple AirPods Pro",
         "images": [
-          "https://m.media-amazon.com/images/I/71zny7BTRlL._AC_SL1500_.jpg",
+          "https://rukminim2.flixcart.com/image/416/416/xif0q/headphone/e/a/f/-original-imagtc44nk4b3hfg.jpeg?q=70&crop=false",
           "https://m.media-amazon.com/images/I/71b8Tt4+XjL._AC_SL1500_.jpg",
           "https://m.media-amazon.com/images/I/71zny7BTRlL._AC_SL1500_.jpg"
         ],
@@ -393,7 +397,7 @@
     },
     "7":{
       "id": 7,
-      "productName": "Sony WHXB900N Noise Cancelling Headphones",
+      "productName": "Sony WHXB900N",
       "category": "electronic",
       "cardType": "item",
       "details": {
@@ -582,7 +586,7 @@
     },
     "10":{
       "id": 10,
-      "productName": "Bose QuietComfort 35 II Wireless Bluetooth Headphones",
+      "productName": "Bose QuietComfort 35 II",
       "category": "electronic",
       "cardType": "item",
       "details": {
@@ -644,7 +648,7 @@
     },
     "11":{
       "id": 11,
-      "productName": "LG OLED65CXPUA Alexa Built-In CX 65-inch 4K Smart OLED TV",
+      "productName": "LG OLED65CXPUA",
       "category": "electronic",
       "cardType": "item",
       "details": {
@@ -706,7 +710,7 @@
     },
     "12":{
       "id": 12,
-      "productName": "Canon EOS R6 Full-Frame Mirrorless Camera",
+      "productName": "Canon EOS R6",
       "category": "electronic",
       "cardType": "item",
       "details": {
