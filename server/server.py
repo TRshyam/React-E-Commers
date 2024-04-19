@@ -31,6 +31,10 @@ mail = Mail(app)
 
 CORS(app, origins='http://localhost:5173', methods=['POST'])
 
+client = MongoClient('localhost', 27017)
+db = client['users-e-com']
+carts_collection = db['carts']
+
 @app.route('/api/data', methods=['GET'])
 def get_data():
     with open('server\DatabaseSchema.json', 'r') as file:
@@ -38,6 +42,13 @@ def get_data():
   
     return jsonify(data)
 
+
+@app.route('/api/productsDB', methods=['GET'])
+def get_products():
+    with open('server/products_db.json', 'r') as file:
+        data = json.load(file)
+  
+    return jsonify(data)
 
 
 def generate_confirmation_token():
@@ -135,11 +146,128 @@ def signin():
     
     else:
         return "False"
+    
+@app.route('/api/cart/add', methods=['POST'])
+def add_to_cart():
+    try:
+        client.admin.command('ping')
+        print("Pinged your deployment. You successfully connected to MongoDB!")
 
+        # Assuming the request includes a JSON body with userId and productId
+        data = request.json
+        userId = data.get('userId')
+        productId = data.get('productId')
+        quantity = data.get('quantity')
+        print("quantity : ",quantity)
 
+        # Connect to the MongoDB and add the product to the user's cart
+        db = client['users-e-com']
+        collection = db['carts']
 
-    # user = mongo.db.users.find_one({'username': username})
+        # Check if the user's cart already exists
+        user_cart = collection.find_one({'userId': userId})
 
+        if user_cart:
+            # Check if the product is already in the cart
+            if any(item['productId'] == productId for item in user_cart['products']):
+                # Update existing cart with new quantity for the product
+                collection.update_one(
+                    {'userId': userId, 'products.productId': productId},  # Find by userId and matching productId
+                    {'$set': {'products.$.quantity': quantity}}  # Update quantity using $inc and positional operator
+                )
+                print(f"Product {productId} quantity updated in cart for user {userId}")
+                updated_cart = collection.find_one({'userId': userId})
+                if updated_cart:
+                    print("Product already exists in the cart for user:", userId)
+                    return jsonify(updated_cart['products'])
+                print("Product already exists in the cart for user:", userId)
+                return "Product already exists in the cart."
+            
+            # Update the existing cart with the new product
+            collection.update_one(
+                {'userId': userId},
+                {'$addToSet': {'products': {'productId' : productId ,'quantity' : quantity}}}
+            )
+            print("Product added to cart for user:", userId)
+        else:
+            # Create a new cart for the user and add the product
+            cart_data = {
+            'userId': userId,
+            'products': [{'productId': productId, 'quantity': quantity}]
+            }
+            collection.insert_one(cart_data)
+            print("New cart created and product added for user:", userId)
+
+        # Retrieve and return the updated cart
+        updated_cart = collection.find_one({'userId': userId})
+        if updated_cart:
+            return jsonify(updated_cart['products'])
+        else:
+            return "Cart is empty."
+
+    except Exception as e:
+        print(e)
+        return "Failed to add product to cart."
+    
+@app.route('/api/cart/delete', methods=['POST'])
+def remove_from_cart():
+    try:
+        client.admin.command('ping')
+        print("Pinged your deployment. You successfully connected to MongoDB!")
+
+        data = request.json
+        userId = data.get('userId')
+        productId = data.get('productId')
+        print(productId , userId)
+
+        db = client['users-e-com']
+        collection = db['carts']
+
+        user_cart = collection.find_one({'userId': userId})
+
+        if not user_cart:
+            return "User cart not found."
+        print("productId",productId)
+        if any(item['productId'] == productId for item in user_cart['products']):
+            
+
+            collection.update_one(
+                {'userId': userId, 'products.productId': productId},
+                {'$pull': {'products': {'productId': productId}}}  # Use $pull to remove product
+            )
+
+            updated_cart = collection.find_one({'userId': userId})
+            if updated_cart:
+                return jsonify(updated_cart['products'])
+            else:
+                return "An error occurred while removing the product."  # More generic error
+        return "Product not found in the cart."
+
+    except Exception as e:
+        print(e)
+        return "Failed to remove product from cart."
+    
+# Endpoint to retrieve products in the cart for a specific user
+@app.route('/api/cart/<userId>', methods=['GET'])
+def get_cart(userId):
+    try:
+        client.admin.command('ping')
+        print("Pinged your deployment. You successfully connected to MongoDB!")
+
+        # Connect to MongoDB and retrieve the user's cart
+        db = client['users-e-com']
+        collection = db['carts']
+
+        user_cart = collection.find_one({'userId': userId})
+
+        if user_cart:
+            return jsonify(user_cart['products'])
+        else:
+            return "Cart is empty."
+
+    except Exception as e:
+        print(e)
+        return "Failed to retrieve cart."
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -9,7 +9,7 @@ import SignUp from './pages/SignUp'
 import ProductPage from './pages/ProductPage'
 
 import Category from './pages/Category'
-
+import Cart from './pages/Cart'
 
 
 const App = () => {
@@ -24,10 +24,13 @@ const App = () => {
 
        
         <Route path="/Category" element={<Category />} />
-
       </Routes>
     </BrowserRouter>
   )
 }
 
 export default App;
+
+
+
+

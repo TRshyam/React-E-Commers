@@ -26,7 +26,13 @@ export default function Navbar() {
 
   return (
     <div className={`NavBar${isFixed ? ' fixed' : ''}`}>
-      <div className='Logo'>ebart</div>
+
+      <div className='Logo'>
+        <Link to='/' >
+          ebart
+        </Link>
+      </div>
+
 
       <div className='NavIcons'>
         <div className='ProductSearch' >
@@ -36,7 +42,9 @@ export default function Navbar() {
         <Link to='/sign-in' >
           <button> LogIn </button>
         </Link>
-        <a><CiShoppingCart /></a>
+        <Link to='/cart' >
+          <a><CiShoppingCart /></a>
+        </Link>
         <a><CiUser /></a>
       </div>
     </div>
