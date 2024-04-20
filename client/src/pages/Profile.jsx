@@ -154,7 +154,7 @@ function Profile() {
                         </div>
                         <div className="mb-4">
                             <label htmlFor="phoneNumber" className="text-gray-600 block">Phone Number:</label>
-                            <input type="tel" onChange={handleChange} id="phoneNumber" name="phoneNumber" className="w-full border rounded-md px-3 py-2" placeholder="Phone number" defaultValue={currentUser.phoneNumber} />
+                            <input type="tel" onChange={handleChange} id="phoneNumber" name="phoneNumber" className="w-full border rounded-md px-3 py-2" placeholder="Phone number" defaultValue={currentUser.user.phnumber} />
                         </div>
     
                         <div className="mb-4">

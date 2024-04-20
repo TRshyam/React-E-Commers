@@ -68,10 +68,15 @@ def send_confirmation_email(email, confirmation_token):
 @app.route('/api/signup', methods=['POST'])
 def signup():
     data = request.json
+    firstName = data.get('firstName')
+    lastName = data.get('lastName')
     email = data.get('email')
     password = data.get('password')
-    print(email)
-    print(password)
+    phNumber=data.get('phNumber')
+    print(data)
+    print(phNumber)
+    print(phNumber)
+    print(phNumber)
     print("Signing up user...")
 
     try:
@@ -97,8 +102,13 @@ def signup():
         # Insert user data into the collection
         user_data = {
             '_id': user_id,
+            'firstName':firstName,
+            'lastName':lastName,
+            'phnumber':phNumber,
             'email': email,
             'password': hashpw(password.encode('utf-8'), gensalt()),
+            'address':None,
+            'zipCode':None,
             'confirmed': False,  # Mark the user as unconfirmed initially
             # 'confirmation_token': confirmation_token
         }
