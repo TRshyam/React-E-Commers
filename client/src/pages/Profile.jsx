@@ -25,12 +25,17 @@ function Profile() {
 
     const { currentUser } = useSelector((state) => state.user);
 
-    console.log(currentUser.user.email)
+    // console.log(currentUser.user.email)
     const dispatch = useDispatch();
     const [formData, setFormData] = useState({});
     const [mess, setMess] = useState(''); // State for success message content
     const [updateSuccess, setUpdateSuccess] = useState(false); // State for success message
 
+    // console.log(currentUser.user._id);
+    // console.log(currentUser.user._id);
+    // console.log(currentUser.user._id);
+    // console.log(currentUser.user._id);
+    // console.log(currentUser.user._id);
 
 
 
@@ -40,33 +45,59 @@ function Profile() {
       console.log(formData)
 
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-          dispatch(updateUserStart());
-          const res = await fetch(`/api/user/update/${currentUser._id}`, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData),
-          });
-          const data = await res.json();
-          if (data.success === false) {
-            dispatch(updateUserFailure(data.mes));
-            return;
-          }
-    
-          dispatch(updateUserSuccess(data));
-          setUpdateSuccess(true);
-          setMess('Updated Successfully'); // Set the success message
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  try {
+    dispatch(updateUserStart());
+    const res = await fetch(`http://127.0.0.1:5000/api/update-user/${currentUser.user._id}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    });
 
-          
-        } catch (error) {
-          dispatch(updateUserFailure(error.mes));
-        }
-      };
+    console.log(res);
+    console.log(res.status);
+    console.log(res.status);
+    console.log(res.status);
+    console.log(res.status);
     
+    if (!res.ok) {
+      // Handle non-successful responses
+      if (res.status === 404) {
+        // Handle 404 Not Found
+        dispatch(updateUserFailure('User not found'));
+      } else {
+        // Handle other errors
+        dispatch(updateUserFailure('An error occurred while updating the user'));
+      }
+      return;
+    }
+
+    const data = await res.json();
+
+    // Check the success field in the response data
+    if (data.success === "False") {
+      dispatch(updateUserFailure(data.message));
+      return;
+    }
+
+    // Dispatch success action and update state
+    dispatch(updateUserSuccess(data));
+    setUpdateSuccess(true);
+    setMess('Updated Successfully'); // Set the success message
+  } catch (error) {
+    // Handle network errors or exceptions
+    dispatch(updateUserFailure('An error occurred while updating the user'));
+  }
+};
+    console.log(mess);
+    console.log(mess);
+    console.log(mess);
+    console.log(mess);
+    console.log(mess);
+    console.log(mess);
 
 
 
@@ -86,7 +117,7 @@ function Profile() {
                                 <img src="https://avatars.githubusercontent.com/u/93422564?v=4" alt="" className='w-[5rem] rounded-full ' />
                                 <div>
                                     <h1>Hello,</h1>
-                                    <span className='font capitalize'>{currentUser.user.email.substring(0, 10)}</span>
+                                    <span className='font capitalize'>{currentUser.user.firstName.substring(0, 10)}</span>
                                 </div>
                             </div>
 
