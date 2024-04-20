@@ -6,9 +6,17 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { MdErrorOutline } from "react-icons/md";
 import { IoBagOutline } from "react-icons/io5"
+import { useLocation } from "react-router-dom";
 
 const Cart = (props) => {
-    const { userId, productId, quantity } = props; // Destructure userId, productId, and quantity from props
+
+    const location = useLocation();
+    const { state } = location;
+    const userId = state ? state.userId : '';
+    const productId = state ? state.productId : '';
+    const [quantity , Setquantity] = useState(1); 
+
+
     const [cartData, setCartData] = useState(null);
     const [error, setError] = useState(null);
     const[totalSum,setTotalSum] = useState(0);

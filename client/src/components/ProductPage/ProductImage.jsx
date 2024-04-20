@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import CartButton from '../CartButton';
 import { MdKeyboardArrowDown, MdOutlineKeyboardArrowUp } from "react-icons/md";
 
-export default function ProductImages({ mainImgs }) {
+export default function ProductImages({ mainImgs , userId , productId}) {
   const [selectedImage, setSelectedImage] = useState(mainImgs[0]); // Set initial selected image to the first image in the array
 
   const [startIndex, setStartIndex] = useState(0);
@@ -65,7 +65,7 @@ export default function ProductImages({ mainImgs }) {
         </div>
       </div>
       <div className='my-6 p-4 flex justify-center'>
-        <CartButton />
+        <CartButton userId = {userId} productId = {productId} />
       </div>
     </div>
   );
