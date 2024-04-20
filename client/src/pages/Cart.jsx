@@ -6,7 +6,10 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { MdErrorOutline } from "react-icons/md";
 import { IoBagOutline } from "react-icons/io5"
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { bouncy } from 'ldrs'
+
+bouncy.register()
 
 const Cart = (props) => {
 
@@ -15,6 +18,7 @@ const Cart = (props) => {
     const userId = state ? state.userId : '';
     const productId = state ? state.productId : '';
     const [quantity , Setquantity] = useState(1); 
+    const navigate = useNavigate();
 
 
     const [cartData, setCartData] = useState(null);
@@ -48,26 +52,61 @@ const Cart = (props) => {
         }
     };
 
-    const TotalValueChange = (cartData) => {
-        console.log("here i asctivated Success")
-        if (cartData) {
-            let sum = 0;
-            cartData.forEach((product) => {
-                sum += 99 * product.quantity;
-            });
-            setTotalSum(sum);
+    const TotalValueChange =  async(cartData) => {
+        setCartData(cartData);
         }
-    }
 
     useEffect(() => {
-        if (cartData) {
+        const calculateTotal = async () => {
+          if (cartData) {
             let sum = 0;
-            cartData.forEach((product) => {
-                sum += 99 * product.quantity; // Assuming product price is fixed at Rs. 99
-            });
+            for (const product of cartData) {
+              const price = await retrieveProduct(product.productId);
+              console.log("directLog : ",price) // Use retrieveProduct function
+              if (price !== null) { // Check for potential errors
+                console.log("price : ",price)
+                sum += price * product.quantity;
+              }
+            }
             setTotalSum(sum);
+          }
+        };
+    
+        calculateTotal();
+      }, [cartData]);
+
+    const retrieveProduct = async (productId) => {
+        try {
+          const response = await axios.post('http://localhost:5000/api/data/retrive_product', { ProductId: productId }); // Use correct casing
+          return response.data
+        } catch (error) {
+          console.error('Error retrieving product:', error);
+          // Handle errors appropriately, e.g., display a user-friendly message
+          return null; // Indicate error or default value
         }
-    }, [cartData]);
+      };
+
+    // This is used to add the cart elements to the orders part
+    const PlaceAnOrder = async () => {
+        const products = [];
+        // Check if cartData is an array with at least one element
+        if (cartData && Array.isArray(cartData) && cartData.length > 0) {
+          // Extract product IDs efficiently using for loop
+          for (const product of cartData) {
+            products.push(product.productId);
+          }
+        }
+        try {
+          // Send POST request with userId and products as data
+          const response = await axios.post('http://localhost:5000/api/orders/add', { userId, products,});
+          console.log("Products successfully added:", response.data); // Assuming response contains order details
+          navigate('/');
+        } catch (error) {
+          console.error("Error in ordering:", error.message);
+        }
+      };
+      
+    
 
     return (
         <>
@@ -91,7 +130,7 @@ const Cart = (props) => {
                         <h1>Cart Summary</h1>
                         <h2>Delivary Charge : Rs .Free</h2>
                         <h2>Subtotal ({cartData.length} items) : Rs .{totalSum}</h2>
-                        <button >
+                        <button onClick={PlaceAnOrder}>
                         buy now 
                         <IoBagOutline className="IoBagOutline" />
                         </button>
@@ -109,4 +148,3 @@ const Cart = (props) => {
 };
 
 export default Cart;
-
