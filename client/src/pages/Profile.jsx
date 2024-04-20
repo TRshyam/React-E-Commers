@@ -3,7 +3,12 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { useState} from 'react';
 import {Link} from 'react-router-dom';
-// import Header from '../components/Header';
+import { BiSolidPackage } from "react-icons/bi";
+import { IoIosArrowForward } from "react-icons/io";
+import { VscAccount } from "react-icons/vsc";
+
+
+
 
 
 
@@ -71,60 +76,108 @@ function Profile() {
         {/* <Header/> */}
         <Navbar/>
         <div className="h-screen w-full ">
-            <div className='bg-red-200 w-full flex justify-center p-10  h-full  '>
-                <div className='bg-lime-100  w-[20rem]    '>
-                    <div className='bg-fuchsia-200 p-2 my-5'>
-                        <div className='flex justify-around items-center'>
-                            <img src="https://avatars.githubusercontent.com/u/93422564?v=4" alt="" className='w-[5rem] rounded-full ' />
-                            <div>
-                                <h1>Hello,</h1>
-                                <h1>{currentUser.user.email}</h1>
+            <div className='bg-zinc-50'>
+                <div className='w-full h-full flex justify-center p-10 my-5 '>
+
+                    <div className='w-[20rem] bg-gray-100'>
+                        {/* avatar */}
+                        <div className='my-5'>
+                            <div className='bg-gray-200 py-2  flex justify-around items-center'>
+                                <img src="https://avatars.githubusercontent.com/u/93422564?v=4" alt="" className='w-[5rem] rounded-full ' />
+                                <div>
+                                    <h1>Hello,</h1>
+                                    <span className='font capitalize'>{currentUser.user.email.substring(0, 10)}</span>
+                                </div>
                             </div>
+
+
                         </div>
+                        {/* avatar */}
+
+                        <div className='bg-slate-100 flex-col p-2 my-5 h-sc'>
+                            <div className='flex justify-around items-center'>
+                            <div className='bg-gray-200 w-full h-16 '> 
+                            <div className='flex justify-between items-center m-3'>
+                                    <div className='flex items-center space-x-4'>
+                                        <BiSolidPackage className='w-10 h-10' />
+                                        <h1>My Orders</h1>
+                                    </div>
+                                    <div>
+                                        <IoIosArrowForward/>
+                                    </div>
+                            </div>
+
+                            </div>
+                            </div>
+                            <div className=' bg-gray-200 my-1 flex-col items-center '>
+                                    <div>
+                                        <div className='flex items-center space-x-3 p-4 '>
+                                            <VscAccount className='w-7 h-7' />
+                                            <h1 className='text-sm'>ACCOUNT SETTINGS</h1>
+                                        </div>
+                                        <ul className='mx-16 text-xs pb-4  space-y-4 list-disc'>
+                                            <li>Profile Information</li>
+                                            <li>Manage Address</li>
+                                        </ul>
+                                    </div>
+            
+
+                            </div>
 
 
                     </div>
+                    
+                    </div>
+
+
+                    <div className='bg-gray-100   mx-5 w-[70rem]'>
+                        <div className=" flex-col items-center    p-8 rounded-lg shadow-md ">
+                    <h1 className="text-2xl font-semibold mb-4">My Profile</h1>
+                    {updateSuccess && (
+            <div className="text-green-500 mb-4">{mess}</div> // Display the success message
+            )}
+                    <form onSubmit={handleSubmit} className='w-[90%] ' >
+                        <div className='flex w-full justify-between'>
+
+                            <div className="mb-4 w-[45%]  ">
+                                <label htmlFor="firstName"   className="text-gray-600 block">First Name:</label>
+                                <input type="text"  id="firstName" name="firstName" className="w-full border rounded-md px-3 py-2" placeholder="Your username" defaultValue={currentUser.user.firstName} onChange={handleChange} />
+                            </div>
+                            <div className="mb-4 w-[45%]">
+                                <label htmlFor="lastName"   className="text-gray-600 block">LastName:</label>
+                                <input type="text"  id="lastName" name="lastName" className="w-full border rounded-md px-3 py-2" placeholder="Your username" defaultValue={currentUser.user.lastName} onChange={handleChange} />
+                            </div>
+                        </div>
+                        <div className="mb-4">
+                            <label htmlFor="email" className="text-gray-600 block">Email:</label>
+                            <input type="email" onChange={handleChange} id="email" name="email" className="w-full border rounded-md px-3 py-2" placeholder="youremail@example.com" defaultValue={currentUser.user.email} />
+                        </div>
+                        <div className="mb-4">
+                            <label htmlFor="phoneNumber" className="text-gray-600 block">Phone Number:</label>
+                            <input type="tel" onChange={handleChange} id="phoneNumber" name="phoneNumber" className="w-full border rounded-md px-3 py-2" placeholder="Phone number" defaultValue={currentUser.phoneNumber} />
+                        </div>
+    
+                        <div className="mb-4">
+                            <label htmlFor="address" className="text-gray-600 block">Address:</label>
+                            <textarea id="address" onChange={handleChange} name="address" className="w-full border rounded-md px-3 py-2" placeholder="Your address" rows="3" defaultValue={currentUser.address} ></textarea>
+                        </div>
+                        <div className="mb-4">
+                            <label htmlFor="zipcode" className="text-gray-600 block">Zip code:</label>
+                            <input type="tel" onChange={handleChange} id="zipcode" name="zipcode" className="w-full border rounded-md px-3 py-2" placeholder="Zip code"  />
+                        </div>
+                        <div className="mb-4">
+                            <label htmlFor="password" className="text-gray-600 block">Update Password:</label>
+                            <input type="password" id="password" name="password" className="w-full border rounded-md px-3 py-2" placeholder="********" />
+                        </div>
+                        <button type="submit"   className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">Update Profile</button>
+                    </form>
+    
+    
+                {/* <Link to={"/"}>
+                <span className='text-cyan-500'>Home Page</span>
+                </Link> */}
                 </div>
-                <div className='bg-lime-600  mx-5 w-[70rem]   '>
-                    <div className="bg-white  l p-8 rounded-lg shadow-md ">
-                 <h1 className="text-2xl font-semibold mb-4">My Profile</h1>
-                 {updateSuccess && (
-           <div className="text-green-500 mb-4">{mess}</div> // Display the success message
-         )}
-                 <form onSubmit={handleSubmit} >
-                     <div className="mb-4">
-                         <label htmlFor="username"   className="text-gray-600 block">Username:</label>
-                         <input type="text"  id="username" name="username" className="w-full border rounded-md px-3 py-2" placeholder="Your username" defaultValue={currentUser.message} onChange={handleChange} />
-                     </div>
-                     <div className="mb-4">
-                         <label htmlFor="email" className="text-gray-600 block">Email:</label>
-                         <input type="email" onChange={handleChange} id="email" name="email" className="w-full border rounded-md px-3 py-2" placeholder="youremail@example.com" defaultValue={currentUser.user.email} />
-                     </div>
-                     <div className="mb-4">
-                         <label htmlFor="phoneNumber" className="text-gray-600 block">Phone Number:</label>
-                         <input type="tel" onChange={handleChange} id="phoneNumber" name="phoneNumber" className="w-full border rounded-md px-3 py-2" placeholder="Phone number" defaultValue={currentUser.phoneNumber} />
-                     </div>
- 
-                     <div className="mb-4">
-                         <label htmlFor="address" className="text-gray-600 block">Address:</label>
-                         <textarea id="address" onChange={handleChange} name="address" className="w-full border rounded-md px-3 py-2" placeholder="Your address" rows="3" defaultValue={currentUser.address} ></textarea>
-                     </div>
-                     <div className="mb-4">
-                         <label htmlFor="zipcode" className="text-gray-600 block">Zip code:</label>
-                         <input type="tel" onChange={handleChange} id="zipcode" name="zipcode" className="w-full border rounded-md px-3 py-2" placeholder="Zip code"  />
-                     </div>
-                     <div className="mb-4">
-                         <label htmlFor="password" className="text-gray-600 block">Update Password:</label>
-                         <input type="password" id="password" name="password" className="w-full border rounded-md px-3 py-2" placeholder="********" />
-                     </div>
-                     <button type="submit"   className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">Update Profile</button>
-                 </form>
- 
- 
-             <Link to={"/"}>
-               <span className='text-cyan-500'>Home Page</span>
-             </Link>
-             </div>
+                    </div>
                 </div>
 
             </div>
