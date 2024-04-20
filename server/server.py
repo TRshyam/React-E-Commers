@@ -132,20 +132,16 @@ def signin():
     db = client['users-e-com']
     collection = db['accounts']
     user =collection.find_one({'email': email})
+    print(user)
     
-    if user is not None:
-        try:
-            if checkpw(password.encode('utf-8'), user['password']) :
-                print("true Passwrd")
-                print("true Passwrd")
-                return "True"
-            else:
-                return "False"
-        except Exception as error:
-            return str(error)
-    
+    if user and user.get('password'):  # Check if user exists and has password
+        if checkpw(password.encode('utf-8'), user['password']):
+            user_data = {key: value for key, value in user.items() if key != 'password'}  # Use secure password hashing
+            return jsonify({'user': user_data}), 200
+        else:
+            return jsonify({'message': 'Invalid email or password'}), 401
     else:
-        return "False"
+        return jsonify({'message': 'User not found'}), 404
     
 @app.route('/api/cart/add', methods=['POST'])
 def add_to_cart():
