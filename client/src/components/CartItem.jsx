@@ -10,17 +10,40 @@ const CartItem = (props) => {
   const [quantity, setQuantity] = useState(props.quantity || 0); // Set default quantity to 0 if not provided
   const [userId, setUserId] = useState('');
   const [productId, setProductId] = useState('');
-  const [productname, setProductName] = useState('EvoFox Elite Ops Wireless Gamepad for Google TV and Android TV ');
-  const [productCategory, setProductCategory] = useState('HouseHold');
-  const [productDescription, setProductDescription] = useState('Image and other details are yet to be linked with productDB !!');
-  const [productPrice, setProductPrice] = useState('99');
+  const[productData , SetproductData] = useState({})
 
   useEffect(() => {
     console.log("Props in CartItem:", props);
     setQuantity(props.quantity || 0);
     setUserId(props.userId);
     setProductId(props.productId);
+    FetchProductDetails();
+    console.log("productdata" , productData)
+
   }, []);
+
+  const FetchProductDetails = async () => {
+    try {
+      const response = await axios.get('http://localhost:5000/api/data');
+      if (response.status === 200) {
+        const responseData = response.data;
+        console.log("responseData",responseData ,props.productId)
+        const foundProduct = responseData[props.productId];
+        console.log("Founded product " , foundProduct)
+        if (foundProduct) {
+          SetproductData(foundProduct);
+        } else {
+          console.warn(`Product with ID ${props.productId} not found in response data.`);
+        }
+      } else {
+        console.error('Error fetching product data:', response.statusText);
+        setError(new Error('Failed to fetch product data')); // Set error state
+      }
+    } catch (error) {
+      console.error('Error fetching product data:', error);
+      setError(error); // Set error state
+    }
+  };
 
 
   const increaseQuantity = async () => {
@@ -43,7 +66,7 @@ const CartItem = (props) => {
     if (userId && productId && newQuantity > 0) {
       try {
         const response = await axios.post('http://localhost:5000/api/cart/add', { userId, productId, quantity: newQuantity });
-        console.log("Response: ", response.data);
+        console.log("UserId: ",userId,"product",productId,"resopnse",response.data);
         props.TotalValueChange(response.data);
         // Update state only after successful response (if backend returns updated quantity)
         // if (response.data && response.data.quantity) { // Check for updated quantity in response
@@ -67,47 +90,33 @@ const CartItem = (props) => {
 };
 
   return (
-    <div className="CartItem">
-      <img src={sampleImage} alt="SampleImage" className="CartItem-Image" />
-      <div className="CartItem-Details">
-        <h1>
-          {productname} 
-        </h1>
-        <h2>
-          {productCategory} ( {quantity} ) - Product ID : {productId}
-        </h2>
-        <h3>
-          {productDescription}
-        </h3>
-        <div className="CartItem-Modify">
-          <button onClick={decreaseQuantity}>
-            <FiMinusCircle className="FiMinusCircle" />
-          </button>
-          <h4>
-            {quantity}
-          </h4>
-          <button onClick={increaseQuantity}>
-            <FiPlusCircle className="FiPlusCircle" />
-          </button>
+    <>
+    {productData && Object.keys(productData).length > 0 ? (
+      <div className="CartItem">
+        <img src={productData.details.images[0]} alt={productData.productNam} className="CartItem-Image" />
+        <div className="CartItem-Details">
+          <h1>{productData.productName}</h1>
+          <h2>{productData.details.Specification.General.brand} - {productData.details.Specification.General.model}</h2>
+          <h3>{productData.details.head}</h3>
+          <h4>Rating : {productData.details.ratings } ⭐</h4>
+          <div className="CartItem-Modify">
+            <button onClick={decreaseQuantity}><FiMinusCircle className="FiMinusCircle" /></button>
+            <h5>{quantity}</h5>
+            <button onClick={increaseQuantity}><FiPlusCircle className="FiPlusCircle" /></button>
+          </div>
+        </div>
+        <div className="CartItem-Price">
+          <h1>Rs .{parseFloat(productData.details.Specialprize) * quantity}</h1>
+          <div className="CartItem-AddorRemove">
+            <button onClick={handleDelete}><AiOutlineDelete className="AiOutlineDelete" /></button>
+            <button><FaRegHeart className="FaRegHeart" /></button>
+          </div>
         </div>
       </div>
-      <div className="CartItem-Price">
-        <h1>Rs .{productPrice * quantity}</h1>
-        <div className="CartItem-AddorRemove">
-
-        <button onClick={handleDelete}>
-                    <AiOutlineDelete className="AiOutlineDelete" />
-        </button>
-        <button onClick={handleDelete}>
-                    <FaRegHeart className="FaRegHeart" />
-        </button>
-
-
-
-        </div>
-
-      </div>
-    </div>
+    ) : (
+      <div>Placeholder content for when productData is not available</div>
+    )}
+  </>
   );
 };
 

@@ -7,6 +7,7 @@ from bson import ObjectId
 from flask_mail import Mail, Message
 import secrets
 from bcrypt import hashpw, gensalt, checkpw
+import datetime
 
 
 
@@ -39,8 +40,41 @@ carts_collection = db['carts']
 def get_data():
     with open('server\DatabaseSchema.json', 'r') as file:
         data = json.load(file)
-  
     return jsonify(data)
+
+@app.route('/api/data/retrive_product', methods=['POST'])
+def retrieve_product():
+    try:
+        data = request.json
+        product_id = data.get('ProductId')
+        print("product_id", product_id)
+
+        if not product_id:
+            return jsonify({'error': 'Missing ProductId in request body'}), 400  # Bad request
+
+        # Load product data from JSON file (assuming 'details' is a dictionary within each product)
+        with open('server\DatabaseSchema.json', 'r') as file:
+            products = json.load(file)
+
+        # Find the product with the matching ID
+        product = None
+        for prod_id, product_value in products.items():
+            if product_value["id"] == product_id:
+                product =  product_value
+                break
+
+        print("product : ", product['details']['Specialprize'])
+
+        if product:
+            return jsonify(product['details']['Specialprize'])
+
+        else:
+            return jsonify({'error': 'Product not found'}), 404  # Not found
+
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return jsonify({'error': 'Internal server error'}), 500  # Internal server error
+
 
 
 @app.route('/api/productsDB', methods=['GET'])
@@ -253,6 +287,33 @@ def remove_from_cart():
         print(e)
         return "Failed to remove product from cart."
     
+    
+    
+def cart_reset(userId):
+    try:
+        client.admin.command('ping')
+        print("Pinged your deployment. You successfully connected to MongoDB!")
+
+        db = client['users-e-com']
+        collection = db['carts']
+
+        # Find the user's cart
+        user_cart = collection.find_one({'userId': userId})
+
+        if user_cart:
+            # Update the cart to reset products to an empty list
+            collection.update_one({'userId': userId}, {'$set': {'products': []}})
+            print("Cart products reset successfully for user:", userId)
+            return "Cart products reset successfully."
+        else:
+            return "Cart not found for the user."
+
+    except Exception as e:
+        print(e)
+        return "Failed to reset cart products."
+
+
+    
 # Endpoint to retrieve products in the cart for a specific user
 @app.route('/api/cart/<userId>', methods=['GET'])
 def get_cart(userId):
@@ -274,6 +335,111 @@ def get_cart(userId):
     except Exception as e:
         print(e)
         return "Failed to retrieve cart."
+    
+    
+@app.route('/api/wishlist/modify', methods=['POST'])
+def modify_wishlist():
+    try:
+        client.admin.command('ping')
+        print("Pinged your deployment. You successfully connected to MongoDB!")
+
+        data = request.json
+        userId = data.get('userId')
+        productId = data.get('productId')   
+
+        db = client['users-e-com']
+        collection = db['whishlist']
+        
+        wishlist = collection.find_one({'userId': userId})
+
+        if wishlist:
+            products = wishlist.get('products', [])
+            if productId in products:
+                products.remove(productId)
+            else:
+                products.append(productId)
+            collection.update_one({'userId': userId}, {'$set': {'products': products}})
+        else:
+            collection.insert_one({'userId': userId, 'products': [productId]})
+            products = [productId]  # New wishlist created, so products list has only the new productId
+        
+        return jsonify({'products': products})
+    
+    except Exception as e:
+        print(e)
+        return "Failed."
+@app.route('/api/wishlist/<userId>', methods=['GET'])
+def view_wishlist(userId):
+    try:
+        client.admin.command('ping')
+        print("Pinged your deployment. You successfully connected to MongoDB!")
+
+        # Connect to MongoDB and retrieve the user's cart
+        db = client['users-e-com']
+        collection = db['wishlist']
+
+        user_cart = collection.find_one({'userId': userId})
+
+        if user_cart:
+            return jsonify(user_cart['products'])
+        else:
+            return "Wishlist is empty."
+
+    except Exception as e:
+        print(e)
+        return "Failed to retrieve cart."
+    
+@app.route('/api/orders/add', methods=['POST'])
+def add_order():
+    print("heyyyyyyyy")
+    try:
+        client.admin.command('ping')
+        print("Pinged your deployment. You successfully connected to MongoDB!")
+
+        # Assuming the request includes a JSON body with userId and productId
+        data = request.json
+        userId = data.get('userId')
+        products = data.get('products') # inn the format { [productId, quantity] , [productId, quantity] .....}
+        order_id = "order" + str(ObjectId())
+        now = datetime.datetime.now()
+        
+        print("userId",userId)
+        print("products",products)
+        print("order_id ",order_id) 
+
+        db = client['users-e-com']
+        collection_orders = db['orders']
+
+        orders = {
+            'userId': userId,
+            'orderId' : order_id,
+            'products': products,
+            'dateAndTime' : now
+            }
+        
+        collection_orders.insert_one(orders)
+        
+        
+        collection_accounts = db['accounts'] 
+        
+        account_filter = {'_id': userId}
+        account = collection_accounts.find_one(account_filter)
+
+        if account:
+            account['orders'].append(order_id)
+            collection_accounts.replace_one(account_filter, account)
+            cart_reset(userId)
+            return "true"
+        else:
+            print(f"Failed to find user account with ID: {userId}")
+            return "false"
+        
+        
+
+    except Exception as e:
+        print(e)
+        return "Failed to order"
+
 
 if __name__ == '__main__':
     app.run(debug=True)

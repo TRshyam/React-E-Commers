@@ -4,6 +4,8 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
 
 const Category = (props) => {
     const [Data, setData] = useState([]);
@@ -20,9 +22,10 @@ const Category = (props) => {
         }
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/productsDB');
-                const cardsArray = Object.values(response.data.products);
+                const response = await axios.get('http://localhost:5000/api/data');
+                const cardsArray = Object.values(response.data);
                 setData(cardsArray);
+                console.log(cardsArray)
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
@@ -32,6 +35,7 @@ const Category = (props) => {
     }, []);
 
     const handleFilterChange = (filter) => {
+        console.log("You have selected",filter)
         const lowercaseFilter = filter.toLowerCase();
         if (selectedFilters.includes(lowercaseFilter)) {
             setSelectedFilters(selectedFilters.filter((item) => item !== lowercaseFilter));
@@ -44,6 +48,7 @@ const Category = (props) => {
         if (selectedFilters.length === 0) {
             return Data; // Return all products if no filters are selected
         } else {
+            console.log("selected filters : ",selectedFilters)
             return Data.filter((item) => selectedFilters.includes(item.category.toLowerCase()));
         }
     };
@@ -53,18 +58,19 @@ const Category = (props) => {
         const filteredProducts = filterProducts();
         return (
             <>
-                {filteredProducts.map((item) => (
-                    <div className="Product" key={item.id}>
-                        <img src={`http://localhost:5000${item.image}`} alt={item.name} />
-                        <div className='Product-details' >
-                            <h1>{item.name}</h1>
-                            <h2>{item.category}</h2>
-                            <h3>Rs .{item.price}</h3>
-                        </div>
-                    </div>
-                ))}
-    
-            </>
+            {filteredProducts.map((item) => (
+              <Link to={`/product/${item.id}`} key={item.id}>
+                <div className="Product">
+                  <img src={item.details.images[0]} alt={item.productName} />
+                  <div className='Product-details'>
+                    <h1>{item.productName}</h1>
+                    <h2>{item.category}</h2>
+                    <h3>Rs .{item.details.Specialprize}</h3>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </>
         );
     };
 
@@ -83,9 +89,9 @@ console.log('Screen width:', screenWidth);
                         <label>
                             <input
                                 type="checkbox"
-                                value="Electronics"
-                                checked={selectedFilters.includes('electronics')}
-                                onChange={() => handleFilterChange('electronics')}
+                                value="Electronic"
+                                checked={selectedFilters.includes('electronic')}
+                                onChange={() => handleFilterChange('electronic')}
                             />
                             Electronic
                         </label>
@@ -132,7 +138,6 @@ console.log('Screen width:', screenWidth);
                 </div>
             </div>
             {    
-        console.log('Screen width:', window.innerWidth)
     }
             <Footer />
         </>
