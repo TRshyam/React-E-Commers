@@ -1,10 +1,11 @@
 .CartItem{
     width: 100%;
     border : 2px solid grey;
-    height: 220px;
+    height: 230px;
     display: flex;
     flex-direction: row;
     padding: 10px;
+    padding-left: 20px;
 }
 
 .CartItem-Image{
@@ -16,23 +17,31 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    padding: 0px 15px;
     width: 75%;
+    padding-right: 15px ;
+    padding-left: 40px;
 }
 
 .CartItem-Details h1{
     font-size: 1.3em;
     font-weight: 600;
+    color:#341466;
 }
 .CartItem-Details h2{
     font-size: 1em;
-    font-weight: 200;
+    font-weight: 600;
+    font-style: italic;
+   
 }
 .CartItem-Details h3{
     font-size: 0.9em;
     font-weight: 400;
 }
 .CartItem-Details h4{
+    font-size: 0.9em;
+    font-weight: 900;
+}
+.CartItem-Details h5{
     font-size: 1.5em;
     font-weight: 700;
 }

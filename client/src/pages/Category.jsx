@@ -4,6 +4,8 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
 
 const Category = (props) => {
     const [Data, setData] = useState([]);
@@ -56,18 +58,19 @@ const Category = (props) => {
         const filteredProducts = filterProducts();
         return (
             <>
-                {filteredProducts.map((item) => (
-                    <div className="Product" key={item.id}>
-                        <img src={item.details.images[0]} alt={item.productName} />
-                        <div className='Product-details' >
-                            <h1>{item.productName}</h1>
-                            <h2>{item.category}</h2>
-                            <h3>Rs .{item.details.Specialprize}</h3>
-                        </div>
-                    </div>
-                ))}
-    
-            </>
+            {filteredProducts.map((item) => (
+              <Link to={`/product/${item.id}`} key={item.id}>
+                <div className="Product">
+                  <img src={item.details.images[0]} alt={item.productName} />
+                  <div className='Product-details'>
+                    <h1>{item.productName}</h1>
+                    <h2>{item.category}</h2>
+                    <h3>Rs .{item.details.Specialprize}</h3>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </>
         );
     };
 
