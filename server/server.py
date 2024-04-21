@@ -66,7 +66,7 @@ def retrieve_product():
         print("product : ", product['details']['Specialprize'])
 
         if product:
-            return jsonify(product['details']['Specialprize'])
+            return jsonify(product)
 
         else:
             return jsonify({'error': 'Product not found'}), 404  # Not found
@@ -363,6 +363,7 @@ def modify_wishlist():
     except Exception as e:
         print(e)
         return "Failed."
+    
 @app.route('/api/wishlist/<userId>', methods=['GET'])
 def view_wishlist(userId):
     try:
@@ -386,7 +387,6 @@ def view_wishlist(userId):
     
 @app.route('/api/orders/add', methods=['POST'])
 def add_order():
-    print("heyyyyyyyy")
     try:
         client.admin.command('ping')
         print("Pinged your deployment. You successfully connected to MongoDB!")
@@ -395,6 +395,7 @@ def add_order():
         data = request.json
         userId = data.get('userId')
         products = data.get('products') # inn the format { [productId, quantity] , [productId, quantity] .....}
+        amount = data.get('totalSum')
         order_id = "order" + str(ObjectId())
         now = datetime.datetime.now()
         
@@ -409,7 +410,8 @@ def add_order():
             'userId': userId,
             'orderId' : order_id,
             'products': products,
-            'dateAndTime' : now
+            'dateAndTime' : now,
+            'amount' : amount
             }
         
         collection_orders.insert_one(orders)
@@ -434,6 +436,67 @@ def add_order():
     except Exception as e:
         print(e)
         return "Failed to order"
+
+
+@app.route('/api/orders/retrieve', methods=['POST'])
+def retrieve_orders():
+    try:
+        # Assuming the request includes a JSON body with userId
+        data = request.json
+        userId = data.get('userId')
+
+        if not userId:
+            return jsonify({'error': 'Missing userId in request body'}), 400  # Bad request
+
+        # Connect to MongoDB (replace with your connection logic)
+        client.admin.command('ping')
+        db = client['users-e-com']
+        collection_accounts = db['accounts']
+
+        # Find the user account with the matching userId
+        account_filter = {'_id': userId}
+        account = collection_accounts.find_one(account_filter)
+        print(account)
+
+        if account:
+            # Check if the account has an 'Orders' array
+            orders = account.get('orders', [])  # Return empty list if 'orders' is missing
+            
+            orderDetails = []
+            amountsAndTimes = []
+            for orderId in orders:
+                retrived = retrieve_products(orderId)
+                if retrived and retrived[0]:
+                    orderDetails.append(retrived[0])
+                    amountsAndTimes.append(retrived[1:])
+            print(orderDetails)
+            print(amountsAndTimes)
+            return jsonify({'orders' : orderDetails , 'AmountsAndTimes' : amountsAndTimes})  
+        else:
+            return jsonify({'error': 'User account not found'}), 404  # Not found
+
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return jsonify({'error': 'Internal server error'}), 500  # Internal server error
+    
+def retrieve_products(orderId):
+    try:
+        client.admin.command('ping')
+        print("Pinged your deployment. You successfully connected to MongoDB!")
+
+        # Connect to MongoDB and retrieve the user's cart
+        db = client['users-e-com']
+        collection = db['orders']
+
+        order = collection.find_one({'orderId': orderId})
+
+        if order:
+            return [order['products'] , order['amount'],order['dateAndTime']]
+
+    except Exception as e:
+        print(e)
+        return "Failed to retrieve order."
+
 
 
 if __name__ == '__main__':

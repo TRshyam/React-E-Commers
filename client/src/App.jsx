@@ -10,6 +10,7 @@ import ProductPage from './pages/ProductPage'
 
 import Category from './pages/Category'
 import Cart from './pages/Cart'
+import OrdersPage from './pages/OrdersPage'
 
 
 const App = () => {
@@ -21,11 +22,9 @@ const App = () => {
         <Route path='/test' element={<Test/>}/>
         <Route path='/' element={<LandingPage/>}/>
         <Route path="/product/:id" element={<ProductPage/>} />
-
-       
         <Route path="/Category" element={<Category />} />
-
         <Route path="/Cart" element={<Cart />} />
+        <Route path="/orders" element={<OrdersPage userId = {"nakul"} />} />
       </Routes>
     </BrowserRouter>
   )
