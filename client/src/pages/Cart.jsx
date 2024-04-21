@@ -78,7 +78,7 @@ const Cart = (props) => {
     const retrieveProduct = async (productId) => {
         try {
           const response = await axios.post('http://localhost:5000/api/data/retrive_product', { ProductId: productId }); // Use correct casing
-          return response.data
+          return response.data['details']['Specialprize']
         } catch (error) {
           console.error('Error retrieving product:', error);
           // Handle errors appropriately, e.g., display a user-friendly message
@@ -93,12 +93,13 @@ const Cart = (props) => {
         if (cartData && Array.isArray(cartData) && cartData.length > 0) {
           // Extract product IDs efficiently using for loop
           for (const product of cartData) {
-            products.push(product.productId);
+            products.push([product.productId , product.quantity]);
           }
         }
         try {
           // Send POST request with userId and products as data
-          const response = await axios.post('http://localhost:5000/api/orders/add', { userId, products,});
+          const response = await axios.post('http://localhost:5000/api/orders/add', { userId, products,totalSum});
+          console.log("products : " ,products)
           console.log("Products successfully added:", response.data); // Assuming response contains order details
           navigate('/');
         } catch (error) {
