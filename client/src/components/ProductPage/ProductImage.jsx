@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import CartButton from '../CartButton';
 import { MdKeyboardArrowDown, MdOutlineKeyboardArrowUp } from "react-icons/md";
 import { useDispatch, useSelector } from 'react-redux';
+
 import { useLocation, useNavigate } from "react-router-dom"; // Import useLocation and useNavigate
 
 export default function ProductImages({ mainImgs, userId, productId }) {
   const [selectedImage, setSelectedImage] = useState(mainImgs[0]);
   const { currentUser } = useSelector((state) => state.user);
+
   const [startIndex, setStartIndex] = useState(0);
   const navigate = useNavigate(); // Initialize useNavigate
 
@@ -86,7 +88,7 @@ export default function ProductImages({ mainImgs, userId, productId }) {
             Sign In to Add to Cart
           </button>
         )}
-      </div>
+     </div>
     </div>
   );
 }

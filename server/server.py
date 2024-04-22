@@ -142,8 +142,8 @@ def signup():
             'email': email,
             'password': hashpw(password.encode('utf-8'), gensalt()),
             'address':[[],[]],
-            'confirmed': False,  # Mark the user as unconfirmed initially
-            # 'confirmation_token': confirmation_token
+            'confirmed': False,
+            'orders' : []
         }
         result = collection.insert_one(user_data)
         print("User signed up successfully. Inserted ID:", user_id)
@@ -334,7 +334,7 @@ def remove_from_cart():
         db = client['users-e-com']
         collection = db['carts']
 
-        user_cart = collection.find_one({'userId': userId})
+        user_cart = collection.find_one({'_id': userId})
 
         if not user_cart:
             return "User cart not found."
@@ -343,11 +343,11 @@ def remove_from_cart():
             
 
             collection.update_one(
-                {'userId': userId, 'products.productId': productId},
+                {'_id': userId, 'products.productId': productId},
                 {'$pull': {'products': {'productId': productId}}}  # Use $pull to remove product
             )
 
-            updated_cart = collection.find_one({'userId': userId})
+            updated_cart = collection.find_one({'_id': userId})
             if updated_cart:
                 return jsonify(updated_cart['products'])
             else:
@@ -369,11 +369,11 @@ def cart_reset(userId):
         collection = db['carts']
 
         # Find the user's cart
-        user_cart = collection.find_one({'userId': userId})
+        user_cart = collection.find_one({'_id': userId})
 
         if user_cart:
             # Update the cart to reset products to an empty list
-            collection.update_one({'userId': userId}, {'$set': {'products': []}})
+            collection.update_one({'_id': userId}, {'$set': {'products': []}})
             print("Cart products reset successfully for user:", userId)
             return "Cart products reset successfully."
         else:
@@ -483,8 +483,8 @@ def add_order():
         collection_orders = db['orders']
 
         orders = {
+            '_id' : order_id,
             'userId': userId,
-            'orderId' : order_id,
             'products': products,
             'dateAndTime' : now,
             'amount' : amount
@@ -499,8 +499,12 @@ def add_order():
         account = collection_accounts.find_one(account_filter)
 
         if account:
+            print(account)
             account['orders'].append(order_id)
             collection_accounts.replace_one(account_filter, account)
+            account_filter = {'_id': userId}
+            account = collection_accounts.find_one(account_filter)
+            print("account" , account)
             cart_reset(userId)
             return "true"
         else:
@@ -545,7 +549,7 @@ def retrieve_orders():
                 if retrived and retrived[0]:
                     orderDetails.append(retrived[0])
                     amountsAndTimes.append(retrived[1:])
-            print(orderDetails)
+            print("order Details",orderDetails)
             print(amountsAndTimes)
             return jsonify({'orders' : orderDetails , 'AmountsAndTimes' : amountsAndTimes})  
         else:
@@ -564,7 +568,7 @@ def retrieve_products(orderId):
         db = client['users-e-com']
         collection = db['orders']
 
-        order = collection.find_one({'orderId': orderId})
+        order = collection.find_one({'_id': orderId})
 
         if order:
             return [order['products'] , order['amount'],order['dateAndTime']]

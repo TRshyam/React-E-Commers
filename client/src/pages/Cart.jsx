@@ -140,6 +140,7 @@ const Cart = (props) => {
             ) : (
                 <div className="CartError">
                     <MdErrorOutline className="MdErrorOutline" />
+                    <h1>Cart is empty !</h1>
                 </div>
             )}
 

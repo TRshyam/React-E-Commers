@@ -5,16 +5,18 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { MdErrorOutline } from "react-icons/md";
 import OrderItem from "../components/OrderItem";
+import { useSelector } from 'react-redux';
 
-const OrdersPage = (props) => {
-    const [userId, setUserId] = useState(props.userId);
+const OrdersPage = () => {
+    const { currentUser } = useSelector((state) => state.user);
+    const [userId, setUserId] = useState(currentUser.user._id);
     const [orders, setOrders] = useState([]); // Use a clear state name
     const [AmountsAndTimes, setAmountsAndTimes] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.post('http://localhost:5000/api/orders/retrieve', { userId });
+                const response = await axios.post('http://localhost:5000/api/orders/retrieve', { userId});
                 console.log(response.data)
                 const { orders: fetchedOrders } = response.data;
                 setOrders(fetchedOrders || []); // Use 'orders' key or empty array if missing
@@ -66,7 +68,10 @@ const OrdersPage = (props) => {
                     ))}
                 </div>
             ) : (
-                <MdErrorOutline />
+                <div className="CartError">
+                    <MdErrorOutline className="MdErrorOutline" />
+                    <h1>Not yet ordered !</h1>
+                </div>
             )}
             <Footer />
         </>
