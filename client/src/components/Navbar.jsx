@@ -43,13 +43,18 @@ export default function Navbar() {
         <Link to='/sign-in' >
           <button> LogIn </button>
         </Link>
+
         <Link to='/orders' >
           <a><BsBoxSeam className='BsBoxSeam'  /></a>
         </Link>
+        
         <Link to='/cart' >
           <a><CiShoppingCart /></a>
         </Link>
-        <a><CiUser /></a>
+        <Link to='/profile' >
+          <CiUser />
+        </Link>
+        
       </div>
     </div>
   );
