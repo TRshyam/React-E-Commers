@@ -13,6 +13,7 @@ import ProductPage from './pages/ProductPage'
 import Category from './pages/Category'
 import Cart from './pages/Cart'
 import Profile from './pages/Profile'
+import OrdersPage from './pages/OrdersPage'
 
 
 const App = () => {
@@ -29,8 +30,8 @@ const App = () => {
         <Route path="/Cart" element={<Cart userId="nakul" productId="book" quantity={1} />} />
 
         <Route path="/Category" element={<Category />} />
-
         <Route path="/Cart" element={<Cart />} />
+        <Route path="/orders" element={<OrdersPage userId = {"nakul"} />} />
       </Routes>
     </BrowserRouter>
   )
