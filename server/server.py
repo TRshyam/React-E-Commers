@@ -219,6 +219,8 @@ def update_user(user_id):
 
         # Fetch the updated user document from the database
         updated_user = collection.find_one({'_id': user_id})
+        updated_user.pop('password', None)
+
         # print("++++++")
         # print(A)
         # print(A)
