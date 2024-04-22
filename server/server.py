@@ -102,10 +102,15 @@ def send_confirmation_email(email, confirmation_token):
 @app.route('/api/signup', methods=['POST'])
 def signup():
     data = request.json
+    firstName = data.get('firstName')
+    lastName = data.get('lastName')
     email = data.get('email')
     password = data.get('password')
-    print(email)
-    print(password)
+    phNumber=data.get('phNumber')
+    print(data)
+    print(phNumber)
+    print(phNumber)
+    print(phNumber)
     print("Signing up user...")
 
     try:
@@ -130,11 +135,14 @@ def signup():
         
         # Insert user data into the collection
         user_data = {
-            '_id': "nakul",
+            '_id': user_id,
+            'firstName':firstName,
+            'lastName':lastName,
+            'phnumber':phNumber,
             'email': email,
             'password': hashpw(password.encode('utf-8'), gensalt()),
-            'confirmed': False, # Mark the user as unconfirmed initially
-            'orders'  : [] 
+            'address':[[],[]],
+            'confirmed': False,  # Mark the user as unconfirmed initially
             # 'confirmation_token': confirmation_token
         }
         result = collection.insert_one(user_data)
@@ -154,6 +162,75 @@ def signup():
 
 
 
+@app.route('/api/update-user/<string:user_id>', methods=['POST'])
+def update_user(user_id):
+    data = request.json
+    new_firstName = data.get('firstName')
+    new_lastName = data.get('lastName')
+    new_email = data.get('email')
+    new_password = data.get('password')
+    new_address = data.get('address')
+    new_zipcode = data.get('zipcode')
+    new_phNumber = data.get('phoneNumber')
+    
+    print("Updating user...")
+    try:
+        client.admin.command('ping')
+        print("Pinged your deployment. You successfully connected to MongoDB!")
+
+        db = client['users-e-com']
+        collection = db['accounts']
+
+        existing_user = collection.find_one({'_id': user_id})
+        if not existing_user:
+            print("User not found.")
+            return jsonify({'success': 'False', 'message': 'User not found'})
+
+        # Construct update data dictionary with only provided fields
+        update_data = {}
+        if new_email:
+            update_data['email'] = new_email
+        if new_password:
+            update_data['password'] = hashpw(new_password.encode('utf-8'), gensalt())
+        if new_phNumber:
+            update_data['phnumber'] = new_phNumber
+        if new_firstName:
+            update_data['firstName'] = new_firstName
+        if new_lastName:
+            update_data['lastName'] = new_lastName
+        if new_address:
+            # If address is provided, update the address field in array format
+            update_data['address'] = existing_user.get('address', [])
+            if new_zipcode:
+                # If new zipcode is provided, update the existing zipcode
+                update_data['address'][1] = new_zipcode
+            if new_address:
+                # If new address is provided, update the existing address
+                update_data['address'][0] = new_address
+        # Add other fields as needed
+
+        if not update_data:
+            print("No update data provided.")
+            return jsonify({'success': "False", 'message': 'No update data provided'})
+
+        # Perform the update operation using $set operator
+        collection.update_one({'_id': user_id}, {'$set': update_data})
+        print("User updated successfully.")
+
+        # Fetch the updated user document from the database
+        updated_user = collection.find_one({'_id': user_id})
+        # print("++++++")
+        # print(A)
+        # print(A)
+        # print(A)
+        # print(A)
+
+        return jsonify({'success': "True", 'message': 'User updated successfully', 'user': updated_user})
+
+    except Exception as e:
+        print(e)
+        return jsonify({'success': "False", 'message': 'An error occurred while updating the user.'}),404
+
 
 @app.route('/api/signin', methods=["POST"])
 def signin():
@@ -167,20 +244,16 @@ def signin():
     db = client['users-e-com']
     collection = db['accounts']
     user =collection.find_one({'email': email})
+    print(user)
     
-    if user is not None:
-        try:
-            if checkpw(password.encode('utf-8'), user['password']) :
-                print("true Passwrd")
-                print("true Passwrd")
-                return "True"
-            else:
-                return "False"
-        except Exception as error:
-            return str(error)
-    
+    if user and user.get('password'):  # Check if user exists and has password
+        if checkpw(password.encode('utf-8'), user['password']):
+            user_data = {key: value for key, value in user.items() if key != 'password'}  # Use secure password hashing
+            return jsonify({'user': user_data}), 200
+        else:
+            return jsonify({'message': 'Invalid email or password'}), 401
     else:
-        return "False"
+        return jsonify({'message': 'User not found'}), 404
     
 @app.route('/api/cart/add', methods=['POST'])
 def add_to_cart():
@@ -190,6 +263,7 @@ def add_to_cart():
 
         # Assuming the request includes a JSON body with userId and productId
         data = request.json
+        print(data)
         userId = data.get('userId')
         productId = data.get('productId')
         quantity = data.get('quantity')
@@ -200,18 +274,18 @@ def add_to_cart():
         collection = db['carts']
 
         # Check if the user's cart already exists
-        user_cart = collection.find_one({'userId': userId})
+        user_cart = collection.find_one({'_id': userId})
 
         if user_cart:
             # Check if the product is already in the cart
             if any(item['productId'] == productId for item in user_cart['products']):
                 # Update existing cart with new quantity for the product
                 collection.update_one(
-                    {'userId': userId, 'products.productId': productId},  # Find by userId and matching productId
+                    {'_id': userId, 'products.productId': productId},  # Find by userId and matching productId
                     {'$set': {'products.$.quantity': quantity}}  # Update quantity using $inc and positional operator
                 )
                 print(f"Product {productId} quantity updated in cart for user {userId}")
-                updated_cart = collection.find_one({'userId': userId})
+                updated_cart = collection.find_one({'_id': userId})
                 if updated_cart:
                     print("Product already exists in the cart for user:", userId)
                     return jsonify(updated_cart['products'])
@@ -220,21 +294,21 @@ def add_to_cart():
             
             # Update the existing cart with the new product
             collection.update_one(
-                {'userId': userId},
+                {'_id': userId},
                 {'$addToSet': {'products': {'productId' : productId ,'quantity' : quantity}}}
             )
             print("Product added to cart for user:", userId)
         else:
             # Create a new cart for the user and add the product
             cart_data = {
-            'userId': userId,
+            '_id': userId,
             'products': [{'productId': productId, 'quantity': quantity}]
             }
             collection.insert_one(cart_data)
             print("New cart created and product added for user:", userId)
 
         # Retrieve and return the updated cart
-        updated_cart = collection.find_one({'userId': userId})
+        updated_cart = collection.find_one({'_id': userId})
         if updated_cart:
             return jsonify(updated_cart['products'])
         else:

@@ -84,7 +84,7 @@ console.log(renderItemCards(itemCards));
       <div className='bg-gray-100 w-full flex flex-col  '>
         <div className='mx-0 xl:mx-16 2xl:mx-48 py-3 h-auto   flex-grow flex '>
             
-            <ProductImages mainImgs={product.details.images} userId = {"nakul"} productId = {product.id} />
+            <ProductImages mainImgs={product.details.images}  productId = {product.id} />
 
             <ProductDetails details={product} />
         </div>

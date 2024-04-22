@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
 import CartButton from '../CartButton';
 import { MdKeyboardArrowDown, MdOutlineKeyboardArrowUp } from "react-icons/md";
+import { useDispatch, useSelector } from 'react-redux';
+
 
 export default function ProductImages({ mainImgs , userId , productId}) {
   const [selectedImage, setSelectedImage] = useState(mainImgs[0]); // Set initial selected image to the first image in the array
+
+  const { currentUser } = useSelector((state) => state.user);
+  console.log(currentUser.user._id);
+
 
   const [startIndex, setStartIndex] = useState(0);
 
@@ -65,7 +71,7 @@ export default function ProductImages({ mainImgs , userId , productId}) {
         </div>
       </div>
       <div className='my-6 p-4 flex justify-center'>
-        <CartButton userId = {userId} productId = {productId} />
+        <CartButton userId = {currentUser.user._id} productId = {productId} />
       </div>
     </div>
   );

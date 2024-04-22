@@ -51,7 +51,10 @@ export default function Navbar() {
         <Link to='/cart' >
           <a><CiShoppingCart /></a>
         </Link>
-        <a><CiUser /></a>
+        <Link to='/profile' >
+          <CiUser />
+        </Link>
+        
       </div>
     </div>
   );
