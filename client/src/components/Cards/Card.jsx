@@ -26,12 +26,12 @@ export default function Card({ item }) {
           <p className='text-sm'>{Specialprize}</p>
         </div>
         {/* Link to Product Page with Product ID */}
-        <Link
-          to={`/product/${id}`}
+        <a
+          href={`/product/${id}`}
           className='p-2 rounded-full hover:bg-black hover:text-white'
         >
           <MdOutlineArrowForward />
-        </Link>
+        </a>
       </div>
     </div>
   );

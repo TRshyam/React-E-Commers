@@ -2,16 +2,14 @@ import React, { useState } from 'react';
 import CartButton from '../CartButton';
 import { MdKeyboardArrowDown, MdOutlineKeyboardArrowUp } from "react-icons/md";
 import { useDispatch, useSelector } from 'react-redux';
+import { useLocation, useNavigate } from "react-router-dom"; // Import useLocation and useNavigate
 
-
-export default function ProductImages({ mainImgs , userId , productId}) {
-  const [selectedImage, setSelectedImage] = useState(mainImgs[0]); // Set initial selected image to the first image in the array
-
+export default function ProductImages({ mainImgs, userId, productId }) {
+  const [selectedImage, setSelectedImage] = useState(mainImgs[0]);
   const { currentUser } = useSelector((state) => state.user);
-  console.log(currentUser.user._id);
-
-
   const [startIndex, setStartIndex] = useState(0);
+  const navigate = useNavigate(); // Initialize useNavigate
+
 
   const handlePreviousClick = () => {
     if (startIndex > 0) {
@@ -22,6 +20,16 @@ export default function ProductImages({ mainImgs , userId , productId}) {
   const handleNextClick = () => {
     if (startIndex + 5 < mainImgs.length) {
       setStartIndex(startIndex + 5);
+    }
+  };
+
+  const handleCartButtonClick = () => {
+    if (currentUser && currentUser.user && currentUser.user._id) {
+      // If user is logged in
+      // Perform the cart action
+    } else {
+      // If user is not logged in, redirect to sign-in page
+      navigate('/sign-in'); // Redirect to sign-in page
     }
   };
 
@@ -47,17 +55,17 @@ export default function ProductImages({ mainImgs , userId , productId}) {
               ))}
               
               <div className='relative'>
-                  {startIndex > 0 && (
-                    <button className='h-6 w-20 bg-gray-300 flex justify-center items-center absolute bottom-[12rem]' onClick={handlePreviousClick}>
-                      <MdOutlineKeyboardArrowUp />
-                    </button>
-                  )}
+                {startIndex > 0 && (
+                  <button className='h-6 w-20 bg-gray-300 flex justify-center items-center absolute bottom-[12rem]' onClick={handlePreviousClick}>
+                    <MdOutlineKeyboardArrowUp />
+                  </button>
+                )}
 
-                  {startIndex + 5 < mainImgs.length && (
-                    <button className='h-6 w-20 bg-gray-300 flex justify-center items-center absolute bottom-0 top-1' onClick={handleNextClick}>
-                      <MdKeyboardArrowDown />
-                    </button>
-                  )}
+                {startIndex + 5 < mainImgs.length && (
+                  <button className='h-6 w-20 bg-gray-300 flex justify-center items-center absolute bottom-0 top-1' onClick={handleNextClick}>
+                    <MdKeyboardArrowDown />
+                  </button>
+                )}
               </div>
           </div>
 
@@ -71,7 +79,13 @@ export default function ProductImages({ mainImgs , userId , productId}) {
         </div>
       </div>
       <div className='my-6 p-4 flex justify-center'>
-        <CartButton userId = {currentUser.user._id} productId = {productId} />
+        {currentUser && currentUser.user && currentUser.user._id ? ( // Check if currentUser.user._id exists
+          <CartButton userId={currentUser.user._id} productId={productId} onClick={handleCartButtonClick} />
+        ) : (
+          <button onClick={() => navigate('/sign-in')} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            Sign In to Add to Cart
+          </button>
+        )}
       </div>
     </div>
   );

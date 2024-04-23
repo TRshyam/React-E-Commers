@@ -190,11 +190,11 @@ const handleSubmit = async (e) => {
     
                         <div className="mb-4">
                             <label htmlFor="address" className="text-gray-600 block">Address:</label>
-                            <textarea id="address" onChange={handleChange} name="address" className="w-full border rounded-md px-3 py-2" placeholder="Your address" rows="3" defaultValue={currentUser.address} ></textarea>
+                            <textarea id="address" onChange={handleChange} name="address" className="w-full border rounded-md px-3 py-2" placeholder="Your address" rows="3" defaultValue={currentUser.user.address[0]} ></textarea>
                         </div>
                         <div className="mb-4">
                             <label htmlFor="zipcode" className="text-gray-600 block">Zip code:</label>
-                            <input type="tel" onChange={handleChange} id="zipcode" name="zipcode" className="w-full border rounded-md px-3 py-2" placeholder="Zip code"  />
+                            <input type="tel" onChange={handleChange} id="zipcode" name="zipcode" className="w-full border rounded-md px-3 py-2" defaultValue={currentUser.user.address[1]} placeholder="Zip code"  />
                         </div>
                         <div className="mb-4">
                             <label htmlFor="password" className="text-gray-600 block">Update Password:</label>
