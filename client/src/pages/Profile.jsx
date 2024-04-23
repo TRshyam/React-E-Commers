@@ -1,11 +1,12 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { useState} from 'react';
+import { useState , useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import { BiSolidPackage } from "react-icons/bi";
 import { IoIosArrowForward } from "react-icons/io";
 import { VscAccount } from "react-icons/vsc";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -24,19 +25,23 @@ import Navbar from '../components/Navbar';
 function Profile() {
 
     const { currentUser } = useSelector((state) => state.user);
+    const navigate = useNavigate();
+
+    if (currentUser == null) {
+      useEffect(() => {
+        if (currentUser == null) {
+          navigate('/sign-in');
+        }
+      }, []);
+    }
+    else{
+    console.log("current user :  ",currentUser)
 
     // console.log(currentUser.user.email)
     const dispatch = useDispatch();
     const [formData, setFormData] = useState({});
     const [mess, setMess] = useState(''); // State for success message content
     const [updateSuccess, setUpdateSuccess] = useState(false); // State for success message
-
-    // console.log(currentUser.user._id);
-    // console.log(currentUser.user._id);
-    // console.log(currentUser.user._id);
-    // console.log(currentUser.user._id);
-    // console.log(currentUser.user._id);
-
 
 
     const handleChange = (e) => {
@@ -57,12 +62,9 @@ const handleSubmit = async (e) => {
       body: JSON.stringify(formData),
     });
 
-    console.log(res);
-    console.log(res.status);
-    console.log(res.status);
-    console.log(res.status);
-    console.log(res.status);
-    
+    console.log("res : ",res);
+    console.log("res staus : ",res.status);
+
     if (!res.ok) {
       // Handle non-successful responses
       if (res.status === 404) {
@@ -92,12 +94,6 @@ const handleSubmit = async (e) => {
     dispatch(updateUserFailure('An error occurred while updating the user'));
   }
 };
-    console.log(mess);
-    console.log(mess);
-    console.log(mess);
-    console.log(mess);
-    console.log(mess);
-    console.log(mess);
 
 
 
@@ -220,6 +216,7 @@ const handleSubmit = async (e) => {
 
 
     );
+}
 }
 
 export default Profile;
