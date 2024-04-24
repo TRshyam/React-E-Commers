@@ -6,6 +6,8 @@ import ProductDetails from '../components/ProductPage/ProductDetails';
 import Navbar from '../components/Navbar'
 import Carousel from '../components/carousel/Carousel';
 import Card from '../components/Cards/Card';
+import { grid } from 'ldrs'
+grid.register()
 
 
 
@@ -75,7 +77,13 @@ const renderItemCards = (itemCards) => {
 console.log(renderItemCards(itemCards));
 
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <p className='absolute top-1/2 bottom-1/2 left-1/2 right-1/2'>
+      <l-grid
+        size="60"
+        speed="1.5" 
+        color="blue" 
+      ></l-grid>
+  </p>;
   if (!product) return <p>Product not found</p>;
 
   return (
