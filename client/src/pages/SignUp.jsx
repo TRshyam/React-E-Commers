@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { LuEye, LuEyeOff } from "react-icons/lu";
 import axios from 'axios';
 import { bouncy } from 'ldrs';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 bouncy.register();
 
@@ -78,6 +80,8 @@ export default function SignUp() {
   };
 
   return (
+    <>
+    <Navbar />
     <div className="min-h-screen flex items-center justify-center">
       <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col w-full max-w-md">
         <div className="mb-4">
@@ -251,5 +255,7 @@ export default function SignUp() {
         </div>
       </div>
     </div>
+    <Footer />
+    </>
   );
 }

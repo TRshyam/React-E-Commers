@@ -5,6 +5,8 @@ import { FiMinusCircle, FiPlusCircle } from "react-icons/fi";
 import { AiOutlineDelete } from "react-icons/ai";
 import { FaRegHeart } from "react-icons/fa";
 import axios from "axios";
+import { grid } from 'ldrs'
+grid.register()
 
 const CartItem = (props) => {
   const [quantity, setQuantity] = useState(props.quantity || 0); // Set default quantity to 0 if not provided
@@ -114,7 +116,7 @@ const CartItem = (props) => {
         </div>
       </div>
     ) : (
-      <div>Placeholder content for when productData is not available</div>
+      <></>
     )}
   </>
   );

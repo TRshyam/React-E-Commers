@@ -48,6 +48,8 @@ def retrieve_product():
         data = request.json
         product_id = data.get('ProductId')
         print("product_id", product_id)
+        if not product_id :
+            return ""
 
         if not product_id:
             return jsonify({'error': 'Missing ProductId in request body'}), 400  # Bad request
@@ -362,6 +364,7 @@ def remove_from_cart():
     
 def cart_reset(userId):
     try:
+
         client.admin.command('ping')
         print("Pinged your deployment. You successfully connected to MongoDB!")
 
@@ -386,8 +389,11 @@ def cart_reset(userId):
 
     
 # Endpoint to retrieve products in the cart for a specific user
-@app.route('/api/cart/<userId>', methods=['GET'])
-def get_cart(userId):
+@app.route('/api/cart/retrieve', methods=['POST'])
+def get_cart():
+    data = request.json
+    userId = data.get('userId')
+    print("userId ::: " , userId)
     try:
         client.admin.command('ping')
         print("Pinged your deployment. You successfully connected to MongoDB!")
@@ -396,7 +402,7 @@ def get_cart(userId):
         db = client['users-e-com']
         collection = db['carts']
 
-        user_cart = collection.find_one({'userId': userId})
+        user_cart = collection.find_one({'_id': userId})
 
         if user_cart:
             return jsonify(user_cart['products'])

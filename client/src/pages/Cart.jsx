@@ -8,14 +8,17 @@ import { MdErrorOutline } from "react-icons/md";
 import { IoBagOutline } from "react-icons/io5"
 import { useLocation, useNavigate } from "react-router-dom";
 import { bouncy } from 'ldrs'
+import { useSelector } from 'react-redux';
 
 bouncy.register()
 
-const Cart = (props) => {
+const Cart = () => {
+    const { currentUser, isLoading } = useSelector((state) => state.user);
 
     const location = useLocation();
     const { state } = location;
-    const userId = state ? state.userId : '';
+    const userId = currentUser ? currentUser.user._id : '';
+
     const productId = state ? state.productId : '';
     const [quantity , Setquantity] = useState(1); 
     const navigate = useNavigate();
@@ -25,23 +28,42 @@ const Cart = (props) => {
     const [error, setError] = useState(null);
     const[totalSum,setTotalSum] = useState(0);
 
-    useEffect(() => {
-        if (userId !== '' && productId !== '' && quantity > 0) { // Check if quantity is valid
-            const fetchData = async () => {
-                console.log(userId,productId,quantity);
-                try {
-                    const response = await axios.post('http://localhost:5000/api/cart/add', { userId, productId, quantity });
-                    setCartData(response.data); // Assuming the response contains cart data
-                    console.log("Response: ", response.data);
-                } catch (error) {
-                    console.log("Error: ", error);
-                    setError(error.message);
-                }
-            };
-            fetchData();
-        }
-    }, [userId, productId, quantity]); // Include userId, productId, and quantity in the dependency array
+    useEffect(() => { 
+      if (!currentUser && !isLoading) { // Check if currentUser is null and loading has finished
+        return navigate('/sign-in');
+    }
 
+    if (userId !== '' && !isLoading) { // Check if userId is not empty and loading has finished
+        const fetchData = async () => {
+            try {
+              console.log(userId , productId)
+              const response = await axios.post('http://localhost:5000/api/cart/retrieve', { userId });
+                setCartData(response.data); // Assuming the response contains cart data
+                console.log("Response for fetchdata: ", response.data);
+            } catch (error) {
+                console.log("Error: ", error);
+                setError(error.message);
+            }
+        };
+        fetchData(); // Only fetch data when conditions are met
+    }
+                       
+      if (userId !== '' && productId !== '' && quantity > 0) { // Check if quantity is valid
+          const fetchData = async () => {
+              console.log(userId, productId, quantity);
+              try {
+                  const response = await axios.post('http://localhost:5000/api/cart/add', { userId, productId, quantity });
+                  setCartData(response.data); // Assuming the response contains cart data
+                  console.log("Response: ", response.data);
+              } catch (error) {
+                  console.log("Error: ", error);
+                  setError(error.message);
+              }
+          };
+          fetchData();
+      }
+  }, [currentUser, isLoading, userId, productId, quantity]); // Include currentUser, isLoading, userId, productId, and quantity in the dependency array
+  
     const deleteCartItem = async (userId, productId) => {
         try {
             const response = await axios.post('http://localhost:5000/api/cart/delete', { userId, productId });
@@ -76,6 +98,7 @@ const Cart = (props) => {
       }, [cartData]);
 
     const retrieveProduct = async (productId) => {
+      if (productId !==  null){
         try {
           const response = await axios.post('http://localhost:5000/api/data/retrive_product', { ProductId: productId }); // Use correct casing
           return response.data['details']['Specialprize']
@@ -84,6 +107,7 @@ const Cart = (props) => {
           // Handle errors appropriately, e.g., display a user-friendly message
           return null; // Indicate error or default value
         }
+      }
       };
 
     // This is used to add the cart elements to the orders part
@@ -112,6 +136,7 @@ const Cart = (props) => {
     return (
         <>
             <Navbar />
+            {console.log("cartdata :",cartData)}
             {cartData && Array.isArray(cartData) && cartData.length > 0 ? (
                 <div className="Cart">
                     <div className="CartProducts">
