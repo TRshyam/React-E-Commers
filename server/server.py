@@ -8,7 +8,8 @@ from flask_mail import Mail, Message
 import secrets
 from bcrypt import hashpw, gensalt, checkpw
 import datetime
-
+import hashlib
+import time
 
 
 # from pymongo.server_api import ServerApi
@@ -573,7 +574,32 @@ def retrieve_products(orderId):
         print(e)
         return "Failed to retrieve order."
 
+def generate_unique_id():
+    timestamp = str(int(time.time()))  # Get current timestamp
+    unique_id = hashlib.sha256(timestamp.encode()).hexdigest()[:10]  # Get the SHA-256 hash and take the first 10 characters
+    return unique_id
 
+# Generate 10 unique IDs
+
+
+
+
+@app.route('/api/add_product', methods=['POST'])
+def add_product():
+    # Access form data from request body
+    _id="pd"+str(generate_unique_id)
+    product_name = request.form.get('productName')
+    category = request.form.get('category')
+    images = request.files.getlist('images')  # Handle file uploads
+    highlights = request.form.get('highlights')
+    description = request.form.get('description')
+    specifications = request.form.get('specifications')
+    
+
+    # Perform processing here
+    
+
+    return jsonify({'message': 'Data received successfully'})
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -14,6 +14,7 @@ import Category from './pages/Category'
 import Cart from './pages/Cart'
 import Profile from './pages/Profile'
 import OrdersPage from './pages/OrdersPage'
+import AddProductForm from './pages/AddProductForm'
 
 
 const App = () => {
@@ -32,6 +33,7 @@ const App = () => {
         <Route path="/Category" element={<Category />} />
         <Route path="/Cart" element={<Cart />} />
         <Route path="/orders" element={<OrdersPage userId = {"nakul"} />} />
+        <Route path="/admin/addProducts" element={<AddProductForm/>} />
       </Routes>
     </BrowserRouter>
   )
