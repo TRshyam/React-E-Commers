@@ -1,15 +1,10 @@
-import React from 'react';
+import React ,  {useEffect, useState }  from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { useState} from 'react';
-import {Link} from 'react-router-dom';
 import { BiSolidPackage } from "react-icons/bi";
 import { IoIosArrowForward } from "react-icons/io";
 import { VscAccount } from "react-icons/vsc";
-
-
-
-
+import {useNavigate} from 'react-router-dom';
 
 
 import {
@@ -23,7 +18,16 @@ import Navbar from '../components/Navbar';
 
 function Profile() {
 
-    const { currentUser } = useSelector((state) => state.user);
+    const { currentUser, isLoading } = useSelector((state) => state.user);
+    const navigate = useNavigate();
+
+    // Hey I companted here
+
+    // useEffect(() => {
+    //     if (!currentUser && !isLoading) { // Check if currentUser is null and loading has finished
+    //         return  navigate('/sign-in');
+    //     }
+    // } ,[currentUser] );
 
     // console.log(currentUser.user.email)
     const dispatch = useDispatch();
@@ -31,11 +35,6 @@ function Profile() {
     const [mess, setMess] = useState(''); // State for success message content
     const [updateSuccess, setUpdateSuccess] = useState(false); // State for success message
 
-    // console.log(currentUser.user._id);
-    // console.log(currentUser.user._id);
-    // console.log(currentUser.user._id);
-    // console.log(currentUser.user._id);
-    // console.log(currentUser.user._id);
 
 
 
@@ -92,16 +91,7 @@ const handleSubmit = async (e) => {
     dispatch(updateUserFailure('An error occurred while updating the user'));
   }
 };
-    console.log(mess);
-    console.log(mess);
-    console.log(mess);
-    console.log(mess);
-    console.log(mess);
-    console.log(mess);
 
-
-
-  
     return (
       <div>
         {/* <Header/> */}
