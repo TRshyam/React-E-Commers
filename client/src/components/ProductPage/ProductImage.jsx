@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import CartButton from '../CartButton';
 import { MdKeyboardArrowDown, MdOutlineKeyboardArrowUp } from "react-icons/md";
 import { useDispatch, useSelector } from 'react-redux';
+
 import { useLocation, useNavigate } from "react-router-dom"; // Import useLocation and useNavigate
 
 export default function ProductImages({ mainImgs, userId, productId }) {
   const [selectedImage, setSelectedImage] = useState(mainImgs[0]);
   const { currentUser } = useSelector((state) => state.user);
+
   const [startIndex, setStartIndex] = useState(0);
   const navigate = useNavigate(); // Initialize useNavigate
 
@@ -80,13 +82,13 @@ export default function ProductImages({ mainImgs, userId, productId }) {
       </div>
       <div className='my-6 p-4 flex justify-center'>
         {currentUser && currentUser.user && currentUser.user._id ? ( // Check if currentUser.user._id exists
-          <CartButton userId={currentUser.user._id} productId={productId} onClick={handleCartButtonClick} />
+          <CartButton productId={productId} onClick={handleCartButtonClick} />
         ) : (
           <button onClick={() => navigate('/sign-in')} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
             Sign In to Add to Cart
           </button>
         )}
-      </div>
+     </div>
     </div>
   );
 }

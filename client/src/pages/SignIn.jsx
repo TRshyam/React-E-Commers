@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { signInStart,signInSuccess,signInFailure } from '../redux/user/userSlice';
 import { LuEye, LuEyeOff } from "react-icons/lu";
 import { bouncy } from 'ldrs'
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 bouncy.register()
 
 export default function Signin() {
@@ -70,6 +72,8 @@ const submit = async (e) => {
   };
 
   return (
+    <>
+    <Navbar />
     <div className="min-h-screen flex items-center justify-center">
       <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col w-full max-w-md">
         <div className="mb-4">
@@ -161,5 +165,7 @@ const submit = async (e) => {
         </div>
       </div>
     </div>
+    <Footer />
+    </>
   );
 }
