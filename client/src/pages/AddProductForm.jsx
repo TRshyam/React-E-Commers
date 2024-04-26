@@ -33,37 +33,49 @@ const AddProductForm = () => {
     setSpecifications(newSpecifications);
   };
 
- const handleSubmit = async (e) => {
+const handleSubmit = async (e) => {
     e.preventDefault();
-    const formData = {
-      productName,
-      category,
-      images: Array.from(images), // Convert FileList to Array
-      highlights,
-      description,
-      specifications,
-    };
+
+    // Convert highlights array to a string
+    const highlightsString = highlights.join(',');
+
+    const formData = new FormData();
+    formData.append('productName', productName);
+    formData.append('category', category);
+    
+    // Append each image to the formData
+    images.forEach((image) => {
+        formData.append('images', image);
+    });
+
+    formData.append('highlights', highlightsString);
+    formData.append('description', description);
+    formData.append('specifications', JSON.stringify(specifications));
     console.log(formData);
+    console.log(formData);
+    console.log(formData);
+    console.log(formData);
+
     try {
-      const response = await axios.post('http://127.0.0.1:5000/api/add_product', formData,
-    {
-       headers: {
-        'Content-Type': 'multipart/form-data' // Set content type to multipart/form-data
-      }
-    }
-    );
-      console.log('Server Response:', response.data);
-      // Reset form fields after successful submission
-      setProductName('');
-      setCategory('');
-      setImages([]);
-      setHighlights(['', '', '', '', '', '', '']);
-      setDescription('');
-      setSpecifications([{ key: 'General', values: [{ subKey: '', subValue: '' }] }]);
+        const response = await axios.post('http://127.0.0.1:5000/api/add_product', formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        });
+
+        console.log('Server Response:', response.data);
+        // Reset form fields after successful submission
+        setProductName('');
+        setCategory('');
+        setImages([]);
+        setHighlights(['', '', '', '', '', '', '']);
+        setDescription('');
+        setSpecifications([{ key: 'General', values: [{ subKey: '', subValue: '' }] }]);
     } catch (error) {
-      console.error('Error:', error);
+        console.error('Error:', error);
     }
-  };
+};
+
 
   return (
     <div className="max-w-md mx-auto">
