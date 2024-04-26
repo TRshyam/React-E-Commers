@@ -4,6 +4,8 @@
             "pd365680b4b0": {
                 "_id": "pd365680b4b0",
                 "productName": "Google Pixel 7 ",
+                "price": "70000",
+                "discount": "20",
                 "category": "Electronics",
                 "images": [
                     "pd365680b4b0_phone1.jpeg",
@@ -16,6 +18,37 @@
                 "highlights": "8 GB RAM | 128 GB ROM,16.0 cm (6.3 inch) Full HD+ Display,50MP + 12MP | 10.8MP Front Camera,4270 mAh Battery,Google Tensor G2 Processor,,",
                 "description": "Experience smooth operation and brilliant user interface with the 5G-ready Google Pixel 7 smartphone that comes loaded with innovative features. Google Tensor G2 makes the Pixel 7 faster, more efficient, and more secure and it delivers even more helpful features. Furthermore, the Pixel 7 Camera takes incredible photos and videos in stunning colour and detail. It includes Super Res Zoom so that you can get super-sharp close-ups without an extra telephoto lens. Additionally, the Pixel 7's 16.002 cm (6.3) display is super sharp, with rich, vivid colours. And it's fast and responsive for smoother gaming, scrolling, and moving between apps. \r\n\r\n",
                 "specifications": "[{\"key\":\"General\",\"values\":[{\"subKey\":\"In The Box\",\"subValue\":\"Handset, 1 M USB-C to USB-C Cable (USB 2.0), Quick Start Guide, Quick Switch Adaptor, Sim Tool\"},{\"subKey\":\"Model Number\",\"subValue\":\"GVU6C\"},{\"subKey\":\"Model Name\",\"subValue\":\"Pixel 7\"},{\"subKey\":\"Browse Type\",\"subValue\":\"Smartphones\"},{\"subKey\":\"SIM Type\",\"subValue\":\"Dual Sim(Nano + eSIM)\"}]},{\"key\":\"Os & Processor Features\",\"values\":[{\"subKey\":\"Operating System\",\"subValue\":\"Android 13\"},{\"subKey\":\"Operating Frequency\",\"subValue\":\"2G GSM/EDGE: Quad Band (850/900/1800/1900 MHz), 3G UMTS/HSPA+/HSDPA: B1/B2/B4/B5/B6/B8/B19, 4G LTE: B1/B2/B3/B4/B5/B7/B8/B12/B13/B14/B17/B18/B19/B20/B25/B26/B28/B29/B30/B32/B38/B39/B40/B41/B42/B46/B48/B66/B71, 5G sub-62: n1/n2/n3/n5/n7/n8/n12/n14/n20/n25/n28/n30/n38/n40/n41/n48/n66/n71/n75/n76/n77/n78, eSIM\"}]},{\"key\":\"Memory & Storage Features\",\"values\":[{\"subKey\":\"Internal Storage  \",\"subValue\":\"128 GB\"},{\"subKey\":\"RAM\",\"subValue\":\"8GB\"}]}]"
+            },
+            "pd248e027185": {
+                "_id": "pd248e027185",
+                "productName": "Google Pixel 7a",
+                "price": "50000",
+                "discount": "20",
+                "category": "Electronics",
+                "images": [
+                    "pd248e027185_-original-imagtrf9zr2guxsa.jpg",
+                    "pd248e027185_-original-imagtrf9vwub624g.jpg",
+                    "pd248e027185_-original-imagtrf9ny5jn8dn.jpg",
+                    "pd248e027185_-original-imagtrf9qm3dufq9.jpg"
+                ],
+                "highlights": "8 GB RAM | 128 GB ROM,15.49 cm (6.1 inch) Full HD+ Display,64MP (OIS) + 13MP | 13MP Front Camera,4300 mAh Battery,,,",
+                "description": "Experience the simplicity and seamless transitions with the Google Pixel 7a, which is loaded with a variety of incredible features. The Tensor G2 processor, designed by Google, boosts the Pixel 7a's speed, effectiveness, and security. It's the same chip that's in Pixel 7 and Pixel 7 Pro. Furthermore, With a dual rear camera system and Google Tensor G2's advanced image processing, Pixel 7a lets you create perfect photos every time. It's easy to take amazing pictures in low light, or fix your blurry photos and remove distractions with a few taps in Google Photos. Moreover, the Pixel 7a camera includes Super Res Zoom, so that you can get up close without an extra telephoto lens.\r\n",
+                "specifications": "[{\"key\":\"General\",\"values\":[{\"subKey\":\"In The Box\",\"subValue\":\"Handset, 1 m USB-C to USB-C Cable (USB 2.0), Quick Switch Adaptor, Support Card, Sim Tool\"},{\"subKey\":\"Model Number\",\"subValue\":\"GHL1X\"},{\"subKey\":\"Model Name\",\"subValue\":\"Pixel 7a\"},{\"subKey\":\"SIM Type\",\"subValue\":\"Dual Sim(Nano + eSIM)\"}]},{\"key\":\"Display Features\",\"values\":[{\"subKey\":\"Display Size\",\"subValue\":\"15.49 cm (6.1 inch)\"},{\"subKey\":\"Resolution\",\"subValue\":\"2400 x 1080 Pixels\"},{\"subKey\":\"Display Colors\",\"subValue\":\"Full 24 Bit Depth for 16 Million Colours\"},{\"subKey\":\"Other Display Features\",\"subValue\":\"Smooth Display2 (Upto 90 Hz), Corning Gorilla Glass 3 Cover Glass, Always On Display with At a Glance and Now Playing, High Brightness Mode, Contrast Ratio: >1,000,000:1, HDR Support\"}]},{\"key\":\"Os & Processor Features\",\"values\":[{\"subKey\":\"Operating System\",\"subValue\":\"Android 13\"},{\"subKey\":\"Processor Brand\",\"subValue\":\"Google\"},{\"subKey\":\"Processor Brand\",\"subValue\":\"Tensor G2\"},{\"subKey\":\"Operating Frequency\",\"subValue\":\"2G GSM: 850 MHz/900 MHz/1800 MHz/1900 MHz, 3G UMTS: B1/B2/B4/B5/B6/B8/B19, 4G LTE: B1/B2/B3/B4/B5/B7/B8/B12/B17/B18/B19/B20/B21/B25/B28/B32/B38/B39/B40/B41/B42/B66, 5G: n1/n2/n3/n5/n7/n8/n12/n20/n25/n28/n38/n40/n41/n66/n75/n76/n77/n78/n79, eSIM\"}]},{\"key\":\"Camera Features\",\"values\":[{\"subKey\":\"Primary Camera Available\",\"subValue\":\"Yes\"},{\"subKey\":\"Primary Camera\",\"subValue\":\"64MP (OIS) + 13MP\"},{\"subKey\":\"Secondary Camera Available\",\"subValue\":\"Yes\"},{\"subKey\":\"Secondary Camera\",\"subValue\":\"13MP Front Camera\"},{\"subKey\":\"Dual Camera Lens\",\"subValue\":\"Primary Camera\"},{\"subKey\":\"\",\"subValue\":\"\"}]},{\"key\":\"Warranty\",\"values\":[{\"subKey\":\"Warranty Summary\",\"subValue\":\"1 Year Domestic Warranty\"},{\"subKey\":\"Domestic Warranty\",\"subValue\":\"1 Year \"}]}]"
+            }
+        },
+        "Appliance": {
+            "pd00a10ba7b8": {
+                "_id": "pd00a10ba7b8",
+                "productName": "eqw",
+                "price": "50",
+                "discount": "4",
+                "category": "Appliance",
+                "images": [
+                    "pd00a10ba7b8_-original-imagtrf9ny5jn8dn.jpg"
+                ],
+                "highlights": "qweeqw,awdawd,edqwdqwd,,,,",
+                "description": "awdawd",
+                "specifications": "[{\"key\":\"General\",\"values\":[{\"subKey\":\"wadaw\",\"subValue\":\"ddawd\"}]}]"
             }
         }
     }

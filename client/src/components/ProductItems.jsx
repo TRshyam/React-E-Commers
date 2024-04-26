@@ -38,6 +38,11 @@ export default function ProductItems() {
     const fetchData = async () => {
       try {
         const response = await axios.get('http://localhost:5000/api/data');
+        console.log(response.data);
+        console.log(response.data);
+        console.log(response.data);
+        console.log(response.data);
+        console.log(response.data);
         const cardsArray = Object.values(response.data);
         setCards(cardsArray);
       } catch (error) {

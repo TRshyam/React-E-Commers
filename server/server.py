@@ -40,7 +40,8 @@ carts_collection = db['carts']
 
 @app.route('/api/data', methods=['GET'])
 def get_data():
-    with open('server\DatabaseSchema.json', 'r') as file:
+    file_path = os.path.join('server', 'Modules', 'products.json')
+    with open(file_path, 'r') as file:
         data = json.load(file)
     return jsonify(data)
 
@@ -600,6 +601,8 @@ def add_product():
     # Access form data from request body
     _id = "pd" + generate_unique_id()
     product_name = request.form.get('productName')
+    price = request.form.get('ProductPrice')
+    discount = request.form.get('ProductDiscount')
     category = request.form.get('category')
     images = request.files.getlist('images')  # Handle file uploads
     highlights = request.form.get('highlights')
@@ -621,6 +624,8 @@ def add_product():
     product_data = {
         '_id': _id,
         'productName': product_name,
+        'price': price,
+        'discount': discount,
         'category': category,
         'images': image_filenames,  
         'highlights': highlights,

@@ -3,6 +3,8 @@ import axios from "axios";
 
 const AddProductForm = () => {
   const [productName, setProductName] = useState('');
+  const [ProductPrice, setProductPrice] = useState('');
+  const [ProductDiscount, setProductDiscount] = useState('');
   const [category, setCategory] = useState('');
   const [images, setImages] = useState([]);
   const [highlights, setHighlights] = useState(['', '', '', '', '', '', '']);
@@ -41,6 +43,8 @@ const handleSubmit = async (e) => {
 
     const formData = new FormData();
     formData.append('productName', productName);
+    formData.append('ProductPrice', ProductPrice);
+    formData.append('ProductDiscount', ProductDiscount);
     formData.append('category', category);
     
     // Append each image to the formData
@@ -66,6 +70,8 @@ const handleSubmit = async (e) => {
         console.log('Server Response:', response.data);
         // Reset form fields after successful submission
         setProductName('');
+        setProductPrice('');
+        setProductDiscount('');
         setCategory('');
         setImages([]);
         setHighlights(['', '', '', '', '', '', '']);
@@ -87,6 +93,26 @@ const handleSubmit = async (e) => {
             type="text"
             value={productName}
             onChange={(e) => setProductName(e.target.value)}
+            className="w-full border rounded px-3 py-2"
+            required
+          />
+        </div>
+        <div>
+          <label className="block mb-1">Product Price:</label>
+          <input
+            type="text"
+            value={ProductPrice}
+            onChange={(e) => setProductPrice(e.target.value)}
+            className="w-full border rounded px-3 py-2"
+            required
+          />
+        </div>
+        <div>
+          <label className="block mb-1">Product Discount:</label>
+          <input
+            type="text"
+            value={ProductDiscount}
+            onChange={(e) => setProductDiscount(e.target.value)}
             className="w-full border rounded px-3 py-2"
             required
           />
