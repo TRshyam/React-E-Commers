@@ -88,3 +88,8 @@
     margin: 50px;
 
 }
+
+.ConfettiExplosion{
+    position: absolute;
+    left: 45%;
+}
