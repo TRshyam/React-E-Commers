@@ -3,17 +3,18 @@ import { MdOutlineArrowForward } from "react-icons/md";
 import { Link } from 'react-router-dom';
 
 export default function Card({ item }) {
-  const { id, productName, details } = item;
-  const { images, Specialprize } = details;
-  const imageSrc = images.length > 0 ? images[0] : '';
+  const { _id, productName, price,images,category } = item;
+  // console.log(catogory);
+  const imageSrc = images.length > 0 ? images[4] : '';
 
   return (
     <div className='w-[14rem] h-[20rem] rounded-md relative overflow-hidden shadow-xl m-6 transform transition duration-300 hover:scale-105 hover:shadow-2xl hover:bg-white select-none'>
       <div className='h-[15rem]  flex justify-center items-center'>
         {/* Image */}
         <div className='w-full h-full flex justify-center items-center'>
+          
           <img
-            src={imageSrc}
+            src={`http://127.0.0.1:5000/static/imgs/${imageSrc}`}
             className='max-w-full max-h-full object-contain'
             alt='Product Image'
           />
@@ -23,11 +24,11 @@ export default function Card({ item }) {
         {/* Content */}
         <div className='text-center md:text-left mb-2 md:mb-0 w-[100%]'>
           <h6>{productName}</h6>
-          <p className='text-sm'>{Specialprize}</p>
+          <p className='text-sm'>{price}</p>
         </div>
         {/* Link to Product Page with Product ID */}
         <a
-          href={`/product/${id}`}
+          href={`/product/${category}/${_id}`}
           className='p-2 rounded-full hover:bg-black hover:text-white'
         >
           <MdOutlineArrowForward />

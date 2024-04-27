@@ -49,7 +49,7 @@ export default function ProductImages({ mainImgs, userId, productId }) {
                   onClick={() => setSelectedImage(imageUrls)}
                 >
                   <img
-                    src={imageUrls} // Access the image URL directly from the array
+                    src={`http://127.0.0.1:5000/static/imgs/${imageUrls}`} // Access the image URL directly from the array
                     alt={`Image ${index}`}
                     className='h-[80%]  hover:scale-105 transition-transform duration-500'
                   />
@@ -58,7 +58,7 @@ export default function ProductImages({ mainImgs, userId, productId }) {
               
               <div className='relative'>
                 {startIndex > 0 && (
-                  <button className='h-6 w-20 bg-gray-300 flex justify-center items-center absolute bottom-[12rem]' onClick={handlePreviousClick}>
+                  <button className='h-6 w-20 bg-gray-300 flex justify-center items-center absolute bottom-[6rem]' onClick={handlePreviousClick}>
                     <MdOutlineKeyboardArrowUp />
                   </button>
                 )}
@@ -74,7 +74,7 @@ export default function ProductImages({ mainImgs, userId, productId }) {
           <div className='bg-white p-4 m-2 w-full h-[40rem] flex justify-center flex-grow'>
             <div className=' w-[30rem] h-[35rem]  '>
               {selectedImage && (
-                <img src={selectedImage} alt={`Selected Image`} className='w-full h-full object-contain  hover:scale-105 transition-transform duration-500' />
+                <img src={`http://127.0.0.1:5000/static/imgs/${selectedImage}`} alt={`Selected Image`} className='w-full h-full object-contain  hover:scale-105 transition-transform duration-500' />
               )}
             </div>
           </div>
