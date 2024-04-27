@@ -21,7 +21,9 @@ export default function ProductDetails({ details }) {
         <div className='bg-white p-3'>
           <span className='text-black flex items-center gap-1'>
             <div className='px-2 bg-green-400 text-white flex items-center'>
-              <span >{details.details.ratings}</span>
+
+              {/* <span >{details.details.ratings}</span> */}
+              <span >4.5</span>
               <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMyIgaGVpZ2h0PSIxMiI+PHBhdGggZmlsbD0iI0ZGRiIgZD0iTTYuNSA5LjQzOWwtMy42NzQgMi4yMy45NC00LjI2LTMuMjEtMi44ODMgNC4yNTQtLjQwNEw2LjUuMTEybDEuNjkgNC4wMSA0LjI1NC40MDQtMy4yMSAyLjg4Mi45NCA0LjI2eiIvPjwvc3ZnPg==" alt=""  className='w-4 h-4'/>
             </div>
 
@@ -51,9 +53,9 @@ export default function ProductDetails({ details }) {
         <div className='bg-white p-3'>
           <p className='text-green-600 font-serif '>Special Price::</p>        
           <div className='flex items-baseline gap-5'>
-            <p className='ml-5 text-2xl'>₹{details.details.Specialprize}</p>
-            <p className='line-through'>₹{details.details.Originalprize}</p>
-            <p className='text-green-500'>{details.details.discount}</p>
+            <p className='ml-5 text-2xl'>₹{details.price}</p>
+            {/* <p className='line-through'>₹{details.details.Originalprize}</p>
+            <p className='text-green-500'>{details.details.discount}</p> */}
           </div>
         </div>
         {/* Pricing */}
@@ -69,11 +71,16 @@ export default function ProductDetails({ details }) {
               <h1>Highlights</h1>
             </div> 
             <div className='ml-16 mr-10'>
-              <ul className='list-disc'>
-                {details.details.highlights.map((highlight, index) => (
-                  <li className='py-1' key={index}>{highlight}</li>
-                ))}
-              </ul>
+              <h1>{details.highlights}</h1>
+         <ul>
+        {!Array.isArray(details.highlights) || details.highlights.length === 0 ? (
+          <li>No highlights available</li>
+        ) : (
+          details.highlights.map((highlight, index) => (
+            <li key={index}>{highlight}</li>
+          ))
+        )}
+      </ul>
             </div>
         </div>
       </div>
@@ -83,7 +90,7 @@ export default function ProductDetails({ details }) {
             <h1>Description</h1>
           </div> 
           <div className='mx-10'>
-              <span className=''>{details.details.Description}</span>
+              <span className=''>{details.description}</span>
           </div>
         </div>
       </div>
@@ -93,28 +100,30 @@ export default function ProductDetails({ details }) {
 
 
       {/* Specification */}
-      <div className='px-4 my-9'>
-          <div>
-            <span className='font-bold text-xl'>Specification :::</span>
-          </div>
-          {/* Tabel Content */}
-            {Object.entries(details.details.Specification).map(([section, features]) => (
-              <div key={section} className='my-3 mx-4 capitalize'>
-                <h2 className=' text-lg font-semibold	'>{section}</h2>
-                <table className='my-2 w-full mx-1'>
-                  <tbody>
-                    {Object.entries(features).map(([feature, value]) => (
-                      <tr key={feature} >
-                        <td className='w-[35%] text-gray-500 py-3'>{feature}</td>
-                        <td className=''>{value}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            ))}
-            {/* Tabel Content */}
-      </div>
+<div className='px-4 my-9'>
+  <div>
+    <span className='font-bold text-xl'>Specification :::</span>
+  </div>
+  {/* Table Content */}
+  {details.Specification && Array.isArray(details.details.Specification) && details.details.Specification.map((sectionObject, index) => (
+    <div key={index} className='my-3 mx-4 capitalize'>
+      <h2 className='text-lg font-semibold'>{sectionObject.section}</h2>
+      <table className='my-2 w-full mx-1'>
+        <tbody>
+          {sectionObject.features.map((featureObject, featureIndex) => (
+            <tr key={featureIndex}>
+              <td className='w-[35%] text-gray-500 py-3'>{featureObject.feature}</td>
+              <td className=''>{featureObject.value}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  ))}
+  {/* Table Content */}
+</div>
+
+
       {/* Specification */}
 
       {/* Cards */}

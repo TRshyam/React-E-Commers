@@ -39,7 +39,7 @@ const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Convert highlights array to a string
-    const highlightsString = highlights.join(',');
+    const highlightsString = highlights;
 
     const formData = new FormData();
     formData.append('productName', productName);
@@ -52,7 +52,7 @@ const handleSubmit = async (e) => {
         formData.append('images', image);
     });
 
-    formData.append('highlights', highlightsString);
+    formData.append('highlights', JSON.stringify(highlights));
     formData.append('description', description);
     formData.append('specifications', JSON.stringify(specifications));
     console.log(formData);
