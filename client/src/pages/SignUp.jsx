@@ -1,82 +1,30 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { LuEye } from "react-icons/lu";
-import { LuEyeOff } from "react-icons/lu";
+import { LuEye, LuEyeOff } from "react-icons/lu";
 import axios from 'axios';
+import { bouncy } from 'ldrs';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
-import { bouncy } from 'ldrs'
-
-bouncy.register()
-
+bouncy.register();
 
 export default function SignUp() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    phNumber: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+  });
   const [error, setError] = useState('');
-  const [message, setmessage] = useState('');
+  const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const [loading, setLoading] = useState(false);
 
-
- const handleSubmit = async (event) => {
-    event.preventDefault();
-    setLoading(true)
-
-    // Password validation regex
-    const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+}{"':;?/>.<,]).{8,}$/;
-
-    if (!passwordRegex.test(password)) {
-      setError(
-        'Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one special character, and one number.'
-      );
-            setLoading(false);
-
-      return;
-    }
-        if (password !== confirmPassword) {
-      setError('Passwords do not match.');
-      setLoading(false);
-      return;
-    }
-
-
-    try {
-      const response = await axios.post('http://localhost:5000/api/signup', { email, password });
-      console.log(response.data); // Log the response from the Flask server
-            setLoading(false); // Set loading state to false when the request completes
-
-      // alert('User signed up successfully!');
-      setmessage('')
-      setError('');
-      setEmail('');
-      setPassword('');
-      setConfirmPassword('');
-    } catch (error) {
-      console.error('Error signing up:', error);
-            setLoading(false); // Set loading state to false if there's an error
- // Extract error message from Axios error response
-    const errorMessage = error.response.data || 'Error signing up. Please try again.';
-    console.log(error.response.data);
-
-    setError(errorMessage);
-    }
-  };
-
-
-  
-
-  const handleEmailChange = (event) => {
-    setEmail(event.target.value);
-  };
-
-  const handlePasswordChange = (event) => {
-    setPassword(event.target.value);
-  };
-
-  const handleConfirmPasswordChange = (event) => {
-    setConfirmPassword(event.target.value);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
   };
 
   const toggleShowPassword = () => {
@@ -87,14 +35,114 @@ export default function SignUp() {
     setShowConfirmPassword(!showConfirmPassword);
   };
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setLoading(true);
+
+    const { firstName, lastName, phNumber, email, password, confirmPassword } = formData;
+
+    // Add password validation regex
+    const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+}{"':;?/>.<,]).{8,}$/;
+
+    if (!passwordRegex.test(password)) {
+      setError('Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one special character, and one number.');
+      setLoading(false);
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      setError('Passwords do not match.');
+      setLoading(false);
+      return;
+    }
+
+    try {
+      const response = await axios.post('http://localhost:5000/api/signup', formData);
+      console.log(response.data);
+      setLoading(false);
+      setError('');
+      setFormData({
+        firstName: '',
+        lastName: '',
+        phNumber: '',
+        email: '',
+        password: '',
+        confirmPassword: '',
+      });
+      // Set success message if needed
+    } catch (error) {
+      console.error('Error signing up:', error);
+      setLoading(false);
+      const errorMessage = error.response.data || 'Error signing up. Please try again.';
+      console.log(error.response.data);
+      setError(errorMessage);
+    }
+  };
+
   return (
+    <>
+    <Navbar />
     <div className="min-h-screen flex items-center justify-center">
       <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col w-full max-w-md">
         <div className="mb-4">
           <h1 className="text-center text-xl font-bold">Sign Up</h1>
         </div>
-        <form onSubmit={handleSubmit} >
+        <form onSubmit={handleSubmit}>
 
+                    <div className="mb-4">
+            <label
+              htmlFor="firstName"
+              className="block text-gray-700 text-sm font-bold mb-2"
+            >
+              First Name
+            </label>
+            <input
+              type="name"
+              id="firstName"
+              name="firstName"
+              value={formData.firstName}
+              onChange={handleChange}
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        
+              autoFocus
+              required
+            />
+          </div>
+          <div className="mb-4">
+            <label
+              htmlFor="lastName"
+              className="block text-gray-700 text-sm font-bold mb-2"
+            >
+              Last Name
+            </label>
+            <input
+              type="name"
+              id="lastName"
+              name="lastName"
+              value={formData.lastName}
+              onChange={handleChange}
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              autoFocus
+            />
+          </div>
+          <div className="mb-4">
+            <label
+              htmlFor="phNumber"
+              className="block text-gray-700 text-sm font-bold mb-2"
+            >
+              Phone Number
+            </label>
+            <input
+              type="name"
+              id="phNumber"
+              name="phNumber"
+              value={formData.phNumber}
+              onChange={handleChange}
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              autoFocus
+            />
+          </div>
+         
           <div className="mb-4">
             <label
               htmlFor="email"
@@ -106,8 +154,8 @@ export default function SignUp() {
               type="email"
               id="email"
               name="email"
-              value={email}
-              onChange={handleEmailChange}
+              value={formData.email}
+              onChange={handleChange}
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               autoComplete="email"
               autoFocus
@@ -125,8 +173,8 @@ export default function SignUp() {
               type={showPassword ? 'text' : 'password'}
               id="password"
               name="password"
-              value={password}
-              onChange={handlePasswordChange}
+              value={formData.password}
+              onChange={handleChange}
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline pr-10"
               autoComplete="new-password"
               required
@@ -150,8 +198,8 @@ export default function SignUp() {
               type={showConfirmPassword ? 'text' : 'password'}
               id="confirmPassword"
               name="confirmPassword"
-              value={confirmPassword}
-              onChange={handleConfirmPasswordChange}
+              value={formData.confirmPassword}
+              onChange={handleChange}
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline pr-10"
               autoComplete="new-password"
               required
@@ -189,13 +237,13 @@ export default function SignUp() {
               error && <p className="text-sm text-red-500 mb-4">{error}</p>
             )}
           </div>
-            
-
+          
           <button
             type="submit"
             className="bg-blue-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            disabled={loading} // Disable button during loading state
           >
-            Sign Up
+            {loading ? 'Signing Up...' : 'Sign Up'}
           </button>
 
         </form>
@@ -207,5 +255,7 @@ export default function SignUp() {
         </div>
       </div>
     </div>
+    <Footer />
+    </>
   );
 }

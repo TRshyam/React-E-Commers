@@ -45,22 +45,31 @@
     flex-wrap: wrap;
     justify-content: space-around;
     padding: 20px 20px;
+    gap: 20px;
     
 
 }
 
 .Category-Products .Product{
-    width: 15%;
-    height: auto;
+    width: 230px;
+    min-height: 380px;
     position: relative;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     margin-bottom: 30px;
-    gap: 40px;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 50px;
+    padding: 10px;
 }
 
+.Category-Products .Product:hover {
+    transform: scale(1.03); /* Reduce the size by 5% when hovering */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add a box shadow with a slight blur and transparency */
+  }
+
 .Category-Products .Product img{
-    width: 100%;
-    height:auto;   
+    width: 180px;
+    max-height:220px;   
     
 }
 .Category-Products .Product .Product-details{
@@ -70,6 +79,8 @@
     flex-direction: column;
     padding: 10px 10px;
     gap: 8px;
+    position: absolute;
+    bottom: 0;
     
 }
 
@@ -88,25 +99,37 @@
     font-weight: 600;
 }
 
-@media (max-width : 1000px) {
+@media (max-width : 660px){
     .Category-Products .Product{
-        width: 22%;
+        width: 200px;
+        height: 310px;
     }
+    .Category-Products .Product img{
+        width: 190px;
+        height:190px;   
+    }    
 }
 
-@media (max-width : 800px) {
-    .Category-Products .Product{
-        width: 30%;
-    }
-}
-
-@media (max-width : 500px) {
+@media (max-width : 602px) {
     .Category-Products .Product{
         width: 40%;
     }
+    .Category-Products{
+        padding: 10px;
+        width: 100%;
+        height: auto;
+    }    
+    .Category-Products .Product{
+        width: 150px;
+        height: 260px;
+    }
+    .Category-Products .Product img{
+        width: 140px;
+        height:140px;   
+    }    
 }
 
-@media (max-width : 385px) {
+@media (max-width : 400px) {
     .Category {
         flex-direction: column;
     }
@@ -131,5 +154,15 @@
     .Category-Products{
         padding: 10px;
         width: 100%;
+        height: auto;
+    }    .Category-Products .Product{
+        height: auto;     
+        min-height: auto;
     }
+    .Category-Products .Product img{
+        width: 100%;
+        height: auto;
+        min-height: 150px;
+    }
+
 }
