@@ -38,7 +38,8 @@ export default function ProductItems() {
     const fetchData = async () => {
       try {
         const response = await axios.get('http://localhost:5000/api/data');
-        const cardsArray = Object.values(response.data);
+        const cardsArray = Object.values(response.data.product_data);
+        console.log(Object.values(response.data));
         setCards(cardsArray);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -77,8 +78,11 @@ const renderAdCards = (adCards) => {
 // Render ItemCards
 const renderItemCards = (itemCards) => {
   return Object.keys(itemCards).map((key) => {
-    const { id, productName, details, From, To } = itemCards[key];
-    return <Card key={key} item={{ id, productName, details }} />;
+    const { _id, product_name, details, From, To } = itemCards[key];
+    console.log(_id);
+    console.log(product_name);
+    console.log(details);
+    return <Card key={key} item={{ _id, product_name, details }} />;
   });
 };
 

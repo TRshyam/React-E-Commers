@@ -1,15 +1,15 @@
 from flask import Flask, jsonify,request,url_for
 from flask_cors import CORS
 import json
-import pymongo
 from pymongo.mongo_client import MongoClient
 from bson import ObjectId
 from flask_mail import Mail, Message
 import secrets
 from bcrypt import hashpw, gensalt, checkpw
 import datetime
-
-
+import hashlib
+import time
+import os
 
 # from pymongo.server_api import ServerApi
 
@@ -38,7 +38,7 @@ carts_collection = db['carts']
 
 @app.route('/api/data', methods=['GET'])
 def get_data():
-    with open('server\DatabaseSchema.json', 'r') as file:
+    with open('server\Modules\products_database.json', 'r') as file:
         data = json.load(file)
     return jsonify(data)
 
@@ -582,7 +582,96 @@ def retrieve_products(orderId):
     except Exception as e:
         print(e)
         return "Failed to retrieve order."
+    
+def generate_unique_id():
+    timestamp = str(int(time.time()))  # Get current timestamp
+    unique_id = hashlib.sha256(timestamp.encode()).hexdigest()[:10]  # Get the SHA-256 hash and take the first 10 characters
+    return unique_id
 
+@app.route('/api/add_product', methods=['POST'])
+def add_product():
+    # Access form data from request body
+
+    _id = "pd" + generate_unique_id()
+    images= request.files.getlist('images')
+    # save the images 
+    img_dir = os.path.join('server/static', 'imgs')
+    if not os.path.exists(img_dir):
+        os.makedirs(img_dir)
+
+    image_filenames = []
+    for image in images:
+        filename = f"{_id}_{image.filename}"  
+        image.save(os.path.join(img_dir, filename))
+        image_filenames.append(filename)
+
+    product_data={
+        "_id" : _id,
+        "product_name" : request.form.get('productName'),
+        "category" : request.form.get('category'),
+        "cardType":'item',
+        "details":
+        {
+            "product_FullName" : request.form.get('productFullName'),
+            "brand" : request.form.get('brand'),
+            "types" : request.form.get('types'),
+            "images": image_filenames,
+            "price" : request.form.get('productPrice'),
+            "discount" : request.form.get('productDiscount'),
+            "highlights" : request.form.get('highlights'),
+            "description" : request.form.get('description'),
+            "specifications": request.form.get('specifications')
+        }
+    }
+
+
+
+    print (product_data)
+
+    # types='smartPhone'
+    # model='Apple'
+    
+
+    
+
+    # Create a dictionary 
+    # product_data = {
+    #     '_id': _id,
+    #     'productName': product_name,
+    #     'price': price,
+    #     'discount': discount,        
+    #     'images': image_filenames,  
+    #     'highlights': highlights,
+    #     'description': description,
+    #     'specifications': specifications
+    # }
+
+    # print(product_data)
+    # print(product_data)
+    # print(product_data)
+
+    # directory to save JSON file
+    directory = "server/Modules"
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+
+    # Load the JSON file
+    json_file = os.path.join(directory, "products_database.json")
+    if os.path.exists(json_file):
+        with open(json_file, 'r') as file:
+            data = json.load(file)
+    else:
+        data = {"product_data": {product_data}}
+
+    # # Add to the respective category
+    # data["product_data"].setdefault(category, {}).setdefault(types, {})[_id] = product_data
+    data["product_data"][_id] = product_data
+
+    with open(json_file, 'w') as file:
+        json.dump(data, file, indent=4)
+
+    # Return a success message
+    return jsonify({'message': 'Data received successfully and saved to JSON file'})
 
 
 if __name__ == '__main__':
