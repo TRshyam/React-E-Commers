@@ -1,11 +1,30 @@
+import axios from 'axios';
+import { useSelector } from 'react-redux';
+
 import { useState } from 'react';
 
 function LikeButton({productId}) {
     const [liked, setLiked] = useState(false);
+    const { currentUser } = useSelector((state) => state.user);
+    const userId=currentUser.user._id
     console.log(productId);
-    const handleLike = () => {
+    
+const handleLike = async () => {
+    try {
+        // Toggle liked state
         setLiked(!liked);
-    };
+
+        // Send HTTP request to Flask backend
+        await axios.post(`http://localhost:5000/api/wishlist/${userId}/${productId}`, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        console.log('Product added to wishlist:', productId);
+    } catch (error) {
+        console.error('Error adding product to wishlist:', error);
+    }
+};
 
     return (
         <button
