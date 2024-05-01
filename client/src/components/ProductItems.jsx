@@ -55,7 +55,14 @@ export default function ProductItems() {
   // Separate Ad and item cards
  const adCards = {};
 const itemCards = {};
-console.log(itemCards);
+const categories = {
+  Electronics: [],
+  Appliance: [],
+  Furniture: [],
+  Clothing: [],
+  Grocery: []
+};
+
 for (const key in cards) {
   if (cards.hasOwnProperty(key)) {
     const card = cards[key];
@@ -63,10 +70,16 @@ for (const key in cards) {
       adCards[key] = card;
     } else if (card.cardType === 'item') {
       itemCards[key] = card;
+      const category = card.category;
+      if (categories.hasOwnProperty(category)) {
+        categories[category].push(card);
+      }
     }
   }
 }
 
+console.log(itemCards); // Contains all item cards
+console.log(categories);
 // Render AdCards
 const renderAdCards = (adCards) => {
   return Object.keys(adCards).map((key) => {
@@ -75,14 +88,17 @@ const renderAdCards = (adCards) => {
   });
 };
 
-// Render ItemCards
-const renderItemCards = (itemCards) => {
-  return Object.keys(itemCards).map((key) => {
-    const { _id, product_name, details, From, To } = itemCards[key];
+// Render ItemCards for a specific category
+const renderItemCards = (itemCards, category) => {
+  console.log(itemCards);
+  const filteredItemCards = Object.values(itemCards).filter(card => card.category === category);
+  
+  return filteredItemCards.map((card) => {
+    const { _id, product_name, details } = card;
     console.log(_id);
     console.log(product_name);
     console.log(details);
-    return <Card key={key} item={{ _id, product_name, details }} />;
+    return <Card key={_id} item={{ _id, product_name, details }} />;
   });
 };
 
@@ -96,7 +112,7 @@ const renderItemCards = (itemCards) => {
           </div>
           <div className=' w-full md:w-[70%] my-auto  '>
             <Carousel>
-              {renderItemCards(itemCards)}
+              {renderItemCards(itemCards,"Electronics")}
             </Carousel>
           </div>
 
@@ -107,7 +123,7 @@ const renderItemCards = (itemCards) => {
         <div className='md:flex w-full'>
           <div className=' w-full md:w-[70%] my-auto  '>
             <Carousel>
-              {renderItemCards(itemCards)}
+              {renderItemCards(itemCards,"Appliance")}
             </Carousel>
           </div>
           <div className='w-full md:w-[30%] md:mr-4'> {/* Adjusted width and added margin right for spacing */}

@@ -674,5 +674,18 @@ def add_product():
     return jsonify({'message': 'Data received successfully and saved to JSON file'})
 
 
+
+
+@app.route('/add-like', methods=['POST'])
+def add_like():
+    data = request.json
+    item = data.get('item')
+
+    if item:
+        liked_items.append(item)
+        return {'message': 'Item added to liked list'}, 200
+    else:
+        return {'error': 'Item not provided'}, 400
+
 if __name__ == '__main__':
     app.run(debug=True)
