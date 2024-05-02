@@ -414,49 +414,19 @@ def get_cart():
         return "Failed to retrieve cart."
     
     
-@app.route('/api/wishlist/modify', methods=['POST'])
-def modify_wishlist():
-    try:
-        client.admin.command('ping')
-        print("Pinged your deployment. You successfully connected to MongoDB!")
-
-        data = request.json
-        userId = data.get('userId')
-        productId = data.get('productId')   
-
-        db = client['users-e-com']
-        collection = db['whishlist']
-        
-        wishlist = collection.find_one({'userId': userId})
-
-        if wishlist:
-            products = wishlist.get('products', [])
-            if productId in products:
-                products.remove(productId)
-            else:
-                products.append(productId)
-            collection.update_one({'userId': userId}, {'$set': {'products': products}})
-        else:
-            collection.insert_one({'userId': userId, 'products': [productId]})
-            products = [productId]  # New wishlist created, so products list has only the new productId
-        
-        return jsonify({'products': products})
-    
-    except Exception as e:
-        print(e)
-        return "Failed."
-    
-from flask import request
-
 @app.route('/api/wishlist/<userId>/<productId>', methods=['POST'])
-def view_wishlist(userId, productId):
+def wishlist(userId, productId):
     try:
         if request.method == 'POST':
             # Print userId and productId
             print("User ID:", userId)
             print("Product ID:", productId)
 
+            # Extract like status from request body
+            like = request.json.get('like')
+
             # Connect to MongoDB and retrieve the user's wishlist
+            # (Assuming 'client' is defined elsewhere in your Flask app)
             db = client['users-e-com']
             collection = db['wishlist']
 
@@ -466,23 +436,60 @@ def view_wishlist(userId, productId):
             # If the user's wishlist exists, update it
             if user_wishlist:
                 # Check if the product is already in the wishlist
-                if productId not in user_wishlist['products']:
+                if productId not in user_wishlist['products'] and like:
                     # Add the product to the wishlist
                     collection.update_one({'userId': userId}, {'$push': {'products': productId}})
                     return {'message': 'Product added to wishlist'}, 200
+                elif productId in user_wishlist['products'] and not like:
+                    # Remove the product from the wishlist
+                    collection.update_one({'userId': userId}, {'$pull': {'products': productId}})
+                    return {'message': 'Product removed from wishlist'}, 200
                 else:
-                    return {'message': 'Product already in wishlist'}, 200
+                    return {'message': 'Operation not needed'}, 200
             # If the user's wishlist doesn't exist, create a new one
             else:
-                collection.insert_one({'userId': userId, 'products': [productId]})
-                return {'message': 'Wishlist created and product added'}, 200
+                if like:
+                    collection.insert_one({'userId': userId, 'products': [productId]})
+                    return {'message': 'Wishlist created and product added'}, 200
+                else:
+                    return {'message': 'Operation not needed'}, 200
         else:
             return {'error': 'Method not allowed'}, 405
     except Exception as e:
         print("Error:", e)
-        return {'error': 'An error occurred'}, 500  
+        return {'error': 'An error occurred'}, 500
+
     
 
+
+@app.route('/api/wishlist/<userId>', methods=['GET'])
+def view_wishlist(userId):
+    try:
+        client.admin.command('ping')
+        print("Pinged your deployment. You successfully connected to MongoDB!")
+
+        # Connect to MongoDB and retrieve the user's cart
+        db = client['users-e-com']
+        collection = db['wishlist']
+
+        user_cart = collection.find_one({'userId': userId})
+        print(user_cart)
+        # with open('server\Modules\products_database.json', 'r') as file:
+        #     data = json.load(file)
+        #     for product_id in user_cart['products']:
+        #         print(product_id)
+            
+        #     print(data.product_data)
+        
+
+        if user_cart:
+            return jsonify(user_cart['products'])
+        else:
+            return "Wishlist is empty."
+
+    except Exception as e:
+        print(e)
+        return "Failed to retrieve cart."
     
 @app.route('/api/orders/add', methods=['POST'])
 def add_order():

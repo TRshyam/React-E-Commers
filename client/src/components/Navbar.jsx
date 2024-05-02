@@ -5,6 +5,8 @@ import { CiShoppingCart } from "react-icons/ci";
 import { CiUser } from "react-icons/ci";
 import { Link } from 'react-router-dom';
 import { BsBoxSeam } from "react-icons/bs";
+import { FaRegHeart } from "react-icons/fa";
+
 
 export default function Navbar() {
   const [isFixed, setIsFixed] = useState(false);
@@ -46,6 +48,9 @@ export default function Navbar() {
 
         <Link to='/orders' >
           <a><BsBoxSeam className='BsBoxSeam'  /></a>
+        </Link>
+        <Link to='/wishlist' >
+          <a className='w-7 h-7'><FaRegHeart/></a>
         </Link>
         
         <Link to='/cart' >

@@ -79,7 +79,14 @@ export default function ProductImages({ mainImgs, userId, productId }) {
 
           <div className='bg-white p-4 m-2 w-full h-[40rem] flex justify-center flex-grow'>
             <div className='relative z-50 left-[30rem]'>
-              <LikeButton productId={productId} />
+
+              {currentUser && currentUser.user && currentUser.user._id ? (<LikeButton productId={productId} /> )
+              :(    <button onClick={() => navigate('/sign-in')}>
+                <FaRegHeart/>
+                
+          </button>)  
+            }
+              
             </div>
 
             <div className=' w-[30rem] h-[35rem]  '>

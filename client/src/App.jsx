@@ -15,6 +15,7 @@ import Cart from './pages/Cart'
 import Profile from './pages/Profile'
 import OrdersPage from './pages/OrdersPage'
 import AddProductForm from './pages/AddProductForm'
+import Wishlist from './pages/Wishlist'
 
 
 const App = () => {
@@ -34,6 +35,7 @@ const App = () => {
 
         <Route path="/Category" element={<Category />} />
         <Route path="/Cart" element={<Cart />} />
+        <Route path="/wishlist" element={<Wishlist/>} />
         <Route path="/orders" element={<OrdersPage userId = {"nakul"} />} />
       </Routes>
     </BrowserRouter>
