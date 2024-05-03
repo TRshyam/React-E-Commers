@@ -12,11 +12,7 @@ grid.register()
 
 
 function ProductPage() {
-    const { category,id } = useParams();
-
-  // Use the extracted parameters wherever needed in your component
-  console.log('Category:', category);
-  console.log('_id:', id);
+  const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [ReleatedProducts,setReleatedProducts]=useState()
   const [loading, setLoading] = useState(true);
@@ -30,32 +26,32 @@ const addToRecentlyViewed = (product) => {
   }
 };
 
-useEffect(() => {
-  const fetchData = async () => {
-    try {
-      const response = await axios.get('http://localhost:5000/api/data');
-      const products = response.data.product_data;
-      console.log(products);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('http://localhost:5000/api/data');
+        const foundProduct = response.data[id];
+        const products= response.data
+        // console.log("___________");
+        // console.log(products);
+        // console.log(foundProduct.details);
+        // console.log(id);
+        
+        // console.log("___________");
 
-      // Find the product by category and ID
-      const foundProduct = products[category][id];
+        setProduct(foundProduct);
+        setLoading(false);
+        setReleatedProducts(products)
+        addToRecentlyViewed(foundProduct);
+      } catch (error) {
+        console.error(`Error fetching product: ${error}`);
+        setLoading(false);
+      }
+    };
 
-      // Set the found product and related products
-      setProduct(foundProduct);
-      setReleatedProducts(products[category]);
+    fetchData();
 
-      // Add the found product to recently viewed
-      addToRecentlyViewed(foundProduct);
-      
-      setLoading(false);
-    } catch (error) {
-      console.error(`Error fetching product: ${error}`);
-      setLoading(false);
-    }
-  };
-
-  fetchData();
-}, [category, id]);
+  }, [id]);
 
   console.log("++++++++++++");
   console.log(product);
@@ -96,7 +92,7 @@ console.log(renderItemCards(itemCards));
       <div className='bg-gray-100 w-full flex flex-col  '>
         <div className='mx-0 xl:mx-16 2xl:mx-48 py-3 h-auto   flex-grow flex '>
             
-            <ProductImages mainImgs={product.images}  productId = {product._id} />
+            <ProductImages mainImgs={product.details.images}  productId = {product.id} />
 
             <ProductDetails details={product} />
         </div>

@@ -43,7 +43,7 @@ const CollectionsBarImageRendering = (props) => {
     const screenWidth = window.innerWidth;
 
     // Log the width to the console
-    // console.log('Screen Width:', screenWidth);
+    console.log('Screen Width:', screenWidth);
 
     return (
         <div className="CollectionsBanner">
