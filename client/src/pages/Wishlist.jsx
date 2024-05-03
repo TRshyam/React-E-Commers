@@ -24,18 +24,23 @@ export default function Wishlist() {
             }
         };
         fetchWishlistArray();
+        }, []);
 
+        useEffect(() => {
         const DisplayfetchWishlist= async()=>{
             try{
                 const products=await axios .get("http://localhost:5000/api/data")
                 console.log(products.data.product_data);
-                // Loop through each product ID in the wishlist
+                // Loop product ID 
+                const wishlistProductsArray =[]
                 wishlist.forEach(productId => {
-                    // Access the corresponding product from the products object using bracket notation
+                    console.log(productId);
                     const product = products.data.product_data[productId];
-                    setWishlistProducts(product);
-                    console.log(product); // Log the product object
+                    // Add to the wishlistProductsArray
+                    wishlistProductsArray.push(product);
+                    console.log(product); 
                 });
+                setWishlistProducts(wishlistProductsArray)
             }
             catch(error){
                 console.error('Error fetching wishlist:', error);
@@ -49,8 +54,52 @@ export default function Wishlist() {
 
     return (
         <div>
-            <Navbar />
+            {/* <Navbar /> */}
             <h1>Your Wishlist</h1>
+            <ul>
+                {wishlistProducts.map(product=>(
+                    <li key={product.id}>
+                        <h3>{product.details.product_FullName}</h3>
+                    </li>
+                    
+
+                ))}
+            </ul>
+
+            <div className='flex flex-col gap-8 justify-center items-center'>
+                <div className='w-[98%] lg:w-[70%] h-[15rem] bg-violet-500 flex flex-row rounded-2xl border-2 border-slate-800 '>
+
+                    <div className='flex w-full h-full'>
+                        <div className='w-[25rem] bg-lime-200 rounded-l-2xl' >
+                            <h1>Imagee</h1>
+                        </div>
+                        <div className='w-[100%] bg-zinc-400 rounded-r-2xl '>
+                            <div className='my-3'>
+                                <h1>SAMSUNG Galaxy Z Flip3 5G (Phantom Black, 128 GB) (8 GB RAM)</h1>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div className='w-[98%] lg:w-[70%] h-[15rem] bg-violet-500 flex flex-row rounded-2xl border-2 border-slate-800 '>
+
+                    <div className='flex w-full h-full'>
+                        
+                        <div className='w-[13rem] bg-lime-200 rounded-l-2xl' >
+                            <h1>Imagee</h1>
+                        </div>
+                        <div className='w-[70%] '>
+                            <h1>Imagee</h1>
+                        </div>
+                    
+                    </div>
+                </div>
+                
+            </div>
+
+
+
             {/* {wishlistProducts} */}
           
         </div>
