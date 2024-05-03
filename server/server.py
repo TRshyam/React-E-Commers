@@ -30,7 +30,10 @@ app.config['SECRET_KEY'] = '12345'
 
 mail = Mail(app)
 
-CORS(app, origins='http://localhost:5173', methods=['POST'])
+# CORS(app, origins='http://localhost:5173', methods=['POST'])
+CORS(app, resources={r"/api/*": {"origins": "http://localhost:5173"}})
+
+
 
 client = MongoClient('localhost', 27017)
 db = client['users-e-com']
@@ -414,52 +417,55 @@ def get_cart():
         return "Failed to retrieve cart."
     
     
-@app.route('/api/wishlist/<userId>/<productId>', methods=['POST'])
+@app.route('/api/wishlist/<userId>/<productId>', methods=['POST', 'DELETE'])
 def wishlist(userId, productId):
+    client = MongoClient('mongodb://localhost:27017/')
+    db = client['users-e-com']
+    wishlist_collection = db['wishlist']
     try:
+        # POST request to add product to wishlist
         if request.method == 'POST':
-            # Print userId and productId
-            print("User ID:", userId)
-            print("Product ID:", productId)
-
-            # Extract like status from request body
-            like = request.json.get('like')
-
-            # Connect to MongoDB and retrieve the user's wishlist
-            # (Assuming 'client' is defined elsewhere in your Flask app)
-            db = client['users-e-com']
-            collection = db['wishlist']
-
             # Check if the user's wishlist exists
-            user_wishlist = collection.find_one({'userId': userId})
+            user_wishlist = wishlist_collection.find_one({'userId': userId})
 
             # If the user's wishlist exists, update it
             if user_wishlist:
                 # Check if the product is already in the wishlist
-                if productId not in user_wishlist['products'] and like:
+                if productId not in user_wishlist['products']:
                     # Add the product to the wishlist
-                    collection.update_one({'userId': userId}, {'$push': {'products': productId}})
-                    return {'message': 'Product added to wishlist'}, 200
-                elif productId in user_wishlist['products'] and not like:
-                    # Remove the product from the wishlist
-                    collection.update_one({'userId': userId}, {'$pull': {'products': productId}})
-                    return {'message': 'Product removed from wishlist'}, 200
+                    wishlist_collection.update_one({'userId': userId}, {'$push': {'products': productId}})
+                    return jsonify({'message': 'Product added to wishlist'}), 200
                 else:
-                    return {'message': 'Operation not needed'}, 200
+                    return jsonify({'message': 'Product already in wishlist'}), 200
             # If the user's wishlist doesn't exist, create a new one
             else:
-                if like:
-                    collection.insert_one({'userId': userId, 'products': [productId]})
-                    return {'message': 'Wishlist created and product added'}, 200
+                wishlist_collection.insert_one({'userId': userId, 'products': [productId]})
+                return jsonify({'message': 'Wishlist created and product added'}), 200
+
+        # DELETE request to remove product from wishlist
+        elif request.method == 'DELETE':
+            # Check if the user's wishlist exists
+            user_wishlist = wishlist_collection.find_one({'userId': userId})
+
+            # If the user's wishlist exists, remove the product
+            if user_wishlist:
+                # Check if the product is in the wishlist
+                if productId in user_wishlist['products']:
+                    # Remove the product from the wishlist
+                    wishlist_collection.update_one({'userId': userId}, {'$pull': {'products': productId}})
+                    return jsonify({'message': 'Product removed from wishlist'}), 200
                 else:
-                    return {'message': 'Operation not needed'}, 200
+                    return jsonify({'message': 'Product not in wishlist'}), 200
+            else:
+                return jsonify({'message': 'Wishlist not found'}), 404
+
         else:
-            return {'error': 'Method not allowed'}, 405
+            return jsonify({'error': 'Method not allowed'}), 405
+
     except Exception as e:
         print("Error:", e)
-        return {'error': 'An error occurred'}, 500
+        return jsonify({'error': 'An error occurred'}), 500
 
-    
 
 
 @app.route('/api/wishlist/<userId>', methods=['GET'])

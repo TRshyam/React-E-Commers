@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 function LikeButton({ productId }) {
@@ -7,15 +7,39 @@ function LikeButton({ productId }) {
     const { currentUser } = useSelector((state) => state.user);
     const userId = currentUser.user._id;
 
+        useEffect(() => {
+        // Check if the product is in the wishlist when component mounts
+        const checkWishlist = async () => {
+            try {
+                const response = await axios.get(`http://localhost:5000/api/wishlist/${userId}`);
+                if (response.data.includes(productId)) {
+                    setLiked(true); // Product is in the wishlist, turn on like button
+                }
+            } catch (error) {
+                console.error('Error checking wishlist:', error);
+            }
+        };
+
+        checkWishlist();
+    }, [userId, productId]);
+
     const handleLike = async () => {
         try {
             // Toggle liked state
             setLiked(!liked);
 
             // Send HTTP request to Flask backend
-            await axios.post(`http://localhost:5000/api/wishlist/${userId}/${productId}`, { like: !liked });
+            if (!liked) {
+                // Add product to wishlist
+                await axios.post(`http://localhost:5000/api/wishlist/${userId}/${productId}`);
+                console.log('Product added to wishlist:', productId);
+            } else {
+                // Remove product from wishlist
+                await axios.delete(`http://localhost:5000/api/wishlist/${userId}/${productId}`);
+                console.log('Product removed from wishlist:', productId);
+            }
         } catch (error) {
-            console.error('Error updating wishlist:', error);
+            console.error('Error adding/removing product to/from wishlist:', error);
         }
     };
 
