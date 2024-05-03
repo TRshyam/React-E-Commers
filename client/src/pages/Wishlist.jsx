@@ -30,7 +30,8 @@ export default function Wishlist() {
     const handleDeleteProduct = async (productId) => {
         try {
             await axios.delete(`http://localhost:5000/api/wishlist/${currentUser.user._id}/${productId}`);
-            setWishlistProducts(prevProducts => prevProducts.filter(product => product.id !== productId));
+            // Update local state to remove the deleted product
+            setWishlistProducts(prevProducts => prevProducts.filter(product => product._id !== productId));
         } catch (error) {
             console.error('Error deleting product from wishlist:', error);
         }
@@ -44,19 +45,18 @@ export default function Wishlist() {
                 <div className="flex flex-col gap-6">
                     {wishlistProducts.map(product => (
                         <div key={product._id} className="bg-white rounded-lg shadow-md overflow-hidden flex">
-                            <div className="w-56 h-56 relative">
+                            <div className="w-48 h-48 relative">
                                 <img
                                     src={`http://127.0.0.1:5000/static/imgs/${product.details.images[0]}`}
                                     alt=""
-                                    className="w-full h-full object-contain"
+                                    className="w-full h-full object-cover"
                                 />
                             </div>
                             <div className="p-4 flex-grow">
                                 <h2 className="text-lg font-semibold text-gray-900">{product.details.product_FullName}</h2>
-                                <p>Rating</p>
                                 <div className="flex items-center mt-2">
-                                    <p className="text-gray-900 font-bold">₹{product.details.price}</p>
-                                    <span className="ml-2 bg-green-500 text-white px-2 py-1 rounded-full">
+                                    <p className="text-gray-900 font-bold">{product.details.price}</p>
+                                    <span className="ml-2 bg-red-500 text-white px-2 py-1 rounded-full">
                                         {product.details.discount}% off
                                     </span>
                                 </div>

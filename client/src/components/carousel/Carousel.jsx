@@ -37,7 +37,7 @@ const nextItemIndex = (prevIndex) => Math.min(prevIndex + 1, childrenArray.lengt
     '@screen lg': {
       transform: `translateX(-${currentIndex * 100}%)`, // Translation for lg and above
     }
-  }}>
+    }}>
 
         {childrenArray.map((child, index) => (
           <li
@@ -70,6 +70,7 @@ const nextItemIndex = (prevIndex) => Math.min(prevIndex + 1, childrenArray.lengt
     </button>
   </div>
       )}
+</div>
 </div>
 </div>
   );
