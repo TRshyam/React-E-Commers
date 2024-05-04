@@ -1,20 +1,13 @@
-import React ,  {useEffect, useState }  from 'react';
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
+import React ,  { useState }  from 'react';
+import { useSelector,useDispatch } from 'react-redux';
+import { updateUserStart, updateUserSuccess, updateUserFailure } from '../redux/user/userSlice';
+import { signOutUserSuccess } from '../redux/user/userSlice';
 import { BiSolidPackage } from "react-icons/bi";
 import { IoIosArrowForward } from "react-icons/io";
 import { VscAccount } from "react-icons/vsc";
 import {useNavigate} from 'react-router-dom';
-
-
-import {
-    updateUserStart,
-    updateUserSuccess,
-    updateUserFailure,} from '../redux/user/userSlice' 
 import Navbar from '../components/Navbar';
 
-
-// import Header from '../components/Header';
 
 function Profile() {
 
@@ -82,6 +75,8 @@ const handleSubmit = async (e) => {
       return;
     }
 
+
+    
     // Dispatch success action and update state
     dispatch(updateUserSuccess(data));
     setUpdateSuccess(true);
@@ -90,7 +85,15 @@ const handleSubmit = async (e) => {
     // Handle network errors or exceptions
     dispatch(updateUserFailure('An error occurred while updating the user'));
   }
+
 };
+  
+    const handleLogout = () => {
+      dispatch(signOutUserSuccess());
+      navigate('/');
+    };
+
+
 
     return (
       <div>
@@ -191,7 +194,11 @@ const handleSubmit = async (e) => {
                             <label htmlFor="password" className="text-gray-600 block">Update Password:</label>
                             <input type="password" id="password" name="password" className="w-full border rounded-md px-3 py-2" placeholder="********" />
                         </div>
+                        <div className='space-x-4'>
                         <button type="submit"   className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">Update Profile</button>
+                        <button onClick={handleLogout} className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">Logout</button>
+                        
+                        </div>
                     </form>
     
     
@@ -212,5 +219,4 @@ const handleSubmit = async (e) => {
 
     );
 }
-
-export default Profile;
+export default Profile;     
