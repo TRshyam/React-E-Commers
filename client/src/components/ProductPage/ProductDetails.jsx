@@ -2,6 +2,20 @@ import React,{ useState, useEffect } from 'react';
 
 export default function ProductDetails({ details }) {
 
+  const price=details.details.price;
+  const discount=details.details.discount;
+  // console.log(price);
+
+  var discountFraction = discount / 100;
+  var discountPrice =Math.floor(price - (discountFraction * price));
+
+
+  // console.log(discountFraction);
+
+  // console.log(discountPrice);
+
+  // discount_price=price-(discount/100);
+
   
   return (
     <div className='mx-2 w-[100%] h-auto bg-white'>
@@ -11,7 +25,7 @@ export default function ProductDetails({ details }) {
         <div>
           <h1 className='bg-white mt-3 p-3 text-xl font-mono '>
             <span>
-              {details.productName}
+              {details.details.product_FullName}
             </span>
           </h1>
         </div>
@@ -21,9 +35,7 @@ export default function ProductDetails({ details }) {
         <div className='bg-white p-3'>
           <span className='text-black flex items-center gap-1'>
             <div className='px-2 bg-green-400 text-white flex items-center'>
-
-              {/* <span >{details.details.ratings}</span> */}
-              <span >4.5</span>
+              <span >{details.details.ratings}</span>
               <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMyIgaGVpZ2h0PSIxMiI+PHBhdGggZmlsbD0iI0ZGRiIgZD0iTTYuNSA5LjQzOWwtMy42NzQgMi4yMy45NC00LjI2LTMuMjEtMi44ODMgNC4yNTQtLjQwNEw2LjUuMTEybDEuNjkgNC4wMSA0LjI1NC40MDQtMy4yMSAyLjg4Mi45NCA0LjI2eiIvPjwvc3ZnPg==" alt=""  className='w-4 h-4'/>
             </div>
 
@@ -53,9 +65,9 @@ export default function ProductDetails({ details }) {
         <div className='bg-white p-3'>
           <p className='text-green-600 font-serif '>Special Price::</p>        
           <div className='flex items-baseline gap-5'>
-            <p className='ml-5 text-2xl'>₹{details.price}</p>
-            {/* <p className='line-through'>₹{details.details.Originalprize}</p>
-            <p className='text-green-500'>{details.details.discount}</p> */}
+            <p className='ml-5 text-2xl'>₹{discountPrice}</p>
+            <p className='line-through'>₹{details.details.price}</p>
+            <p className='text-green-500'>{details.details.discount}%  off</p>
           </div>
         </div>
         {/* Pricing */}
@@ -70,18 +82,14 @@ export default function ProductDetails({ details }) {
             <div className='mx-3'>
               <h1>Highlights</h1>
             </div> 
-            <div className='ml-16 mr-10'>
-              <h1>{details.highlights}</h1>
-         <ul>
-        {!Array.isArray(details.highlights) || details.highlights.length === 0 ? (
-          <li>No highlights available</li>
-        ) : (
-          details.highlights.map((highlight, index) => (
-            <li key={index}>{highlight}</li>
-          ))
-        )}
-      </ul>
-            </div>
+<div className='ml-16 mr-10'>
+  <ul className='list-disc'>
+    {JSON.parse(details.details.highlights).map((highlight, index) => (
+      <li className='py-1' key={index}>{highlight}</li>
+    ))}
+  </ul>
+</div>
+
         </div>
       </div>
       <div className='bg-gray-50'>
@@ -90,7 +98,7 @@ export default function ProductDetails({ details }) {
             <h1>Description</h1>
           </div> 
           <div className='mx-10'>
-              <span className=''>{details.description}</span>
+              <span className=''>{details.details.description}</span>
           </div>
         </div>
       </div>
@@ -100,30 +108,29 @@ export default function ProductDetails({ details }) {
 
 
       {/* Specification */}
-<div className='px-4 my-9'>
-  <div>
-    <span className='font-bold text-xl'>Specification :::</span>
+      <div className='px-4 my-9'>
+          <div>
+            <span className='font-bold text-xl'>Specification:</span>
+          </div>
+    
+            {JSON.parse(details.details.specifications).map(({ key, values }) => (
+              <div key={key} className='my-3 mx-4 capitalize'>
+                <h2 className='text-lg font-semibold'>{key}</h2>
+                <table className='my-2 w-full mx-1'>
+                  <tbody>
+                    {values.map(({ subKey, subValue }) => (
+                      <tr key={subKey}>
+                        <td className='w-[35%] text-gray-500 py-3'>{subKey}</td>
+                        <td className=' py-3'>{subValue}</td>
+                      </tr>
+            ))}
+      </tbody>
+    </table>
   </div>
-  {/* Table Content */}
-  {details.Specification && Array.isArray(details.details.Specification) && details.details.Specification.map((sectionObject, index) => (
-    <div key={index} className='my-3 mx-4 capitalize'>
-      <h2 className='text-lg font-semibold'>{sectionObject.section}</h2>
-      <table className='my-2 w-full mx-1'>
-        <tbody>
-          {sectionObject.features.map((featureObject, featureIndex) => (
-            <tr key={featureIndex}>
-              <td className='w-[35%] text-gray-500 py-3'>{featureObject.feature}</td>
-              <td className=''>{featureObject.value}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  ))}
-  {/* Table Content */}
-</div>
+))}
 
-
+            {/* Tabel Content */}
+      </div>
       {/* Specification */}
 
       {/* Cards */}

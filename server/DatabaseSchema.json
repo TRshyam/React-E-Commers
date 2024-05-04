@@ -253,7 +253,7 @@
       },
       "From": "amzn-ad",
       "To": "light-blue-ad"
-    },
+    },z
     "5":{
       "id": 5,
       "productName": "Apple AirPods Pro",
@@ -754,72 +754,7 @@
       },
       "From": "amzn-ad",
       "To": "light-blue-ad"
-    },
-    "13":{
-      "id": 13,
-      "productName": "Canon EOS R6",
-      "category": "electronic",
-      "cardType": "item",
-      "details": {
-        "head": "Canon EOS R6 Full-Frame Mirrorless Camera with 4K Video, Full-Frame CMOS Senor, DIGIC X Image Processor, Dual UHS-II SD Memory Card Slots, and Up to 12 fps with Mechnical Shutter, Body Only, Black",
-        "images": [
-          "https://m.media-amazon.com/images/I/81sRt1N0j8L._AC_SL1500_.jpg",
-          "https://m.media-amazon.com/images/I/61uSsfWlZrL._AC_SL1500_.jpg",
-          "https://m.media-amazon.com/images/I/81Nlu6kt1zL._AC_SL1500_.jpg"
-        ],
-        "videos": [],
-        "Specialprize": "215999",
-        "Originalprize": "249999",
-        "discount": "14% off",
-        "ratings": "4.9",
-        "highlights": [
-          "High Image Quality featuring a New 20 Megapixel Full-frame CMOS Sensor",
-          "DIGIC X Image Processor with an ISO range of 100-102400; Expandable to 204800",
-          "High-speed continuous shooting of up to 12 fps with Mechanical Shutter and up to 20 fps electronic (silent) shutter",
-          "Dual pixel CMOS AF covering approx. 100% area with 1,053 AF areas",
-          "Subject tracking of people and animals using Deep Learning Technology"
-        ],
-        "Description":"Experience the pinnacle of photography with the Xiaomi 14, the product of the innovative partnership between Xiaomi and Leica. With three 50 MP Leica cameras, you can unleash your imagination and capture the subtleties of life with unmatched clarity. With its wide aperture, the primary 50 MP Summilux camera steals the show and produces amazing pictures across a range of lighting settings. Leica Cinematography has remarkable cinematic qualities, providing GoPro and Dolby Vision video recording. The phone's design guarantees an immersive viewing experience with its ultra-comfortable grip and state-of-the-art display technology. The Snapdragon 8 Gen 3-powered Xiaomi 14 skillfully strikes a mix between economy and performance. With the 90 W HyperCharge, charging is simplified. Its IP68 certification ensures durability, and its CCG technology provides maximum performance when charging",
-
-        "Specification":{
-          "General":{
-            "brand":"Google",
-            "model":"Pixel 7",
-            "Color":"Dark Grey",
-            "SIM Type":"Dual Sim(Nano + eSIM)",
-            "Hybrid Sim Slot":"No"
-          },
-          "Display Features":{
-            "brand":"Google",
-            "model":"Pixel 7",
-            "Color":"Dark Grey",
-            "SIM Type":"Dual Sim(Nano + eSIM)",
-            "Hybrid Sim Slot":"No"
-          },
-          "Os & Processor Features":{
-            "brand":"Google",
-            "model":"Pixel 7",
-            "Color":"Dark Grey",
-            "SIM Type":"Dual Sim(Nano + eSIM)",
-            "Hybrid Sim Slot":"No"
-          },
-          "Memory & Storage Features":{
-            "brand":"Google",
-            "model":"Pixel 7",
-            "Color":"Dark Grey",
-            "SIM Type":"Dual Sim(Nano + eSIM)",
-            "Hybrid Sim Slot":"No"
-          }
-        
-        },
-        "reviews": [],
-        "questions": []
-      },
-      "From": "amzn-ad",
-      "To": "light-blue-ad"
     }
-
-
 }
 
 

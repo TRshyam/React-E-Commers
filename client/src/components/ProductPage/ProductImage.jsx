@@ -2,10 +2,16 @@ import React, { useState } from 'react';
 import CartButton from '../CartButton';
 import { MdKeyboardArrowDown, MdOutlineKeyboardArrowUp } from "react-icons/md";
 import { useDispatch, useSelector } from 'react-redux';
+import { FaRegHeart } from "react-icons/fa";
+
+
+
 
 import { useLocation, useNavigate } from "react-router-dom"; // Import useLocation and useNavigate
+import LikeButton from '../LikeButton';
 
 export default function ProductImages({ mainImgs, userId, productId }) {
+  // console.log(productId);
   const [selectedImage, setSelectedImage] = useState(mainImgs[0]);
   const { currentUser } = useSelector((state) => state.user);
 
@@ -49,16 +55,16 @@ export default function ProductImages({ mainImgs, userId, productId }) {
                   onClick={() => setSelectedImage(imageUrls)}
                 >
                   <img
-                    src={`http://127.0.0.1:5000/static/imgs/${imageUrls}`} // Access the image URL directly from the array
+                    src={`http://127.0.0.1:5000/static/imgs/${imageUrls}`}
                     alt={`Image ${index}`}
-                    className='h-[80%]  hover:scale-105 transition-transform duration-500'
+                    className='w-[100%]  hover:scale-105 transition-transform duration-500'
                   />
                 </div>
               ))}
               
               <div className='relative'>
                 {startIndex > 0 && (
-                  <button className='h-6 w-20 bg-gray-300 flex justify-center items-center absolute bottom-[6rem]' onClick={handlePreviousClick}>
+                  <button className='h-6 w-20 bg-gray-300 flex justify-center items-center absolute bottom-[12rem]' onClick={handlePreviousClick}>
                     <MdOutlineKeyboardArrowUp />
                   </button>
                 )}
@@ -72,6 +78,17 @@ export default function ProductImages({ mainImgs, userId, productId }) {
           </div>
 
           <div className='bg-white p-4 m-2 w-full h-[40rem] flex justify-center flex-grow'>
+            <div className='relative z-50 left-[30rem]'>
+
+              {currentUser && currentUser.user && currentUser.user._id ? (<LikeButton productId={productId} /> )
+              :(    <button onClick={() => navigate('/sign-in')}>
+                <FaRegHeart/>
+                
+          </button>)  
+            }
+              
+            </div>
+
             <div className=' w-[30rem] h-[35rem]  '>
               {selectedImage && (
                 <img src={`http://127.0.0.1:5000/static/imgs/${selectedImage}`} alt={`Selected Image`} className='w-full h-full object-contain  hover:scale-105 transition-transform duration-500' />

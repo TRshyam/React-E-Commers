@@ -28,8 +28,17 @@ const nextItemIndex = (prevIndex) => Math.min(prevIndex + 1, childrenArray.lengt
 
   return (
   <div>
+
     <div className="overflow-hidden relative">
-      <ul className="flex transition-transform duration-300 ease-in-out" style={{ transform: `translateX(-${currentIndex * 20}%)` }}>
+     
+    <div className="overflow-hidden">
+       <ul className="flex transition-transform duration-300 ease-in-out" style={{
+    transform: `translateX(-${currentIndex * 50}%)`, // Default translation for md and below
+    '@screen lg': {
+      transform: `translateX(-${currentIndex * 100}%)`, // Translation for lg and above
+    }
+  }}>
+
         {childrenArray.map((child, index) => (
           <li
             key={index}

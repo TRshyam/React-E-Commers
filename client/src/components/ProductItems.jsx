@@ -38,8 +38,8 @@ export default function ProductItems() {
     const fetchData = async () => {
       try {
         const response = await axios.get('http://localhost:5000/api/data');
-
-        const cardsArray = response.data;
+        const cardsArray = Object.values(response.data.product_data);
+        console.log(Object.values(response.data));
         setCards(cardsArray);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -49,57 +49,37 @@ export default function ProductItems() {
     fetchData();
   }, []);
 
-for (const productId in cards.product_data) {
-  console.log(productId);
-
-  if (cards.hasOwnProperty(productId)) {
-    const product = cards[productId];
-    // Check if the category of the product is "Electronics"
-    if (product.category === 'Electronics') {
-      console.log(product);
-    }
-  }
-}
-  // console.log(cards.product_data?.Electronics);
-  // console.log(electronicsProducts);
 
 
+
+  // Separate Ad and item cards
+ const adCards = {};
+const itemCards = {};
 const categories = {
-  Electronics: {},
-  Appliance: {},
-  Furniture: {},
-  Clothing: {},
-  Grocery: {}
+  Electronics: [],
+  Appliance: [],
+  Furniture: [],
+  Clothing: [],
+  Grocery: []
 };
 
-for (const category in cards.product_data) {
-  const products = cards.product_data[category];
-  for (const productId in products) {
-    const product = products[productId];
-    switch (product.category) {
-      case 'Electronics':
-        categories.Electronics[productId] = product;
-        break;
-      case 'Appliance':
-        categories.Appliance[productId] = product;
-        break;
-      case 'Furniture':
-        categories.Furniture[productId] = product;
-        break;
-      case 'Clothing':
-        categories.Clothing[productId] = product;
-        break;
-      case 'Grocery':
-        categories.Grocery[productId] = product;
-        break;
-      default:
-        console.error(`Invalid category '${product.category}' for product ID: ${productId}`);
+for (const key in cards) {
+  if (cards.hasOwnProperty(key)) {
+    const card = cards[key];
+    if (card.cardType === 'Ad') {
+      adCards[key] = card;
+    } else if (card.cardType === 'item') {
+      itemCards[key] = card;
+      const category = card.category;
+      if (categories.hasOwnProperty(category)) {
+        categories[category].push(card);
+      }
     }
   }
 }
 
-console.log(categories.Electronics);
-
+console.log(itemCards); // Contains all item cards
+console.log(categories);
 // Render AdCards
 const renderAdCards = (adCards) => {
   return Object.keys(adCards).map((key) => {
@@ -108,21 +88,17 @@ const renderAdCards = (adCards) => {
   });
 };
 
-// Render ItemCards
+// Render ItemCards for a specific category
 const renderItemCards = (itemCards, category) => {
-  console.log(itemCards[category]);
-  return Object.keys(itemCards[category]).map((categoryKey) => {
-    const { _id, productName, price, images, From, To } = itemCards[category][categoryKey];
+  console.log(itemCards);
+  const filteredItemCards = Object.values(itemCards).filter(card => card.category === category);
+  
+  return filteredItemCards.map((card) => {
+    const { _id, product_name, details } = card;
     console.log(_id);
-    console.log(productName);
-    console.log(price);
-    console.log(images[0]);
-    return (
-      <Card
-        key={categoryKey}
-        item={{ _id, productName, price, images, category }} // corrected spelling: category instead of catogory
-      />
-    );
+    console.log(product_name);
+    console.log(details);
+    return <Card key={_id} item={{ _id, product_name, details }} />;
   });
 };
 
@@ -132,18 +108,33 @@ const renderItemCards = (itemCards, category) => {
       <div className='mx-5 md:mx-0 '> {/* Added margin on mobile */}
         <div className='md:flex w-full'>
           <div className='w-full md:w-[30%] md:mr-4'> {/* Adjusted width and added margin right for spacing */}
-            
+            {renderAdCards(adCards)}
           </div>
           <div className=' w-full md:w-[70%] my-auto  '>
             <Carousel>
-              {renderItemCards(categories,"Electronics")}
+              {renderItemCards(itemCards,"Electronics")}
             </Carousel>
           </div>
 
         </div>
         <CollectionsBar Images={SofaImages} Text={"Sofa and Cusions"} Offer={"20"} Category = {'furniture'} />
       </div>
-      
+      <div className='mx-5 md:mx-0 '> {/* Added margin on mobile */}
+        <div className='md:flex w-full'>
+          <div className=' w-full md:w-[70%] my-auto  '>
+            <Carousel>
+              {renderItemCards(itemCards,"Appliance")}
+            </Carousel>
+          </div>
+          <div className='w-full md:w-[30%] md:mr-4'> {/* Adjusted width and added margin right for spacing */}
+            {renderAdCards(adCards)}
+          </div>
+
+        </div>
+        <CollectionsBar Images = {PotImages} Text = {"Flower Pots"} Offer = {"40"} Category = {'electronic'}/>
+      </div>
+  
+
     </div>
   );
 }
