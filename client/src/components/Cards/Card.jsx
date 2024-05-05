@@ -8,8 +8,8 @@ export default function Card({ item }) {
   const imageSrc = images.length > 0 ? images[0] : '';
 
   return (
-    <div className='w-[14rem] h-[20rem] rounded-md relative overflow-hidden shadow-xl m-6 transform transition duration-300 hover:scale-105 hover:shadow-2xl hover:bg-white select-none'>
-      <div className='h-[15rem]  flex justify-center items-center'>
+    <div className='w-[14rem] h-[17rem] rounded-md relative overflow-hidden shadow-xl m-6 transform transition duration-300 hover:scale-105 hover:shadow-2xl hover:bg-white select-none'>
+      <div className='h-[12rem]  flex justify-center items-center'>
         {/* Image */}
         <div className='w-full h-full flex justify-center items-center'>
           <img
@@ -28,7 +28,7 @@ export default function Card({ item }) {
         {/* Link to Product Page with Product ID */}
         <a
           href={`/product/${_id}`}
-          className='p-2 rounded-full hover:bg-black hover:text-white'
+          className='p-2 rounded-full hover:bg-black hover:text-white bg-slate-50'
         >
           <MdOutlineArrowForward />
         </a>

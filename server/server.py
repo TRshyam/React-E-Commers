@@ -51,6 +51,7 @@ def retrieve_product():
         data = request.json
         product_id = data.get('ProductId')
         print("product_id", product_id)
+        print("product_id", product_id)
         if not product_id :
             return ""
 
@@ -58,17 +59,18 @@ def retrieve_product():
             return jsonify({'error': 'Missing ProductId in request body'}), 400  # Bad request
 
         # Load product data from JSON file (assuming 'details' is a dictionary within each product)
-        with open('server\DatabaseSchema.json', 'r') as file:
-            products = json.load(file)
-
+        with open('server\Modules\products_database.json', 'r') as file:
+            data = json.load(file)
+            products=data["product_data"]
         # Find the product with the matching ID
         product = None
         for prod_id, product_value in products.items():
-            if product_value["id"] == product_id:
+            # print("product_id : ", prod_id)
+            if product_value["_id"] == product_id:
                 product =  product_value
                 break
 
-        print("product : ", product['details']['Specialprize'])
+        # print("product : ", product['details']['Specialprize'])
 
         if product:
             return jsonify(product)

@@ -68,6 +68,10 @@ for (const key in cards) {
     const card = cards[key];
     if (card.cardType === 'Ad') {
       adCards[key] = card;
+      const category = card.category;
+      if (categories.hasOwnProperty(category)) {
+        categories[category].push(card);
+        }
     } else if (card.cardType === 'item') {
       itemCards[key] = card;
       const category = card.category;
@@ -78,37 +82,53 @@ for (const key in cards) {
   }
 }
 
-console.log(itemCards); // Contains all item cards
-console.log(categories);
+// console.log(adCards); // Contains all item cards
+// console.log(itemCards); // Contains all item cards
+// console.log(categories);
 // Render AdCards
-const renderAdCards = (adCards) => {
-  return Object.keys(adCards).map((key) => {
-    const { img, content, From, To } = adCards[key];
-    return <AdCard key={key} bgGradientFrom={From} bgGradientTo={To} imageSrc={img} content={content} />;
+
+const renderAdCards = (adCards, category) => {
+  console.log(category);
+  console.log(adCards);
+  const filteredAdCards = Object.values(adCards).filter(card => card.category === category);
+
+  return filteredAdCards.map((card) => {
+    const { img, content, From, To } = card;
+    return <AdCard key={card.id} bgGradientFrom={From} bgGradientTo={To} imageSrc={img} content={content} category={category} />;
   });
 };
 
+
+// const renderAdCards = (adCards,catogory) => {
+//   console.log(catogory);
+//   console.log(adCards);
+//   return Object.keys(adCards).map((key) => {
+//     const { img, content, From, To } = adCards[key];
+//     return <AdCard key={key} bgGradientFrom={From} bgGradientTo={To} imageSrc={img} content={content} />;
+//   });
+// };
+
 // Render ItemCards for a specific category
 const renderItemCards = (itemCards, category) => {
-  console.log(itemCards);
+  // console.log(itemCards);
   const filteredItemCards = Object.values(itemCards).filter(card => card.category === category);
   
   return filteredItemCards.map((card) => {
     const { _id, product_name, details } = card;
-    console.log(_id);
-    console.log(product_name);
-    console.log(details);
+    // console.log(_id);
+    // console.log(product_name);
+    // console.log(details);
     return <Card key={_id} item={{ _id, product_name, details }} />;
   });
 };
 
 
   return (
-    <div>
+    <div className='mx-0 md:mx-12'>
       <div className='mx-5 md:mx-0 '> {/* Added margin on mobile */}
         <div className='md:flex w-full'>
-          <div className='w-full md:w-[30%] md:mr-4'> {/* Adjusted width and added margin right for spacing */}
-            {renderAdCards(adCards)}
+          <div className='w-full md:w-[30rem] md:mr-4'> {/* Adjusted width and added margin right for spacing */}
+            {renderAdCards(adCards,"Electronics")}
           </div>
           <div className=' w-full md:w-[70%] my-auto  '>
             <Carousel>
@@ -126,12 +146,25 @@ const renderItemCards = (itemCards, category) => {
               {renderItemCards(itemCards,"Appliance")}
             </Carousel>
           </div>
-          <div className='w-full md:w-[30%] md:mr-4'> {/* Adjusted width and added margin right for spacing */}
-            {renderAdCards(adCards)}
+          <div className='w-full md:w-[30rem] md:mr-4'> {/* Adjusted width and added margin right for spacing */}
+            {renderAdCards(adCards,"Appliance")}
           </div>
 
         </div>
         <CollectionsBar Images = {PotImages} Text = {"Flower Pots"} Offer = {"40"} Category = {'electronic'}/>
+      </div>
+      <div className='mx-5 md:mx-0 '> {/* Added margin on mobile */}
+        <div className='md:flex w-full'>
+          <div className='w-full md:w-[30rem] md:mr-4'> {/* Adjusted width and added margin right for spacing */}
+            {renderAdCards(adCards,"Clothing")}
+          </div>
+          <div className=' w-full md:w-[70%] my-auto  '>
+            <Carousel>
+              {renderItemCards(itemCards,"Clothing")}
+            </Carousel>
+          </div>
+
+        </div>
       </div>
   
 

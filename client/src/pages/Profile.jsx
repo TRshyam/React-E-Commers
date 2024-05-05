@@ -3,10 +3,12 @@ import { useSelector,useDispatch } from 'react-redux';
 import { updateUserStart, updateUserSuccess, updateUserFailure } from '../redux/user/userSlice';
 import { signOutUserSuccess } from '../redux/user/userSlice';
 import { BiSolidPackage } from "react-icons/bi";
+import { FaRegHeart } from "react-icons/fa";
 import { IoIosArrowForward } from "react-icons/io";
 import { VscAccount } from "react-icons/vsc";
 import {useNavigate} from 'react-router-dom';
 import Navbar from '../components/Navbar';
+import { Link } from 'react-router-dom';
 
 
 function Profile() {
@@ -120,18 +122,37 @@ const handleSubmit = async (e) => {
 
                         <div className='bg-slate-100 flex-col p-2 my-5 h-sc'>
                             <div className='flex justify-around items-center'>
-                            <div className='bg-gray-200 w-full h-16 '> 
-                            <div className='flex justify-between items-center m-3'>
-                                    <div className='flex items-center space-x-4'>
-                                        <BiSolidPackage className='w-10 h-10' />
-                                        <h1>My Orders</h1>
+                            <div className='bg-gray-200 w-full h-16 my-2 '> 
+                                <Link to='/orders'>
+                                    <div className='flex justify-between items-center m-3'>
+                                            <div className='flex items-center space-x-4'>
+                                                <BiSolidPackage className='w-8 h-8' />
+                                                <h1>My Orders</h1>
+                                            </div>
+                                            <div>
+                                                <IoIosArrowForward/>
+                                            </div>
                                     </div>
-                                    <div>
-                                        <IoIosArrowForward/>
-                                    </div>
-                            </div>
+
+                                </Link>
 
                             </div>
+                            </div>
+                            <div className='flex justify-around items-center'>
+                                <div className='bg-gray-200 w-full h-16 '> 
+                                    <Link to='/wishlist'>
+                                        <div className='flex justify-between items-center m-3'>
+                                                <div className='flex items-center space-x-4'>
+                                                    <FaRegHeart className='w-7 h-7' />
+                                                    <h1>Wishlist</h1>
+                                                </div>
+                                                <div>
+                                                    <IoIosArrowForward/>
+                                                </div>
+                                        </div>
+                                    </Link>
+
+                                </div>
                             </div>
                             <div className=' bg-gray-200 my-1 flex-col items-center '>
                                     <div>

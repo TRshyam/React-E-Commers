@@ -76,6 +76,8 @@ const Cart = () => {
     }
   };
 
+  
+
   const TotalValueChange = async (cartData) => {
     setCartData(cartData);
   }
@@ -85,6 +87,7 @@ const Cart = () => {
       if (cartData) {
         let sum = 0;
         for (const product of cartData) {
+          console.log(product.productId);
           const price = await retrieveProduct(product.productId);
           console.log("directLog : ", price) // Use retrieveProduct function
           if (price !== null) { // Check for potential errors
@@ -100,10 +103,17 @@ const Cart = () => {
   }, [cartData]);
 
   const retrieveProduct = async (productId) => {
+    console.log(productId);
     if (productId !== null) {
       try {
         const response = await axios.post('http://localhost:5000/api/data/retrive_product', { ProductId: productId }); // Use correct casing
-        return response.data['details']['Specialprize']
+        console.log("response : ", response.data)
+        const price=response.data.details.price;
+        const discount=response.data.details.discount;
+        var discountFraction = discount / 100;
+        var discountPrice =Math.floor(price - (discountFraction * price));
+        console.log('discountPrice',discountPrice);
+        return discountPrice
       } catch (error) {
         console.error('Error retrieving product:', error);
         // Handle errors appropriately, e.g., display a user-friendly message

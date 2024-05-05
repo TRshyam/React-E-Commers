@@ -23,7 +23,7 @@ const Category = (props) => {
         const fetchData = async () => {
             try {
                 const response = await axios.get('http://localhost:5000/api/data');
-                const cardsArray = Object.values(response.data);
+                const cardsArray = Object.values(response.data.product_data);
                 setData(cardsArray);
                 console.log(cardsArray)
             } catch (error) {
@@ -52,6 +52,7 @@ const Category = (props) => {
             return Data.filter((item) => selectedFilters.includes(item.category.toLowerCase()));
         }
     };
+    console.log(filterProducts());
 
     const renderProducts = () => {
         
@@ -59,13 +60,14 @@ const Category = (props) => {
         return (
             <>
             {filteredProducts.map((item) => (
-              <Link to={`/product/${item.id}`} key={item.id}>
+              <Link to={`/product/${item._id}`} key={item._id}>
                 <div className="Product">
-                  <img src={item.details.images[0]} alt={item.productName} />
+                  {/* <img src={item.details.images[0]} alt={item.product_name} /> */}
+                  <img src={`http://127.0.0.1:5000/static/imgs/${images[0]}`} alt={item.product_name} />
                   <div className='Product-details'>
-                    <h1>{item.productName}</h1>
+                    <h1>{item.product_name}</h1>
                     <h2>{item.category}</h2>
-                    <h3>Rs .{item.details.Specialprize}</h3>
+                    <h3>Rs .{item.details.price}</h3>
                   </div>
                 </div>
               </Link>

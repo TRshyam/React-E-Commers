@@ -1,5 +1,46 @@
 {
     "product_data": {
+        "ad1":{
+            "_id":"ad1",
+            "content":{
+                "subtitle":"Work better, together",
+                "title":"Get 25% off on Electronics"
+            },
+            "img":"banner1.png",
+            "From":"regal-yellow-ad",
+            "To":"light-blue-ad",
+            "category": "Electronics",
+            "cardType": "Ad"
+
+        },
+        "ad2":{
+            "_id":"ad2",
+            "content":{
+                "subtitle":"Choose smart, Be smart",
+                "title":"Get 12% off on Appliances"
+            },
+            "img":"appliances_ad.png",
+            "From":"bg-slate-600",
+            "To":"bg-slate-100",
+            "category": "Appliance",
+            "cardType": "Ad"
+
+        },
+        "ad3":{
+            "_id":"ad3",
+            "content":{
+                "subtitle":"Work better, together",
+                "title":"Get 25% off on Acmesystems"
+            },
+            "img":"clothing_ad.png",
+            "From":"bg-slate-600",
+            "To":"bg-slate-100",
+            "category": "Clothing",
+            "cardType": "Ad"
+
+        },
+
+
         "pd992856d398": {
             "_id": "pd992856d398",
             "product_name": "ewadftefwqa",
@@ -7,7 +48,7 @@
             "cardType": "item",
             "details": {
                 "product_FullName": "SAMSUNG Galaxy Z Flip3 5G (Phantom Black, 128 GB)  (8 GB RAM)",
-                "brand": "",
+                "brand": "SAMSUNG",
                 "types": "Mobile",
                 "images": [
                     "pd992856d398_pulse-17-b13vgk-252in-gaming-laptop-msi-original-imagmmhkp2vsrwex.jpg",
@@ -16,7 +57,7 @@
                     "pd992856d398_galaxy-z-flip3-5g-sm-f711bzeeinu-samsung-original-imag662a4c5myzcj.jpg"
                 ],
                 "price": "50000",
-                "discount": "dscvdscv",
+                "discount": "40",
                 "highlights": "[\"ehrtyg rt \",\"gdgg\",\" asdfga\",\"g rg gg arg \"]",
                 "description": "egraggs g aergedsgg sggsgsa",
                 "specifications": "[{\"key\":\"General\",\"values\":[{\"subKey\":\"a grsgrsg s\",\"subValue\":\"grs gerwag \"},{\"subKey\":\"raergadsrgasgasg\",\"subValue\":\"sagasg asrg \"}]},{\"key\":\"aerg taegaer\",\"values\":[{\"subKey\":\"aaer gasg as\",\"subValue\":\"gasewg asga\"}]}]"
@@ -43,6 +84,28 @@
                 "highlights": "[\"8 GB RAM | 128 GB ROM \",\"17.02 cm (6.7 inch) Full HD+ Display\",\"12MP + 12MP | 10MP Front Camera\",\"3300 mAh Lithium-ion Battery\",\"Qualcomm Snapdragon 888 Octa-Core Processor\"]",
                 "description": "Whether you want to fold it into your pocket, put it into your purse, or slip it into your jeans this Samsung Galaxy Z Flip 3 5G lets you do all of it with ease. This smartphone comes with a 10.72 cm (4.2) display so that you can not only enjoy immersive visuals on a widescreen but also can conveniently fit it in your pocket. Also, you can check your messages, click photos, play music and do more without opening your phone, thanks to the 4.82 cm (1.9) Cover Screen display. Moreover, this smartphone comes with a Flex Mode Camera so that you can capture hands-free selfies on the cover screen. All you have to do is, adjust the angle and wait for hands-free selfies. Thanks to the waterproof design, you don't have to worry about spills and splashes damaging your phone. Lastly, you can enjoy storing photos and videos as this phone comes with up to 128 GB of storage, thus ensuring plenty of space.",
                 "specifications": "[{\"key\":\"General\",\"values\":[{\"subKey\":\"In The Box\",\"subValue\":\"Handset, Non-removable Battery Included, Data Cable (C-to-C), Ejection Pin, Quick Start Guide, Protective Vinyl, Protective Films (Main Display)\"},{\"subKey\":\"Model Number\",\"subValue\":\"SM-F711BZKAINU|SM-F711BZKBINU|SM-F711BZKAINU|SM-F711BZKBINS\"}]},{\"key\":\" gyjjt \",\"values\":[{\"subKey\":\"tjtj \",\"subValue\":\" gjj t\"},{\"subKey\":\"tyjt djj j dtyj dty\",\"subValue\":\"y tjd tuyi 6e7iie67 \"}]}]"
+            }
+        },
+        "pd5662dc50da": {
+            "_id": "pd5662dc50da",
+            "product_name": "CMF Buds Pro",
+            "category": "Electronics",
+            "cardType": "item",
+            "details": {
+                "product_FullName": "CMF by Nothing Buds Pro with 45 dB ANC, Ultra Bass Technology & upto 39 hours of battery life Bluetooth Headset  (Dark Grey, True Wireless)",
+                "brand": "",
+                "types": "Headphone",
+                "images": [
+                    "pd5662dc50da_buds-pro-cmf-by-nothing-original-imagtnz6hhz7fyb3.jpg",
+                    "pd5662dc50da_buds-pro-cmf-by-nothing-original-imagtnz6ce6pxjzh.jpg",
+                    "pd5662dc50da_buds-pro-cmf-by-nothing-original-imagtnz6ahjjg2zr.jpeg",
+                    "pd5662dc50da_buds-pro-cmf-by-nothing-original-imagtnz6jb7z5dcw.jpeg"
+                ],
+                "price": "2499",
+                "discount": "44",
+                "highlights": "[\"Battery life: 39 Hrs\",\"45db Hybrid Noise cancellation\",\"10mm Dynamic bass boost\",\"upto 11 hours of non stop music per charge\",\"10 minutes of charging= 3.7 hours of playback\",\"6HD Mics With Clear Voice Technology\"]",
+                "description": "Silence meets power. Silence the distractions. CMF Buds Pro takes 45 dB active noise reduction to another level with a bandwidth of up to 5000 Hz. With a wider frequency range, more types of noises can be eliminated. So even on busy commutes and in noisy office spaces, you can fully immerse yourself in your favorite audio. We built Buds Pro with a special wind-through structure that features two holes at the top of the stem. Combined with advanced wind noise reducing algorithms delivering uninterrupted conversations and immersive music experience. With 6 HD microphones and Clear Voice Technology that's been trained on 20,000,000+ noise models, enjoy the phone calls with next-level clarity. All about the bass. We developed CMF Buds Pro to transform the bass experience by ensuring hardware and software work together to enhance sound in real-time. Starting with hardware, the custom 10 mm driver features a premium LCP + PU diaphragm for high elasticity and more precision. The soft material of the PU is what allows the bass sound to come through purer and more accurate. We also gave the rear chamber an exhaust vent to make the mid-low frequencies fuller, the high frequencies clearer and low frequencies extra powerful. CMF Buds Pro features an intelligent bass enhancement algorithm that enhances the sound of bass in real-time. It detects music signals as you're listening and presents a clearer bass effect. You can customise sound yourself too with the Nothing X app. Just connect your CMF Buds Pro and use the Equaliser to adjust the sound of bass and treble. We designed CMF Buds Pro to support you throughout the entire day. Enjoy 11 hours of non-stop music playback on a single charge or extend your listening time to up to 39 hours by using the earbuds with the charging case (with ANC is turned off). Compatible with Fast Charge for quick and seamless power-ups. Get 5 hours of listening after just 10 minutes of charging.\r\n",
+                "specifications": "[{\"key\":\"General\",\"values\":[{\"subKey\":\"Model Name\",\"subValue\":\"Buds (Pro)\"},{\"subKey\":\"Color\",\"subValue\":\"Dark Grey\"},{\"subKey\":\"Headphone Type\",\"subValue\":\"True Wireless\"},{\"subKey\":\"Inline Remote\",\"subValue\":\"No\"},{\"subKey\":\"Sales Package\",\"subValue\":\"1 Pair of Earbuds, USB Cable, User Manual, Safety and Warranty Card\"}]},{\"key\":\"Product Details\",\"values\":[{\"subKey\":\"Deep Bass\",\"subValue\":\"Yes\"},{\"subKey\":\"Water Resistant\",\"subValue\":\"Yes\"},{\"subKey\":\"With Microphone\",\"subValue\":\"Yes\"}]},{\"key\":\"Connectivity Features\",\"values\":[{\"subKey\":\"Bluetooth Version\",\"subValue\":\"5.3\"},{\"subKey\":\"Battery Life\",\"subValue\":\"39 Hrs\"}]},{\"key\":\"Warranty\",\"values\":[{\"subKey\":\"Domestic Warranty\",\"subValue\":\"1 Year \"},{\"subKey\":\"Warranty Summary\",\"subValue\":\"1 Year Warranty\"},{\"subKey\":\"Warranty Service Type\",\"subValue\":\"support.india@cmf.tech 18002021232\"},{\"subKey\":\"Covered in Warranty\",\"subValue\":\"Manufacturing Defects\"},{\"subKey\":\"Not Covered in Warranty\",\"subValue\":\"Physical Damages\"}]}]"
             }
         }
     }

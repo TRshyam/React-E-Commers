@@ -6,6 +6,7 @@ import { AiOutlineDelete } from "react-icons/ai";
 import { FaRegHeart } from "react-icons/fa";
 import axios from "axios";
 import { grid } from 'ldrs'
+import LikeButton from "./LikeButton";
 grid.register()
 
 const CartItem = (props) => {
@@ -24,12 +25,14 @@ const CartItem = (props) => {
 
   }, []);
 
+  console.log(userId);
   const FetchProductDetails = async () => {
     try {
       const response = await axios.get('http://localhost:5000/api/data');
       if (response.status === 200) {
-        const responseData = response.data;
+        const responseData = response.data.product_data;
         console.log("responseData",responseData ,props.productId)
+        
         const foundProduct = responseData[props.productId];
         console.log("Founded product " , foundProduct)
         if (foundProduct) {
@@ -83,6 +86,8 @@ const CartItem = (props) => {
 
 
 
+
+
   const handleDelete = async () => {
     if (userId && productId) {
         props.deleteCartItem(userId, productId); // Call deleteCartItem function from parent
@@ -90,16 +95,27 @@ const CartItem = (props) => {
         console.error("Missing user or product ID for deletion.");
     }
 };
+console.log(productData);
+  // const price=productData.details.price;
+  // const discount=productData.details.discount;
+  // var discountFraction = discount / 100;
+  // var discountPrice =Math.floor(price - (discountFraction * price));
 
   return (
     <>
-    {productData && Object.keys(productData).length > 0 ? (
+    {Object.keys(productData).length > 0 ? (
+      
       <div className="CartItem">
-        <img src={productData.details.images[0]} alt={productData.productNam} className="CartItem-Image" />
+    
+        {/* <h1>{productData.details.images[0]}</h1>
+        <h1>{`http://127.0.0.1:5000/static/imgs/${productData.details.images[0]}`}</h1> */}
+        {/* <img src={productData.details.images[0]} alt="" srcset="" /> */}
+        <img src={`http://127.0.0.1:5000/static/imgs/${productData.details.images[0]}`} alt={productData.product_name} className="CartItem-Image" />
         <div className="CartItem-Details">
-          <h1>{productData.productName}</h1>
-          <h2>{productData.details.Specification.General.brand} - {productData.details.Specification.General.model}</h2>
-          <h3>{productData.details.head}</h3>
+          <h1>{productData.product_name}</h1>
+          {/* <h2>{productData.details.Specification.General.brand} - {productData.details.Specification.General.model}</h2> */}
+          <h2>{productData.details.brand || ""}</h2>
+          <h3>{productData.details.product_FullName}</h3>
           <h4>Rating : {productData.details.ratings } ⭐</h4>
           <div className="CartItem-Modify">
             <button onClick={decreaseQuantity}><FiMinusCircle className="FiMinusCircle" /></button>
@@ -108,10 +124,14 @@ const CartItem = (props) => {
           </div>
         </div>
         <div className="CartItem-Price">
-          <h1>Rs .{parseFloat(productData.details.Specialprize) * quantity}</h1>
+          <div className="flex gap-5">  
+            <p>₹{productData.details.price}</p>
+            <p>{productData.details.discount}% OFF</p>
+          </div>
+          <h1>Rs .{Math.floor((productData.details.price - (productData.details.discount / 100) * productData.details.price) * quantity)}</h1>
           <div className="CartItem-AddorRemove">
             <button onClick={handleDelete}><AiOutlineDelete className="AiOutlineDelete" /></button>
-            <button><FaRegHeart className="FaRegHeart" /></button>
+            <LikeButton productId={productData._id} />
           </div>
         </div>
       </div>
