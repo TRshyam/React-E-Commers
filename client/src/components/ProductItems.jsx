@@ -21,7 +21,13 @@ import axios from 'axios';
 // import ProCarousel from './carosel/ProCarousel';
 
 import Carousel from './carousel/Carousel';
-import ps5 from '../assets/CardItems/Electronic/ps5.png';
+
+import { useData } from './ProductData';
+import { categorizeCards } from '../utils/categorizeCards';
+
+
+
+
 
 const SofaImages = [Sofa1, Sofa2, Sofa3, Sofa4, Sofa5, Sofa6];
 const PotImages = [Pot1, Pot2, Pot3, Pot4, Pot5, Pot6];
@@ -29,102 +35,57 @@ const PotImages = [Pot1, Pot2, Pot3, Pot4, Pot5, Pot6];
 export default function ProductItems() {
 
 
+   
 
+  
   const [cards, setCards] = useState([]);
-
-
+  
+  
   // to fetch from backend
+  const { data,error } = useData();
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get('http://localhost:5000/api/data');
-        const cardsArray = Object.values(response.data.product_data);
-        console.log(Object.values(response.data));
-        setCards(cardsArray);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-
-
-
-  // Separate Ad and item cards
- const adCards = {};
-const itemCards = {};
-const categories = {
-  Electronics: [],
-  Appliance: [],
-  Furniture: [],
-  Clothing: [],
-  Grocery: []
-};
-
-for (const key in cards) {
-  if (cards.hasOwnProperty(key)) {
-    const card = cards[key];
-    if (card.cardType === 'Ad') {
-      adCards[key] = card;
-      const category = card.category;
-      if (categories.hasOwnProperty(category)) {
-        categories[category].push(card);
-        }
-    } else if (card.cardType === 'item') {
-      itemCards[key] = card;
-      const category = card.category;
-      if (categories.hasOwnProperty(category)) {
-        categories[category].push(card);
-      }
+    if (error){
+      console.log(error);
     }
-  }
-}
+    setCards(data);
+  }, [data]);
 
-// console.log(adCards); // Contains all item cards
-// console.log(itemCards); // Contains all item cards
+  // console.log(cards);
+
+  
+  
+  
+  // Separate Ad and item cards
+const {adCards,itemCards,categories}=categorizeCards(cards)
 // console.log(categories);
-// Render AdCards
+    
 
+
+    // Render AdCardss for a specific category
 const renderAdCards = (adCards, category) => {
   console.log(category);
   console.log(adCards);
   const filteredAdCards = Object.values(adCards).filter(card => card.category === category);
-
+  
   return filteredAdCards.map((card) => {
     const { img, content, From, To } = card;
     return <AdCard key={card.id} bgGradientFrom={From} bgGradientTo={To} imageSrc={img} content={content} category={category} />;
   });
 };
 
-
-// const renderAdCards = (adCards,catogory) => {
-//   console.log(catogory);
-//   console.log(adCards);
-//   return Object.keys(adCards).map((key) => {
-//     const { img, content, From, To } = adCards[key];
-//     return <AdCard key={key} bgGradientFrom={From} bgGradientTo={To} imageSrc={img} content={content} />;
-//   });
-// };
-
-// Render ItemCards for a specific category
-const renderItemCards = (itemCards, category) => {
-  // console.log(itemCards);
-  const filteredItemCards = Object.values(itemCards).filter(card => card.category === category);
-  
-  return filteredItemCards.map((card) => {
+    
+    // Render ItemCards for a specific category
+    const renderItemCards = (itemCards, category) => {
+      const filteredItemCards = Object.values(itemCards).filter(card => card.category === category);
+      return filteredItemCards.map((card) => {
     const { _id, product_name, details } = card;
-    // console.log(_id);
-    // console.log(product_name);
-    // console.log(details);
     return <Card key={_id} item={{ _id, product_name, details }} />;
   });
 };
 
 
-  return (
-    <div className='mx-0 md:mx-12'>
+return (
+  <div className='mx-0 md:mx-12'>
       <div className='mx-5 md:mx-0 '> {/* Added margin on mobile */}
         <div className='md:flex w-full'>
           <div className='w-full md:w-[30rem] md:mr-4'> {/* Adjusted width and added margin right for spacing */}

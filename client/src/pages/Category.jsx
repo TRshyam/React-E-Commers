@@ -5,6 +5,11 @@ import Footer from '../components/Footer';
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import useFetchData from '../components/useFetchData';
+import { useData } from '../components/ProductData';
+import { categorizeCards } from '../utils/categorizeCards';
+
+
 
 
 const Category = (props) => {
@@ -12,27 +17,17 @@ const Category = (props) => {
     const [selectedFilters, setSelectedFilters] = useState([]);
     const location = useLocation();
 
-
-
+  const { data,error } = useData()
     // Fetch data from backend
-    useEffect(() => {
-        if(location.state && location.state.from){
-            console.log("helpp")
-            setSelectedFilters([...selectedFilters, location.state.from]);
+    useEffect(()=>{
+        if(error){
+            console.log("Error::",error);
         }
-        const fetchData = async () => {
-            try {
-                const response = await axios.get('http://localhost:5000/api/data');
-                const cardsArray = Object.values(response.data.product_data);
-                setData(cardsArray);
-                console.log(cardsArray)
-            } catch (error) {
-                console.error('Error fetching data:', error);
-            }
-        };
+        setData(data)
+    })
 
-        fetchData();
-    }, []);
+    
+const {itemCards,categories}=categorizeCards(data)
 
     const handleFilterChange = (filter) => {
         console.log("You have selected",filter)
@@ -44,14 +39,16 @@ const Category = (props) => {
         }
     };
 
+
     const filterProducts = () => {
-        if (selectedFilters.length === 0) {
-            return Data; // Return all products if no filters are selected
-        } else {
+    if (selectedFilters.length === 0) {
+        return Data; // Return all products if no filters are selected
+    } else {
             console.log("selected filters : ",selectedFilters)
             return Data.filter((item) => selectedFilters.includes(item.category.toLowerCase()));
-        }
-    };
+    }
+};
+
     console.log(filterProducts());
 
     const renderProducts = () => {
@@ -63,11 +60,11 @@ const Category = (props) => {
               <Link to={`/product/${item._id}`} key={item._id}>
                 <div className="Product">
                   {/* <img src={item.details.images[0]} alt={item.product_name} /> */}
-                  <img src={`http://127.0.0.1:5000/static/imgs/${images[0]}`} alt={item.product_name} />
+                  {/* <img src={`http://127.0.0.1:5000/static/imgs/${item.details.images[0]}`} alt={item.product_name} /> */}
                   <div className='Product-details'>
                     <h1>{item.product_name}</h1>
                     <h2>{item.category}</h2>
-                    <h3>Rs .{item.details.price}</h3>
+                    {/* <h3>Rs .{item.details.price}</h3> */}
                   </div>
                 </div>
               </Link>

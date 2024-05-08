@@ -1,46 +1,41 @@
 {
     "product_data": {
-        "ad1":{
-            "_id":"ad1",
-            "content":{
-                "subtitle":"Work better, together",
-                "title":"Get 25% off on Electronics"
+        "ad1": {
+            "_id": "ad1",
+            "content": {
+                "subtitle": "Work better, together",
+                "title": "Get 25% off on Electronics"
             },
-            "img":"banner1.png",
-            "From":"regal-yellow-ad",
-            "To":"light-blue-ad",
+            "img": "banner1.png",
+            "From": "regal-yellow-ad",
+            "To": "light-blue-ad",
             "category": "Electronics",
             "cardType": "Ad"
-
         },
-        "ad2":{
-            "_id":"ad2",
-            "content":{
-                "subtitle":"Choose smart, Be smart",
-                "title":"Get 12% off on Appliances"
+        "ad2": {
+            "_id": "ad2",
+            "content": {
+                "subtitle": "Choose smart, Be smart",
+                "title": "Get 12% off on Appliances"
             },
-            "img":"appliances_ad.png",
-            "From":"bg-slate-600",
-            "To":"bg-slate-100",
+            "img": "appliances_ad.png",
+            "From": "bg-slate-600",
+            "To": "bg-slate-100",
             "category": "Appliance",
             "cardType": "Ad"
-
         },
-        "ad3":{
-            "_id":"ad3",
-            "content":{
-                "subtitle":"Work better, together",
-                "title":"Get 25% off on Acmesystems"
+        "ad3": {
+            "_id": "ad3",
+            "content": {
+                "subtitle": "Work better, together",
+                "title": "Get 25% off on Acmesystems"
             },
-            "img":"clothing_ad.png",
-            "From":"bg-slate-600",
-            "To":"bg-slate-100",
+            "img": "clothing_ad.png",
+            "From": "bg-slate-600",
+            "To": "bg-slate-100",
             "category": "Clothing",
             "cardType": "Ad"
-
         },
-
-
         "pd992856d398": {
             "_id": "pd992856d398",
             "product_name": "ewadftefwqa",
@@ -106,6 +101,29 @@
                 "highlights": "[\"Battery life: 39 Hrs\",\"45db Hybrid Noise cancellation\",\"10mm Dynamic bass boost\",\"upto 11 hours of non stop music per charge\",\"10 minutes of charging= 3.7 hours of playback\",\"6HD Mics With Clear Voice Technology\"]",
                 "description": "Silence meets power. Silence the distractions. CMF Buds Pro takes 45 dB active noise reduction to another level with a bandwidth of up to 5000 Hz. With a wider frequency range, more types of noises can be eliminated. So even on busy commutes and in noisy office spaces, you can fully immerse yourself in your favorite audio. We built Buds Pro with a special wind-through structure that features two holes at the top of the stem. Combined with advanced wind noise reducing algorithms delivering uninterrupted conversations and immersive music experience. With 6 HD microphones and Clear Voice Technology that's been trained on 20,000,000+ noise models, enjoy the phone calls with next-level clarity. All about the bass. We developed CMF Buds Pro to transform the bass experience by ensuring hardware and software work together to enhance sound in real-time. Starting with hardware, the custom 10 mm driver features a premium LCP + PU diaphragm for high elasticity and more precision. The soft material of the PU is what allows the bass sound to come through purer and more accurate. We also gave the rear chamber an exhaust vent to make the mid-low frequencies fuller, the high frequencies clearer and low frequencies extra powerful. CMF Buds Pro features an intelligent bass enhancement algorithm that enhances the sound of bass in real-time. It detects music signals as you're listening and presents a clearer bass effect. You can customise sound yourself too with the Nothing X app. Just connect your CMF Buds Pro and use the Equaliser to adjust the sound of bass and treble. We designed CMF Buds Pro to support you throughout the entire day. Enjoy 11 hours of non-stop music playback on a single charge or extend your listening time to up to 39 hours by using the earbuds with the charging case (with ANC is turned off). Compatible with Fast Charge for quick and seamless power-ups. Get 5 hours of listening after just 10 minutes of charging.\r\n",
                 "specifications": "[{\"key\":\"General\",\"values\":[{\"subKey\":\"Model Name\",\"subValue\":\"Buds (Pro)\"},{\"subKey\":\"Color\",\"subValue\":\"Dark Grey\"},{\"subKey\":\"Headphone Type\",\"subValue\":\"True Wireless\"},{\"subKey\":\"Inline Remote\",\"subValue\":\"No\"},{\"subKey\":\"Sales Package\",\"subValue\":\"1 Pair of Earbuds, USB Cable, User Manual, Safety and Warranty Card\"}]},{\"key\":\"Product Details\",\"values\":[{\"subKey\":\"Deep Bass\",\"subValue\":\"Yes\"},{\"subKey\":\"Water Resistant\",\"subValue\":\"Yes\"},{\"subKey\":\"With Microphone\",\"subValue\":\"Yes\"}]},{\"key\":\"Connectivity Features\",\"values\":[{\"subKey\":\"Bluetooth Version\",\"subValue\":\"5.3\"},{\"subKey\":\"Battery Life\",\"subValue\":\"39 Hrs\"}]},{\"key\":\"Warranty\",\"values\":[{\"subKey\":\"Domestic Warranty\",\"subValue\":\"1 Year \"},{\"subKey\":\"Warranty Summary\",\"subValue\":\"1 Year Warranty\"},{\"subKey\":\"Warranty Service Type\",\"subValue\":\"support.india@cmf.tech 18002021232\"},{\"subKey\":\"Covered in Warranty\",\"subValue\":\"Manufacturing Defects\"},{\"subKey\":\"Not Covered in Warranty\",\"subValue\":\"Physical Damages\"}]}]"
+            }
+        },
+        "pd4efc47c9f9": {
+            "_id": "pd4efc47c9f9",
+            "product_name": "OPPO Find N3 Flip",
+            "category": "Electronics",
+            "cardType": "item",
+            "details": {
+                "product_FullName": "OPPO Find N3 Flip (Cream Gold, 256 GB)  (12 GB RAM)#JustHere",
+                "brand": "Oppo",
+                "types": "Mobile",
+                "images": [
+                    "pd4efc47c9f9_-original-imagu8h9bqnjsdnz.jpeg",
+                    "pd4efc47c9f9_-original-imagu8h94uxcrdwv.jpeg",
+                    "pd4efc47c9f9_-original-imagu8h9bnfezjut.jpeg",
+                    "pd4efc47c9f9_-original-imagu8h9nptjce7c.jpeg",
+                    "pd4efc47c9f9_-original-imagu8h9y5mcyges.jpeg"
+                ],
+                "price": "99999",
+                "discount": "10",
+                "highlights": "[\"12 GB RAM | 256 GB ROM\",\"17.27 cm (6.8 inch) Full HD Display\",\"50MP + 48MP + 32MP | 32MP Front Camera\",\"4300 mAh Battery\",\"Mediatek Dimensity 9200 Processor\"]",
+                "description": "Get ready to embark on a journey into the future of mobile technology. The Oppo Find N3 Flip Smartphone is here to redefine your smartphone experience. The Oppo Find N3 Flip Smartphone is not just a phone; it's a technological marvel designed to complement your lifestyle. With its iconic design, brilliant camera system, and innovative features, it's a statement of your style and a gateway to a world of endless possibilities.\r\n\r\n",
+                "specifications": "[{\"key\":\"General\",\"values\":[{\"subKey\":\"In The Box\",\"subValue\":\"Handset, Cable, Charger, Sim Ejector Pin, Protective Case, User Manual, Tips, and VIP Card\"},{\"subKey\":\"Model Number\",\"subValue\":\"CPH2519\"},{\"subKey\":\"Model Name\",\"subValue\":\"Find N3 Flip\"},{\"subKey\":\"Color\",\"subValue\":\"Cream Gold\"},{\"subKey\":\"SIM Type\",\"subValue\":\"Dual Sim\"},{\"subKey\":\"Sound Enhancements\",\"subValue\":\"Dolby Atmos, Integrated Audio Decoder Chip, 1115 and 1012 Ultra Linear Speaker\"},{\"subKey\":\"SAR Value\",\"subValue\":\"Head: < 2.0 W/kg, Body: < 2.0 W/kg\"}]},{\"key\":\"Display Features\",\"values\":[{\"subKey\":\"Display Size\",\"subValue\":\"17.27 cm (6.8 inch)\"},{\"subKey\":\"Resolution\",\"subValue\":\"2520 x 1080 Pixels\"},{\"subKey\":\"Resolution Type\",\"subValue\":\"Full HD\"},{\"subKey\":\"GPU\",\"subValue\":\"ARM Immortalis-G715 MC11\"},{\"subKey\":\"Display Type\",\"subValue\":\"Full HD AMOLED Display\"},{\"subKey\":\"Display Colors\",\"subValue\":\"1.07 Billion Colors (10 Bit)\"},{\"subKey\":\"Other Display Features\",\"subValue\":\"Refresh Rate: 1 Hz - 120 Hz, LTPO, Flat 2D Screen Curvature, 10 Touch Points, Maximum Touch Sampling Rate: 240 Hz, Screen-to-Body Ratio: 85.9%, Color Saturation: 97%, Aspect Ratio: 21:9, Color Gamut: (Vivid Mode: 97% NTSC/100% DCI-P3, Natural Mode: 70% NTSC/100% sRGB), Contrast Ratio: (Static - 1,000,000:1, Dynamic - 2,000,000:1), Supports Sunshine Screen, Brightness: 500 Nits, 1,200 Nits (HBM), HDR: 1,600 Nits, Dimming Level: 8192, Dimming Level and HBM Range: 10239, Oleophobic Coating on Screen, Dimming Mode: 70 Nits: PWM, 1,440 Hz, > 70 Nits: DC\"}]},{\"key\":\"Connectivity Features\",\"values\":[{\"subKey\":\"Network Type\",\"subValue\":\"5G, 4G, 3G, 2G\"},{\"subKey\":\"Supported Networks\",\"subValue\":\"5G, 4G LTE, WCDMA, GSM\"},{\"subKey\":\"Internet Connectivity\",\"subValue\":\"5G, 4G, 3G, GPRS, EDGE, Wi-Fi\"},{\"subKey\":\"Wi-Fi Version\",\"subValue\":\"802.11 a/b/g/n/ac/ax/be (Wi-Fi 7 (802.11be), Wi-Fi 6 (802.11ax), Wi-Fi 5 (802.11ac), 802.11a/b/g/n (WLAN 2.4 GHz | WLAN 5.1 GHz | WLAN 5.8 GHz), WLAN Display, WLAN Tethering, Overlay Networks: Wi-Fi 2.4 GHz, 2x2 + Wi-Fi 5 GHz, 2x2, Wi-Fi 5 GHz, 160 MHz, 2x2 MIMO)\"}]}]"
             }
         }
     }

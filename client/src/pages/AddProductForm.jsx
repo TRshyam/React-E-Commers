@@ -67,6 +67,7 @@ const AddProductForm = () => {
 
     const formData = new FormData();
     formData.append('productName', productName);
+    formData.append('productFullName', productFullName);
     formData.append('productPrice', productPrice);
     formData.append('productDiscount', productDiscount);
     formData.append('category', category);
@@ -129,7 +130,7 @@ const AddProductForm = () => {
 
         {/* Product FullName */}
         <div>
-          <label className="block mb-1">Product Name:</label>
+          <label className="block mb-1">Product Full Name:</label>
           <input
             type="text"
             value={productFullName}
@@ -255,7 +256,7 @@ const AddProductForm = () => {
 
 
         {/* Brand Selection */}
-        {/* {category === 'Electronics' && types && (
+        {category === 'Electronics' && types && (
           <div>
             <label className="block mb-1">Brand:</label>
             <select
@@ -267,7 +268,7 @@ const AddProductForm = () => {
               <option value="">Select Brand</option>
 
              
-              {types === 'Mobile' && ['Apple', 'Samsung','Oneplus','Google'].map((brandOption, index) => (
+              {types === 'Mobile' && ['Apple', 'Samsung','Oneplus','Google','Oppo'].map((brandOption, index) => (
                 <option key={index} value={brandOption}>{brandOption}</option>
               ))}
               {types === 'Laptop' && ['Lenovo', 'MSI'].map((brandOption, index) => (
@@ -278,7 +279,7 @@ const AddProductForm = () => {
               ))}
             </select>
           </div>
-        )} */}
+        )}
 
         {/* Brand Selection */}
 
