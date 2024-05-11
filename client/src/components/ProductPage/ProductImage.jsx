@@ -51,13 +51,13 @@ export default function ProductImages({ mainImgs, userId, productId }) {
               .map((imageUrls, index) => (
                 <div
                   key={index}
-                  className='bg-white my-4 flex justify-center items-center h-20 w-20'
+                  className='bg-white my-4 flex justify-center items-center h-20 w-20 '
                   onClick={() => setSelectedImage(imageUrls)}
                 >
                   <img
                     src={`http://127.0.0.1:5000/static/imgs/${imageUrls}`}
                     alt={`Image ${index}`}
-                    className='w-[100%]  hover:scale-105 transition-transform duration-500'
+                    className='w-20 h-20 object-contain hover:scale-105 transition-transform duration-500'
                   />
                 </div>
               ))}
