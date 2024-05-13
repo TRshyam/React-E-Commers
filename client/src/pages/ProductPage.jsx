@@ -6,6 +6,9 @@ import ProductDetails from '../components/ProductPage/ProductDetails';
 import Navbar from '../components/Navbar'
 import Carousel from '../components/carousel/Carousel';
 import Card from '../components/Cards/Card';
+
+import { useData } from '../components/ProductData';
+
 import { grid } from 'ldrs'
 grid.register()
 
@@ -26,32 +29,45 @@ const addToRecentlyViewed = (product) => {
   }
 };
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get('http://localhost:5000/api/data');
-        const foundProduct = response.data.product_data[id];
-        // const products= response.data
-        // console.log("___________");
-        // console.log(products);
-        // console.log(foundProduct.details);
-        // console.log(id);
+  const { data,error } = useData()
+  console.log(data);
+    // Fetch data from backend
+    useEffect(()=>{
+        if(error){
+            console.log("Error::",error);
+        }
+        console.log(data);
+        setProduct(data)
+    },[id])
+
+  console.log(product);
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await axios.get('http://localhost:5000/api/data');
+  //       const foundProduct = response.data.product_data[id];
+  //       // const products= response.data
+  //       // console.log("___________");
+  //       // console.log(products);
+  //       // console.log(foundProduct.details);
+  //       // console.log(id);
         
-        // console.log("___________");
+  //       // console.log("___________");
 
-        setProduct(foundProduct);
-        setLoading(false);
-        // setReleatedProducts(products)
-        addToRecentlyViewed(foundProduct);
-      } catch (error) {
-        console.error(`Error fetching product: ${error}`);
-        setLoading(false);
-      }
-    };
+  //       setProduct(foundProduct);
+  //       setLoading(false);
+  //       // setReleatedProducts(products)
+  //       addToRecentlyViewed(foundProduct);
+  //     } catch (error) {
+  //       console.error(`Error fetching product: ${error}`);
+  //       setLoading(false);
+  //     }
+  //   };
 
-    fetchData();
+  //   fetchData();
 
-  }, [id]);
+  // }, [id]);
 
   console.log("++++++++++++");
   console.log(product);

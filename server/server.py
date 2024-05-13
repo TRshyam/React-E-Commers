@@ -525,7 +525,8 @@ def add_order():
             'userId': userId,
             'products': products,
             'dateAndTime' : now,
-            'amount' : amount
+            'amount' : amount,
+            'status':'Shipped'
             }
         
         collection_orders.insert_one(orders)
