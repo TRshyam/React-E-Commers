@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 // import Adbanner from '../../assets/AdBannerImg/banner1.png';
 
 export default function YourComponent({ bgGradientFrom, bgGradientTo, imageSrc, content,category }) {
-  console.log(bgGradientFrom);
-  console.log(bgGradientTo);
+  // console.log(bgGradientFrom);
+  // console.log(bgGradientTo);
   
   // Define inline styles for the background gradient
   const gradientStyle = `bg-gradient-to-r from-${bgGradientFrom} to-${bgGradientTo}`;
-  console.log(gradientStyle);
+  // console.log(gradientStyle);
 
   return (
     <div className="bg-gradient-to-r from-regal-blue-ad to-light-blue-ad relative my-6">

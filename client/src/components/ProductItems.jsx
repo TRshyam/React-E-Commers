@@ -48,6 +48,7 @@ export default function ProductItems() {
       console.log(error);
     }
     setCards(data);
+    console.log(data);
   }, [data]);
 
   // console.log(cards);
@@ -63,8 +64,8 @@ const {adCards,itemCards,categories}=categorizeCards(cards)
 
     // Render AdCardss for a specific category
 const renderAdCards = (adCards, category) => {
-  console.log(category);
-  console.log(adCards);
+  // console.log(category);
+  // console.log(adCards);
   const filteredAdCards = Object.values(adCards).filter(card => card.category === category);
   
   return filteredAdCards.map((card) => {
@@ -88,7 +89,7 @@ return (
   <div className='mx-0 md:mx-12'>
       <div className='mx-5 md:mx-0 '> {/* Added margin on mobile */}
         <div className='md:flex w-full'>
-          <div className='w-full md:w-[30rem] md:mr-4'> {/* Adjusted width and added margin right for spacing */}
+          <div className='w-full md:w-[30%] md:mr-4'> {/* Adjusted width and added margin right for spacing */}
             {renderAdCards(adCards,"Electronics")}
           </div>
           <div className=' w-full md:w-[70%] my-auto  '>

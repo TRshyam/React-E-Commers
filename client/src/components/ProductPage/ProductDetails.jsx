@@ -16,6 +16,16 @@ export default function ProductDetails({ details }) {
 
   // discount_price=price-(discount/100);
 
+   const [expanded, setExpanded] = useState(false);
+
+  const toggleExpanded = () => {
+    setExpanded(!expanded);
+  };
+
+  
+  const specifications = JSON.parse(details.details.specifications);
+  const firstTable = specifications.slice(0, 1);
+  const remainingTables = specifications.slice(1);
   
   return (
     <div className='mx-2 w-[100%] h-auto bg-white'>
@@ -94,11 +104,20 @@ export default function ProductDetails({ details }) {
       </div>
       <div className='bg-gray-50'>
         <div className='w-full flex'>
-          <div className='w-64 mx-3'>
+          <div className='mx-3'>
             <h1>Description</h1>
           </div> 
           <div className='mx-10'>
-              <span className=''>{details.details.description}</span>
+            {expanded ? (
+              <span>{details.details.description}</span>
+            ) : (
+              <span>{details.details.description.slice(0, 300)}</span>
+            )}
+            {details.details.description.length > 300 && (
+              <button onClick={toggleExpanded} className='text-blue-400 underline ml-4 '>
+                {expanded ? 'Read Less' : 'Read More'}
+              </button>
+            )}
           </div>
         </div>
       </div>
@@ -108,29 +127,54 @@ export default function ProductDetails({ details }) {
 
 
       {/* Specification */}
-      <div className='px-4 my-9'>
-          <div>
-            <span className='font-bold text-xl'>Specification:</span>
-          </div>
-    
-            {JSON.parse(details.details.specifications).map(({ key, values }) => (
-              <div key={key} className='my-3 mx-4 capitalize'>
-                <h2 className='text-lg font-semibold'>{key}</h2>
-                <table className='my-2 w-full mx-1'>
-                  <tbody>
-                    {values.map(({ subKey, subValue }) => (
-                      <tr key={subKey}>
-                        <td className='w-[35%] text-gray-500 py-3'>{subKey}</td>
-                        <td className=' py-3'>{subValue}</td>
-                      </tr>
-            ))}
-      </tbody>
-    </table>
-  </div>
-))}
-
-            {/* Tabel Content */}
+          <div className='px-4 my-9'>
+      <div>
+        <span className='font-bold text-xl'>Specification:</span>
       </div>
+
+      {firstTable.map(({ key, values }) => (
+        <div key={key} className='my-3 mx-4 capitalize'>
+          <h2 className='text-lg font-semibold'>{key}</h2>
+          <table className='my-2 w-full mx-1'>
+            <tbody>
+              {values.map(({ subKey, subValue }) => (
+                <tr key={subKey}>
+                  <td className='w-[35%] text-gray-500 py-3'>{subKey}</td>
+                  <td className=' py-3'>{subValue}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      ))}
+
+
+
+      {/* Additional Tables */}
+      {expanded &&
+        remainingTables.map(({ key, values }) => (
+          <div key={key} className='my-3 mx-4 capitalize'>
+            <h2 className='text-lg font-semibold'>{key}</h2>
+            <table className='my-2 w-full mx-1'>
+              <tbody>
+                {values.map(({ subKey, subValue }) => (
+                  <tr key={subKey}>
+                    <td className='w-[35%] text-gray-500 py-3'>{subKey}</td>
+                    <td className=' py-3'>{subValue}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        ))}
+
+              {/* Read More Button */}
+      {remainingTables.length > 0 && (
+        <button onClick={toggleExpanded} className='text-blue-500 underline ml-5'>
+          {expanded ? 'Read Less' : 'Read More'}
+        </button>
+      )}
+    </div>
       {/* Specification */}
 
       {/* Cards */}
