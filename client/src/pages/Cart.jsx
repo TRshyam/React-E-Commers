@@ -199,7 +199,7 @@ const Cart = () => {
               <IoBagOutline className="IoBagOutline" />
               <Toaster
                 position="top-center"
-                reverseOrder={true}
+                reverseOrder={false}
                 toastOptions={{ className: 'toast', duration: 4000, }}
               />            
             </button>

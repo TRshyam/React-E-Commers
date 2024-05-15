@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 export default function YourComponent({ bgGradientFrom, bgGradientTo, imageSrc, content,category }) {
   // console.log(bgGradientFrom);
-  // console.log(bgGradientTo);
+  // console.log(category);
   
   // Define inline styles for the background gradient
   const gradientStyle = `bg-gradient-to-r from-${bgGradientFrom} to-${bgGradientTo}`;
@@ -25,7 +25,7 @@ export default function YourComponent({ bgGradientFrom, bgGradientTo, imageSrc, 
               <>
                 <p>{content.subtitle}</p>
                 <h1 className="w-2/3 font-bold">{content.title}</h1>
-                <Link to='/Category' >
+                <Link to={`/Category/${category}`} >
 
                   <button className="text-black bg-light font-semibold p-1 px-5  my-7 rounded">View All</button>
                 </Link>

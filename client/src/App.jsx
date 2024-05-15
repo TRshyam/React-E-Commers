@@ -33,10 +33,10 @@ const App = () => {
 
           <Route path="/Cart" element={<Cart userId="nakul" productId="book" quantity={1} />} />
 
-          <Route path="/Category" element={<Category />} />
+          <Route path="/Category/:category" element={<Category />} />
           <Route path="/Cart" element={<Cart />} />
           <Route path="/wishlist" element={<Wishlist/>} />
-          <Route path="/orders" element={<OrdersPage userId = {"nakul"} />} />
+          <Route path="/orders" element={<OrdersPage/>} />
         </Routes>
       </ProductData>
     </BrowserRouter>

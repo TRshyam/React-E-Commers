@@ -14,10 +14,6 @@ export const categorizeCards = (cards) => {
       const card = cards[key];
       if (card.cardType === 'Ad') {
         adCards[key] = card;
-        const category = card.category;
-        if (categories.hasOwnProperty(category)) {
-          categories[category].push(card);
-        }
       } else if (card.cardType === 'item') {
         itemCards[key] = card;
         const category = card.category;
