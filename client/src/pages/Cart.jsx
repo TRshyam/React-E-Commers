@@ -11,6 +11,9 @@ import { bouncy } from 'ldrs'
 import { useSelector } from 'react-redux';
 import ConfettiExplosion from 'react-confetti-explosion';
 
+import toast, { Toaster } from 'react-hot-toast';
+
+
 bouncy.register()
 
 const Cart = () => {
@@ -124,6 +127,7 @@ const Cart = () => {
 
   // This is used to add the cart elements to the orders part
   const PlaceAnOrder = async () => {
+    
     const products = [];
     // Check if cartData is an array with at least one element
     if (cartData && Array.isArray(cartData) && cartData.length > 0) {
@@ -138,10 +142,24 @@ const Cart = () => {
       console.log("products : ", products)
       console.log("Products successfully added:", response.data);
       Setpurchased(true);
-      setTimeout(() => {
-        navigate('/');
-      }, 2000);
+
+      setTimeout(()=>{toast.success('Your order Placed Successfully');},2000);
+
+      // toast.success('Your order Placed Successfully')
+      toast.promise(
+                setTimeout(() => {
+
+        navigate('/orders');
+      }, 4000),
+          {
+            loading: 'Redirecting...',
+            success: <b>Your Orders</b>,
+            error: <b>Error.</b>,
+          }
+        );
+
     } catch (error) {
+      // toast.error("Can't place Order ")
       console.error("Error in ordering:", error.message);
     }
   };
@@ -179,6 +197,11 @@ const Cart = () => {
             <button onClick={PlaceAnOrder}>
               buy now
               <IoBagOutline className="IoBagOutline" />
+              <Toaster
+                position="top-center"
+                reverseOrder={true}
+                toastOptions={{ className: 'toast', duration: 4000, }}
+              />            
             </button>
           </div>
         </div>
