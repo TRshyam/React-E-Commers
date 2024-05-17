@@ -9,6 +9,14 @@
     background-color: white;
     z-index: 1000;
 }
+.Linkk:hover{
+    color: rgba(59, 130, 246);
+    
+}
+.Linkk:hover .arr{
+    transform: rotate(180deg);
+}
+
 
 .NavBar.fixed {
     position: fixed;

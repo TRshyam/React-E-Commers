@@ -1,23 +1,41 @@
-import React, { useState, useEffect } from 'react';
-import { CiSearch, CiShoppingCart, CiUser } from "react-icons/ci";
+import React, { useState, useEffect, useRef } from 'react';
+import { CiSearch } from "react-icons/ci";
 import { Link } from 'react-router-dom';
 import { BsBoxSeam } from "react-icons/bs";
 import { useSelector } from 'react-redux';
-import { FaRegHeart } from "react-icons/fa";
+import { FaRegHeart, FaRegUser, FaRegUserCircle } from "react-icons/fa";
+import { LuShoppingCart } from "react-icons/lu";
+import { MdKeyboardArrowDown } from "react-icons/md";
 import { useData } from '../components/ProductData';
 import { categorizeCards } from '../utils/categorizeCards';
+import './CSS/Navbar.css';
 
 export default function Navbar() {
   const [isFixed, setIsFixed] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef(null);
   const [search, setSearch] = useState('');
   const [filteredItems, setFilteredItems] = useState([]);
   const currentUser = useSelector((state) => state.user.currentUser);
-
   const { data, error } = useData();
   const { itemCards } = categorizeCards(data);
 
-  // Convert itemCards from an object to an array
   const itemCardsArray = Object.values(itemCards);
+
+  const handleMouseEnter = () => setIsOpen(true);
+  const handleMouseLeave = () => setIsOpen(false);
+  const handleClickOutside = (event) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      setIsOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,7 +56,7 @@ export default function Navbar() {
       );
       setFilteredItems(results);
     } else {
-      // setFilteredItems([]);
+      setFilteredItems([]);
     }
   }, [search, itemCardsArray]);
 
@@ -47,7 +65,7 @@ export default function Navbar() {
   };
 
   return (
-    <div className={`bg-gray-900 text-white py-4 ${isFixed ? 'fixed top-0 left-0 w-full shadow-lg' : ''} transition-all duration-300`}>
+    <div className={`bg-gray-900 z-50 text-white py-4 ${isFixed ? 'fixed top-0 left-0 w-full shadow-lg' : ''} transition-all duration-300`}>
       <div className='container mx-auto flex justify-between items-center px-4 md:px-8'>
         <div className='flex items-center'>
           <Link to='/' className='text-2xl font-bold'>
@@ -71,7 +89,7 @@ export default function Navbar() {
               <div className='absolute top-full left-0 mt-1 w-full bg-white rounded-md shadow-lg z-10'>
                 {filteredItems.length > 0 ? (
                   filteredItems.map((item) => (
-                    <Link key={item._id} to={`/product/${item._id}`} className='block px-4 py-2 bg-gray-500 hover:bg-gray-200 '>
+                    <Link key={item._id} to={`/product/${item._id}`} className='block px-4 py-2 bg-gray-500 hover:bg-gray-200'>
                       {item.product_name}
                     </Link>
                   ))
@@ -82,29 +100,47 @@ export default function Navbar() {
             )}
           </div>
 
+          <Link to='/cart' className='flex gap-2 px-4 py-2 hover:bg-gray-900 hover:text-blue-500 transition-colors rounded-md'>
+            <LuShoppingCart className='text-2xl' />
+            <span>Cart</span>
+          </Link>
+
           {!currentUser && (
-            <Link to='/sign-in'>
-              <button className='px-4 py-2 rounded-md bg-blue-500 hover:bg-blue-600 transition-colors'>
-                LogIn
-              </button>
+            <Link to='/sign-in' className='Linkk flex gap-2 bg-gray-800 rounded-md py-2 px-4 items-center hover:text-blue-500 transition-colors'>
+              <FaRegUser className='text-2xl' />
+              <span>Login</span>
             </Link>
           )}
 
           {currentUser && (
-            <>
-              <Link to='/orders'>
-                <BsBoxSeam className='text-2xl hover:text-blue-500 transition-colors' />
-              </Link>
-              <Link to='/wishlist'>
-                <FaRegHeart className='text-2xl hover:text-blue-500 transition-colors' />
-              </Link>
-              <Link to='/cart'>
-                <CiShoppingCart className='text-2xl hover:text-blue-500 transition-colors' />
-              </Link>
-              <Link to='/profile'>
-                <CiUser className='text-2xl hover:text-blue-500 transition-colors' />
-              </Link>
-            </>
+            <div
+              className='relative'
+              ref={dropdownRef}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              <div className='Linkk flex gap-2 bg-gray-800 rounded-md py-2 px-4 items-center hover:text-blue-500 transition-colors cursor-pointer'>
+                <FaRegUser className='text-xl' />
+                <span>{currentUser.user.firstName}</span>
+                <MdKeyboardArrowDown className={`arr text-xl transform transition duration-200 ease-in-out ${isOpen ? 'rotate-180' : 'rotate-0'}`} />
+              </div>
+              {isOpen && (
+                <div className='absolute left-1/2 transform -translate-x-1/2 mt-2 w-48 bg-gray-500 rounded-md shadow-lg z-20'>
+                  <Link to='/profile' className='flex gap-4 px-4 py-2 hover:bg-gray-900 hover:text-blue-500 transition-color rounded-md'>
+                    <FaRegUserCircle className='text-2xl' />
+                    <span>Account</span>
+                  </Link>
+                  <Link to='/orders' className='flex gap-4 px-4 py-2 hover:bg-gray-900 hover:text-blue-500 transition-color rounded-md'>
+                    <BsBoxSeam className='text-2xl' />
+                    <span>Orders</span>
+                  </Link>
+                  <Link to='/wishlist' className='flex gap-4 px-4 py-2 hover:bg-gray-900 hover:text-blue-500 transition-colors rounded-md'>
+                    <FaRegHeart className='text-2xl' />
+                    <span>Wishlist</span>
+                  </Link>
+                </div>
+              )}
+            </div>
           )}
         </div>
       </div>
