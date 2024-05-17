@@ -23,8 +23,10 @@ export default function YourComponent({ bgGradientFrom, bgGradientTo, imageSrc, 
             </div> */}
             {content && (
               <>
-                <p>{content.subtitle}</p>
-                <h1 className="w-2/3 font-bold">{content.title}</h1>
+
+                <p className='text-lg'>{content.subtitle}</p>
+                <h1 className="w-2/3 text-xl font-bold">{content.title}</h1>
+
                 <Link to={`/Category/${category}`} >
 
                   <button className="text-black bg-light font-semibold p-1 px-5  my-7 rounded">View All</button>
