@@ -10,8 +10,13 @@ import datetime
 import hashlib
 import time
 import os
+import razorpay
+import hmac
+import hashlib
+
 
 # from pymongo.server_api import ServerApi
+
 
 
 # uri = "mongodb+srv://trshyam0007:jVYxhlu3PNxwPrD1@cluster0.cmcdubi.mongodb.net/?retryWrites=true&w=majority"
@@ -28,6 +33,8 @@ app.config['MAIL_DEFAULT_SENDER'] = 't.r.shyam0007@gmail.com'  # Set your defaul
 
 app.config['SECRET_KEY'] = '12345'
 
+
+
 mail = Mail(app)
 
 # CORS(app, origins='http://localhost:5173', methods=['POST'])
@@ -35,9 +42,35 @@ CORS(app, resources={r"/api/*": {"origins": "http://localhost:5173"}})
 
 
 
-client = MongoClient('localhost', 27017)
+client = MongoClient('mongodb://localhost:27017/')
 db = client['users-e-com']
+collection_orders = db['orders']
+collection_accounts = db['accounts']
 carts_collection = db['carts']
+
+
+
+
+# secret = 'your_secret_key'
+# payload = 'your_payload'
+
+razorpay_key_id = 'rzp_test_JlS3TmpTfh718s' #rzp_live_gGgFj5G7BRjpgL
+razorpay_key_secret = '3T4GYTurVqsE49zMOSWpOV1J'
+
+
+
+
+
+
+
+razorpay_client = razorpay.Client(
+    auth=(razorpay_key_id,razorpay_key_secret))
+print(razorpay_client)
+print(razorpay_client)
+print(razorpay_client)
+print(razorpay_client)
+print(razorpay_client)
+
 
 @app.route('/api/data', methods=['GET'])
 def get_data():
@@ -499,62 +532,147 @@ def view_wishlist(userId):
         print(e)
         return "Failed to retrieve cart."
     
+# Route for order creation
 @app.route('/api/orders/add', methods=['POST'])
 def add_order():
     try:
+        # Ensure we can connect to MongoDB
         client.admin.command('ping')
-        print("Pinged your deployment. You successfully connected to MongoDB!")
+        print("Successfully connected to MongoDB!")
 
-        # Assuming the request includes a JSON body with userId and productId
+        # Extract data from the request
         data = request.json
-        userId = data.get('userId')
-        products = data.get('products') # inn the format { [productId, quantity] , [productId, quantity] .....}
+        # userId = data.get('userId')
+        # products = data.get('products')  # Expected format: [{productId, quantity}, ...]
         amount = data.get('totalSum')
-        order_id = "order" + str(ObjectId())
-        now = datetime.datetime.now()
-        
-        print("userId",userId)
-        print("products",products)
-        print("order_id ",order_id) 
+        # print(amount)
+        # print(amount)
+        # print(amount)
+        # order_id = "order" + str(ObjectId())
+        # now = datetime.datetime.now()
 
-        db = client['users-e-com']
-        collection_orders = db['orders']
+        # print("userId:", userId)
+        # print("products:", products)
+        # print("order_id:", order_id)
+        # print("amount:", amount)
 
-        orders = {
-            '_id' : order_id,
-            'userId': userId,
-            'products': products,
-            'dateAndTime' : now,
-            'amount' : amount,
-            'status':'Shipped'
-            }
-        
-        collection_orders.insert_one(orders)
-        
-        
-        collection_accounts = db['accounts'] 
-        
-        account_filter = {'_id': userId}
-        account = collection_accounts.find_one(account_filter)
 
-        if account:
-            print(account)
-            account['orders'].append(order_id)
-            collection_accounts.replace_one(account_filter, account)
-            account_filter = {'_id': userId}
-            account = collection_accounts.find_one(account_filter)
-            print("account" , account)
-            cart_reset(userId)
-            return "true"
+
+        # Create Razorpay order
+        try:
+            razorpay_order = razorpay_client.order.create({
+                'amount': amount,  # Amount should be in paise
+                'currency': 'INR',
+                'payment_capture': '1'
+            })
+
+            print("Razorpay order created:", razorpay_order)
+            print("Razorpay order created:", razorpay_order)
+            # Prepare the order document
+            return jsonify(razorpay_order), 200
+
+
+            
+        except razorpay.errors.BadRequestError as e:
+            print("Razorpay order creation failed:", e)
+            return jsonify({'error': str(e)}), 500
+
+       
+    except Exception as e:
+        print("An error occurred:", e)
+        return jsonify({'error': 'Failed to process order'}), 500
+
+# Route for order verification
+@app.route('/api/orders/verify', methods=['POST'])
+def verify_order():
+    try:
+        # Extract data from the request
+        data = request.json
+        razorpay_order_id = data.get('razorpay_order_id')
+        razorpay_payment_id = data.get('razorpay_payment_id')
+        razorpay_signature = data.get('razorpay_signature')
+        key_secret = razorpay_key_secret  # Replace with actual key_secret from Razorpay Dashboard
+
+
+
+        # Generate the HMAC SHA256 signature
+
+        message = f"{razorpay_order_id}|{razorpay_payment_id}"
+
+        # Generate the HMAC hex digest
+        generated_signature = hmac.new(
+            key=key_secret.encode(),
+            msg=message.encode(),
+            digestmod=hashlib.sha256
+        ).hexdigest()
+
+
+        if generated_signature != razorpay_signature:
+            print('Invalid Transaction')
+            return jsonify({'error': 'Invalid Transaction'}), 400
         else:
-            print(f"Failed to find user account with ID: {userId}")
-            return "false"
-        
-        
+            verification =razorpay_client.utility.verify_payment_signature(
+                {
+                'razorpay_order_id': razorpay_order_id,
+                'razorpay_payment_id': razorpay_payment_id,
+                'razorpay_signature': razorpay_signature
+                }
+            )
+
+            if verification == True:
+                print("Payment Verified")
+                # Extract data from the request
+
+                userId = data.get('userId')
+                products = data.get('products')  # Expected format: [{productId, quantity}, ...]
+                amount = data.get('totalSum')
+                order_id = "order" + str(ObjectId())
+                now = datetime.datetime.now()            
+                order = {
+                    '_id': razorpay_order_id,
+                    'userId': userId,
+                    'products': products,
+                    'dateAndTime': now,
+                    'amount': amount,
+                    'amount_status': 'Paid'  # Status should be 'Pending' until payment is confirmed
+                }
+
+
+                # Insert order into MongoDB
+                collection_orders.insert_one(order)
+                # Update user account with the new order ID
+                account = collection_accounts.find_one({'_id': userId})
+                if account:
+                    account['orders'].append(order_id)
+                    collection_accounts.replace_one({'_id': userId}, account)
+                    print("userId")
+                    print(userId)
+                    print(userId)
+                    cart_reset(userId)  # Assuming cart_reset is defined elsewhere
+                    # return jsonify(""), 200
+                    
+                    return jsonify({'message': 'Payment Verified And added to DB',"success":'true'}), 200
+                else:
+                    print(f"User account not found for ID: {userId}")
+                    return jsonify({'error': 'User account not found'}), 404
+            
+            return jsonify({'message': 'Payment Verified Not added to db'}), 200
+
+        # Verify payment signature
+        # params_dict = {
+        #     'razorpay_order_id': razorpay_order_id,
+        #     'razorpay_payment_id': razorpay_payment_id,
+        #     'razorpay_signature': razorpay_signature
+        # }
+
+        # Update order status
+        # Assuming you have the logic to update the order status in your database
+
+        # return jsonify({'success': True}), 200
 
     except Exception as e:
-        print(e)
-        return "Failed to order"
+        print("Payment verification failed:", e)
+        return jsonify({'error': 'Payment verification failed'}), 400
 
 
 @app.route('/api/orders/retrieve', methods=['POST'])

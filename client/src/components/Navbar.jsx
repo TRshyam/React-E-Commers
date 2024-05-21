@@ -17,13 +17,14 @@ export default function Navbar() {
   const [search, setSearch] = useState('');
   const [filteredItems, setFilteredItems] = useState([]);
   const currentUser = useSelector((state) => state.user.currentUser);
-  const { data, error } = useData();
+  const { data } = useData();
   const { itemCards } = categorizeCards(data);
 
   const itemCardsArray = Object.values(itemCards);
 
   const handleMouseEnter = () => setIsOpen(true);
   const handleMouseLeave = () => setIsOpen(false);
+
   const handleClickOutside = (event) => {
     if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
       setIsOpen(false);
@@ -43,7 +44,6 @@ export default function Navbar() {
     };
 
     window.addEventListener('scroll', handleScroll);
-
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
@@ -56,7 +56,7 @@ export default function Navbar() {
       );
       setFilteredItems(results);
     } else {
-      setFilteredItems([]);
+      // setFilteredItems([]);
     }
   }, [search, itemCardsArray]);
 

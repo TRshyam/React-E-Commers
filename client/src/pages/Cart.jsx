@@ -10,8 +10,12 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { bouncy } from 'ldrs'
 import { useSelector } from 'react-redux';
 import ConfettiExplosion from 'react-confetti-explosion';
+// import { Link } from 'react-router-dom';
+
 
 import toast, { Toaster } from 'react-hot-toast';
+import { PlaceAnOrder } from '../components/plalceOrder'; // Adjust the path as necessary
+
 
 
 bouncy.register()
@@ -41,7 +45,9 @@ const Cart = () => {
     if (userId !== '' && !isLoading) { // Check if userId is not empty and loading has finished
       const fetchData = async () => {
         try {
-          console.log(userId, productId)
+          console.log(userId, productId,totalSum)
+          console.log(userId, productId,totalSum)
+  
           const response = await axios.post('http://localhost:5000/api/cart/retrieve', { userId });
           setCartData(response.data); // Assuming the response contains cart data
           console.log("Response for fetchdata: ", response.data);
@@ -125,47 +131,6 @@ const Cart = () => {
     }
   };
 
-  // This is used to add the cart elements to the orders part
-  const PlaceAnOrder = async () => {
-    
-    const products = [];
-    // Check if cartData is an array with at least one element
-    if (cartData && Array.isArray(cartData) && cartData.length > 0) {
-      // Extract product IDs efficiently using for loop
-      for (const product of cartData) {
-        products.push([product.productId, product.quantity]);
-      }
-    }
-    try {
-      // Send POST request with userId and products as data
-      const response = await axios.post('http://localhost:5000/api/orders/add', { userId, products, totalSum });
-      console.log("products : ", products)
-      console.log("Products successfully added:", response.data);
-      Setpurchased(true);
-
-      setTimeout(()=>{toast.success('Your order Placed Successfully');},2000);
-
-      // toast.success('Your order Placed Successfully')
-      toast.promise(
-                setTimeout(() => {
-
-        navigate('/orders');
-      }, 4000),
-          {
-            loading: 'Redirecting...',
-            success: <b>Your Orders</b>,
-            error: <b>Error.</b>,
-          }
-        );
-
-    } catch (error) {
-      // toast.error("Can't place Order ")
-      console.error("Error in ordering:", error.message);
-    }
-  };
-
-
-
   return (
     <>
     { 
@@ -194,8 +159,12 @@ const Cart = () => {
             <h1>Cart Summary</h1>
             <h2>Delivary Charge : Rs .Free</h2>
             <h2>Subtotal ({cartData.length} items) : Rs .{totalSum}</h2>
-            <button onClick={PlaceAnOrder}>
-              buy now
+            <button onClick={() => PlaceAnOrder(userId, cartData,totalSum)} >
+
+
+                buy now
+
+              
               <IoBagOutline className="IoBagOutline" />
               <Toaster
                 position="top-center"
