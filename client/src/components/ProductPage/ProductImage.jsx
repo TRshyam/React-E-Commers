@@ -43,10 +43,10 @@ export default function ProductImages({ mainImgs, userId, productId }) {
 
 
   return (
-    <div className='md:w-full md:h-full my-5 py-20 bg-gray-50 flex flex-col space-y-20'>
+    <div className='2xl:w-[80rem] md:h-full my-5 py-20 bg-gray-50 flex flex-col space-y-20'>
       <div>
         <div className='p-3 md:flex justify-center items-center'>
-          <div className='bg-gray-900  md:block flex justify-center md:w-22 h-full bg-opacity-85  '>
+          <div className='bg-gray-200  md:block flex justify-center md:w-22 h-full bg-opacity-85  '>
             {mainImgs
               .slice(startIndex, startIndex + 5)
               .map((imageUrls, index) => (
@@ -78,7 +78,7 @@ export default function ProductImages({ mainImgs, userId, productId }) {
             </div>
           </div>
 
-          <div className='w-full '>
+          <div className='w-full'>
             <ProductDetailComponent  selectedImage={selectedImage} setSelectedImage={setSelectedImage} currentUser={currentUser} mainImgs={mainImgs} productId={productId} />
 
             <div className='my-6 p-4 flex justify-center'>

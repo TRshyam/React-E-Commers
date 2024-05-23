@@ -38,8 +38,8 @@ const ProductDetailComponent = ({ selectedImage, setSelectedImage, mainImgs, cur
   };
 
   return (
-    <div className='bg-white md:p-4 md:m-2 w-full items-center  h-[40rem] flex md:flex-col md:justify-center'>
-      <div className='relative z-20 flex justify-start items-end  '>
+    <div className='bg-white md:p-4 md:m-2 w-full  md:h-[40rem] md:flex md:flex-col md:justify-center items-center'>
+      <div className='relative z-20 md:left-[40%] left-[80%] '>
         {currentUser && currentUser.user && currentUser.user._id ? (
           <LikeButton productId={productId} />
         ) : (
@@ -49,14 +49,14 @@ const ProductDetailComponent = ({ selectedImage, setSelectedImage, mainImgs, cur
         )}
       </div>
       <div
-        className='w-[30rem] h-[35rem]  '
+        className='md:w-[30rem] md:h-[35rem] items-center '
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
         <img
           src={`http://127.0.0.1:5000/static/imgs/${selectedImage}`}
           alt={`Selected Image`}
-          className='w-full h-full   object-contain hover:scale-105 transition-transform duration-500'
+          className='md:w-full md:h-full w-1/2    object-contain hover:scale-105 transition-transform duration-500'
         />
       </div>
     </div>

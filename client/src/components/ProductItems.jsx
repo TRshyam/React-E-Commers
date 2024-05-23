@@ -89,10 +89,10 @@ return (
   <div className='mx-0 md:mx-12'>
       <div className='mx-5 md:mx-0 '> {/* Added margin on mobile */}
         <div className='md:flex w-full'>
-          <div className='w-full md:w-[30%] md:mr-4'> {/* Adjusted width and added margin right for spacing */}
+          <div className='w-full bg-black md:mr-4'> {/* Adjusted width and added margin right for spacing */}
             {renderAdCards(adCards,"Electronics")}
           </div>
-          <div className=' w-full md:w-[70%] my-auto  '>
+          <div className=' w-full md:w-[100%] my-auto bg-fuchsia-200 '>
             <Carousel>
               {renderItemCards(itemCards,"Electronics")}
             </Carousel>
@@ -103,7 +103,7 @@ return (
       </div>
       <div className='mx-5 md:mx-0 '> {/* Added margin on mobile */}
         <div className='md:flex w-full'>
-          <div className=' w-full md:w-[70%] my-auto  '>
+          <div className='w-full md:w-[70%] my-auto  '>
             <Carousel>
               {renderItemCards(itemCards,"Appliance")}
             </Carousel>

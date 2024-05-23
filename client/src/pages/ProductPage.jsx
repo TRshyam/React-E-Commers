@@ -95,6 +95,9 @@ function ProductPage() {
           <Carousel>
             {renderItemCards(itemCards, "Electronics")}
           </Carousel>
+          <Carousel>
+            {renderItemCards(itemCards, "Electronics")}
+          </Carousel>
         </div>
         {/* <div className='mx-0 xl:mx-16 2xl:mx-48 py-3 h-auto '>
           <Carousel>
