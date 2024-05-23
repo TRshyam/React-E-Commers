@@ -629,8 +629,9 @@ def verify_order():
                 order_id = "order" + str(ObjectId())
                 now = datetime.datetime.now()            
                 order = {
-                    '_id': razorpay_order_id,
+                    '_id': order_id,
                     'userId': userId,
+                    'razorpay_order_id':razorpay_order_id,
                     'products': products,
                     'dateAndTime': now,
                     'amount': amount,
@@ -719,7 +720,7 @@ def retrieve_orders():
 def retrieve_products(orderId):
     try:
         client.admin.command('ping')
-        print("Pinged your deployment. You successfully connected to MongoDB!")
+        # print("Pinged your deployment. You successfully connected to MongoDB!")
 
         # Connect to MongoDB and retrieve the user's cart
         db = client['users-e-com']
