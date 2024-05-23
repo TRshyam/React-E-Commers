@@ -46,6 +46,7 @@ export const PlaceAnOrder = async (userId, cartData, totalSum) => {
           });
 
           if (validateRes.data.success) {
+            window.location.href = '/orders';
             console.log(validateRes.data.success);
             return true;
           } else {
