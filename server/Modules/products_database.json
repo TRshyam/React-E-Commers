@@ -125,6 +125,74 @@
                 "description": "Get ready to embark on a journey into the future of mobile technology. The Oppo Find N3 Flip Smartphone is here to redefine your smartphone experience. The Oppo Find N3 Flip Smartphone is not just a phone; it's a technological marvel designed to complement your lifestyle. With its iconic design, brilliant camera system, and innovative features, it's a statement of your style and a gateway to a world of endless possibilities.\r\n\r\n",
                 "specifications": "[{\"key\":\"General\",\"values\":[{\"subKey\":\"In The Box\",\"subValue\":\"Handset, Cable, Charger, Sim Ejector Pin, Protective Case, User Manual, Tips, and VIP Card\"},{\"subKey\":\"Model Number\",\"subValue\":\"CPH2519\"},{\"subKey\":\"Model Name\",\"subValue\":\"Find N3 Flip\"},{\"subKey\":\"Color\",\"subValue\":\"Cream Gold\"},{\"subKey\":\"SIM Type\",\"subValue\":\"Dual Sim\"},{\"subKey\":\"Sound Enhancements\",\"subValue\":\"Dolby Atmos, Integrated Audio Decoder Chip, 1115 and 1012 Ultra Linear Speaker\"},{\"subKey\":\"SAR Value\",\"subValue\":\"Head: < 2.0 W/kg, Body: < 2.0 W/kg\"}]},{\"key\":\"Display Features\",\"values\":[{\"subKey\":\"Display Size\",\"subValue\":\"17.27 cm (6.8 inch)\"},{\"subKey\":\"Resolution\",\"subValue\":\"2520 x 1080 Pixels\"},{\"subKey\":\"Resolution Type\",\"subValue\":\"Full HD\"},{\"subKey\":\"GPU\",\"subValue\":\"ARM Immortalis-G715 MC11\"},{\"subKey\":\"Display Type\",\"subValue\":\"Full HD AMOLED Display\"},{\"subKey\":\"Display Colors\",\"subValue\":\"1.07 Billion Colors (10 Bit)\"},{\"subKey\":\"Other Display Features\",\"subValue\":\"Refresh Rate: 1 Hz - 120 Hz, LTPO, Flat 2D Screen Curvature, 10 Touch Points, Maximum Touch Sampling Rate: 240 Hz, Screen-to-Body Ratio: 85.9%, Color Saturation: 97%, Aspect Ratio: 21:9, Color Gamut: (Vivid Mode: 97% NTSC/100% DCI-P3, Natural Mode: 70% NTSC/100% sRGB), Contrast Ratio: (Static - 1,000,000:1, Dynamic - 2,000,000:1), Supports Sunshine Screen, Brightness: 500 Nits, 1,200 Nits (HBM), HDR: 1,600 Nits, Dimming Level: 8192, Dimming Level and HBM Range: 10239, Oleophobic Coating on Screen, Dimming Mode: 70 Nits: PWM, 1,440 Hz, > 70 Nits: DC\"}]},{\"key\":\"Connectivity Features\",\"values\":[{\"subKey\":\"Network Type\",\"subValue\":\"5G, 4G, 3G, 2G\"},{\"subKey\":\"Supported Networks\",\"subValue\":\"5G, 4G LTE, WCDMA, GSM\"},{\"subKey\":\"Internet Connectivity\",\"subValue\":\"5G, 4G, 3G, GPRS, EDGE, Wi-Fi\"},{\"subKey\":\"Wi-Fi Version\",\"subValue\":\"802.11 a/b/g/n/ac/ax/be (Wi-Fi 7 (802.11be), Wi-Fi 6 (802.11ax), Wi-Fi 5 (802.11ac), 802.11a/b/g/n (WLAN 2.4 GHz | WLAN 5.1 GHz | WLAN 5.8 GHz), WLAN Display, WLAN Tethering, Overlay Networks: Wi-Fi 2.4 GHz, 2x2 + Wi-Fi 5 GHz, 2x2, Wi-Fi 5 GHz, 160 MHz, 2x2 MIMO)\"}]}]"
             }
+        },
+        "pdfee7afcf26": {
+            "_id": "pdfee7afcf26",
+            "product_name": "Google Pixel 7 Pro",
+            "category": "Electronics",
+            "cardType": "item",
+            "details": {
+                "product_FullName": "Google Pixel 7 Pro (Hazel, 128 GB)  (12 GB RAM)",
+                "brand": "Google",
+                "types": "Mobile",
+                "images": [
+                    "pdfee7afcf26_-original-imaggsuev7mpcufk.jpeg",
+                    "pdfee7afcf26_-original-imaggsue8rdvyapk.jpeg",
+                    "pdfee7afcf26_-original-imaggsuexwkr2yqr.jpeg",
+                    "pdfee7afcf26_-original-imaggsuectgvgyhg.jpeg",
+                    "pdfee7afcf26_-original-imaggsueh4b26fj7.jpeg"
+                ],
+                "price": "85000",
+                "discount": "23",
+                "highlights": "[\"12 GB RAM | 128 GB ROM\",\"17.02 cm (6.7 inch) Quad HD+ Display\",\"50MP + 48MP + 12MP | 10.8MP Front Camera\",\"4926 mAh Battery\"]",
+                "description": "Experience smooth operation and brilliant user interface with the 5G-ready Google Pixel 7 Pro smartphone that comes loaded with breathtaking features. Google Tensor G2 makes Pixel 7 faster, more efficient, and more secure and it delivers even more helpful features. Furthermore, the Pixel 7 Pro triple rear camera system includes a 5x telephoto lens. The upgraded ultrawide lens with autofocus now powers Macro Focus. Also, the Pixel 7 Pro has a 30x Super Res Zoom for high-quality photos from far away. Moreover, the Pixel 7 Pro's 17.018 cm (6.7) Smooth Display makes everything stunning and immersive. It intelligently adjusts up to 120 Hz for smoother, more responsive performance.\r\n\r\n",
+                "specifications": "[{\"key\":\"General\",\"values\":[{\"subKey\":\"General\",\"subValue\":\"Handset, 1 M USB-C to USB-C Cable (USB 2.0), Quick Start Guide, Quick Switch Adaptor, Sim Tool\"},{\"subKey\":\"Model Number\",\"subValue\":\"GP4BC\"},{\"subKey\":\"Color\",\"subValue\":\"Hazel\"},{\"subKey\":\"SIM Type\",\"subValue\":\"Dual Sim(Nano + eSIM)\"},{\"subKey\":\"Sound Enhancements\",\"subValue\":\"Stereo Speakers, Three Microphones, Noise Suppression\"}]},{\"key\":\"Display Features\",\"values\":[{\"subKey\":\"Display Size\",\"subValue\":\"17.02 cm (6.7 inch)\"},{\"subKey\":\"Resolution\",\"subValue\":\"3120 x 1440 Pixels\"},{\"subKey\":\"Display Type\",\"subValue\":\"Quad HD+ LTPO OLED Display\"},{\"subKey\":\"Other Display Features\",\"subValue\":\"Smooth Display (Upto 120 Hz), Corning Gorilla Glass Victus Cover Glass, Always-on Display with at a Glance and Now Playing, Upto 1000 nits (HDR) and Upto 1500 nits (Peak brightness), Contrast Ratio: >1,000,000:1, HDR Support\"}]},{\"key\":\"Os & Processor Features\",\"values\":[{\"subKey\":\"Operating System\",\"subValue\":\"Android 13\"},{\"subKey\":\"Processor Brand\",\"subValue\":\"Google\"},{\"subKey\":\"Processor Type\",\"subValue\":\"Google Tensor G2\"},{\"subKey\":\"Operating Frequency\",\"subValue\":\"2G GSM/EDGE: Quad Band (850/900/1800/1900 MHz), 3G UMTS/HSPA+/HSDPA: B1/B2/B4/B5/B6/B8/B19, 4G LTE: B1/B2/B3/B4/B5/B7/B8/B12/B13/B14/B17/B18/B19/B20/B25/B26/B28/B29/B30/B32/B38/B39/B40/B41/B46/B48/B66/B71, 5G sub-62: n1/n2/n3/n5/n7/n8/n12/n14/n20/n25/n28/n30/n38/n40/n41/n48/n66/n71/n75/n76/n77/n78\"}]}]"
+            }
+        },
+        "pddad14bee6c": {
+            "_id": "pddad14bee6c",
+            "product_name": "Galaxy S23 Ultra",
+            "category": "Electronics",
+            "cardType": "item",
+            "details": {
+                "product_FullName": "SAMSUNG Galaxy S23 Ultra 5G (Green, 256 GB)  (12 GB RAM)",
+                "brand": "Samsung",
+                "types": "Mobile",
+                "images": [
+                    "pddad14bee6c_-original-imagzm8pvabtmeys.jpeg",
+                    "pddad14bee6c_-original-imagzm8pyjbrzjxs.jpeg",
+                    "pddad14bee6c_-original-imagmg6gyhzhh3fb.jpeg",
+                    "pddad14bee6c_-original-imagmg6gynphgrh8.jpeg",
+                    "pddad14bee6c_-original-imagmg6gvnxechaf.jpeg"
+                ],
+                "price": "150000",
+                "discount": "26",
+                "highlights": "[\"12 GB RAM | 256 GB ROM\",\"17.27 cm (6.8 inch) Quad HD+ Display\",\"200MP + 10MP + 12MP + 10MP | 12MP Front Camera\",\"Qualcomm Snapdragon 8 Gen 2 Processor\"]",
+                "description": "Get a smartphone for yourself that can detect your moods and react appropriately. The Samsung Galaxy Ultra's potent processor and advanced camera sensor can handle low light and noise reduction. The phone's Snapdragon 8 Gen 2 processor, which also provides a long battery life to carry you through even the busiest days, also enables quick gaming and video streaming. You can also launch Expert RAW to take high-resolution RAW photos that are vivid and packed with information. Moreover, Dynamic AMOLED 2X offers clear, brilliant details in both bright and low-light conditions. Additionally, to smooth up gaming and save power, the refresh rate is automatically optimised with 120 Hz technology.\r\n\r\n",
+                "specifications": "[{\"key\":\"General\",\"values\":[{\"subKey\":\"In The Box\",\"subValue\":\"Handset, Sim Ejection Pin, USB Cable, Manual, Pen\"},{\"subKey\":\"Model Number\",\"subValue\":\"SM-S918BZGCINS\"},{\"subKey\":\"Color\",\"subValue\":\"Green\"},{\"subKey\":\"SIM Type\",\"subValue\":\"Dual Sim\"}]},{\"key\":\"Display Features\",\"values\":[{\"subKey\":\"Display Size \",\"subValue\":\"17.27 cm (6.8 inch)\"},{\"subKey\":\"Resolution \",\"subValue\":\"3088 x 1440 PIxels\"},{\"subKey\":\"Resolution Type \",\"subValue\":\"Quad HD+ \"},{\"subKey\":\"GPU\",\"subValue\":\"Qualcomm Adreno 740\"}]},{\"key\":\"Os & Processor Features\",\"values\":[{\"subKey\":\"Operating System\",\"subValue\":\"Android 13 \"},{\"subKey\":\"Processor Brand \",\"subValue\":\"Snapdragon \"},{\"subKey\":\"Processor Type \",\"subValue\":\"Qualcomm Snapdragon 8 Gen 2 \"},{\"subKey\":\"Primary Clock Speed \",\"subValue\":\"3.36 GHz\"},{\"subKey\":\"Secondary Clock Speed \",\"subValue\":\"3.36 GHz\"}]}]"
+            }
+        },
+        "pd5f7eeeaefc": {
+            "_id": "pd5f7eeeaefc",
+            "product_name": "OnePlus Buds 3 ",
+            "category": "Electronics",
+            "cardType": "item",
+            "details": {
+                "product_FullName": "OnePlus Buds 3 TWS, in Ear Earbuds with Sliding Volume Control and 49dB ANC Bluetooth Gaming Headset  (Metallic Gray IN, True Wireless)",
+                "brand": "OnePluse",
+                "types": "Headphone",
+                "images": [
+                    "pd5f7eeeaefc_buds-3-e509a-oneplus-original-imagwynyrx5gc5ph.jpg",
+                    "pd5f7eeeaefc_buds-3-e509a-oneplus-original-imagwynyxjpdrcf8.jpg",
+                    "pd5f7eeeaefc_buds-3-e509a-oneplus-original-imagwynydtkkwgxg.jpg",
+                    "pd5f7eeeaefc_buds-3-e509a-oneplus-original-imagwynyzms78bsg.jpg"
+                ],
+                "price": "6500",
+                "discount": "15",
+                "highlights": "[\"[Best-in-class Sound Quality]: 10.4mm+6mm dynamic dual driver, LHDC5.0 Bluetooth CODEC and high resolution certification makes the product best in its sound quality with deeper bass, delicate treble and clear vocals\",\"[Sliding Volume Control]: Slide on the surface of touch area of buds to adjust the volume.Sliding up increases the volume, while sliding down decreases the volume\",\"[49dB Adaptive Nosie Cancellation]: Advanced noise-cancelling technology,coupled with a high-performance chip,elevates the depth of noise cancellation upto 49dB.This reduces noise and blocks out chaos and allows users to enjoy music immersively\",\"[Dual Connection]:It can simulatenously connect to 2 devices such as Andriod/iOS/Windows smartphone, tablets or computers allowing for quick and seamless device switching\"]",
+                "description": "OnePlus Buds 3 comes with Best in Class Sound Quality with 10.4mm + 6mm dynamic dual driver. It has a sliding volume control and comes with a 49dB adaptive noise cancellation technology. It has 3-built in microphones on each earbuds which ensures crystal clear calls. OnePlus Buds 3 can simultaneosuly connect to two devices (supports dual connection) and comes with IP55 rating (dust & water resistance). With 10mins of fast charging you can get 7hrs of playback time with total music playback upto 44hrs with ANC off. It supports Bluetooth 5.3 and has a 94ms ultra-low latency.\r\n",
+                "specifications": "[{\"key\":\"General\",\"values\":[{\"subKey\":\"Model Name \",\"subValue\":\"Buds 3 E509A \"},{\"subKey\":\"Color \",\"subValue\":\"Metallic Gray \"},{\"subKey\":\"Headphone Type \",\"subValue\":\"True Wireless \"},{\"subKey\":\"Sales Package \",\"subValue\":\"1 Pair of Earbuds, Charger Cable, User Guide, Safety and Warranty Card, Red Cable Club Welcome Card, Additional Ear Tips \"}]},{\"key\":\"Warranty\",\"values\":[{\"subKey\":\"Domestic Warranty \",\"subValue\":\"1 Year \"},{\"subKey\":\"Warranty Summary \",\"subValue\":\"1 Year \"},{\"subKey\":\"Covered in Warranty \",\"subValue\":\"Manufacturing Defects \"},{\"subKey\":\"Not Covered in Warranty \",\"subValue\":\"Physical Damages\"}]}]"
+            }
         }
     }
 }

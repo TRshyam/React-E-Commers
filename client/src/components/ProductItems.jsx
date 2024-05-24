@@ -108,7 +108,7 @@ return (
               {renderItemCards(itemCards,"Appliance")}
             </Carousel>
           </div>
-          <div className='w-full md:w-[30rem] md:mr-4'> {/* Adjusted width and added margin right for spacing */}
+          <div className='w-full md:w-[30%] md:mr-4'> {/* Adjusted width and added margin right for spacing */}
             {renderAdCards(adCards,"Appliance")}
           </div>
 
@@ -117,7 +117,7 @@ return (
       </div>
       <div className='mx-5 md:mx-0 '> {/* Added margin on mobile */}
         <div className='md:flex w-full'>
-          <div className='w-full md:w-[30rem] md:mr-4'> {/* Adjusted width and added margin right for spacing */}
+          <div className='w-full md:w-[30%] md:mr-4'> {/* Adjusted width and added margin right for spacing */}
             {renderAdCards(adCards,"Clothing")}
           </div>
           <div className=' w-full md:w-[70%] my-auto  '>

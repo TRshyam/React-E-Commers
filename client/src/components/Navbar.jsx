@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { CiSearch } from "react-icons/ci";
 import { Link } from 'react-router-dom';
 import { BsBoxSeam } from "react-icons/bs";
@@ -21,9 +21,6 @@ export default function Navbar() {
   const { itemCards } = categorizeCards(data);
 
   const itemCardsArray = Object.values(itemCards);
-
-  const handleMouseEnter = () => setIsOpen(true);
-  const handleMouseLeave = () => setIsOpen(false);
 
   const handleClickOutside = (event) => {
     if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -49,19 +46,28 @@ export default function Navbar() {
     };
   }, []);
 
+  // Throttle search input
+  const handleSearchChange = useCallback((e) => {
+    setSearch(e.target.value);
+  }, []);
+
   useEffect(() => {
-    if (search) {
-      const results = itemCardsArray.filter(item =>
-        item.product_name.toLowerCase().includes(search.toLowerCase())
-      );
-      setFilteredItems(results);
-    } else {
-      // setFilteredItems([]);
-    }
+    const timer = setTimeout(() => {
+      if (search) {
+        const results = itemCardsArray.filter(item =>
+          item.product_name.toLowerCase().includes(search.toLowerCase())
+        );
+        setFilteredItems(results);
+      } else {
+        setFilteredItems([]);
+      }
+    }, 300); // Delay to throttle search input
+
+    return () => clearTimeout(timer);
   }, [search, itemCardsArray]);
 
-  const handleSearchChange = (e) => {
-    setSearch(e.target.value);
+  const toggleDropdown = () => {
+    setIsOpen(prevState => !prevState);
   };
 
   return (
@@ -105,21 +111,20 @@ export default function Navbar() {
             <span>Cart</span>
           </Link>
 
-          {!currentUser && (
+          {!currentUser ? (
             <Link to='/sign-in' className='Linkk flex gap-2 bg-gray-800 rounded-md py-2 px-4 items-center hover:text-blue-500 transition-colors'>
               <FaRegUser className='text-2xl' />
               <span>Login</span>
             </Link>
-          )}
-
-          {currentUser && (
+          ) : (
             <div
               className='relative'
               ref={dropdownRef}
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
             >
-              <div className='Linkk flex gap-2 bg-gray-800 rounded-md py-2 px-4 items-center hover:text-blue-500 transition-colors cursor-pointer'>
+              <div
+                className='Linkk flex gap-2 bg-gray-800 rounded-md py-2 px-4 items-center hover:text-blue-500 transition-colors cursor-pointer'
+                onClick={toggleDropdown}
+              >
                 <FaRegUser className='text-xl' />
                 <span>{currentUser.user.firstName}</span>
                 <MdKeyboardArrowDown className={`arr text-xl transform transition duration-200 ease-in-out ${isOpen ? 'rotate-180' : 'rotate-0'}`} />
