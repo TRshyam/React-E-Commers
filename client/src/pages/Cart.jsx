@@ -10,6 +10,13 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { bouncy } from 'ldrs'
 import { useSelector } from 'react-redux';
 import ConfettiExplosion from 'react-confetti-explosion';
+// import { Link } from 'react-router-dom';
+
+
+import toast, { Toaster } from 'react-hot-toast';
+import { PlaceAnOrder } from '../components/plalceOrder'; // Adjust the path as necessary
+
+
 
 bouncy.register()
 
@@ -38,7 +45,9 @@ const Cart = () => {
     if (userId !== '' && !isLoading) { // Check if userId is not empty and loading has finished
       const fetchData = async () => {
         try {
-          console.log(userId, productId)
+          console.log(userId, productId,totalSum)
+          console.log(userId, productId,totalSum)
+  
           const response = await axios.post('http://localhost:5000/api/cart/retrieve', { userId });
           setCartData(response.data); // Assuming the response contains cart data
           console.log("Response for fetchdata: ", response.data);
@@ -76,6 +85,8 @@ const Cart = () => {
     }
   };
 
+  
+
   const TotalValueChange = async (cartData) => {
     setCartData(cartData);
   }
@@ -85,6 +96,7 @@ const Cart = () => {
       if (cartData) {
         let sum = 0;
         for (const product of cartData) {
+          console.log(product.productId);
           const price = await retrieveProduct(product.productId);
           console.log("directLog : ", price) // Use retrieveProduct function
           if (price !== null) { // Check for potential errors
@@ -100,10 +112,17 @@ const Cart = () => {
   }, [cartData]);
 
   const retrieveProduct = async (productId) => {
+    console.log(productId);
     if (productId !== null) {
       try {
         const response = await axios.post('http://localhost:5000/api/data/retrive_product', { ProductId: productId }); // Use correct casing
-        return response.data['details']['Specialprize']
+        console.log("response : ", response.data)
+        const price=response.data.details.price;
+        const discount=response.data.details.discount;
+        var discountFraction = discount / 100;
+        var discountPrice =Math.floor(price - (discountFraction * price));
+        console.log('discountPrice',discountPrice);
+        return discountPrice
       } catch (error) {
         console.error('Error retrieving product:', error);
         // Handle errors appropriately, e.g., display a user-friendly message
@@ -111,32 +130,6 @@ const Cart = () => {
       }
     }
   };
-
-  // This is used to add the cart elements to the orders part
-  const PlaceAnOrder = async () => {
-    const products = [];
-    // Check if cartData is an array with at least one element
-    if (cartData && Array.isArray(cartData) && cartData.length > 0) {
-      // Extract product IDs efficiently using for loop
-      for (const product of cartData) {
-        products.push([product.productId, product.quantity]);
-      }
-    }
-    try {
-      // Send POST request with userId and products as data
-      const response = await axios.post('http://localhost:5000/api/orders/add', { userId, products, totalSum });
-      console.log("products : ", products)
-      console.log("Products successfully added:", response.data);
-      Setpurchased(true);
-      setTimeout(() => {
-        navigate('/');
-      }, 2000);
-    } catch (error) {
-      console.error("Error in ordering:", error.message);
-    }
-  };
-
-
 
   return (
     <>
@@ -166,9 +159,18 @@ const Cart = () => {
             <h1>Cart Summary</h1>
             <h2>Delivary Charge : Rs .Free</h2>
             <h2>Subtotal ({cartData.length} items) : Rs .{totalSum}</h2>
-            <button onClick={PlaceAnOrder}>
-              buy now
+            <button onClick={() => PlaceAnOrder(userId, cartData,totalSum)} >
+
+
+                buy now
+
+              
               <IoBagOutline className="IoBagOutline" />
+              <Toaster
+                position="top-center"
+                reverseOrder={false}
+                toastOptions={{ className: 'toast', duration: 4000, }}
+              />            
             </button>
           </div>
         </div>

@@ -6,6 +6,9 @@ import ProductDetails from '../components/ProductPage/ProductDetails';
 import Navbar from '../components/Navbar'
 import Carousel from '../components/carousel/Carousel';
 import Card from '../components/Cards/Card';
+
+// import { useData } from '../components/ProductData';
+
 import { grid } from 'ldrs'
 grid.register()
 
@@ -26,12 +29,28 @@ const addToRecentlyViewed = (product) => {
   }
 };
 
+// const fProduct=data.find((item) => item.id === product.id)
+
+  // const { data,error } = useData()
+  // console.log(data);
+  //   // Fetch data from backend
+  //   useEffect(()=>{
+  //       if(error){
+  //           console.log("Error::",error);
+  //       }
+  //       console.log(data);
+  //       setProduct(data)
+  //   })
+
+  // console.log(product);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get('http://localhost:5000/api/data');
-        const foundProduct = response.data[id];
-        const products= response.data
+        console.log(response.data.product_data);
+        const foundProduct = response.data.product_data[id];
+        // const products= response.data
         // console.log("___________");
         // console.log(products);
         // console.log(foundProduct.details);
@@ -41,7 +60,7 @@ const addToRecentlyViewed = (product) => {
 
         setProduct(foundProduct);
         setLoading(false);
-        setReleatedProducts(products)
+        // setReleatedProducts(products)
         addToRecentlyViewed(foundProduct);
       } catch (error) {
         console.error(`Error fetching product: ${error}`);
@@ -57,15 +76,15 @@ const addToRecentlyViewed = (product) => {
   console.log(product);
   console.log("+++++++++++");
   const itemCards = {};
-for (const key in ReleatedProducts) {
-  if (ReleatedProducts.hasOwnProperty(key)) {
-    const card = ReleatedProducts[key];
-    if (card.cardType === 'item') {
-      itemCards[key] = card;
-    }
-  }
-}
-console.log("ItemcaRDS",itemCards);
+// for (const key in ReleatedProducts) {
+//   if (ReleatedProducts.hasOwnProperty(key)) {
+//     const card = ReleatedProducts[key];
+//     if (card.cardType === 'item') {
+//       itemCards[key] = card;
+//     }
+//   }
+// }
+// console.log("ItemcaRDS",itemCards);
 
 // Render ItemCards
 const renderItemCards = (itemCards) => {
@@ -86,13 +105,15 @@ console.log(renderItemCards(itemCards));
   </p>;
   if (!product) return <p>Product not found</p>;
 
+  console.log(product);
+
   return (
     <div className='bg-gray-100 w-full h-screen'>
       <Navbar/>
       <div className='bg-gray-100 w-full flex flex-col  '>
         <div className='mx-0 xl:mx-16 2xl:mx-48 py-3 h-auto   flex-grow flex '>
             
-            <ProductImages mainImgs={product.details.images}  productId = {product.id} />
+            <ProductImages mainImgs={product.details.images}  productId = {product._id} />
 
             <ProductDetails details={product} />
         </div>

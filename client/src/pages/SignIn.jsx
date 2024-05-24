@@ -7,6 +7,7 @@ import { LuEye, LuEyeOff } from "react-icons/lu";
 import { bouncy } from 'ldrs'
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import Img from '../assets/loginsignup/welcomeback.png'
 bouncy.register()
 
 export default function Signin() {
@@ -74,8 +75,14 @@ const submit = async (e) => {
   return (
     <>
     <Navbar />
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col w-full max-w-md">
+    
+    <div className="min-h-screen flex items-center justify-center bg-neutral-50">
+
+    <div className="white  rounded px-8 pt-6 pb-8 mb-4 w-full max-w-md h-96">
+    <img src={Img} alt="Description of the image" className='h-full w-full' />
+    </div>
+
+      <div className="white  rounded px-8 pt-6 pb-8 mb-4 flex flex-col w-full max-w-md">
         <div className="mb-4">
           <h1 className="text-center text-xl font-bold">Sign in</h1>
         </div>

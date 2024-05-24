@@ -1,17 +1,22 @@
 from flask import Flask, jsonify,request,url_for
 from flask_cors import CORS
 import json
-import pymongo
 from pymongo.mongo_client import MongoClient
 from bson import ObjectId
 from flask_mail import Mail, Message
 import secrets
 from bcrypt import hashpw, gensalt, checkpw
 import datetime
-
+import hashlib
+import time
+import os
+import razorpay
+import hmac
+import hashlib
 
 
 # from pymongo.server_api import ServerApi
+
 
 
 # uri = "mongodb+srv://trshyam0007:jVYxhlu3PNxwPrD1@cluster0.cmcdubi.mongodb.net/?retryWrites=true&w=majority"
@@ -28,17 +33,48 @@ app.config['MAIL_DEFAULT_SENDER'] = 't.r.shyam0007@gmail.com'  # Set your defaul
 
 app.config['SECRET_KEY'] = '12345'
 
+
+
 mail = Mail(app)
 
-CORS(app, origins='http://localhost:5173', methods=['POST'])
+# CORS(app, origins='http://localhost:5173', methods=['POST'])
+CORS(app, resources={r"/api/*": {"origins": "http://localhost:5173"}})
 
-client = MongoClient('localhost', 27017)
+
+
+client = MongoClient('mongodb://localhost:27017/')
 db = client['users-e-com']
+collection_orders = db['orders']
+collection_accounts = db['accounts']
 carts_collection = db['carts']
+
+
+
+
+# secret = 'your_secret_key'
+# payload = 'your_payload'
+
+razorpay_key_id = 'rzp_test_JlS3TmpTfh718s' #rzp_live_gGgFj5G7BRjpgL
+razorpay_key_secret = '3T4GYTurVqsE49zMOSWpOV1J'
+
+
+
+
+
+
+
+razorpay_client = razorpay.Client(
+    auth=(razorpay_key_id,razorpay_key_secret))
+print(razorpay_client)
+print(razorpay_client)
+print(razorpay_client)
+print(razorpay_client)
+print(razorpay_client)
+
 
 @app.route('/api/data', methods=['GET'])
 def get_data():
-    with open('server\DatabaseSchema.json', 'r') as file:
+    with open('server\Modules\products_database.json', 'r') as file:
         data = json.load(file)
     return jsonify(data)
 
@@ -48,6 +84,7 @@ def retrieve_product():
         data = request.json
         product_id = data.get('ProductId')
         print("product_id", product_id)
+        print("product_id", product_id)
         if not product_id :
             return ""
 
@@ -55,17 +92,18 @@ def retrieve_product():
             return jsonify({'error': 'Missing ProductId in request body'}), 400  # Bad request
 
         # Load product data from JSON file (assuming 'details' is a dictionary within each product)
-        with open('server\DatabaseSchema.json', 'r') as file:
-            products = json.load(file)
-
+        with open('server\Modules\products_database.json', 'r') as file:
+            data = json.load(file)
+            products=data["product_data"]
         # Find the product with the matching ID
         product = None
         for prod_id, product_value in products.items():
-            if product_value["id"] == product_id:
+            # print("product_id : ", prod_id)
+            if product_value["_id"] == product_id:
                 product =  product_value
                 break
 
-        print("product : ", product['details']['Specialprize'])
+        # print("product : ", product['details']['Specialprize'])
 
         if product:
             return jsonify(product)
@@ -414,38 +452,57 @@ def get_cart():
         return "Failed to retrieve cart."
     
     
-@app.route('/api/wishlist/modify', methods=['POST'])
-def modify_wishlist():
+@app.route('/api/wishlist/<userId>/<productId>', methods=['POST', 'DELETE'])
+def wishlist(userId, productId):
+    client = MongoClient('mongodb://localhost:27017/')
+    db = client['users-e-com']
+    wishlist_collection = db['wishlist']
     try:
-        client.admin.command('ping')
-        print("Pinged your deployment. You successfully connected to MongoDB!")
+        # POST request to add product to wishlist
+        if request.method == 'POST':
+            # Check if the user's wishlist exists
+            user_wishlist = wishlist_collection.find_one({'userId': userId})
 
-        data = request.json
-        userId = data.get('userId')
-        productId = data.get('productId')   
-
-        db = client['users-e-com']
-        collection = db['whishlist']
-        
-        wishlist = collection.find_one({'userId': userId})
-
-        if wishlist:
-            products = wishlist.get('products', [])
-            if productId in products:
-                products.remove(productId)
+            # If the user's wishlist exists, update it
+            if user_wishlist:
+                # Check if the product is already in the wishlist
+                if productId not in user_wishlist['products']:
+                    # Add the product to the wishlist
+                    wishlist_collection.update_one({'userId': userId}, {'$push': {'products': productId}})
+                    return jsonify({'message': 'Product added to wishlist'}), 200
+                else:
+                    return jsonify({'message': 'Product already in wishlist'}), 200
+            # If the user's wishlist doesn't exist, create a new one
             else:
-                products.append(productId)
-            collection.update_one({'userId': userId}, {'$set': {'products': products}})
+                wishlist_collection.insert_one({'userId': userId, 'products': [productId]})
+                return jsonify({'message': 'Wishlist created and product added'}), 200
+
+        # DELETE request to remove product from wishlist
+        elif request.method == 'DELETE':
+            # Check if the user's wishlist exists
+            user_wishlist = wishlist_collection.find_one({'userId': userId})
+
+            # If the user's wishlist exists, remove the product
+            if user_wishlist:
+                # Check if the product is in the wishlist
+                if productId in user_wishlist['products']:
+                    # Remove the product from the wishlist
+                    wishlist_collection.update_one({'userId': userId}, {'$pull': {'products': productId}})
+                    return jsonify({'message': 'Product removed from wishlist'}), 200
+                else:
+                    return jsonify({'message': 'Product not in wishlist'}), 200
+            else:
+                return jsonify({'message': 'Wishlist not found'}), 404
+
         else:
-            collection.insert_one({'userId': userId, 'products': [productId]})
-            products = [productId]  # New wishlist created, so products list has only the new productId
-        
-        return jsonify({'products': products})
-    
+            return jsonify({'error': 'Method not allowed'}), 405
+
     except Exception as e:
-        print(e)
-        return "Failed."
-    
+        print("Error:", e)
+        return jsonify({'error': 'An error occurred'}), 500
+
+
+
 @app.route('/api/wishlist/<userId>', methods=['GET'])
 def view_wishlist(userId):
     try:
@@ -457,6 +514,14 @@ def view_wishlist(userId):
         collection = db['wishlist']
 
         user_cart = collection.find_one({'userId': userId})
+        print(user_cart)
+        # with open('server\Modules\products_database.json', 'r') as file:
+        #     data = json.load(file)
+        #     for product_id in user_cart['products']:
+        #         print(product_id)
+            
+        #     print(data.product_data)
+        
 
         if user_cart:
             return jsonify(user_cart['products'])
@@ -467,61 +532,148 @@ def view_wishlist(userId):
         print(e)
         return "Failed to retrieve cart."
     
+# Route for order creation
 @app.route('/api/orders/add', methods=['POST'])
 def add_order():
     try:
+        # Ensure we can connect to MongoDB
         client.admin.command('ping')
-        print("Pinged your deployment. You successfully connected to MongoDB!")
+        print("Successfully connected to MongoDB!")
 
-        # Assuming the request includes a JSON body with userId and productId
+        # Extract data from the request
         data = request.json
-        userId = data.get('userId')
-        products = data.get('products') # inn the format { [productId, quantity] , [productId, quantity] .....}
+        # userId = data.get('userId')
+        # products = data.get('products')  # Expected format: [{productId, quantity}, ...]
         amount = data.get('totalSum')
-        order_id = "order" + str(ObjectId())
-        now = datetime.datetime.now()
-        
-        print("userId",userId)
-        print("products",products)
-        print("order_id ",order_id) 
+        # print(amount)
+        # print(amount)
+        # print(amount)
+        # order_id = "order" + str(ObjectId())
+        # now = datetime.datetime.now()
 
-        db = client['users-e-com']
-        collection_orders = db['orders']
+        # print("userId:", userId)
+        # print("products:", products)
+        # print("order_id:", order_id)
+        # print("amount:", amount)
 
-        orders = {
-            '_id' : order_id,
-            'userId': userId,
-            'products': products,
-            'dateAndTime' : now,
-            'amount' : amount
-            }
-        
-        collection_orders.insert_one(orders)
-        
-        
-        collection_accounts = db['accounts'] 
-        
-        account_filter = {'_id': userId}
-        account = collection_accounts.find_one(account_filter)
 
-        if account:
-            print(account)
-            account['orders'].append(order_id)
-            collection_accounts.replace_one(account_filter, account)
-            account_filter = {'_id': userId}
-            account = collection_accounts.find_one(account_filter)
-            print("account" , account)
-            cart_reset(userId)
-            return "true"
+
+        # Create Razorpay order
+        try:
+            razorpay_order = razorpay_client.order.create({
+                'amount': amount,  # Amount should be in paise
+                'currency': 'INR',
+                'payment_capture': '1'
+            })
+
+            print("Razorpay order created:", razorpay_order)
+            print("Razorpay order created:", razorpay_order)
+            # Prepare the order document
+            return jsonify(razorpay_order), 200
+
+
+            
+        except razorpay.errors.BadRequestError as e:
+            print("Razorpay order creation failed:", e)
+            return jsonify({'error': str(e)}), 500
+
+       
+    except Exception as e:
+        print("An error occurred:", e)
+        return jsonify({'error': 'Failed to process order'}), 500
+
+# Route for order verification
+@app.route('/api/orders/verify', methods=['POST'])
+def verify_order():
+    try:
+        # Extract data from the request
+        data = request.json
+        razorpay_order_id = data.get('razorpay_order_id')
+        razorpay_payment_id = data.get('razorpay_payment_id')
+        razorpay_signature = data.get('razorpay_signature')
+        key_secret = razorpay_key_secret  # Replace with actual key_secret from Razorpay Dashboard
+
+
+
+        # Generate the HMAC SHA256 signature
+
+        message = f"{razorpay_order_id}|{razorpay_payment_id}"
+
+        # Generate the HMAC hex digest
+        generated_signature = hmac.new(
+            key=key_secret.encode(),
+            msg=message.encode(),
+            digestmod=hashlib.sha256
+        ).hexdigest()
+
+
+        if generated_signature != razorpay_signature:
+            print('Invalid Transaction')
+            return jsonify({'error': 'Invalid Transaction'}), 400
         else:
-            print(f"Failed to find user account with ID: {userId}")
-            return "false"
-        
-        
+            verification =razorpay_client.utility.verify_payment_signature(
+                {
+                'razorpay_order_id': razorpay_order_id,
+                'razorpay_payment_id': razorpay_payment_id,
+                'razorpay_signature': razorpay_signature
+                }
+            )
+
+            if verification == True:
+                print("Payment Verified")
+                # Extract data from the request
+
+                userId = data.get('userId')
+                products = data.get('products')  # Expected format: [{productId, quantity}, ...]
+                amount = data.get('totalSum')
+                order_id = "order" + str(ObjectId())
+                now = datetime.datetime.now()            
+                order = {
+                    '_id': order_id,
+                    'userId': userId,
+                    'razorpay_order_id':razorpay_order_id,
+                    'products': products,
+                    'dateAndTime': now,
+                    'amount': amount,
+                    'amount_status': 'Paid'  # Status should be 'Pending' until payment is confirmed
+                }
+
+
+                # Insert order into MongoDB
+                collection_orders.insert_one(order)
+                # Update user account with the new order ID
+                account = collection_accounts.find_one({'_id': userId})
+                if account:
+                    account['orders'].append(order_id)
+                    collection_accounts.replace_one({'_id': userId}, account)
+                    print("userId")
+                    print(userId)
+                    print(userId)
+                    cart_reset(userId)  # Assuming cart_reset is defined elsewhere
+                    # return jsonify(""), 200
+                    
+                    return jsonify({'message': 'Payment Verified And added to DB',"success":'true'}), 200
+                else:
+                    print(f"User account not found for ID: {userId}")
+                    return jsonify({'error': 'User account not found'}), 404
+            
+            return jsonify({'message': 'Payment Verified Not added to db'}), 200
+
+        # Verify payment signature
+        # params_dict = {
+        #     'razorpay_order_id': razorpay_order_id,
+        #     'razorpay_payment_id': razorpay_payment_id,
+        #     'razorpay_signature': razorpay_signature
+        # }
+
+        # Update order status
+        # Assuming you have the logic to update the order status in your database
+
+        # return jsonify({'success': True}), 200
 
     except Exception as e:
-        print(e)
-        return "Failed to order"
+        print("Payment verification failed:", e)
+        return jsonify({'error': 'Payment verification failed'}), 400
 
 
 @app.route('/api/orders/retrieve', methods=['POST'])
@@ -568,7 +720,7 @@ def retrieve_orders():
 def retrieve_products(orderId):
     try:
         client.admin.command('ping')
-        print("Pinged your deployment. You successfully connected to MongoDB!")
+        # print("Pinged your deployment. You successfully connected to MongoDB!")
 
         # Connect to MongoDB and retrieve the user's cart
         db = client['users-e-com']
@@ -582,8 +734,110 @@ def retrieve_products(orderId):
     except Exception as e:
         print(e)
         return "Failed to retrieve order."
+    
+def generate_unique_id():
+    timestamp = str(int(time.time()))  # Get current timestamp
+    unique_id = hashlib.sha256(timestamp.encode()).hexdigest()[:10]  # Get the SHA-256 hash and take the first 10 characters
+    return unique_id
+
+@app.route('/api/add_product', methods=['POST'])
+def add_product():
+    # Access form data from request body
+
+    _id = "pd" + generate_unique_id()
+    images= request.files.getlist('images')
+    # save the images 
+    img_dir = os.path.join('server/static', 'imgs')
+    if not os.path.exists(img_dir):
+        os.makedirs(img_dir)
+
+    image_filenames = []
+    for image in images:
+        filename = f"{_id}_{image.filename}"  
+        image.save(os.path.join(img_dir, filename))
+        image_filenames.append(filename)
+
+    product_data={
+        "_id" : _id,
+        "product_name" : request.form.get('productName'),
+        "category" : request.form.get('category'),
+        "cardType":'item',
+        "details":
+        {
+            "product_FullName" : request.form.get('productFullName'),
+            "brand" : request.form.get('brand'),
+            "types" : request.form.get('types'),
+            "images": image_filenames,
+            "price" : request.form.get('productPrice'),
+            "discount" : request.form.get('productDiscount'),
+            "highlights" : request.form.get('highlights'),
+            "description" : request.form.get('description'),
+            "specifications": request.form.get('specifications')
+        }
+    }
 
 
+
+    print (product_data)
+
+    # types='smartPhone'
+    # model='Apple'
+    
+
+    
+
+    # Create a dictionary 
+    # product_data = {
+    #     '_id': _id,
+    #     'productName': product_name,
+    #     'price': price,
+    #     'discount': discount,        
+    #     'images': image_filenames,  
+    #     'highlights': highlights,
+    #     'description': description,
+    #     'specifications': specifications
+    # }
+
+    # print(product_data)
+    # print(product_data)
+    # print(product_data)
+
+    # directory to save JSON file
+    directory = "server/Modules"
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+
+    # Load the JSON file
+    json_file = os.path.join(directory, "products_database.json")
+    if os.path.exists(json_file):
+        with open(json_file, 'r') as file:
+            data = json.load(file)
+    else:
+        data = {"product_data": {product_data}}
+
+    # # Add to the respective category
+    # data["product_data"].setdefault(category, {}).setdefault(types, {})[_id] = product_data
+    data["product_data"][_id] = product_data
+
+    with open(json_file, 'w') as file:
+        json.dump(data, file, indent=4)
+
+    # Return a success message
+    return jsonify({'message': 'Data received successfully and saved to JSON file'})
+
+
+
+
+# @app.route('/add-like', methods=['POST'])
+# def add_like():
+#     data = request.json
+#     item = data.get('item')
+
+#     if item:
+#         liked_items.append(item)
+#         return {'message': 'Item added to liked list'}, 200
+#     else:
+#         return {'error': 'Item not provided'}, 400
 
 if __name__ == '__main__':
     app.run(debug=True)
