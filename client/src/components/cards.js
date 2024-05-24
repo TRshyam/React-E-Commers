@@ -19,11 +19,3 @@ export const BannerImg1 = [
   [Adbanner, "Special Sale", "Latest LED TVs", "Shop Now"],
   // Add more arrays if needed
 ];
-  const BannerImg=[
-    banner1,
-    banner1,
-    banner1,
-    banner1,
-  ]
-
-export {BannerImg}
