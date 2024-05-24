@@ -8,6 +8,7 @@ import { LuShoppingCart } from "react-icons/lu";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { useData } from '../components/ProductData';
 import { categorizeCards } from '../utils/categorizeCards';
+import ebart_logo from '../assets/ebart_logo.png'
 import './CSS/Navbar.css';
 
 export default function Navbar() {
@@ -75,7 +76,7 @@ export default function Navbar() {
       <div className='container mx-auto flex justify-between items-center px-4 md:px-8'>
         <div className='flex items-center'>
           <Link to='/' className='text-2xl font-bold'>
-            ebart
+            <img src={ebart_logo} className='h-9 w-full' alt="" srcset="" />
           </Link>
         </div>
 

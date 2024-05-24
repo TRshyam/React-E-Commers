@@ -12,12 +12,13 @@ import banner2 from '../../public/images/BannerImgs/group.png'
 import banner1 from '../assets/BannerImages/BG.png'
 
 
-const BannerImg1=[
-    banner2,
-    banner2,
- Adbanner,
- Adbanner
-  ]
+export const BannerImg1 = [
+  [banner2, "Hot Deals", "New OLED Collection", "See Offer"],
+  [banner2, "Special Sale", "Latest LED TVs", "Shop Now"],
+  [Adbanner, "Special Sale", "Latest LED TVs", "Shop Now"],
+  [Adbanner, "Special Sale", "Latest LED TVs", "Shop Now"],
+  // Add more arrays if needed
+];
   const BannerImg=[
     banner1,
     banner1,
@@ -25,9 +26,4 @@ const BannerImg1=[
     banner1,
   ]
 
-
-   
-
-
-  //  console.log(cards);
-export {BannerImg,BannerImg1}
+export {BannerImg}
