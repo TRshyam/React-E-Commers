@@ -227,7 +227,7 @@ const AddProductForm = () => {
             >
               <option value="">Select Type</option>
               {/* Populate Type options based on category */}
-              {['KitchenCookwere', 'LivingRoomFurniture', 'BedRoomFurniture','OfficeStudyFurniture'].map((typeOption, index) => (
+              {['KitchenCookwere', 'LivingRoomFurniture','SofaBeds', 'BedRoomFurniture','OfficeStudyFurniture'].map((typeOption, index) => (
                 <option key={index} value={typeOption}>{typeOption}</option>
               ))}
             </select>
