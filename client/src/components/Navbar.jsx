@@ -71,10 +71,10 @@ export default function Navbar() {
   };
 
   return (
-    <div className={`bg-gray-900 z-50 text-white py-4 ${isFixed ? 'fixed top-0 left-0 w-full shadow-lg' : ''} transition-all duration-300`}>
+    <div className={`bg-[#341466] z-50 text-white py-4 ${isFixed ? 'fixed top-0 left-0 w-full shadow-lg' : ''} transition-all duration-300`}>
       <div className='container mx-auto flex justify-between items-center px-4 md:px-8'>
         <div className='flex items-center'>
-          <Link to='/' className='text-2xl font-bold'>
+        <Link to='/' className='text-3xl font-extrabold text-white hover:text-white transition duration-300 ease-in-out transform hover:scale-110' style={{ fontFamily: 'Montserrat, sans-serif' }}>
             ebart
           </Link>
         </div>
