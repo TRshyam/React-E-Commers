@@ -16,6 +16,7 @@ import OrdersPage from './pages/OrdersPage'
 import AddProductForm from './pages/AddProductForm'
 import Wishlist from './pages/Wishlist'
 import ProductData from './components/ProductData'
+import BuyNow from './pages/BuyNow'
 
 
 const App = () => {
@@ -37,6 +38,7 @@ const App = () => {
           <Route path="/Cart" element={<Cart />} />
           <Route path="/wishlist" element={<Wishlist/>} />
           <Route path="/orders" element={<OrdersPage/>} />
+          <Route path="/buynow" element={<BuyNow/>} />
         </Routes>
       </ProductData>
     </BrowserRouter>
