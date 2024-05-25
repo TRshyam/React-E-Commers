@@ -4,6 +4,8 @@ import json
 from pymongo.mongo_client import MongoClient
 from bson import ObjectId
 from flask_mail import Mail, Message
+from email.mime.text import MIMEText
+import smtplib
 import secrets
 from bcrypt import hashpw, gensalt, checkpw
 import datetime
@@ -13,6 +15,7 @@ import os
 import razorpay
 import hmac
 import hashlib
+import pyotp
 
 
 # from pymongo.server_api import ServerApi
@@ -58,19 +61,9 @@ razorpay_key_id = 'rzp_test_JlS3TmpTfh718s' #rzp_live_gGgFj5G7BRjpgL
 razorpay_key_secret = '3T4GYTurVqsE49zMOSWpOV1J'
 
 
-
-
-
-
-
 razorpay_client = razorpay.Client(
     auth=(razorpay_key_id,razorpay_key_secret))
 print(razorpay_client)
-print(razorpay_client)
-print(razorpay_client)
-print(razorpay_client)
-print(razorpay_client)
-
 
 @app.route('/api/data', methods=['GET'])
 def get_data():
@@ -135,10 +128,48 @@ def send_confirmation_email(email, confirmation_token):
     msg.body = f'Thank you for signing up!! Please click the following link to confirm your email: {confirmation_token}'
     mail.send(msg)
 
+reciver_mail_id = "nakulvel44@gmail.com"
+sender_mail_id = "nakult721@gmail.com"
+sender_mail_password = "bywe xibf sggt pzrl"  # Update with your actual password
+admin_emails = ["t.r.shyam0007@gmail.com", "nakult721@gmail.com"]
 
 
+def send_confirmation_email(email,otp):
+    smtp_server = "smtp.gmail.com"
+    smtp_port = 587
+    subject = "New user sign-up request"
+    message = f"Your OTP : {otp}"
+
+    msg = MIMEText(message)
+    msg["Subject"] = subject
+    msg["From"] = sender_mail_id
+    msg["To"] = email
+
+    server = smtplib.SMTP(smtp_server, smtp_port)
+    server.starttls()
+    server.login(sender_mail_id, sender_mail_password)
+    server.sendmail(sender_mail_id, email, msg.as_string())
+    print("Confirmation email sent")
+    server.quit()
 
 
+@app.route('/api/verify_mail', methods=['POST'])
+def verify_mail():
+    data = request.json
+    email = data.get('email')
+    try:
+        secret_key = pyotp.random_base32()  # Generate a random base32 secret key
+        totp = pyotp.TOTP(secret_key)  # Create a TOTP object using the provided secret key
+        otp = totp.now()
+        print("OTP :  " , otp)
+        send_confirmation_email(email,otp)
+        print("mail Send")
+        return jsonify({'message': 'User signed up successfully', 'otp': otp}), 200
+    
+    except Exception as e:
+        print(e)
+        return "False"
+    
 @app.route('/api/signup', methods=['POST'])
 def signup():
     data = request.json
@@ -169,10 +200,6 @@ def signup():
         
         # Generate unique user ID with "abrt" prefix
         user_id = "eabrt" + str(ObjectId())
-
-        # confirmation_token = generate_confirmation_token()
-        
-        
         # Insert user data into the collection
         user_data = {
             '_id': user_id,
@@ -187,11 +214,8 @@ def signup():
         }
         result = collection.insert_one(user_data)
         print("User signed up successfully. Inserted ID:", user_id)
-        # print(email)
-        # send_confirmation_email(email, confirmation_token)
-        print("mail Send")
+        
         return "True"
-
     except Exception as e:
         print(e)
         return "False"

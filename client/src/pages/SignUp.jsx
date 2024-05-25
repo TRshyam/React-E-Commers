@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { LuEye, LuEyeOff } from "react-icons/lu";
 import axios from 'axios';
 import { bouncy } from 'ldrs';
+import Popup from '../components/Popup';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Img from '../assets/loginsignup/registernow.png'
@@ -21,6 +22,8 @@ export default function SignUp() {
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [showPopup ,  setshowPopup] = useState(true);
+  const [serverOTP, setserverOTP] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -57,19 +60,11 @@ export default function SignUp() {
     }
 
     try {
-      const response = await axios.post('http://localhost:5000/api/signup', formData);
-      console.log(response.data);
-      setLoading(false);
-      setError('');
-      setFormData({
-        firstName: '',
-        lastName: '',
-        phNumber: '',
-        email: '',
-        password: '',
-        confirmPassword: '',
-      });
-      // Set success message if needed
+      const response = await axios.post('http://localhost:5000/api/verify_mail', formData);
+      setserverOTP(response.data.otp);
+      console.log("Your OTP is:", response.data.otp);
+      setshowPopup(true);
+
     } catch (error) {
       console.error('Error signing up:', error);
       setLoading(false);
@@ -260,6 +255,13 @@ export default function SignUp() {
         </div>
       </div>
     </div>
+    {showPopup && <Popup 
+          serverOTP={serverOTP}
+          setshowPopup={setshowPopup}
+          formData={formData}
+          setError={setError}
+          setFormData={setFormData}
+     />}
     <Footer />
     </>
   );
