@@ -7,10 +7,11 @@ import { useData } from '../components/ProductData';
 import { categorizeCards } from '../utils/categorizeCards';
 
 const Category = () => {
-    const { category } = useParams();
+    const { category, type } = useParams();
     const [Data, setData] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState(category);
-    
+    const [selectedType, setSelectedType] = useState(type);
+
     const { data, error } = useData();
 
     // Fetch data from backend
@@ -27,12 +28,24 @@ const Category = () => {
         setSelectedCategory(category);
     };
 
+    const handleTypeChange = (type) => {
+        setSelectedType(type);
+    };
+
     const renderProducts = () => {
         if (!selectedCategory || !categories[selectedCategory]) return null;
 
+        const filteredProducts = categories[selectedCategory].filter(item => {
+            if (!selectedType) return true;
+
+           
+            return item.details.types === selectedType;
+        });
+
+
         return (
             <>
-                {categories[selectedCategory].map((item) => (
+                {filteredProducts.map((item) => (
                     <Link to={`/product/${item._id}`} key={item._id}>
                         <div className="Product">
                             <img src={`http://127.0.0.1:5000/static/imgs/${item.details.images[0]}`} alt={item.product_name} />
