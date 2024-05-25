@@ -3,3 +3,4 @@ Flask
 pymongo
 flask_mail
 bcrypt
+pyotp
