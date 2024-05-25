@@ -56,15 +56,16 @@ const Category = () => {
                     <h1>Filter</h1>
                     <div className='Checkboxes'>
                         {Object.keys(categories).map((cat) => (
-                            <label key={cat}>
+                            <div className='checkbox'>
                                 <input
                                     type="checkbox"
                                     value={cat}
                                     checked={selectedCategory === cat}
                                     onChange={() => handleCategoryChange(cat)}
+                                    className='checkbox-input'
                                 />
-                                {cat}
-                            </label>
+                                <p>{cat}</p>
+                            </div>
                         ))}
                     </div>
                 </div>

@@ -22,7 +22,7 @@ export default function SignUp() {
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const [showPopup ,  setshowPopup] = useState(true);
+  const [showPopup ,  setshowPopup] = useState(false);
   const [serverOTP, setserverOTP] = useState('');
 
   const handleChange = (e) => {
