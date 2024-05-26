@@ -95,7 +95,7 @@ const handleSubmit = async (e) => {
       navigate('/');
     };
 
-
+console.log(currentUser.user.address);
 
     return (
       <div>
@@ -154,7 +154,7 @@ const handleSubmit = async (e) => {
 
                                 </div>
                             </div>
-                            <div className=' bg-gray-200 my-1 flex-col items-center '>
+                            {/* <div className=' bg-gray-200 my-1 flex-col items-center '>
                                     <div>
                                         <div className='flex items-center space-x-3 p-4 '>
                                             <VscAccount className='w-7 h-7' />
@@ -167,7 +167,7 @@ const handleSubmit = async (e) => {
                                     </div>
             
 
-                            </div>
+                            </div> */}
 
 
                     </div>
@@ -204,11 +204,11 @@ const handleSubmit = async (e) => {
     
                         <div className="mb-4">
                             <label htmlFor="address" className="text-gray-600 block">Address:</label>
-                            <textarea id="address" onChange={handleChange} name="address" className="w-full border rounded-md px-3 py-2" placeholder="Your address" rows="3" defaultValue={currentUser.address} ></textarea>
+                            <textarea id="address" onChange={handleChange} name="address" className="w-full border rounded-md px-3 py-2" placeholder="Your address" rows="3" defaultValue={currentUser.user.address[0]} ></textarea>
                         </div>
                         <div className="mb-4">
                             <label htmlFor="zipcode" className="text-gray-600 block">Zip code:</label>
-                            <input type="tel" onChange={handleChange} id="zipcode" name="zipcode" className="w-full border rounded-md px-3 py-2" placeholder="Zip code"  />
+                            <input type="tel" onChange={handleChange} id="zipcode" name="zipcode" className="w-full border rounded-md px-3 py-2" placeholder="Zip code" defaultValue={currentUser.user.address[1]}  />
 
                         </div>
                         <div className="mb-4">

@@ -193,6 +193,235 @@
                 "description": "OnePlus Buds 3 comes with Best in Class Sound Quality with 10.4mm + 6mm dynamic dual driver. It has a sliding volume control and comes with a 49dB adaptive noise cancellation technology. It has 3-built in microphones on each earbuds which ensures crystal clear calls. OnePlus Buds 3 can simultaneosuly connect to two devices (supports dual connection) and comes with IP55 rating (dust & water resistance). With 10mins of fast charging you can get 7hrs of playback time with total music playback upto 44hrs with ANC off. It supports Bluetooth 5.3 and has a 94ms ultra-low latency.\r\n",
                 "specifications": "[{\"key\":\"General\",\"values\":[{\"subKey\":\"Model Name \",\"subValue\":\"Buds 3 E509A \"},{\"subKey\":\"Color \",\"subValue\":\"Metallic Gray \"},{\"subKey\":\"Headphone Type \",\"subValue\":\"True Wireless \"},{\"subKey\":\"Sales Package \",\"subValue\":\"1 Pair of Earbuds, Charger Cable, User Guide, Safety and Warranty Card, Red Cable Club Welcome Card, Additional Ear Tips \"}]},{\"key\":\"Warranty\",\"values\":[{\"subKey\":\"Domestic Warranty \",\"subValue\":\"1 Year \"},{\"subKey\":\"Warranty Summary \",\"subValue\":\"1 Year \"},{\"subKey\":\"Covered in Warranty \",\"subValue\":\"Manufacturing Defects \"},{\"subKey\":\"Not Covered in Warranty \",\"subValue\":\"Physical Damages\"}]}]"
             }
+        },
+        "pdd7f288fb03": {
+            "_id": "pdd7f288fb03",
+            "product_name": "Olive oil",
+            "category": "Grocery",
+            "cardType": "item",
+            "details": {
+                "product_FullName": "Extra Virgin Olive Oil - Good & Gather\u2122",
+                "brand": "",
+                "types": "",
+                "images": [
+                    "pdd7f288fb03_WhatsApp Image 2024-05-25 at 7.51.23 PM(1).jpeg"
+                ],
+                "price": "1750",
+                "discount": "0",
+                "highlights": "[\"16.9oz\",\"Extra virgin \",\"Full-bodied flavor is great for salad, pastas, soups, meats or marinades\"]",
+                "description": "For a versatile ingredient in your kitchen, keep your pantry stocked with Extra Virgin Olive Oil from Good & Gather\u2122. This 100% olive oil has a full-bodied flavor that makes a great accompaniment to a variety of dishes \u2014 let the bold and rich taste complement anything from salads to pastas, meats, soups, marinades and more. The smoke point of 320\u00b0F makes it suitable for a variety of cooking styles, and easy, convenient use.\r\n\r\nEvery product that carries the Good & Gather\u2122 name starts with quality ingredients that deliver great taste, making it easier for you and your family to eat well, every day. We promise you\u2019ll love each bite, or your money back.",
+                "specifications": "[{\"key\":\"General\",\"values\":[{\"subKey\":\"Contains\",\"subValue\":\" Does Not Contain Any of the 9 Major Allergens\"},{\"subKey\":\"Form\",\"subValue\":\"Liquid\"}]},{\"key\":\"\",\"values\":[{\"subKey\":\"\",\"subValue\":\"\"}]}]"
+            }
+        },
+        "pd8117f1569e": {
+            "_id": "pd8117f1569e",
+            "product_name": "Cotton Shorts",
+            "category": "Clothing",
+            "cardType": "item",
+            "details": {
+                "product_FullName": "Relaxed Fit's - Men Cotton Shorts",
+                "brand": "",
+                "types": "",
+                "images": [
+                    "pd8117f1569e_WhatsApp Image 2024-05-25 at 7.51.23 PM.jpeg"
+                ],
+                "price": "560",
+                "discount": "10",
+                "highlights": "[]",
+                "description": "Lightweight champ: The Statement Lounge Shorts are the lightest weight shorts youve ever worn. Its airy, light on body and feel like a flutter in the wind\r\n    For that extra stretch: Made of superior cotton and elastane blend, Lounge Shorts that can go the extra mile Its going to be your go-to shorts be it for a bbq party or a poolside lounge\r\n    High on dye: For enhanced colour retention, Statement Ultra-light Lounge Shorts only use the best grade dyes",
+                "specifications": "[{\"key\":\"General\",\"values\":[{\"subKey\":\"Size\",\"subValue\":\"Regular Fit\"},{\"subKey\":\"Color\",\"subValue\":\"Black\"},{\"subKey\":\"Material\",\"subValue\":\"100% cotton\"}]},{\"key\":\"\",\"values\":[{\"subKey\":\"\",\"subValue\":\"\"}]}]"
+            }
+        },
+        "pde906f9f082": {
+            "_id": "pde906f9f082",
+            "product_name": "Solo Microwave Oven",
+            "category": "Appliance",
+            "cardType": "item",
+            "details": {
+                "product_FullName": "Panasonic 20L Solo Microwave Oven - Black",
+                "brand": "",
+                "types": "AirConditioners",
+                "images": [
+                    "pde906f9f082_WhatsApp Image 2024-05-25 at 7.51.22 PM(1).jpeg"
+                ],
+                "price": "599",
+                "discount": "0",
+                "highlights": "[\"Re-Heat & Defrost: Auto programmed reheat and defrost modes ensure even heating or defrosting of food without compromising on the textures of flavour. \",\"Quick Minute Timer: Monitor cooking with easy to set single minute intervals \",\"Vapor Clean: Keep oven odor free and stain free with the touch of a button \"]",
+                "description": "20L capacity: Suitable for bachelors & small families; power + innovation 800 watts of high power for fast, Even cooking and delicious results ",
+                "specifications": "[{\"key\":\"General\",\"values\":[{\"subKey\":\"Product Dimensions\",\"subValue\":\" \\t34D x 44W x 26H Centimeters\"},{\"subKey\":\"Brand\",\"subValue\":\"Panasonic\"},{\"subKey\":\"Color\",\"subValue\":\"Black\"}]}]"
+            }
+        },
+        "pd53e36fc2ec": {
+            "_id": "pd53e36fc2ec",
+            "product_name": "Front Load Washing Machine",
+            "category": "Appliance",
+            "cardType": "item",
+            "details": {
+                "product_FullName": "LG 6.5 Kg 5 Star Inverter Direct Drive Fully Automatic Front Load Washing Machine Appliance (FHM1065SDW, Steam Wash, In-Built Heater, Touch Panel, Grey) ",
+                "brand": "",
+                "types": "WashingMachine",
+                "images": [
+                    "pd53e36fc2ec_WhatsApp Image 2024-05-25 at 7.51.22 PM.jpeg"
+                ],
+                "price": "24,999",
+                "discount": "20",
+                "highlights": "[\"Fully-automatic front load washing machine with Hygiene Steam/direct-drive technology: Best Wash Quality, Energy and Water efficient \",\"Energy Star rating: 5 Star best in class efficiency; Energy consumption \u2013 0.062 KWh/kg/cycle & Water Consumption: 8.25 L/Kg/Cycle (Please refer BEE label for more information) \"]",
+                "description": "0 Wash Program: Cotton - designed for normally soiled cotton clothes | Cotton Large - provides optimized washing performance for large amount of laundry | Mix - cleans a variety of different fabrics at the same time | Easy Care \u2013for polyamide, acrylic and polyester fabrics | Baby Care \u2013 eliminates allergen | Sportswear - suitable for sportswear such as jogging clothes | Delicate \u2013 suitable for undergarments and delicate fabrics | Wool - suitable for lacy knickers or that silk blouse | Quick 30 - Get express wash for lightly soiled clothes, all in 30 mins* | Rinse + Spin - ideal for cloth diapers or heavily soiled items ",
+                "specifications": "[{\"key\":\"General\",\"values\":[{\"subKey\":\"Product Dimensions\",\"subValue\":\"44D x 60W x 85H Centimeters\"},{\"subKey\":\"Brand\",\"subValue\":\"LG\"},{\"subKey\":\"Capacity\",\"subValue\":\" \\t6.5 Kilograms\"}]}]"
+            }
+        },
+        "pda650cad085": {
+            "_id": "pda650cad085",
+            "product_name": "Ceiling Fan - Remote and BLDC motor",
+            "category": "Appliance",
+            "cardType": "item",
+            "details": {
+                "product_FullName": "Atomberg Renesa Ceiling Fan ",
+                "brand": "",
+                "types": "AirConditioners",
+                "images": [
+                    "pda650cad085_WhatsApp Image 2024-05-25 at 7.51.21 PM(1).jpeg"
+                ],
+                "price": "4999",
+                "discount": "10",
+                "highlights": "[\"Superier air delivary.\",\"sleek design.\",\"65% energy saving.\"]",
+                "description": "Atomberg Renesa+ Energy Efficient Dust Resistant Ceiling Fan with BLDC Motor and Remote",
+                "specifications": "[{\"key\":\"General\",\"values\":[{\"subKey\":\"Sweep Size \",\"subValue\":\"1200mm\"}]}]"
+            }
+        },
+        "pd3e3c02fc26": {
+            "_id": "pd3e3c02fc26",
+            "product_name": "Hunter 90506z Personal Retro USB Fan",
+            "category": "Appliance",
+            "cardType": "item",
+            "details": {
+                "product_FullName": "Hunter 90506z Personal Retro USB Fan, 1 Speed Setting, 70 Degree Tilt Angle, 4\" inch, Brushed Nickel ",
+                "brand": "",
+                "types": "AirConditioners",
+                "images": [
+                    "pd3e3c02fc26_WhatsApp Image 2024-05-25 at 7.51.20 PM(1).jpeg"
+                ],
+                "price": "4186",
+                "discount": "0",
+                "highlights": "[]",
+                "description": "The vintage, 3-speed metal desk fan isn't just a great way to keep you cool in your home office; it's also the best way to add a little retro style to your personal space. Preinstalled screws make it easy to install faster so you are cooling off faster. Keep it stationary for direct cooling or turn on the oscillating feature to maximize the airflow. Buy this portable fan in multiples and put in all the places you need cool airflow.\u200b",
+                "specifications": "[{\"key\":\"General\",\"values\":[{\"subKey\":\"Brand\",\"subValue\":\"Hunter\"},{\"subKey\":\"Power source\",\"subValue\":\"Adapter\"},{\"subKey\":\"Wattage\",\"subValue\":\" 2 watts\"}]}]"
+            }
+        },
+        "pdeded49c0be": {
+            "_id": "pdeded49c0be",
+            "product_name": "Acacia soild wooden bed",
+            "category": "Furniture",
+            "cardType": "item",
+            "details": {
+                "product_FullName": "Nilkamal - Acacia soild wooden bed",
+                "brand": "",
+                "types": "BedRoomFurniture",
+                "images": [
+                    "pdeded49c0be_WhatsApp Image 2024-05-25 at 7.51.19 PM.jpeg"
+                ],
+                "price": "26,999",
+                "discount": "30",
+                "highlights": "[\"Premium Quality Solid Wooden Bed\",\"Robust, Long-Lasting Construction\",\"Easy to assemble, anti-termite body\"]",
+                "description": "A stylish wooden bed with a honey brown wood tone delivering elegance. ",
+                "specifications": "[{\"key\":\"General\",\"values\":[{\"subKey\":\"\",\"subValue\":\"\"}]}]"
+            }
+        },
+        "pd9764a79777": {
+            "_id": "pd9764a79777",
+            "product_name": "LG 7.5 Kg- Wachine Machine",
+            "category": "Appliance",
+            "cardType": "item",
+            "details": {
+                "product_FullName": "LG 7.5 Kg 5 Star Smart Inverter Fully-Automatic Top Load Washing Machine (T75SKMB1Z, Middle Black, TurboDrum | Smart Motion) ",
+                "brand": "",
+                "types": "WashingMachine",
+                "images": [
+                    "pd9764a79777_WhatsApp Image 2024-05-25 at 7.51.20 PM.jpeg"
+                ],
+                "price": "15,000",
+                "discount": "40",
+                "highlights": "[\"Fully-automatic top load washing machine with TurboDrum: Affordable with great wash quality, Easy to use; has both washing and drying functions \",\" Energy Star rating: 5 Star best in class efficiency; Smart Inverter Technology for up to 36 % energy savings; Energy consumption \u2013 0.0082* KWh/kg/cycle & Water Consumption: 14.47 L/Kg/Cycle (Please refer BEE label for more information) \",\" Manufacturer Warranty: 2 years on product and 10 years on motor (T&C) \"]",
+                "description": "Wash Programs: 08 No. of Programs \u2013 Normal: for everyday laundry items made of cotton, linen, and durable synthetics | Gentle : for more fragile items, such as certain sweaters, athletic clothing, undergarments and lingerie, crocheted items | Quick Wash | Strong: for sturdy fabrics such as towels, jeans | Pre-wash+Normal: cold water cycle used for heavily soiled laundry | Aqua reserve: helps in cutting down water wastage | Rinse+: helps to remove any leftover detergent or dirt from your clothes | Tub Clean: keeping your wash drum clean ",
+                "specifications": "[{\"key\":\"General\",\"values\":[{\"subKey\":\"Product dimensions\",\"subValue\":\"56D x 54W x 87H Centimeters\"},{\"subKey\":\"Brand\",\"subValue\":\"LG\"},{\"subKey\":\"Capacity\",\"subValue\":\"7.5 kg\"}]}]"
+            }
+        },
+        "pddf0e617e9a": {
+            "_id": "pddf0e617e9a",
+            "product_name": "Mens Boot shoe - 11",
+            "category": "Clothing",
+            "cardType": "item",
+            "details": {
+                "product_FullName": "Woodland Men's Gb 0433107y15 Ankle Boot ",
+                "brand": "",
+                "types": "",
+                "images": [
+                    "pddf0e617e9a_WhatsApp Image 2024-05-25 at 7.51.16 PM(1).jpeg"
+                ],
+                "price": "2399",
+                "discount": "15",
+                "highlights": "[\"Genuine Leather Boots\",\"size - 11\"]",
+                "description": "A true blend of state of the art craftsmanship with technology to bring comfort to your feet. We are Woodland",
+                "specifications": "[{\"key\":\"General\",\"values\":[{\"subKey\":\" Shaft height \",\"subValue\":\"Calf heigh\"},{\"subKey\":\"Material type\",\"subValue\":\"Leather\"},{\"subKey\":\"Heel type\",\"subValue\":\"Flat\"},{\"subKey\":\"Closure Type\",\"subValue\":\"Layes-up\"}]}]"
+            }
+        },
+        "pd86cbb963dd": {
+            "_id": "pd86cbb963dd",
+            "product_name": "Double Door Refrigerator",
+            "category": "Appliance",
+            "cardType": "item",
+            "details": {
+                "product_FullName": "LG 242 L 3 Star Smart Inverter Frost-Free Double Door Refrigerator (GL-I292RPZX, Shiny Steel, Door Cooling+)",
+                "brand": "",
+                "types": "AirConditioners",
+                "images": [
+                    "pd86cbb963dd_WhatsApp Image 2024-05-25 at 7.51.18 PM(2).jpeg"
+                ],
+                "price": "18,999",
+                "discount": "20",
+                "highlights": "[\"For the products manufactured from Jan 2023, Capacity will be attributed basis the total volume and not the gross volume \",\"Frost-Free Refrigerators less than 300 L : Auto defrost function to prevent ice-build up \",\"Capacity 242 L: Suitable for small families and bachelors I freezer capacity: 61 L, fresh food capacity: 181 L \",\"Star Rating: 3 Star - energy efficiency \"]",
+                "description": "You can enjoy chilled drinks and popsicles during summer by keeping them stocked up in the LG 242 L Frost-free Double-door Refrigerator. Its Smart Inverter Compressor is designed to deliver energy-efficient performance, thus keeping a check on your electricity bills. Also, this refrigerator\u2019s Door Cooling+ feature keeps the food items fresh and drinks chilled while rendering uniform rapid cooling. Moreover, its Multi Air Flow system controls the temperature levels to keep the contents fresh.",
+                "specifications": "[{\"key\":\"General\",\"values\":[{\"subKey\":\"Product Dimensions\",\"subValue\":\"66.9D x 58.5W x 147.5H Centimeters\"},{\"subKey\":\"Brand\",\"subValue\":\"LG\"}]}]"
+            }
+        },
+        "pd709bd1e977": {
+            "_id": "pd709bd1e977",
+            "product_name": "Formal shoe-Black",
+            "category": "Clothing",
+            "cardType": "item",
+            "details": {
+                "product_FullName": "Bata - Lace Up For Men  (Black)",
+                "brand": "",
+                "types": "",
+                "images": [
+                    "pd709bd1e977_WhatsApp Image 2024-05-25 at 7.51.18 PM(1).jpeg",
+                    "pd709bd1e977_images.jpg"
+                ],
+                "price": "800",
+                "discount": "0",
+                "highlights": "[]",
+                "description": "Luxury Formal Shoes Lace up For Men,Especially made from butt portion of leather hide which is the toughest and strongest part.",
+                "specifications": "[{\"key\":\"General\",\"values\":[{\"subKey\":\"Categories\",\"subValue\":\"Formal\"},{\"subKey\":\"Size\",\"subValue\":\"11\"}]}]"
+            }
+        },
+        "pd9bc86be726": {
+            "_id": "pd9bc86be726",
+            "product_name": "Boys White Spider-Man Printed T-shirt",
+            "category": "Clothing",
+            "cardType": "item",
+            "details": {
+                "product_FullName": "Jack & Jones Junior - Boys White Spider-Man Printed T-shirt",
+                "brand": "",
+                "types": "",
+                "images": [
+                    "pd9bc86be726_WhatsApp Image 2024-05-25 at 7.51.17 PM.jpeg"
+                ],
+                "price": "599",
+                "discount": "10",
+                "highlights": "[\"Regular Fit\",\"Round Neck\",\"Cotton\"]",
+                "description": "\r\n    White Tshirt for boys\r\n    Spider-man graphic printed\r\n    Regular length\r\n    Round neck\r\n    Short, regular sleeves\r\n    Knitted cotton fabric\r\n",
+                "specifications": "[{\"key\":\"\",\"values\":[{\"subKey\":\"\",\"subValue\":\"\"}]}]"
+            }
         }
     }
 }
