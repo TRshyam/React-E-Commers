@@ -422,6 +422,180 @@
                 "description": "\r\n    White Tshirt for boys\r\n    Spider-man graphic printed\r\n    Regular length\r\n    Round neck\r\n    Short, regular sleeves\r\n    Knitted cotton fabric\r\n",
                 "specifications": "[{\"key\":\"\",\"values\":[{\"subKey\":\"\",\"subValue\":\"\"}]}]"
             }
+        },
+        "pd1752b53a80": {
+            "_id": "pd1752b53a80",
+            "product_name": "Grey Checked Casual ",
+            "category": "Clothing",
+            "cardType": "item",
+            "details": {
+                "product_FullName": "Roadster - Men Grey Checked Casual Sustainable Shirt -L",
+                "brand": "",
+                "types": "",
+                "images": [
+                    "pd1752b53a80_WhatsApp Image 2024-05-25 at 7.51.15 PM.jpeg"
+                ],
+                "price": "699",
+                "discount": "10",
+                "highlights": "[\"Regular Fit\",\"Long Sleeves\",\"82% Cotton,18% Polyester\",\"Tartan Checks\"]",
+                "description": "grey checked casual shirt, has a spread collar, long sleeves, button placket, curved hem, and 1 patch pocket",
+                "specifications": "[{\"key\":\"General\",\"values\":[{\"subKey\":\"\",\"subValue\":\"\"}]}]"
+            }
+        },
+        "pd7c411909be": {
+            "_id": "pd7c411909be",
+            "product_name": "Low Ankle - Hiking shoe - NH100- Size 11",
+            "category": "Clothing",
+            "cardType": "item",
+            "details": {
+                "product_FullName": "Outdoor - Men Lightweight Low Ankle Hiking Shoes Grey - NH100",
+                "brand": "",
+                "types": "",
+                "images": [
+                    "pd7c411909be_WhatsApp Image 2024-05-25 at 7.51.16 PM.jpeg"
+                ],
+                "price": "999",
+                "discount": "20",
+                "highlights": "[\"Cushioned heel with a 6 mm EVA pad suitable for a walking trails\",\"Synthetic toe bumper at the front of the foot to protect you from stones\",\"Removable insoles so you can insert your orthopaedic insoles\"]",
+                "description": "Our hiker-designers designed these NH100 boots for occasional hiking on flatlands, in the forest or on the coast, in dry weather.",
+                "specifications": "[{\"key\":\"General\",\"values\":[{\"subKey\":\"lightweight\",\"subValue\":\"Each boot only weights 357 g in size 43\"},{\"subKey\":\"traction\",\"subValue\":\"Sole component and 3.5 mm crampons that facilitates the removal of mud\"},{\"subKey\":\"size\",\"subValue\":\"11\"}]}]"
+            }
+        },
+        "pd97fb87cf2b": {
+            "_id": "pd97fb87cf2b",
+            "product_name": "Nescafe Classic Coffee Glass Jar, 50g",
+            "category": "Grocery",
+            "cardType": "item",
+            "details": {
+                "product_FullName": "NESCAFE Classic Instant Coffee Powder | Instant Coffee Made with Robusta Beans | Roasted Coffee Beans | 100% Pure Coffee | 50 grams Jar ",
+                "brand": "",
+                "types": "",
+                "images": [
+                    "pd97fb87cf2b_WhatsApp Image 2024-05-25 at 7.53.17 PM.jpeg"
+                ],
+                "price": "175",
+                "discount": "5",
+                "highlights": "[]",
+                "description": "GIVE A FRESH START TO YOUR DAY with a sip of NESCAFE Classic Instant Coffee and let the bold taste with rich aroma of the instant coffee awaken your senses to new opportunities ",
+                "specifications": "[{\"key\":\"General\",\"values\":[{\"subKey\":\"Brand\",\"subValue\":\"Nescafe\"},{\"subKey\":\"net quantity\",\"subValue\":\"50 g\"},{\"subKey\":\"package\",\"subValue\":\"glass bottle\"}]}]"
+            }
+        },
+        "pd6241860a2b": {
+            "_id": "pd6241860a2b",
+            "product_name": "Coconut Palm Sugar",
+            "category": "Grocery",
+            "cardType": "item",
+            "details": {
+                "product_FullName": "Superfruit - Coconut Palm Suagr - 800g",
+                "brand": "",
+                "types": "",
+                "images": [
+                    "pd6241860a2b_WhatsApp Image 2024-05-25 at 7.53.14 PM.jpeg"
+                ],
+                "price": "999",
+                "discount": "0",
+                "highlights": "[\"Premium Coconut Sugar is made from 100% pure coconut flower nectar.\",\" Coconut sugar is a great substitute for white table sugar as it has a low GI of 35-40 \",\" All Natural, Gluten Free, Premium Quality \",\" Zero Preservatives, No Chemicals \"]",
+                "description": "Our Organic Coconut Sugar is the healthier, better alternative to white and brown sugars. With a low glycemic index \u2013 54 as compared to the 63 in regular table sugar \u2013 it contains nutrients like potassium, magnesium, and iron that you will not find in refined white sugar. In addition, it helps maintain gut health, balance electrolytes, and regulate blood sugar. Its subtle caramel flavour also makes for a delicious replacement to white and brown sugars. If you have a sweet tooth and are looking for a healthier sweetener, our Organic Coconut Sugar won\u2019t disappoint.",
+                "specifications": "[{\"key\":\"General\",\"values\":[{\"subKey\":\"Item Form\",\"subValue\":\"Powder\"},{\"subKey\":\"Net quantity\",\"subValue\":\"800g\"}]}]"
+            }
+        },
+        "pd25d2dcee91": {
+            "_id": "pd25d2dcee91",
+            "product_name": " Chili Powder",
+            "category": "Grocery",
+            "cardType": "item",
+            "details": {
+                "product_FullName": "Organic Chili Powder - 2.1oz - Good & Gather\u2122",
+                "brand": "",
+                "types": "",
+                "images": [
+                    "pd25d2dcee91_WhatsApp Image 2024-05-25 at 7.53.03 PM.jpeg"
+                ],
+                "price": "499",
+                "discount": "0",
+                "highlights": "[\"Organic chili powder makes a great spice rack staple\",\"Adds a touch of heat to any dish\",\"Great in marinades, sauces, on meat and more\"]",
+                "description": "Organic Chili Powder from Good & Gather\u2122 is a great way to bring just the right amount of spiciness to all your favorite dishes, making it a must-have on your spice rack if you like spicy food. This ground chili powder instantly kicks up the heat in any dish you add it to. Blend with minced garlic and lemon juice to make a delectable seasoning blend for meat or fish before putting it on the grill, or keep things easy by just sprinkling a little bit on simple dishes like scrambled eggs, avocado toast or mac and cheese. In addition to its flavor, it also adds a nice color and aroma to your food, and it's both organic and non-GMO.",
+                "specifications": "[{\"key\":\"General\",\"values\":[{\"subKey\":\"Ingredients:\",\"subValue\":\"red chili pepper*, cumin*, sea salt, dried garlic*, oregano*, tricalcium phosphate (anti-caking agent). *organic\"},{\"subKey\":\"net quantity\",\"subValue\":\"60 gram\"},{\"subKey\":\"\",\"subValue\":\"\"}]}]"
+            }
+        },
+        "pd778c040312": {
+            "_id": "pd778c040312",
+            "product_name": "Oatmeal Packet",
+            "category": "Grocery",
+            "cardType": "item",
+            "details": {
+                "product_FullName": "Organic Plain Instant Oatmeal Packet - 7.9oz/8ct - Good & Gather\u2122",
+                "brand": "",
+                "types": "",
+                "images": [
+                    "pd778c040312_WhatsApp Image 2024-05-25 at 7.53.03 PM(1).jpeg"
+                ],
+                "price": "299",
+                "discount": "20",
+                "highlights": "[\"Plain oatmeal packets are delicious for breakfast or a snack\",\"Easy to customize with add-ins of your choosing\",\"28g whole grains per serving\"]",
+                "description": "Organic Plain Oatmeal Packets from Good & Gather\u2122 make a great pick when you need a quick and easy bite. These instant oatmeal packets are made with no artificial flavors, artificial sweeteners, synthetic colors or high fructose corn syrup, and the oatmeal's left plain so you can jazz it up however you like \u2014 mix in some nut butter and pumpkin seeds, add chocolate chips and banana slices, or drizzle in some honey and top with blueberries. Each oatmeal packets serves up 28 grams of whole grains in each serving, and they're both low fat for a great fit into your day's eating. An easy on-the-go option, just add water to enjoy this organic oatmeal.",
+                "specifications": "[{\"key\":\"General\",\"values\":[{\"subKey\":\"Features\",\"subValue\":\"No High Fructose Corn Syrup, No Artificial Flavors, Colors or Preservatives\"},{\"subKey\":\"Dietary Needs\",\"subValue\":\"Low Fat, 100 Percent Whole Grain, Non-GMO Project Verified, Organic Certified, Kosher\"},{\"subKey\":\"Net quantity\",\"subValue\":\"250 gram / 7.9 ounces\"}]}]"
+            }
+        },
+        "pdc7cc7fbfcd": {
+            "_id": "pdc7cc7fbfcd",
+            "product_name": "Nilkamal - wardrobe 2 door",
+            "category": "Furniture",
+            "cardType": "item",
+            "details": {
+                "product_FullName": "Home by nilkamal Joyce Engineered Wood 2 Door Wardrobe ",
+                "brand": "",
+                "types": "BedRoomFurniture",
+                "images": [
+                    "pdc7cc7fbfcd_WhatsApp Image 2024-05-25 at 7.53.20 PM.jpeg"
+                ],
+                "price": "27,999",
+                "discount": "70",
+                "highlights": "[\"Primary Material: Engineered Wood\",\"Width x Height: 75 cm x 180 cm (2 ft 5 in x 5 ft 10 in)\",\"Number Of Doors: 2\"]",
+                "description": "You can bring home this spacious wardrobe from Nilkamal to store your clothes and other belongings. It has an external lock to secure your belongings, be it jewellery, documents, or more. You can get plenty of space to store all your belongings in this wardrobe.",
+                "specifications": "[{\"key\":\"General\",\"values\":[{\"subKey\":\"\",\"subValue\":\"\"}]}]"
+            }
+        },
+        "pdd9de388f6b": {
+            "_id": "pdd9de388f6b",
+            "product_name": "Round Dining Table for Dining Room",
+            "category": "Furniture",
+            "cardType": "item",
+            "details": {
+                "product_FullName": "Pooja Art Enterprises Solid Wooden 4 Seater Round Dining Table for Dining Room, Living Room, Hotel & Home, (74.93 H X 80.01 W X 80.01 L CM",
+                "brand": "",
+                "types": "LivingRoomFurniture",
+                "images": [
+                    "pdd9de388f6b_WhatsApp Image 2024-05-25 at 7.53.19 PM(1).jpeg",
+                    "pdd9de388f6b_WhatsApp Image 2024-05-25 at 7.53.19 PM.jpeg"
+                ],
+                "price": "12,999",
+                "discount": "40",
+                "highlights": "[\"The round shape of the table adds a touch of sophistication to any space, while the rich wooden finish complements various interior styles, from traditional to modern. \",\"With dimensions of 74.93 H x 80.01 W x 80.01 L CM, this dining table is perfectly sized for smaller spaces without compromising on style or comfort. \",\" Ideal for dining rooms, living rooms, hotels, or homes, this versatile table serves as a focal point for socializing, meals, and memorable moments. \"]",
+                "description": "Premium Quality: Constructed from high-quality solid wood, this dining table ensures durability and longevity, making it a valuable addition to your furniture collection",
+                "specifications": "[{\"key\":\"General\",\"values\":[{\"subKey\":\"\",\"subValue\":\"\"}]}]"
+            }
+        },
+        "pda46dabffc9": {
+            "_id": "pda46dabffc9",
+            "product_name": "Philips-GC1905",
+            "category": "Appliance",
+            "cardType": "item",
+            "details": {
+                "product_FullName": "Philips GC1905 Steam Iron, 1300 W",
+                "brand": "",
+                "types": "AirConditioners",
+                "images": [
+                    "pda46dabffc9_WhatsApp Image 2024-05-25 at 7.53.18 PM.jpeg",
+                    "pda46dabffc9_WhatsApp Image 2024-05-25 at 7.53.16 PM.jpeg",
+                    "pda46dabffc9_WhatsApp Image 2024-05-25 at 7.53.06 PM.jpeg"
+                ],
+                "price": "1,799",
+                "discount": "10",
+                "highlights": "[\"Color - Blue and White\",\"Water Tank Capacity (ml)  - 180 ml\"]",
+                "description": "Save time on household chores while you use Philips GC1905 iron which is built to perfection so as to give you a quick ironing experience.",
+                "specifications": "[{\"key\":\"General\",\"values\":[{\"subKey\":\"Brand\",\"subValue\":\"philips\"},{\"subKey\":\"type\",\"subValue\":\"steam\"},{\"subKey\":\"model\",\"subValue\":\"GC1905\"}]}]"
+            }
         }
     }
 }
