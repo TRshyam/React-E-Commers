@@ -7,12 +7,15 @@ import { useNavigate } from "react-router-dom"; // Import useNavigate
 import LikeButton from '../LikeButton';
 import ProductDetailComponent from './ProductDetailComponent';
 
-export default function ProductImages({ mainImgs, userId, productId }) {
+
+export default function ProductImages({ mainImgs,productId,price,discount }) {
   const [selectedImage, setSelectedImage] = useState(mainImgs[0]);
   const { currentUser } = useSelector((state) => state.user);
   const [startIndex, setStartIndex] = useState(0);
   const navigate = useNavigate(); // Initialize useNavigate
-
+  var discountFraction = discount / 100;
+  var discountPrice =Math.floor(price - (discountFraction * price));
+  
     useEffect(() => {
     // Reset selected image and start index when mainImgs changes
     setSelectedImage(mainImgs[0]);
@@ -79,11 +82,25 @@ export default function ProductImages({ mainImgs, userId, productId }) {
           </div>
 
           <div className='w-full'>
-            <ProductDetailComponent  selectedImage={selectedImage} setSelectedImage={setSelectedImage} currentUser={currentUser} mainImgs={mainImgs} productId={productId} />
+            <ProductDetailComponent  
+              selectedImage={selectedImage} 
+              setSelectedImage={setSelectedImage} 
+              currentUser={currentUser} 
+              mainImgs={mainImgs} 
+              productId={productId}
+              price={discountPrice}
+              />
 
             <div className='my-6 p-4 flex justify-center'>
                 {currentUser && currentUser.user && currentUser.user._id ? (
-                  <CartButton productId={productId} onClick={handleCartButtonClick} />
+                  <CartButton 
+                    productId={productId} 
+                    userId={currentUser.user._id} 
+                    price={discountPrice}
+                    onClick={handleCartButtonClick}
+
+                    
+                    />
                 ) : (
                   <button onClick={() => navigate('/sign-in')} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                     Sign In to Add to Cart

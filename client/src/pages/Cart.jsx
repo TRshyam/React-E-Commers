@@ -172,6 +172,11 @@ const Cart = () => {
                 toastOptions={{ className: 'toast', duration: 4000, }}
               />            
             </button>
+            {/* <button>
+              <Link to='/buynow' >
+                Procced to Buy
+              </Link>
+            </button> */}
           </div>
         </div>
       ) : (

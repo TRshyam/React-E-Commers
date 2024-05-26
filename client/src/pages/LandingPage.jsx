@@ -4,7 +4,6 @@ import Banner from '../components/Banner/Banner'
 import ProductItems from '../components/ProductItems'
 import Footer from '../components/Footer'
 import OfferBar from '../components/Offerbar'
-import {BannerImg} from '../components/cards';
 import Collection from '../components/Collection'
 
 
