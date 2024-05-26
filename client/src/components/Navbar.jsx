@@ -8,6 +8,7 @@ import { LuShoppingCart } from "react-icons/lu";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { useData } from '../components/ProductData';
 import { categorizeCards } from '../utils/categorizeCards';
+import ebart_logo from '../assets/ebart_logo.png'
 import './CSS/Navbar.css';
 
 export default function Navbar() {
@@ -82,20 +83,21 @@ export default function Navbar() {
         <div className='flex items-center space-x-4'>
           <div className='relative'>
             <div className='flex items-center'>
-              <CiSearch className='text-2xl' />
+              
               <input
                 id='ProductSearch'
-                className='ml-2 px-3 py-1 rounded-md bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-blue-500'
+                className='ml-2 px-3 py-1 rounded-md bg-gray-100 text-black focus:outline-none focus:ring-2 focus:ring-blue-500'
                 placeholder='Search..'
                 value={search}
                 onChange={handleSearchChange}
-              />
+                
+              /><CiSearch className='absolute left-[85%] text-2xl text-black' />
             </div>
             {search && (
-              <div className='absolute top-full left-0 mt-1 w-full bg-white rounded-md shadow-lg z-10'>
+              <div className='absolute top-full left-0 mt-1 w-full bg-black rounded-md shadow-lg z-10'>
                 {filteredItems.length > 0 ? (
                   filteredItems.map((item) => (
-                    <Link key={item._id} to={`/product/${item._id}`} className='block px-4 py-2 bg-gray-500 hover:bg-gray-200'>
+                    <Link key={item._id} to={`/product/${item._id}`} className='block px-6 py-2 bg-gray-50 text-black hover:bg-gray-200'>
                       {item.product_name}
                     </Link>
                   ))
@@ -106,7 +108,7 @@ export default function Navbar() {
             )}
           </div>
 
-          <Link to='/cart' className='flex gap-2 px-4 py-2 hover:bg-gray-900 hover:text-blue-500 transition-colors rounded-md'>
+          <Link to='/cart' className='flex gap-2 px-4 py-2 hover: hover:text-blue-500 transition-colors rounded-md'>
             <LuShoppingCart className='text-2xl' />
             <span>Cart</span>
           </Link>
@@ -122,12 +124,12 @@ export default function Navbar() {
               ref={dropdownRef}
             >
               <div
-                className='Linkk flex gap-2 bg-gray-800 rounded-md py-2 px-4 items-center hover:text-blue-500 transition-colors cursor-pointer'
+                className='Linkk flex gap-2 bg-white text-black hover:bg-slate-200 rounded-md py-2 px-4 items-center hover:text-blue-500 transition-colors cursor-pointer'
                 onClick={toggleDropdown}
               >
-                <FaRegUser className='text-xl' />
+                <FaRegUser className='text-xl ' />
                 <span>{currentUser.user.firstName}</span>
-                <MdKeyboardArrowDown className={`arr text-xl transform transition duration-200 ease-in-out ${isOpen ? 'rotate-180' : 'rotate-0'}`} />
+                <MdKeyboardArrowDown className={`arr  text-xl transform transition duration-200 ease-in-out ${isOpen ? 'rotate-180' : 'rotate-0'}`} />
               </div>
               {isOpen && (
                 <div className='absolute left-1/2 transform -translate-x-1/2 mt-2 w-48 bg-gray-500 rounded-md shadow-lg z-20'>
