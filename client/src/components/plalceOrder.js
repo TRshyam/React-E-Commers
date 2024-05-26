@@ -3,7 +3,27 @@ import Razorpay from 'razorpay';
 
 export const PlaceAnOrder = async (userId, cartData, totalSum) => {
   console.log(userId, cartData, totalSum);
-  const total_Sum = totalSum*100
+  const total_Sum = totalSum
+
+  // Initialize products variable
+  let products;
+
+  // Check if cartData is a string
+  if (typeof cartData === 'string') {
+    // Try to parse cartData as JSON
+    try {
+      products = JSON.parse(cartData);
+      console.log('Parsed products:', products);
+    } catch (error) {
+      console.log('cartData is not a valid JSON string, treating as single product ID');
+      products = [{ productId: cartData, quantity: 1 }]; // Create an array with a single product object
+      console.log('Single product ID:', products);
+    }
+  } else {
+    products = cartData;
+  }
+
+  // console.log('Parsed products:', products);
 
 
   try {
@@ -12,7 +32,7 @@ export const PlaceAnOrder = async (userId, cartData, totalSum) => {
       'http://localhost:5000/api/orders/add',
       {
         userId: userId,
-        products: cartData,
+        products: products,
         totalSum: total_Sum,
       },
       {
@@ -41,7 +61,7 @@ export const PlaceAnOrder = async (userId, cartData, totalSum) => {
             razorpay_payment_id: response.razorpay_payment_id,
             razorpay_signature: response.razorpay_signature,
             userId: userId,
-            products: cartData,
+            products: products,
             totalSum: totalSum
           });
 

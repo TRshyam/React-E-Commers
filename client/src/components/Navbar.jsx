@@ -8,6 +8,7 @@ import { LuShoppingCart } from "react-icons/lu";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { useData } from '../components/ProductData';
 import { categorizeCards } from '../utils/categorizeCards';
+import ebart_logo from '../assets/ebart_logo.png'
 import './CSS/Navbar.css';
 
 export default function Navbar() {
