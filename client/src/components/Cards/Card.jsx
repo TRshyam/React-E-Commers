@@ -8,7 +8,7 @@ export default function Card({ item }) {
   const imageSrc = images.length > 0 ? images[0] : '';
 
   return (
-    <div className='w-[14rem] h-[19rem] rounded-md relative overflow-hidden shadow-xl m-6 transform transition duration-300 hover:scale-105 hover:shadow-2xl hover:bg-white select-none border border-slate-300 '>
+    <div className='w-[14rem] h-[19rem] rounded-md relative overflow-hidden shadow-xl m-6 transform transition duration-300 hover:scale-105 hover:shadow-2xl bg-white select-none border border-slate-300 '>
       <div className='h-[14rem]  flex justify-center items-center'>
         {/* Image */}
         <div className='w-full h-full flex justify-center items-center'>

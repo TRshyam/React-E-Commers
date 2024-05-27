@@ -7,6 +7,9 @@ import Footer from "../components/Footer";
 import { MdErrorOutline } from "react-icons/md";
 import OrderItem from "../components/OrderItem";
 import './CSS/OrdersPage.css';
+import { grid } from 'ldrs';
+
+grid.register();
 
 const OrdersPage = () => {
     const { currentUser, isLoading } = useSelector((state) => state.user);
@@ -37,7 +40,11 @@ const OrdersPage = () => {
         }
     }, [currentUser, isLoading, navigate, fetchOrders]);
 
-    if (isLoading || isFetching) return <div>Loading...</div>;
+    if (isLoading || isFetching) return <div>
+         <p className='absolute top-1/2 bottom-1/2 left-1/2 right-1/2'>
+            <l-grid size="60" speed="1.5" color="blue"></l-grid>
+    </p>
+    </div>;
 
     return (
         <>
