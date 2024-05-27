@@ -81,9 +81,7 @@ const Category = () => {
                             <div>
 
                                 <p 
-                                className='hover:text-violet-800 
-                                font-mono
-                                '
+                                className={`font-mono ${selectedCategory === cat ? ' text-violet-500' : 'hover:text-violet-500'}`}                                
                                 >
                                     {cat}</p>
                             </div>
