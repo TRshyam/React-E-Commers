@@ -10,13 +10,16 @@ import Collection from '../components/Collection'
 
 export default function LandingPage() {
   return (
-    <>
+    <> 
+    <div className='bg-gray-50'>
+
         <OfferBar/>
         <Navbar/>
         <Banner/>
         <ProductItems/>
-        <Collection/>
+        {/* <Collection/> */}
         <Footer/>
+    </div>
     </>
   )
 }

@@ -147,6 +147,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 15px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -158,8 +159,8 @@
   }
 
 .CollectionsBanner .SubBanner img {
-    width: 180px;
-    height: auto;
+
+    object-fit: fill;
 }
 
 .CollectionsBanner .NextButton {

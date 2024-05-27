@@ -46,8 +46,8 @@ const CollectionsBarImageRendering = (props) => {
     // console.log('Screen Width:', screenWidth);
 
     return (
-        <div className="CollectionsBanner">
-            <div className="FirstBanner">
+        <div className="CollectionsBanner ">
+            <div className="FirstBanner bg-white">
                 <h2>Amazing Collections</h2>
                 <h1>{props.Title}</h1>
                 <Link to={`/category`} state={{ from: props.Category }} className='LinkTag'>
@@ -66,7 +66,7 @@ const CollectionsBarImageRendering = (props) => {
                     <a>See Offers</a>
                 </div>
             </div>
-            <div className="SubBanner">
+            <div className="SubBanner ">
                 <img className={`Image-${isImageVisible ? 'visible' : 'hidden'}`} src={props.Images[(currentIndex + 1) % props.Images.length]} alt="IMAGE" />
             </div>
             <div className="SubBanner" id="RemovalImage1">
