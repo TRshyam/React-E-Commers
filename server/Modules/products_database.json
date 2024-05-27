@@ -423,6 +423,29 @@
                 "specifications": "[{\"key\":\"\",\"values\":[{\"subKey\":\"\",\"subValue\":\"\"}]}]"
             }
         },
+
+        "pd981e5e11a1": {
+            "_id": "pd981e5e11a1",
+            "product_name": "Fresh Up 4 Seater",
+            "category": "Furniture",
+            "cardType": "item",
+            "details": {
+                "product_FullName": "Fresh Up 78x36x10 inch Low Floor Seating Polycotton Fabric with 4 Cushions 4 Seater Single Foam Fold Out Sofa Cum Bed  (Finish Color - blue::green Delivery Condition - Pre-assembled)",
+                "brand": "",
+                "types": "SofaBeds",
+                "images": [
+                    "pd981e5e11a1_single-198-12-4-seater-blue-green-chenille-91-4-no-8-scb-rvlv-original-imahyg3fpj7v3xzd.jpeg",
+                    "pd981e5e11a1_single-198-12-4-seater-blue-green-chenille-91-4-no-8-scb-rvlv-original-imahyg3feqbusrs8.jpeg",
+                    "pd981e5e11a1_single-198-12-4-seater-blue-green-chenille-91-4-no-8-scb-rvlv-original-imahyg3fawrghwmw.jpeg",
+                    "pd981e5e11a1_single-198-12-4-seater-blue-green-chenille-91-4-no-8-scb-rvlv-original-imahyg3femzhwrcm.jpeg",
+                    "pd981e5e11a1_single-198-12-4-seater-blue-green-chenille-91-4-no-8-scb-rvlv-original-imahyg3fr4hkahfh.jpeg"
+                ],
+                "price": "14000",
+                "discount": "52",
+                "highlights": "[\"Shape: Rectangle\",\"Mattress Included: Yes\",\"W x H x D: 91.4 cm x 25.4 cm x 198.12 cm (2 ft 11 in x 10 in x 6 ft 6 in)\",\"Seat Capacity: 4 Seater\"]",
+                "description": "Fresh Up is a one stop solution for all your comfort. Our In-house manufacturing and stringent quality control ensure that we deliver the best-in-class product. Our sofa cum bed is thoughtfully designed to suit every space while optimize the small spaces and making it look utmost luxurious. It is trendy, comfortable, lightweight yet sturdy that you can easily maneuver anywhere around in your house. It\u2019s multifunctionality and easy to assemble nature makes it a must have furniture piece at home. The sofa come bed can be placed in your living room, bed room, kids\u2019 room, guestroom, anywhere in your home or office to accommodate a number of guests. Small hostel rooms, studio apartments or bachelor rooms can really save up space with this folding sofa bed. You can binge watch TV shows or movies by converting this sofa into a lounger or quickly fold in into a sleeping bed mattress and snooze away. If you don\u2019t have a bed frame, you can use this as a bed with back support and as an orthopedic mattress. The foldable sofa can also be used as a study on the floor for kids.\r\n",
+                "specifications": "[{\"key\":\"General\",\"values\":[{\"subKey\":\"Brand\",\"subValue\":\"Fresh Up\"},{\"subKey\":\"Bed Size\",\"subValue\":\"Single\"},{\"subKey\":\"Seating Capacity\",\"subValue\":\"4 Seater\"},{\"subKey\":\"Mechanism Type\",\"subValue\":\"Fold Out\"},{\"subKey\":\"Model Series Name\",\"subValue\":\"78x36x10 inch Low Floor Seating Polycotton Fabric with 4 Cushions\"}]},{\"key\":\"Material & Color\",\"values\":[{\"subKey\":\"Upholstery Material\",\"subValue\":\"Fabric\"},{\"subKey\":\"Upholstery Material Subtype\",\"subValue\":\"Chenille\"},{\"subKey\":\"Frame Material\",\"subValue\":\"Foam\"},{\"subKey\":\"Frame Material Subtype\",\"subValue\":\"PU Foam, EPE Foam\"}]}]"
+
         "pd1752b53a80": {
             "_id": "pd1752b53a80",
             "product_name": "Grey Checked Casual ",
@@ -595,6 +618,7 @@
                 "highlights": "[\"Color - Blue and White\",\"Water Tank Capacity (ml)  - 180 ml\"]",
                 "description": "Save time on household chores while you use Philips GC1905 iron which is built to perfection so as to give you a quick ironing experience.",
                 "specifications": "[{\"key\":\"General\",\"values\":[{\"subKey\":\"Brand\",\"subValue\":\"philips\"},{\"subKey\":\"type\",\"subValue\":\"steam\"},{\"subKey\":\"model\",\"subValue\":\"GC1905\"}]}]"
+
             }
         }
     }
