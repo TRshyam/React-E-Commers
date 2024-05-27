@@ -3,7 +3,6 @@ import './CSS/Collectionsbar.css'
 import { FaArrowRight } from "react-icons/fa";
 import { GrLinkPrevious } from "react-icons/gr";
 import { Link } from 'react-router-dom';
-import Category from '../pages/Category';
 
 const CollectionsBar = (props) => {
     console.log(props.root); 
