@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import Category from '../pages/Category';
 
 const CollectionsBar = (props) => {
+    console.log(props.root); 
     return (
         <>
             <CollectionsBarImageRendering
@@ -13,6 +14,7 @@ const CollectionsBar = (props) => {
                 Title={props.Text}
                 Offer={props.Offer}
                 Category={props.Category}
+                Root={props.root}
             />
             <br />
         </>
@@ -50,7 +52,7 @@ const CollectionsBarImageRendering = (props) => {
             <div className="FirstBanner bg-white">
                 <h2>Amazing Collections</h2>
                 <h1>{props.Title}</h1>
-                <Link to={`/category`} state={{ from: props.Category }} className='LinkTag'>
+                <Link to={`/Category/Furniture/${props.Root}`} state={{ from: props.Category }} className='LinkTag'>
                     <button>
                         Shop Now
                         <FaArrowRight className="RightArrow" />

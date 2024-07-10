@@ -4,3 +4,4 @@ pymongo
 flask_mail
 bcrypt
 pyotp
+gunicorn
