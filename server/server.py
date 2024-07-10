@@ -881,6 +881,37 @@ def add_product():
     # Return a success message
     return jsonify({'message': 'Data received successfully and saved to JSON file'})
 
+@app.route('/api/recommendation/liked', methods=['POST'])
+def recommendation_liked():
+    data = request.json
+    userId = data.get('userId')
+    recommendations = neo4j_helper.recommend_products(neo4j_helper.driver, userId)
+    
+    # Extract 'id' properties from Neo4j nodes
+    product_ids = [rec['id'] for rec in recommendations]
+    
+    return jsonify(product_ids)
 
+@app.route('/api/recommendation/trending', methods=['GET'])
+def recommendation_trending():
+    recommendations = neo4j_helper.recommend_trending_products(neo4j_helper.driver)
+    
+    # Extract 'id' properties from Neo4j nodes
+    product_ids = [rec['id'] for rec in recommendations]
+    
+    return jsonify(product_ids)
+
+@app.route('/api/recommendation/path', methods=['POST'])
+def recommendation_path():
+    data = request.json
+    userId = data.get('userId')
+    recommendations = neo4j_helper.recommend_by_path(neo4j_helper.driver, userId)
+    
+    # Extract 'id' properties from Neo4j nodes
+    product_ids = [rec['id'] for rec in recommendations]
+    
+    return jsonify(product_ids)
+
+    
 if __name__ == '__main__':
     app.run(debug=True)
