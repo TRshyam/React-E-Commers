@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Card from './Cards/Card';
 import AdCard from './Cards/AdCard';
+import RecommendedProductsBanner from './RecommendedProducts.jsx';
 import Pot1 from '../assets/CardItems/Pot/Pot-1.jpg'
 import Pot2 from '../assets/CardItems/Pot/Pot-2.jpg'
 import Pot3 from '../assets/CardItems/Pot/Pot-3.jpg'
@@ -24,7 +25,8 @@ import Carousel from './carousel/Carousel';
 
 import { useData } from './ProductData';
 import { categorizeCards } from '../utils/categorizeCards';
-
+import { useSelector } from 'react-redux';
+import { useLocation, useNavigate } from "react-router-dom";
 
 
 
@@ -33,11 +35,10 @@ const SofaImages = [Sofa1, Sofa2, Sofa3, Sofa4, Sofa5, Sofa6];
 const PotImages = [Pot1, Pot2, Pot3, Pot4, Pot5, Pot6];
 
 export default function ProductItems() {
-
-
-   
-
-  
+  const { currentUser, isLoading } = useSelector((state) => state.user);
+  const location = useLocation();
+  const { state } = location;
+  const userId = currentUser ? currentUser.user._id : '';
   const [cards, setCards] = useState([]);
   
   
@@ -99,6 +100,7 @@ return (
           </div>
 
         </div>
+        <RecommendedProductsBanner strategy="trending" userId={userId} />
         <CollectionsBar Images={SofaImages} Text={"Sofa and Cusions"} root={"SofaBeds"} Offer={"20"} Category = {'furniture'} />
       </div>
       <div className='mx-5 md:mx-0 '> {/* Added margin on mobile */}
@@ -113,6 +115,7 @@ return (
           </div>
 
         </div>
+        <RecommendedProductsBanner strategy="liked" userId={userId} />
         <CollectionsBar Images = {PotImages} root={"FlowerPots"} Text = {"Flower Pots"} Offer = {"40"} Category = {'electronic'}/>
       </div>
       <div className='mx-5 md:mx-0 '> {/* Added margin on mobile */}
@@ -128,6 +131,7 @@ return (
 
         </div>
       </div>
+      <RecommendedProductsBanner strategy="path" userId={userId} />
   
 
     </div>

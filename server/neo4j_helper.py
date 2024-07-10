@@ -61,34 +61,6 @@ class Neo4jHelper:
             recommendations = [record['rec'] for record in result]
             return recommendations
 
-        
-    @staticmethod
-    def recommend_trending_products(driver):
-        with driver.session() as session:
-            # Query for most ordered products across all users
-            result = session.run("""
-                MATCH (:User)-[:ORDERED]->(p:Product)
-                RETURN p, count(*) as orders
-                ORDER BY orders DESC
-                LIMIT 10
-                """)
-            
-            recommendations = [record['p'] for record in result]
-
-            # If there are fewer than 10 recommendations, add the most liked products across all users
-            if len(recommendations) < 10:
-                additional_result = session.run("""
-                    MATCH (p:Product)<-[:LIKED]-(:User)
-                    WHERE NOT (p IN $current_recommendations)
-                    RETURN p, count(*) as likes
-                    ORDER BY likes DESC
-                    LIMIT $limit
-                    """, current_recommendations=recommendations, limit=10 - len(recommendations))
-                
-                additional_recommendations = [record['p'] for record in additional_result]
-                recommendations.extend(additional_recommendations)
-
-            return recommendations
 
     @staticmethod
     def recommend_by_path(driver, user_id):
@@ -105,3 +77,30 @@ class Neo4jHelper:
             recommendations = [record['rec'] for record in result]
             return recommendations
 
+    @staticmethod
+    def recommend_trending_products(driver):
+        with driver.session() as session:
+            # Query for most ordered products across all users
+            result = session.run("""
+                MATCH (:User)-[:ORDERED]->(p:Product)
+                RETURN p.id AS id, count(*) AS orders
+                ORDER BY orders DESC
+                LIMIT 10
+                """)
+            
+            recommendations = [record for record in result]
+
+            # If there are fewer than 10 recommendations, add the most liked products across all users
+            if len(recommendations) < 10:
+                additional_result = session.run("""
+                    MATCH (p:Product)<-[:LIKED]-(:User)
+                    WHERE NOT (p.id IN $current_recommendations)
+                    RETURN p.id AS id, count(*) AS likes
+                    ORDER BY likes DESC
+                    LIMIT $limit
+                    """, current_recommendations=[rec['id'] for rec in recommendations], limit=10 - len(recommendations))
+                
+                additional_recommendations = [record for record in additional_result]
+                recommendations.extend(additional_recommendations)
+            
+            return recommendations
