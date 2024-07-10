@@ -3,7 +3,7 @@ import Razorpay from 'razorpay';
 
 export const PlaceAnOrder = async (userId, cartData, totalSum) => {
   console.log(userId, cartData, totalSum);
-  const total_Sum = totalSum
+  const total_Sum = totalSum 
 
   // Initialize products variable
   let products;
@@ -46,7 +46,7 @@ export const PlaceAnOrder = async (userId, cartData, totalSum) => {
 
     const options = {
       key: "rzp_test_JlS3TmpTfh718s", // Enter the Key ID generated from the Dashboard
-      amount: totalSum, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+      amount: (totalSum * 100), // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
       currency: "INR",
       name: "Shyam Corp", // Your business name
       description: "Test Transaction",
@@ -62,7 +62,7 @@ export const PlaceAnOrder = async (userId, cartData, totalSum) => {
             razorpay_signature: response.razorpay_signature,
             userId: userId,
             products: products,
-            totalSum: totalSum
+            totalSum: (totalSum * 100)
           });
 
           if (validateRes.data.success) {
