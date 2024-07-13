@@ -11,6 +11,12 @@ const RecommendedProductsBanner = (props) => {
   const [error, setError] = useState(null);
   const [cartData, setCartData] = useState([]);
 
+  const strategyText = {
+    liked: 'Products You Might Like',
+    trending: 'Trending Products',
+    path: 'Products Based on Your Path'
+  };
+
   const handleMouseDown = (e) => {
     e.preventDefault();
     setIsGrabbing(true);
@@ -72,12 +78,18 @@ const RecommendedProductsBanner = (props) => {
     }
   }, [recommendation]);
 
+  if (cartData.length === 0) {
+    return <></>;
+  }
+
   return (
     <div className="bg-gray-100 w-full py-3">
       <div className="w-full">
         <div className="bg-white shadow sm:rounded-lg">
-          <div className="flex items-center justify-between px-3 py-3 sm:px-6">
-            <h2 className="text-lg font-semibold leading-6 text-gray-900">Recommended Products based on {strategy}</h2>
+          <div className="flex items-center justify-between px-4 py-4 sm:px-6">
+            <h2 className="text-2xl font-bold leading-8 text-gray-900 italic underline">
+              {strategyText[strategy] || 'Recommended Products'}
+            </h2>
           </div>
           <div
             ref={scrollRef}
@@ -105,8 +117,6 @@ const RecommendedProductsBanner = (props) => {
       </div>
     </div>
   );
-  
-
 };
 
 export default RecommendedProductsBanner;
