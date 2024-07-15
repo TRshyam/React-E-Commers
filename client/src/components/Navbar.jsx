@@ -75,7 +75,7 @@ export default function Navbar() {
     <div className={`bg-[#341466] z-50 text-white py-4 ${isFixed ? 'fixed top-0 left-0 w-full shadow-lg' : ''} transition-all duration-300`}>
       <div className='container mx-auto flex justify-between items-center px-4 md:px-8'>
         <div className='flex items-center'>
-        <Link to='/' className='text-3xl font-extrabold text-white hover:text-white transition duration-300 ease-in-out transform hover:scale-110' style={{ fontFamily: 'Montserrat, sans-serif' }}>
+        <Link to='/' className='md:text-3xl font-extrabold text-white hover:text-white transition duration-300 ease-in-out transform hover:scale-110' style={{ fontFamily: 'Montserrat, sans-serif' }}>
             ebart
           </Link>
         </div>
@@ -91,7 +91,7 @@ export default function Navbar() {
                 value={search}
                 onChange={handleSearchChange}
                 
-              /><CiSearch className='absolute left-[85%] text-2xl text-black' />
+              /><CiSearch className='md:absolute md:left-[85%] md:text-2xl text-black' />
             </div>
             {search && (
               <div className='absolute top-full left-0 mt-1 w-full bg-black rounded-md shadow-lg z-10'>
@@ -110,7 +110,7 @@ export default function Navbar() {
 
           <Link to='/cart' className='flex gap-2 px-4 py-2 hover: hover:text-blue-500 transition-colors rounded-md'>
             <LuShoppingCart className='text-2xl' />
-            <span>Cart</span>
+            <span className='md:inline hidden'>Cart</span>
           </Link>
 
           {!currentUser ? (
@@ -124,11 +124,11 @@ export default function Navbar() {
               ref={dropdownRef}
             >
               <div
-                className='Linkk flex gap-2 bg-white text-black hover:bg-slate-200 rounded-md py-2 px-4 items-center hover:text-blue-500 transition-colors cursor-pointer'
+                className='Linkk flex gap-2 md:bg-white md:text-black hover:bg-slate-200 rounded-md py-2 px-4 items-center hover:text-blue-500 transition-colors cursor-pointer'
                 onClick={toggleDropdown}
               >
                 <FaRegUser className='text-xl ' />
-                <span>{currentUser.user.firstName}</span>
+                <span className='hidden md:inline'>{currentUser.user.firstName}</span>
                 <MdKeyboardArrowDown className={`arr  text-xl transform transition duration-200 ease-in-out ${isOpen ? 'rotate-180' : 'rotate-0'}`} />
               </div>
               {isOpen && (
