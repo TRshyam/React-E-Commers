@@ -16,6 +16,7 @@ import razorpay
 import hmac
 import hashlib
 import pyotp
+from neo4j_helper import Neo4jHelper
 
 
 # from pymongo.server_api import ServerApi
@@ -24,7 +25,7 @@ import pyotp
 
 # uri = "mongodb+srv://trshyam0007:jVYxhlu3PNxwPrD1@cluster0.cmcdubi.mongodb.net/?retryWrites=true&w=majority"
 client = MongoClient('localhost', 27017)
-
+neo4j_helper = Neo4jHelper("bolt://localhost:7687", "neo4j", "12345678")
 
 app = Flask(__name__)
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'  # Set your SMTP server
@@ -493,12 +494,39 @@ def wishlist(userId, productId):
                 if productId not in user_wishlist['products']:
                     # Add the product to the wishlist
                     wishlist_collection.update_one({'userId': userId}, {'$push': {'products': productId}})
+                    
+                    # Create a LIKED relationship between the user and the product in Neo4j
+                    neo4j_helper.create_user_and_product_relationship(userId, productId)
+                    
+                    # Get product recommendations for the user
+                    recommendations = neo4j_helper.recommend_products(neo4j_helper.driver, userId)
+                    for product in recommendations:
+                        print(product['id']) 
+                    
                     return jsonify({'message': 'Product added to wishlist'}), 200
                 else:
                     return jsonify({'message': 'Product already in wishlist'}), 200
             # If the user's wishlist doesn't exist, create a new one
             else:
                 wishlist_collection.insert_one({'userId': userId, 'products': [productId]})
+                
+                # Create a LIKED relationship between the user and the product in Neo4j
+                neo4j_helper.create_user_and_product_relationship(userId, productId)
+                    
+                # >>>>>>>>>>>> IMPORTANT <<<<<<<<<<<
+                
+                # Get product recommendations for the user :
+                # recommendations = neo4j_helper.recommend_products(neo4j_helper.driver, userId)
+                # recommendations = neo4j_helper.recommend_trending_products(neo4j_helper.driver)
+                # recommendations = neo4j_helper.recommend_by_path(neo4j_helper.driver, userId)
+                
+                # >>>>>>>>>>>> IMPORTANT <<<<<<<<<<<
+                
+                recommendations = neo4j_helper.recommend_products(neo4j_helper.driver, userId)
+                
+                for product in recommendations:
+                    print(product['id']) 
+                    
                 return jsonify({'message': 'Wishlist created and product added'}), 200
 
         # DELETE request to remove product from wishlist
@@ -512,6 +540,7 @@ def wishlist(userId, productId):
                 if productId in user_wishlist['products']:
                     # Remove the product from the wishlist
                     wishlist_collection.update_one({'userId': userId}, {'$pull': {'products': productId}})
+                    neo4j_helper.remove_user_and_product_relationship(userId, productId)
                     return jsonify({'message': 'Product removed from wishlist'}), 200
                 else:
                     return jsonify({'message': 'Product not in wishlist'}), 200
@@ -566,8 +595,8 @@ def add_order():
 
         # Extract data from the request
         data = request.json
-        # userId = data.get('userId')
-        # products = data.get('products')  # Expected format: [{productId, quantity}, ...]
+        userId = data.get('userId')
+        productId = data.get('products')  # Expected format: [{productId, quantity}, ...]
         amount = data.get('totalSum')
         # print(amount)
         # print(amount)
@@ -589,6 +618,9 @@ def add_order():
                 'currency': 'INR',
                 'payment_capture': '1'
             })
+            
+            # Create an ORDERED relationship between the user and the product in Neo4j
+            neo4j_helper.create_relationship_for_order(neo4j_helper.driver, userId,productId)
 
             print("Razorpay order created:", razorpay_order)
             print("Razorpay order created:", razorpay_order)
@@ -849,19 +881,37 @@ def add_product():
     # Return a success message
     return jsonify({'message': 'Data received successfully and saved to JSON file'})
 
+@app.route('/api/recommendation/liked', methods=['POST'])
+def recommendation_liked():
+    data = request.json
+    userId = data.get('userId')
+    recommendations = neo4j_helper.recommend_products(neo4j_helper.driver, userId)
+    
+    # Extract 'id' properties from Neo4j nodes
+    product_ids = [rec['id'] for rec in recommendations]
+    
+    return jsonify(product_ids)
 
+@app.route('/api/recommendation/trending', methods=['GET'])
+def recommendation_trending():
+    recommendations = neo4j_helper.recommend_trending_products(neo4j_helper.driver)
+    
+    # Extract 'id' properties from Neo4j nodes
+    product_ids = [rec['id'] for rec in recommendations]
+    
+    return jsonify(product_ids)
 
+@app.route('/api/recommendation/path', methods=['POST'])
+def recommendation_path():
+    data = request.json
+    userId = data.get('userId')
+    recommendations = neo4j_helper.recommend_by_path(neo4j_helper.driver, userId)
+    
+    # Extract 'id' properties from Neo4j nodes
+    product_ids = [rec['id'] for rec in recommendations]
+    
+    return jsonify(product_ids)
 
-# @app.route('/add-like', methods=['POST'])
-# def add_like():
-#     data = request.json
-#     item = data.get('item')
-
-#     if item:
-#         liked_items.append(item)
-#         return {'message': 'Item added to liked list'}, 200
-#     else:
-#         return {'error': 'Item not provided'}, 400
-
+    
 if __name__ == '__main__':
     app.run(debug=True)

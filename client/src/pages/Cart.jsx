@@ -42,6 +42,23 @@ const Cart = () => {
       return navigate('/sign-in');
     }
 
+
+
+    if (userId !== '' && productId !== '' && quantity > 0) { // Check if quantity is valid
+      const fetchData = async () => {
+        console.log("",userId, productId, quantity);
+        try {
+          const response = await axios.post('http://localhost:5000/api/cart/add', { userId, productId, quantity });
+          setCartData(response.data); // Assuming the response contains cart data
+          console.log("Response: ", response.data);
+        } catch (error) {
+          console.log("Error: ", error);
+          setError(error.message);
+        }
+      };
+      fetchData();
+    }
+    
     if (userId !== '' && !isLoading) { // Check if userId is not empty and loading has finished
       const fetchData = async () => {
         try {
@@ -57,21 +74,6 @@ const Cart = () => {
         }
       };
       fetchData(); // Only fetch data when conditions are met
-    }
-
-    if (userId !== '' && productId !== '' && quantity > 0) { // Check if quantity is valid
-      const fetchData = async () => {
-        console.log(userId, productId, quantity);
-        try {
-          const response = await axios.post('http://localhost:5000/api/cart/add', { userId, productId, quantity });
-          setCartData(response.data); // Assuming the response contains cart data
-          console.log("Response: ", response.data);
-        } catch (error) {
-          console.log("Error: ", error);
-          setError(error.message);
-        }
-      };
-      fetchData();
     }
   }, [currentUser, isLoading, userId, productId, quantity]); // Include currentUser, isLoading, userId, productId, and quantity in the dependency array
 
