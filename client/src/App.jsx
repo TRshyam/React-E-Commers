@@ -17,6 +17,7 @@ import AddProductForm from './pages/AddProductForm'
 import Wishlist from './pages/Wishlist'
 import ProductData from './components/ProductData'
 import BuyNow from './pages/BuyNow'
+import ResetPassword from './pages/ResetPassword'
 
 
 const App = () => {
@@ -40,6 +41,9 @@ const App = () => {
           <Route path="/wishlist" element={<Wishlist/>} />
           <Route path="/orders" element={<OrdersPage/>} />
           <Route path="/buynow" element={<BuyNow/>} />
+          <Route path="/reset-password" element={<ResetPassword/>}/>
+
+
         </Routes>
       </ProductData>
     </BrowserRouter>

@@ -1,5 +1,5 @@
 import Adbanner from '../assets/AdBannerImg/banner1.png';
-import banner2 from '../../public/images/BannerImgs/group.png'
+import banner2 from '../assets/BannerImages/BG.png';
 
 
 

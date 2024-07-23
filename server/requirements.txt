@@ -1,7 +1,11 @@
 Flask-Cors
+flask-cors
 Flask
 pymongo
 flask_mail
 bcrypt
 pyotp
 gunicorn
+razorpay
+neo4j
+python-dotenv

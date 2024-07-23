@@ -11,10 +11,10 @@ export default function Wishlist() {
     useEffect(() => {
         const fetchWishlistData = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/api/wishlist/${currentUser.user._id}`);
+                const response = await axios.get(`http://127.0.0.1:5000/api/wishlist/${currentUser.user._id}`);
                 const wishlist = response.data;
 
-                const productsResponse = await axios.get("http://localhost:5000/api/data");
+                const productsResponse = await axios.get("http://127.0.0.1:5000/api/data");
                 const productsData = productsResponse.data.product_data;
 
                 const wishlistProductsArray = wishlist.map(productId => productsData[productId]);
@@ -29,7 +29,7 @@ export default function Wishlist() {
 
     const handleDeleteProduct = async (productId) => {
         try {
-            await axios.delete(`http://localhost:5000/api/wishlist/${currentUser.user._id}/${productId}`);
+            await axios.delete(`http://127.0.0.1:5000/api/wishlist/${currentUser.user._id}/${productId}`);
             // Update local state to remove the deleted product
             setWishlistProducts(prevProducts => prevProducts.filter(product => product._id !== productId));
         } catch (error) {

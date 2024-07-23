@@ -21,7 +21,7 @@ const OrdersPage = () => {
 
     const fetchOrders = useCallback(async (userId) => {
         try {
-            const response = await axios.post('http://localhost:5000/api/orders/retrieve', { userId });
+            const response = await axios.post('http://127.0.0.1:5000/api/orders/retrieve', { userId });
             const { orders: fetchedOrders, AmountsAndTimes: fetchedAmounts } = response.data;
             setOrders(fetchedOrders || []);
             setAmountsAndTimes(fetchedAmounts || []);

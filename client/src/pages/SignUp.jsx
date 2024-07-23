@@ -60,7 +60,7 @@ export default function SignUp() {
     }
 
     try {
-      const response = await axios.post('http://localhost:5000/api/verify_mail', formData);
+      const response = await axios.post('http://127.0.0.1:5000/api/verify_mail', formData);
       setserverOTP(response.data.otp);
       console.log("Your OTP is:", response.data.otp);
       setshowPopup(true);

@@ -37,7 +37,7 @@ const submit = async (e) => {
 
   try {
     dispatch(signInStart());
-    const res = await fetch('http://localhost:5000/api/signin', {
+    const res = await fetch('http://127.0.0.1:5000/api/signin', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -159,10 +159,15 @@ const submit = async (e) => {
             Sign In
           </button>
         </form>
-        <div className="mt-4">
-          <a href="#" className="text-xs text-blue-500 hover:underline">
-            Forgot password?
-          </a>
+
+        <div className="mt-4" >
+        <Link to='/reset-password' className="text-xs text-blue-500 hover:underline">
+            <p>
+              Forgot password?
+            </p> 
+        
+        </Link>
+         
         </div>
         <div className=" mt-4 flex gap-2">
           <p>Don't have an account?</p>

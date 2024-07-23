@@ -29,7 +29,7 @@ function ProductPage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/data');
+        const response = await axios.get('http://127.0.0.1:5000/api/data');
         const foundProduct = response.data.product_data[id];
         setProduct(foundProduct);
         setLoading(false);
@@ -87,12 +87,12 @@ function ProductPage() {
       <Navbar />
       <div ref={topRef} className='bg-gray-100 w-full flex flex-col'>
         <div className='mx-0 xl:mx-16 2xl:mx-48 py-3 h-auto md:flex-grow md:flex'>
-          {/* <ProductImages 
+          <ProductImages 
             mainImgs={product.details.images} 
             productId={product._id} 
             price={product.details.price}
             discount={product.details.discount}
-            /> */}
+            />
           <ProductDetails details={product} />
         </div>
 

@@ -28,7 +28,7 @@ const CartItem = (props) => {
   console.log(userId);
   const FetchProductDetails = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/data');
+      const response = await axios.get('http://127.0.0.1:5000/api/data');
       if (response.status === 200) {
         const responseData = response.data.product_data;
         console.log("responseData",responseData ,props.productId)
@@ -70,7 +70,7 @@ const CartItem = (props) => {
     console.log("You are currently on the Update Cart fun() : ", userId, productId, newQuantity);
     if (userId && productId && newQuantity > 0) {
       try {
-        const response = await axios.post('http://localhost:5000/api/cart/add', { userId, productId, quantity: newQuantity });
+        const response = await axios.post('http://127.0.0.1:5000/api/cart/add', { userId, productId, quantity: newQuantity });
         console.log("UserId: ",userId,"product",productId,"resopnse",response.data);
         props.TotalValueChange(response.data);
         // Update state only after successful response (if backend returns updated quantity)

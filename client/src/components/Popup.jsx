@@ -15,7 +15,7 @@ const Popup = ({ serverOTP, setshowPopup, formData, setError, setFormData }) => 
       console.log('OTP is equal');
       console.log(formData);
       try {
-        const response = await axios.post('http://localhost:5000/api/signup', formData);
+        const response = await axios.post('http://127.0.0.1:5000/api/signup', formData);
         console.log(response.data);
         setError('');
         setFormData({

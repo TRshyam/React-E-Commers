@@ -10,7 +10,7 @@ const OrderItem = ({ productId , quantity }) => {
         const retrieveProduct = async () => {
             try {
                 const response = await axios.post(
-                    "http://localhost:5000/api/data/retrive_product", // Use correct casing and placeholder URL
+                    "http://127.0.0.1:5000/api/data/retrive_product", // Use correct casing and placeholder URL
                     { ProductId: productId } // Ensure correct property name
                 );
                 setProductData(response.data);

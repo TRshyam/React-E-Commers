@@ -29,7 +29,7 @@ export const PlaceAnOrder = async (userId, cartData, totalSum) => {
   try {
     // Create an order in your backend
     const orderResponse = await axios.post(
-      'http://localhost:5000/api/orders/add',
+      'http://127.0.0.1:5000/api/orders/add',
       {
         userId: userId,
         products: products,
@@ -56,7 +56,7 @@ export const PlaceAnOrder = async (userId, cartData, totalSum) => {
         console.log(response);
 
         try {
-          const validateRes = await axios.post('http://localhost:5000/api/orders/verify', {
+          const validateRes = await axios.post('http://127.0.0.1:5000/api/orders/verify', {
             razorpay_order_id: response.razorpay_order_id,
             razorpay_payment_id: response.razorpay_payment_id,
             razorpay_signature: response.razorpay_signature,

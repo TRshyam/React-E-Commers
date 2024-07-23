@@ -11,7 +11,7 @@ function LikeButton({ productId }) {
         // Check if the product is in the wishlist when component mounts
         const checkWishlist = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/api/wishlist/${userId}`);
+                const response = await axios.get(`http://127.0.0.1:5000/api/wishlist/${userId}`);
                 if (response.data.includes(productId)) {
                     setLiked(true); // Product is in the wishlist, turn on like button
                 }
@@ -31,11 +31,11 @@ function LikeButton({ productId }) {
             // Send HTTP request to Flask backend
             if (!liked) {
                 // Add product to wishlist
-                await axios.post(`http://localhost:5000/api/wishlist/${userId}/${productId}`);
+                await axios.post(`http://127.0.0.1:5000/api/wishlist/${userId}/${productId}`);
                 console.log('Product added to wishlist:', productId);
             } else {
                 // Remove product from wishlist
-                await axios.delete(`http://localhost:5000/api/wishlist/${userId}/${productId}`);
+                await axios.delete(`http://127.0.0.1:5000/api/wishlist/${userId}/${productId}`);
                 console.log('Product removed from wishlist:', productId);
             }
         } catch (error) {

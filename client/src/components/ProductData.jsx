@@ -7,7 +7,7 @@
 // export const useData = () => useContext(DataContext);
 
 // export default function ProductData({ children }) {
-//   const { data, error } = useFetchData('http://localhost:5000/api/data');
+//   const { data, error } = useFetchData('http://127.0.0.1:5000/api/data');
   
 //   if (error) {
 //     return <div>Error: {error.message}</div>;
@@ -46,7 +46,7 @@ export const useData = () => useContext(DataContext);
 
 
 export default function ProductData({children }) {
-    const {data,error}=useFetchData('http://localhost:5000/api/data')
+    const {data,error}=useFetchData('http://127.0.0.1:5000/api/data')
     if(error){
         return <div>Error: {error.message}</div>;
     }

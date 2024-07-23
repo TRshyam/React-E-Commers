@@ -48,7 +48,7 @@ const Cart = () => {
       const fetchData = async () => {
         console.log("",userId, productId, quantity);
         try {
-          const response = await axios.post('http://localhost:5000/api/cart/add', { userId, productId, quantity });
+          const response = await axios.post('http://127.0.0.1:5000/api/cart/add', { userId, productId, quantity });
           setCartData(response.data); // Assuming the response contains cart data
           console.log("Response: ", response.data);
         } catch (error) {
@@ -65,7 +65,7 @@ const Cart = () => {
           console.log(userId, productId,totalSum)
           console.log(userId, productId,totalSum)
   
-          const response = await axios.post('http://localhost:5000/api/cart/retrieve', { userId });
+          const response = await axios.post('http://127.0.0.1:5000/api/cart/retrieve', { userId });
           setCartData(response.data); // Assuming the response contains cart data
           console.log("Response for fetchdata: ", response.data);
         } catch (error) {
@@ -79,7 +79,7 @@ const Cart = () => {
 
   const deleteCartItem = async (userId, productId) => {
     try {
-      const response = await axios.post('http://localhost:5000/api/cart/delete', { userId, productId });
+      const response = await axios.post('http://127.0.0.1:5000/api/cart/delete', { userId, productId });
       setCartData(response.data);
       console.log("Delete Response:", response.data);
     } catch (error) {
@@ -117,7 +117,7 @@ const Cart = () => {
     console.log(productId);
     if (productId !== null) {
       try {
-        const response = await axios.post('http://localhost:5000/api/data/retrive_product', { ProductId: productId }); // Use correct casing
+        const response = await axios.post('http://127.0.0.1:5000/api/data/retrive_product', { ProductId: productId }); // Use correct casing
         console.log("response : ", response.data)
         const price=response.data.details.price;
         const discount=response.data.details.discount;
